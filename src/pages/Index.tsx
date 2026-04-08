@@ -17,25 +17,10 @@ const catalogProducts = [
 ];
 
 const faqItems = [
-  { q: "Сколько времени занимает доставка?", a: "Доставка по Москве — 2-3 дня. По России — 5-14 дней в зависимости от региона. Подъём и сборка включены." },
   { q: "Можно ли заказать диван в нестандартном размере?", a: "Да, мы принимаем индивидуальные заказы. Срок изготовления — от 21 рабочего дня. Свяжитесь с нами для расчёта стоимости." },
-  { q: "Какой срок гарантии на мебель?", a: "На все диваны — 3 года. На садовую мебель — 2 года. Гарантия распространяется на каркас, механизмы и обивку." },
-  { q: "Как выбрать правильный размер дивана?", a: "Используйте наш конфигуратор на главной странице или в разделе Каталог. Также наши консультанты помогут подобрать размер под ваш интерьер." },
+  { q: "Какой срок гарантии на мебель?", a: "На всю мебель — 18 месяцев. Гарантия распространяется на каркас, механизмы и обивку." },
+  { q: "Какие материалы доступны для обивки?", a: "Мы работаем с велюром и рогожкой. Рогожка доступна в 5 цветах: бежевый, медово-коричневый, серый, кофейный и синий. Велюр — в различных вариациях в зависимости от модели." },
   { q: "Есть ли шоурум, где можно посмотреть диваны вживую?", a: "Да, наш шоурум находится в Москве на Садовой-Сухаревской, 2. Открыт ежедневно с 10:00 до 21:00." },
-];
-
-const FABRIC_OPTIONS = [
-  { id: "velvet", name: "Велюр", colors: ["#2D4A3E", "#1a1a2e", "#8B4513", "#C0C0C0"] },
-  { id: "linen", name: "Лён", colors: ["#D4C5A9", "#A9B7A5", "#E8D5C4", "#8B8B8B"] },
-  { id: "leather", name: "Кожа", colors: ["#2C2C2C", "#8B4513", "#D4B483", "#1a1a1a"] },
-  { id: "eco", name: "Экокожа", colors: ["#FFFFFF", "#2C2C2C", "#8B6914", "#1F3A5F"] },
-];
-
-const SIZES = [
-  { id: "s", label: "S", desc: "160×85 см" },
-  { id: "m", label: "M", desc: "200×90 см" },
-  { id: "l", label: "L", desc: "240×95 см" },
-  { id: "xl", label: "XL", desc: "280×100 см" },
 ];
 
 type CartItem = { id: number; name: string; price: number; img: string; qty: number };
@@ -44,10 +29,6 @@ export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>("home");
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [selectedSize, setSelectedSize] = useState("m");
-  const [selectedFabric, setSelectedFabric] = useState("velvet");
-  const [selectedColor, setSelectedColor] = useState("#2D4A3E");
-  const [configAdded, setConfigAdded] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -72,20 +53,6 @@ export default function Index() {
 
   const updateQty = (id: number, delta: number) =>
     setCartItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)));
-
-  const configuratorPrice = () => {
-    const base: Record<string, number> = { s: 59900, m: 79900, l: 99900, xl: 124900 };
-    const fabricMod: Record<string, number> = { velvet: 0, linen: -5000, leather: 15000, eco: 5000 };
-    return (base[selectedSize] ?? 79900) + (fabricMod[selectedFabric] ?? 0);
-  };
-
-  const addConfigToCart = () => {
-    const fab = FABRIC_OPTIONS.find((f) => f.id === selectedFabric);
-    const sz = SIZES.find((s) => s.id === selectedSize);
-    setCartItems((prev) => [...prev, { id: Date.now(), name: `OSLO ${sz?.label} / ${fab?.name}`, price: configuratorPrice(), img: HERO_IMAGE, qty: 1 }]);
-    setConfigAdded(true);
-    setTimeout(() => setConfigAdded(false), 2500);
-  };
 
   const filteredProducts = activeFilter === "all" ? catalogProducts : catalogProducts.filter((p) => p.category === activeFilter);
 
@@ -207,7 +174,7 @@ export default function Index() {
               <div className="flex gap-12 animate-marquee whitespace-nowrap">
                 {Array(10).fill(null).map((_, i) => (
                   <span key={i} className="font-display text-primary-foreground text-sm tracking-[0.4em] uppercase font-light">
-                    ДИВАНЫ · САДОВАЯ МЕБЕЛЬ · КОНФИГУРАТОР · ДОСТАВКА ПО ВСЕЙ России ·&nbsp;
+                    ДИВАНЫ · САДОВАЯ МЕБЕЛЬ · ВЕЛЮР · РОГОЖКА · ГАРАНТИЯ 18 МЕСЯЦЕВ ·&nbsp;
                   </span>
                 ))}
               </div>
@@ -217,13 +184,13 @@ export default function Index() {
             <section className="container py-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
-                  { icon: "Settings2", title: "Конфигуратор", desc: "Выбирайте размер, ткань и цвет — смотрите результат в реальном времени" },
-                  { icon: "Truck", title: "Быстрая доставка", desc: "Доставляем по Москве за 2-3 дня, по России — за 5-14 дней с подъёмом и сборкой" },
-                  { icon: "ShieldCheck", title: "Гарантия 3 года", desc: "Гарантия на каркас, механизмы и обивку. Ремонт или замена без вопросов" },
+                  { icon: "Layers", title: "Качественные материалы", desc: "Велюр и рогожка — натуральные, износостойкие ткани с богатой палитрой оттенков" },
+                  { icon: "Wrench", title: "Индивидуальный заказ", desc: "Принимаем заказы на нестандартные размеры. Срок изготовления — от 21 рабочего дня" },
+                  { icon: "ShieldCheck", title: "Гарантия 18 месяцев", desc: "Гарантия на каркас, механизмы и обивку. Ремонт или замена без лишних вопросов" },
                 ].map((f, i) => (
                   <div key={i} className="border border-border p-8 hover:border-primary transition-colors group">
                     <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                      <Icon name={f.icon as "Settings2"} size={22} className="text-primary" />
+                      <Icon name={f.icon as "Layers"} size={22} className="text-primary" />
                     </div>
                     <h3 className="font-display text-xl tracking-wide mb-3">{f.title}</h3>
                     <p className="font-body text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
@@ -232,90 +199,86 @@ export default function Index() {
               </div>
             </section>
 
-            {/* Configurator */}
-            <section id="configurator" className="bg-card border-y border-border py-24">
+            {/* Materials */}
+            <section className="bg-card border-y border-border py-24">
               <div className="container">
                 <div className="text-center mb-16">
-                  <p className="font-body text-primary text-sm tracking-[0.3em] uppercase mb-3">Персонализация</p>
-                  <h2 className="font-display text-5xl font-bold">КОНФИГУРАТОР ДИВАНА</h2>
+                  <p className="font-body text-accent text-sm tracking-[0.3em] uppercase mb-3">Обивка</p>
+                  <h2 className="font-display text-5xl font-bold">МАТЕРИАЛЫ</h2>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                  <div className="relative">
-                    <div className="aspect-[4/3] bg-cover bg-center relative overflow-hidden" style={{ backgroundImage: `url(${HERO_IMAGE})` }}>
-                      <div
-                        className="absolute inset-0 transition-all duration-500"
-                        style={{ backgroundColor: selectedColor, mixBlendMode: "color", opacity: 0.45 }}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 p-6">
-                        <div className="font-display text-lg tracking-widest">OSLO · {SIZES.find((s) => s.id === selectedSize)?.desc}</div>
-                        <div className="font-body text-muted-foreground text-sm">{FABRIC_OPTIONS.find((f) => f.id === selectedFabric)?.name}</div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                  {/* Рогожка */}
+                  <div className="border border-border p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="font-display text-3xl font-bold tracking-wide">РОГОЖКА</h3>
+                        <p className="font-body text-muted-foreground text-sm mt-1">5 базовых цветов · Все модели</p>
                       </div>
+                      <span className="bg-primary text-primary-foreground font-display text-xs tracking-widest px-3 py-1">БАЗОВАЯ</span>
                     </div>
-                    <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-2">
-                      <div className="font-display text-2xl font-bold">{configuratorPrice().toLocaleString("ru")} ₽</div>
+                    <p className="font-body text-muted-foreground text-sm leading-relaxed mb-8">
+                      Плотная структурированная ткань с характерным переплетением. Практична в уходе, устойчива к истиранию, не скатывается. Подходит для любого интерьера.
+                    </p>
+                    <div className="space-y-3">
+                      <p className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground">Доступные цвета</p>
+                      <div className="flex gap-4 flex-wrap">
+                        {[
+                          { name: "Бежевый", color: "#E8DCC8" },
+                          { name: "Медово-коричневый", color: "#C4924A" },
+                          { name: "Серый", color: "#9E9E9E" },
+                          { name: "Кофейный", color: "#6B4226" },
+                          { name: "Синий", color: "#2C4B7A" },
+                        ].map((c) => (
+                          <div key={c.name} className="flex flex-col items-center gap-2">
+                            <div className="w-10 h-10 border border-border shadow-sm" style={{ background: c.color }} />
+                            <span className="font-body text-xs text-muted-foreground text-center leading-tight max-w-[56px]">{c.name}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-10">
-                    <div>
-                      <h3 className="font-display text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">Размер</h3>
-                      <div className="grid grid-cols-4 gap-3">
-                        {SIZES.map((sz) => (
-                          <button
-                            key={sz.id}
-                            onClick={() => setSelectedSize(sz.id)}
-                            className={`border p-3 text-center transition-all ${
-                              selectedSize === sz.id ? "border-primary bg-primary/10 text-primary" : "border-border hover:border-muted-foreground"
-                            }`}
-                          >
-                            <div className="font-display text-2xl font-bold">{sz.label}</div>
-                            <div className="font-body text-xs text-muted-foreground mt-1">{sz.desc}</div>
-                          </button>
+
+                  {/* Велюр */}
+                  <div className="border border-border p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="font-display text-3xl font-bold tracking-wide">ВЕЛЮР</h3>
+                        <p className="font-body text-muted-foreground text-sm mt-1">Индивидуальная палитра · Отдельные модели</p>
+                      </div>
+                      <span className="bg-accent text-accent-foreground font-display text-xs tracking-widest px-3 py-1">PREMIUM</span>
+                    </div>
+                    <p className="font-body text-muted-foreground text-sm leading-relaxed mb-8">
+                      Мягкая бархатистая ткань с коротким ворсом. Создаёт эффект глубины цвета, приятна на ощупь. Цвета подбираются индивидуально под каждую модель.
+                    </p>
+                    <div className="space-y-3">
+                      <p className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground">Примеры оттенков</p>
+                      <div className="flex gap-4 flex-wrap">
+                        {[
+                          { name: "Изумруд", color: "#2D6A4F" },
+                          { name: "Сапфир", color: "#1B3A6B" },
+                          { name: "Терракота", color: "#A0522D" },
+                          { name: "Антрацит", color: "#2C2C2C" },
+                          { name: "Пудра", color: "#D4A5A5" },
+                        ].map((c) => (
+                          <div key={c.name} className="flex flex-col items-center gap-2">
+                            <div className="w-10 h-10 border border-border shadow-sm" style={{ background: c.color }} />
+                            <span className="font-body text-xs text-muted-foreground text-center leading-tight max-w-[56px]">{c.name}</span>
+                          </div>
                         ))}
                       </div>
+                      <p className="font-body text-xs text-muted-foreground pt-2">
+                        * Точные цвета велюра уточняются при выборе конкретной модели
+                      </p>
                     </div>
-                    <div>
-                      <h3 className="font-display text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">Материал</h3>
-                      <div className="grid grid-cols-2 gap-3">
-                        {FABRIC_OPTIONS.map((fab) => (
-                          <button
-                            key={fab.id}
-                            onClick={() => { setSelectedFabric(fab.id); setSelectedColor(fab.colors[0]); }}
-                            className={`border p-3 text-left transition-all ${
-                              selectedFabric === fab.id ? "border-primary bg-primary/10" : "border-border hover:border-muted-foreground"
-                            }`}
-                          >
-                            <div className={`font-display text-sm tracking-wide ${selectedFabric === fab.id ? "text-primary" : ""}`}>{fab.name}</div>
-                            <div className="flex gap-1 mt-2">
-                              {fab.colors.map((c) => (
-                                <div key={c} className="w-4 h-4 rounded-full border border-border" style={{ background: c }} />
-                              ))}
-                            </div>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-display text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">Цвет</h3>
-                      <div className="flex gap-3 flex-wrap">
-                        {FABRIC_OPTIONS.find((f) => f.id === selectedFabric)?.colors.map((c) => (
-                          <button
-                            key={c}
-                            onClick={() => setSelectedColor(c)}
-                            className={`w-10 h-10 rounded-full border-2 transition-all ${selectedColor === c ? "border-primary scale-110" : "border-transparent"}`}
-                            style={{ background: c }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <button
-                      onClick={addConfigToCart}
-                      className={`w-full py-4 font-display tracking-widest uppercase text-sm transition-all ${
-                        configAdded ? "bg-foreground text-background" : "bg-primary text-primary-foreground hover:opacity-90"
-                      }`}
-                    >
-                      {configAdded ? "✓ Добавлено в корзину!" : `Добавить в корзину · ${configuratorPrice().toLocaleString("ru")} ₽`}
-                    </button>
                   </div>
+                </div>
+
+                <div className="mt-8 border border-primary/20 bg-primary/5 px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="font-body text-sm text-muted-foreground">Хотите увидеть образцы вживую? Приезжайте в наш шоурум или закажите консультацию.</p>
+                  <button onClick={() => navigate("contacts")} className="bg-primary text-primary-foreground px-6 py-3 font-display text-sm tracking-widest uppercase whitespace-nowrap hover:opacity-90 transition-opacity">
+                    Записаться
+                  </button>
                 </div>
               </div>
             </section>
@@ -421,16 +384,16 @@ export default function Index() {
                 </div>
               ))}
             </div>
-            <div className="mt-20 border border-primary/30 bg-primary/5 p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="mt-20 border border-primary/20 bg-primary/5 p-10 flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
-                <h3 className="font-display text-3xl font-bold mb-2">Не нашли подходящий?</h3>
-                <p className="font-body text-muted-foreground">Настройте диван под себя — размер, ткань, цвет.</p>
+                <h3 className="font-display text-3xl font-bold mb-2">Нужен индивидуальный заказ?</h3>
+                <p className="font-body text-muted-foreground">Нестандартный размер, выбор ткани и цвета — свяжитесь с нами.</p>
               </div>
               <button
-                onClick={() => { navigate("home"); setTimeout(() => document.getElementById("configurator")?.scrollIntoView({ behavior: "smooth" }), 400); }}
+                onClick={() => navigate("contacts")}
                 className="bg-primary text-primary-foreground px-8 py-4 font-display tracking-widest uppercase text-sm whitespace-nowrap hover:opacity-90 transition-opacity"
               >
-                Открыть конфигуратор
+                Связаться с нами
               </button>
             </div>
           </div>
@@ -468,7 +431,7 @@ export default function Index() {
                     { num: "2015", label: "Год основания" },
                     { num: "4 200+", label: "Клиентов" },
                     { num: "120+", label: "Моделей" },
-                    { num: "3 года", label: "Гарантия" },
+                    { num: "18 мес.", label: "Гарантия" },
                   ].map((s, i) => (
                     <div key={i} className="border border-border p-6">
                       <div className="font-display text-4xl font-bold text-primary mb-2">{s.num}</div>
