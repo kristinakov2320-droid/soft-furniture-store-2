@@ -164,10 +164,10 @@ export default function Index() {
               <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
               <div className="relative container pb-20 animate-fade-up">
                 <div className="max-w-2xl">
-                  <p className="font-body text-primary text-sm tracking-[0.3em] uppercase mb-4">Мебель нового поколения</p>
+                  <p className="font-body text-accent text-sm tracking-[0.3em] uppercase mb-4">Мебель нового поколения</p>
                   <h1 className="font-display text-6xl md:text-8xl font-bold leading-none mb-6 text-foreground">
                     ФОРМА.<br />СТИЛЬ.<br />
-                    <span className="text-primary">КОМФОРТ.</span>
+                    <span className="text-accent">КОМФОРТ.</span>
                   </h1>
                   <p className="font-body text-muted-foreground text-lg mb-10 max-w-md">
                     Диваны и садовая мебель для тех, кто знает цену пространству. Конфигуратор, доставка, гарантия 3 года.
@@ -195,7 +195,7 @@ export default function Index() {
                   { num: "120+", label: "Моделей" },
                 ].map((s, i) => (
                   <div key={i} className="bg-background/80 backdrop-blur border border-border px-5 py-3 text-right">
-                    <div className="font-display text-2xl font-bold text-primary">{s.num}</div>
+                    <div className="font-display text-2xl font-bold text-accent">{s.num}</div>
                     <div className="font-body text-xs text-muted-foreground">{s.label}</div>
                   </div>
                 ))}
