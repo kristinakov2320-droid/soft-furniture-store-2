@@ -17,7 +17,6 @@ const catalogProducts = [
 ];
 
 const faqItems = [
-  { q: "Можно ли заказать диван в нестандартном размере?", a: "Да, мы принимаем индивидуальные заказы. Срок изготовления — от 21 рабочего дня. Свяжитесь с нами для расчёта стоимости." },
   { q: "Какой срок гарантии на мебель?", a: "На всю мебель — 18 месяцев. Гарантия распространяется на каркас, механизмы и обивку." },
   { q: "Какие материалы доступны для обивки?", a: "Мы работаем с велюром и рогожкой. Рогожка доступна в 5 цветах: бежевый, медово-коричневый, серый, кофейный и синий. Велюр — в различных вариациях в зависимости от модели." },
   { q: "Есть ли шоурум, где можно посмотреть диваны вживую?", a: "Да, наш шоурум находится в Москве на Садовой-Сухаревской, 2. Открыт ежедневно с 10:00 до 21:00." },
@@ -137,7 +136,7 @@ export default function Index() {
                     <span className="text-accent">КОМФОРТ.</span>
                   </h1>
                   <p className="font-body text-muted-foreground text-lg mb-10 max-w-md">
-                    Диваны и садовая мебель для тех, кто знает цену пространству. Конфигуратор, доставка, гарантия 3 года.
+                    Диваны и садовая мебель. Велюр, рогожка, гарантия 18 месяцев.
                   </p>
                   <div className="flex gap-4 flex-wrap">
                     <button
@@ -147,10 +146,10 @@ export default function Index() {
                       Смотреть каталог
                     </button>
                     <button
-                      onClick={() => document.getElementById("configurator")?.scrollIntoView({ behavior: "smooth" })}
+                      onClick={() => navigate("contacts")}
                       className="border border-foreground/30 text-foreground px-8 py-4 font-display text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-colors"
                     >
-                      Настроить диван
+                      Связаться с нами
                     </button>
                   </div>
                 </div>
@@ -158,7 +157,7 @@ export default function Index() {
               <div className="absolute top-32 right-8 hidden lg:flex flex-col gap-4 animate-fade-in delay-500">
                 {[
                   { num: "4 200+", label: "Довольных клиентов" },
-                  { num: "3 года", label: "Гарантия" },
+                  { num: "18 мес.", label: "Гарантия" },
                   { num: "120+", label: "Моделей" },
                 ].map((s, i) => (
                   <div key={i} className="bg-background/80 backdrop-blur border border-border px-5 py-3 text-right">
@@ -184,8 +183,8 @@ export default function Index() {
             <section className="container py-24">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
-                  { icon: "Layers", title: "Качественные материалы", desc: "Велюр и рогожка — натуральные, износостойкие ткани с богатой палитрой оттенков" },
-                  { icon: "Wrench", title: "Индивидуальный заказ", desc: "Принимаем заказы на нестандартные размеры. Срок изготовления — от 21 рабочего дня" },
+                  { icon: "Layers", title: "Качественные материалы", desc: "Велюр и рогожка — износостойкие ткани с богатой палитрой оттенков" },
+                  { icon: "Store", title: "Только из наличия", desc: "Покупайте из готового каталога — без ожидания и лишних договорённостей" },
                   { icon: "ShieldCheck", title: "Гарантия 18 месяцев", desc: "Гарантия на каркас, механизмы и обивку. Ремонт или замена без лишних вопросов" },
                 ].map((f, i) => (
                   <div key={i} className="border border-border p-8 hover:border-primary transition-colors group">
@@ -384,18 +383,7 @@ export default function Index() {
                 </div>
               ))}
             </div>
-            <div className="mt-20 border border-primary/20 bg-primary/5 p-10 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div>
-                <h3 className="font-display text-3xl font-bold mb-2">Нужен индивидуальный заказ?</h3>
-                <p className="font-body text-muted-foreground">Нестандартный размер, выбор ткани и цвета — свяжитесь с нами.</p>
-              </div>
-              <button
-                onClick={() => navigate("contacts")}
-                className="bg-primary text-primary-foreground px-8 py-4 font-display tracking-widest uppercase text-sm whitespace-nowrap hover:opacity-90 transition-opacity"
-              >
-                Связаться с нами
-              </button>
-            </div>
+
           </div>
         )}
 
