@@ -199,86 +199,111 @@ export default function Index() {
             </section>
 
             {/* Materials */}
-            <section className="bg-card border-y border-border py-24">
-              <div className="container">
-                <div className="text-center mb-16">
-                  <p className="font-body text-accent text-sm tracking-[0.3em] uppercase mb-3">Обивка</p>
-                  <h2 className="font-display text-5xl font-bold">МАТЕРИАЛЫ</h2>
-                </div>
+            <section className="border-y border-border overflow-hidden">
+              <div className="text-center py-16 bg-card">
+                <p className="font-body text-accent text-sm tracking-[0.3em] uppercase mb-3">Обивка</p>
+                <h2 className="font-display text-5xl font-bold">МАТЕРИАЛЫ</h2>
+              </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  {/* Рогожка */}
-                  <div className="border border-border p-8">
-                    <div className="flex items-start justify-between mb-4">
+              {/* Two full-bleed panels */}
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                {/* РОГОЖКА */}
+                <div className="relative group overflow-hidden min-h-[600px] flex flex-col justify-between"
+                  style={{
+                    background: "#f5f0e8",
+                    backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px), repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px)`
+                  }}
+                >
+                  <div className="p-10 lg:p-14">
+                    <div className="flex items-start justify-between mb-6">
                       <div>
-                        <h3 className="font-display text-3xl font-bold tracking-wide">РОГОЖКА</h3>
-                        <p className="font-body text-muted-foreground text-sm mt-1">5 базовых цветов · Все модели</p>
+                        <span className="font-body text-xs tracking-[0.3em] uppercase text-stone-500 block mb-2">Ткань · Все модели</span>
+                        <h3 className="font-display text-6xl font-bold tracking-tight text-stone-800">РОГОЖКА</h3>
                       </div>
-                      <span className="bg-primary text-primary-foreground font-display text-xs tracking-widest px-3 py-1">БАЗОВАЯ</span>
+                      <span className="border border-stone-400 text-stone-600 font-display text-xs tracking-widest px-3 py-1.5 mt-1">БАЗОВАЯ</span>
                     </div>
-                    <p className="font-body text-muted-foreground text-sm leading-relaxed mb-8">
-                      Плотная структурированная ткань с характерным переплетением. Практична в уходе, устойчива к истиранию, не скатывается. Подходит для любого интерьера.
+                    <p className="font-body text-stone-600 text-sm leading-relaxed max-w-sm">
+                      Плотное структурное переплетение. Практична в уходе, устойчива к истиранию, не скатывается.
                     </p>
-                    <div className="space-y-3">
-                      <p className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground">Доступные цвета</p>
-                      <div className="flex gap-4 flex-wrap">
-                        {[
-                          { name: "Бежевый", color: "#E8DCC8" },
-                          { name: "Медово-коричневый", color: "#C4924A" },
-                          { name: "Серый", color: "#9E9E9E" },
-                          { name: "Кофейный", color: "#6B4226" },
-                          { name: "Синий", color: "#2C4B7A" },
-                        ].map((c) => (
-                          <div key={c.name} className="flex flex-col items-center gap-2">
-                            <div className="w-10 h-10 border border-border shadow-sm" style={{ background: c.color }} />
-                            <span className="font-body text-xs text-muted-foreground text-center leading-tight max-w-[56px]">{c.name}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Велюр */}
-                  <div className="border border-border p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="font-display text-3xl font-bold tracking-wide">ВЕЛЮР</h3>
-                        <p className="font-body text-muted-foreground text-sm mt-1">Индивидуальная палитра · Отдельные модели</p>
-                      </div>
-                      <span className="bg-accent text-accent-foreground font-display text-xs tracking-widest px-3 py-1">PREMIUM</span>
-                    </div>
-                    <p className="font-body text-muted-foreground text-sm leading-relaxed mb-8">
-                      Мягкая бархатистая ткань с коротким ворсом. Создаёт эффект глубины цвета, приятна на ощупь. Цвета подбираются индивидуально под каждую модель.
-                    </p>
-                    <div className="space-y-3">
-                      <p className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground">Примеры оттенков</p>
-                      <div className="flex gap-4 flex-wrap">
-                        {[
-                          { name: "Изумруд", color: "#2D6A4F" },
-                          { name: "Сапфир", color: "#1B3A6B" },
-                          { name: "Терракота", color: "#A0522D" },
-                          { name: "Антрацит", color: "#2C2C2C" },
-                          { name: "Пудра", color: "#D4A5A5" },
-                        ].map((c) => (
-                          <div key={c.name} className="flex flex-col items-center gap-2">
-                            <div className="w-10 h-10 border border-border shadow-sm" style={{ background: c.color }} />
-                            <span className="font-body text-xs text-muted-foreground text-center leading-tight max-w-[56px]">{c.name}</span>
+                  {/* Color strips */}
+                  <div className="px-10 lg:px-14 pb-14">
+                    <p className="font-display text-xs tracking-[0.4em] uppercase text-stone-500 mb-5">5 цветов</p>
+                    <div className="flex gap-0">
+                      {[
+                        { name: "Бежевый", color: "#E8DCC8" },
+                        { name: "Мёд", color: "#C4924A" },
+                        { name: "Серый", color: "#9E9E9E" },
+                        { name: "Кофе", color: "#6B4226" },
+                        { name: "Синий", color: "#2C4B7A" },
+                      ].map((c, i) => (
+                        <div
+                          key={c.name}
+                          className="relative flex-1 h-28 cursor-pointer overflow-hidden transition-all duration-300 hover:flex-[2]"
+                          style={{ background: c.color }}
+                          title={c.name}
+                        >
+                          <div className="absolute inset-0 flex items-end p-2 opacity-0 hover:opacity-100 transition-opacity duration-200 bg-black/20">
+                            <span className="font-body text-[10px] text-white tracking-wider leading-tight">{c.name}</span>
                           </div>
-                        ))}
-                      </div>
-                      <p className="font-body text-xs text-muted-foreground pt-2">
-                        * Точные цвета велюра уточняются при выборе конкретной модели
-                      </p>
+                          {i < 4 && <div className="absolute right-0 top-0 bottom-0 w-px bg-white/30" />}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-8 border border-primary/20 bg-primary/5 px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="font-body text-sm text-muted-foreground">Хотите увидеть образцы вживую? Приезжайте в наш шоурум или закажите консультацию.</p>
-                  <button onClick={() => navigate("contacts")} className="bg-primary text-primary-foreground px-6 py-3 font-display text-sm tracking-widest uppercase whitespace-nowrap hover:opacity-90 transition-opacity">
-                    Записаться
-                  </button>
+                {/* ВЕЛЮР */}
+                <div className="relative group overflow-hidden min-h-[600px] flex flex-col justify-between"
+                  style={{
+                    background: "#1a1a2e",
+                    backgroundImage: `radial-gradient(ellipse at 30% 20%, rgba(100,80,160,0.25) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(60,100,140,0.2) 0%, transparent 50%)`
+                  }}
+                >
+                  <div className="p-10 lg:p-14">
+                    <div className="flex items-start justify-between mb-6">
+                      <div>
+                        <span className="font-body text-xs tracking-[0.3em] uppercase text-purple-300/60 block mb-2">Ткань · Отдельные модели</span>
+                        <h3 className="font-display text-6xl font-bold tracking-tight text-white">ВЕЛЮР</h3>
+                      </div>
+                      <span className="border border-purple-400/40 text-purple-200 font-display text-xs tracking-widest px-3 py-1.5 mt-1">PREMIUM</span>
+                    </div>
+                    <p className="font-body text-purple-100/60 text-sm leading-relaxed max-w-sm">
+                      Мягкий ворс с эффектом глубины цвета. Приятен на ощупь, создаёт ощущение роскоши.
+                    </p>
+                  </div>
+
+                  {/* Color circles — big bold swatches */}
+                  <div className="px-10 lg:px-14 pb-14">
+                    <p className="font-display text-xs tracking-[0.4em] uppercase text-purple-300/50 mb-5">Оттенки</p>
+                    <div className="flex gap-3 flex-wrap">
+                      {[
+                        { name: "Изумруд", color: "#2D6A4F", light: false },
+                        { name: "Сапфир", color: "#1B3A6B", light: false },
+                        { name: "Терракота", color: "#A0522D", light: false },
+                        { name: "Антрацит", color: "#2C2C2C", light: false },
+                        { name: "Пудра", color: "#D4A5A5", light: true },
+                      ].map((c) => (
+                        <div key={c.name} className="group/swatch flex flex-col items-center gap-2 cursor-pointer">
+                          <div
+                            className="w-14 h-14 rounded-full border-2 border-white/10 shadow-lg transition-transform duration-200 group-hover/swatch:scale-110 group-hover/swatch:border-white/40"
+                            style={{ background: c.color, boxShadow: `0 4px 20px ${c.color}80` }}
+                          />
+                          <span className="font-body text-[10px] text-white/40 tracking-wider group-hover/swatch:text-white/80 transition-colors">{c.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="font-body text-xs text-white/25 mt-6">* Точные цвета уточняются при выборе модели</p>
+                  </div>
                 </div>
+              </div>
+
+              <div className="bg-card border-t border-border px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="font-body text-sm text-muted-foreground">Хотите увидеть образцы вживую? Приезжайте в наш шоурум.</p>
+                <button onClick={() => navigate("contacts")} className="bg-primary text-primary-foreground px-6 py-3 font-display text-sm tracking-widest uppercase whitespace-nowrap hover:opacity-90 transition-opacity">
+                  Записаться
+                </button>
               </div>
             </section>
 
