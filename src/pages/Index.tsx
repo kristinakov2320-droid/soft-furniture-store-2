@@ -204,11 +204,11 @@ export default function Index() {
             {/* Materials */}
             {(() => {
               const rogojkaColors = [
-                { name: "Бежевый", color: "#E2D5BE", dark: false },
-                { name: "Мёд", color: "#C4924A", dark: false },
-                { name: "Серый", color: "#8F8F8F", dark: false },
-                { name: "Кофе", color: "#5A3520", dark: true },
-                { name: "Синий", color: "#1E3560", dark: true },
+                { name: "Бежевый", color: "#C8B89A", dark: false, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a389bbba-23dd-4b56-899d-d2317ab26cee.jpg" },
+                { name: "Коричневый", color: "#3D2B1F", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f1b9a482-58b8-46af-857c-4847ef4e3917.jpg" },
+                { name: "Серо-бежевый", color: "#7A6E60", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg" },
+                { name: "Серый", color: "#4A4A4A", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/334bb3de-ee3c-4dec-a59a-f195d0648310.jpg" },
+                { name: "Синий", color: "#2E4A6B", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/46919192-f2f6-4f7b-a677-abb571901185.jpg" },
               ];
               const velvetColors = [
                 { name: "Изумруд", color: "#1E5C3A", dark: true },
@@ -219,6 +219,8 @@ export default function Index() {
               ];
               const rActive = rogojkaColors[activeRogojka];
               const vActive = velvetColors[activeVelvet];
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              const rImg = (rActive as any).image as string;
               return (
                 <section className="border-y border-border overflow-hidden">
                   {/* Header */}
@@ -232,36 +234,37 @@ export default function Index() {
 
                     {/* ── РОГОЖКА ── */}
                     <div
-                      className="relative flex flex-col overflow-hidden transition-colors duration-700"
+                      className="relative flex flex-col overflow-hidden"
                       style={{ backgroundColor: rActive.color }}
                     >
-                      {/* Textile weave pattern overlay */}
+                      {/* Real fabric photo background */}
                       <div
-                        className="absolute inset-0 opacity-100"
+                        className="absolute inset-0 transition-opacity duration-700"
                         style={{
-                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Crect x='0' y='0' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.10)'/%3E%3Crect x='6' y='3' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.10)'/%3E%3Crect x='0' y='6' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.07)'/%3E%3Crect x='6' y='9' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")`,
-                          backgroundSize: "12px 12px",
+                          backgroundImage: `url("${rImg}")`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
                         }}
                       />
-                      {/* Subtle vignette */}
-                      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%)" }} />
+                      {/* Dark overlay for readability */}
+                      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)" }} />
 
-                      <div className={`relative z-10 flex flex-col h-full p-10 lg:p-14 ${rActive.dark ? "text-white" : "text-neutral-900"}`}>
+                      <div className="relative z-10 flex flex-col h-full p-10 lg:p-14 text-white">
                         <div className="flex items-start justify-between mb-auto pb-8">
                           <div>
-                            <span className={`font-body text-xs tracking-[0.35em] uppercase block mb-3 ${rActive.dark ? "text-white/50" : "text-black/40"}`}>Все модели</span>
-                            <h3 className="font-display text-7xl font-bold leading-none tracking-tight">РОГО<br/>ЖКА</h3>
+                            <span className="font-body text-xs tracking-[0.35em] uppercase block mb-3 text-white/50">Все модели</span>
+                            <h3 className="font-display text-7xl font-bold leading-none tracking-tight whitespace-nowrap">РОГОЖКА</h3>
                           </div>
-                          <div className={`border font-display text-xs tracking-widest px-3 py-1.5 ${rActive.dark ? "border-white/30 text-white/70" : "border-black/20 text-black/50"}`}>
+                          <div className="border border-white/30 text-white/70 font-display text-xs tracking-widest px-3 py-1.5">
                             БАЗОВАЯ
                           </div>
                         </div>
 
                         <div className="mt-auto">
-                          <p className={`font-body text-sm leading-relaxed mb-8 max-w-xs ${rActive.dark ? "text-white/60" : "text-black/55"}`}>
+                          <p className="font-body text-sm leading-relaxed mb-8 max-w-xs text-white/60">
                             Плотное структурное переплетение нитей. Устойчива к истиранию, не скатывается, легко чистится.
                           </p>
-                          <p className={`font-display text-[10px] tracking-[0.4em] uppercase mb-4 ${rActive.dark ? "text-white/40" : "text-black/35"}`}>
+                          <p className="font-display text-[10px] tracking-[0.4em] uppercase mb-4 text-white/40">
                             {rogojkaColors[activeRogojka].name} — выберите цвет
                           </p>
                           <div className="flex gap-2.5">
@@ -270,22 +273,22 @@ export default function Index() {
                                 key={c.name}
                                 onClick={() => setActiveRogojka(i)}
                                 title={c.name}
-                                className="relative transition-all duration-200"
+                                className="relative transition-all duration-200 overflow-hidden"
                                 style={{ width: i === activeRogojka ? 56 : 40, height: 40 }}
                               >
-                                {/* Swatch with weave texture */}
                                 <div
                                   className="w-full h-full border-2 transition-all duration-200"
                                   style={{
-                                    backgroundColor: c.color,
-                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Crect x='0' y='0' width='3' height='2' fill='rgba(0,0,0,0.12)'/%3E%3Crect x='3' y='2' width='3' height='2' fill='rgba(0,0,0,0.12)'/%3E%3Crect x='0' y='4' width='3' height='2' fill='rgba(0,0,0,0.08)'/%3E%3C/svg%3E")`,
-                                    backgroundSize: "6px 6px",
-                                    borderColor: i === activeRogojka ? (rActive.dark ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.7)") : "rgba(0,0,0,0.15)",
-                                    boxShadow: i === activeRogojka ? "0 2px 12px rgba(0,0,0,0.3)" : "none",
+                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                    backgroundImage: `url("${(c as any).image}")`,
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    borderColor: i === activeRogojka ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.2)",
+                                    boxShadow: i === activeRogojka ? "0 2px 12px rgba(0,0,0,0.5)" : "none",
                                   }}
                                 />
                                 {i === activeRogojka && (
-                                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current" />
+                                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white" />
                                 )}
                               </button>
                             ))}
@@ -320,7 +323,7 @@ export default function Index() {
                         <div className="flex items-start justify-between mb-auto pb-8">
                           <div>
                             <span className="font-body text-xs tracking-[0.35em] uppercase block mb-3 text-white/40">Отдельные модели</span>
-                            <h3 className="font-display text-7xl font-bold leading-none tracking-tight">ВЕ<br/>ЛЮР</h3>
+                            <h3 className="font-display text-7xl font-bold leading-none tracking-tight whitespace-nowrap">ВЕЛЮР</h3>
                           </div>
                           <div className="border border-white/25 text-white/60 font-display text-xs tracking-widest px-3 py-1.5">
                             PREMIUM
