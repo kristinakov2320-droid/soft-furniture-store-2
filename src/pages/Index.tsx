@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/d87cfc6a-053e-42cc-87bb-026a92155f1a.jpg";
-const GARDEN_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/7eec5f38-e9a8-41aa-a325-36698e946f71.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/44c04827-b8a2-4dd5-a1b7-8b604e07ba3b.jpg";
+const GARDEN_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/83033b65-7386-435d-b653-94fddc213166.jpg";
 const SHOWROOM_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/c66e0e66-19b9-4ec7-b64b-3e8efa991827.jpg";
 
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
 const catalogProducts = [
-  { id: 1, name: "OSLO", category: "sofa", price: 89900, img: HERO_IMAGE, tag: "Хит" },
-  { id: 2, name: "VERDE", category: "garden", price: 64900, img: GARDEN_IMAGE, tag: "Новинка" },
+  { id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит" },
+  { id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка" },
   { id: 3, name: "LUXE CORNER", category: "sofa", price: 124900, img: SHOWROOM_IMAGE, tag: "" },
   { id: 4, name: "TERRA SET", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит" },
   { id: 5, name: "MINIMAL", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "" },
@@ -69,7 +69,7 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
         <div className="container flex items-center justify-between h-16">
           <button onClick={() => navigate("home")} className="font-display text-2xl font-bold tracking-widest text-primary">
-            FORMA
+            Мебель за стеклом
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -405,7 +405,7 @@ export default function Index() {
                 <div>
                   <h2 className="font-display text-4xl font-bold mb-6">Мы создаём мебель<br /><span className="text-primary">с характером</span></h2>
                   <p className="font-body text-muted-foreground leading-relaxed mb-4">
-                    FORMA основана в 2015 году командой дизайнеров и мебельщиков, которые хотели изменить рынок. Мы устали от мебели без идеи — и решили делать иначе.
+                    Мебель за стеклом основана в 2015 году командой дизайнеров и мебельщиков, которые хотели изменить рынок. Мы устали от мебели без идеи — и решили делать иначе.
                   </p>
                   <p className="font-body text-muted-foreground leading-relaxed mb-4">
                     Каждый диван проходит через руки мастеров на нашем производстве в Москве. Итальянские ткани, немецкие механизмы, экологичный наполнитель.
@@ -602,8 +602,8 @@ export default function Index() {
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
               <div>
-                <div className="font-display text-2xl text-primary tracking-widest mb-3">FORMA</div>
-                <p className="font-body text-muted-foreground text-sm leading-relaxed">Мебель нового поколения. Диваны и садовая мебель с гарантией 3 года.</p>
+                <div className="font-display text-2xl text-primary tracking-widest mb-3">Мебель за стеклом</div>
+                <p className="font-body text-muted-foreground text-sm leading-relaxed">Диваны и садовая мебель с гарантией 18 месяцев.</p>
               </div>
               <div>
                 <div className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">Разделы</div>
