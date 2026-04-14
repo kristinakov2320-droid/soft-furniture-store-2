@@ -11,7 +11,7 @@ type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 const catalogProducts = [
   { id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит" },
   { id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка" },
-  { id: 3, name: "LUXE CORNER", category: "sofa", price: 124900, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/5f443225-c4af-42c9-a0fb-bafc5b33161c.jpg", tag: "" },
+  { id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "" },
   { id: 4, name: "TERRA SET", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит" },
   { id: 5, name: "MINIMAL", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "" },
   { id: 6, name: "PATIO DUO", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка" },
@@ -211,16 +211,17 @@ export default function Index() {
                 { name: "Синий", color: "#2E4A6B", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/46919192-f2f6-4f7b-a677-abb571901185.jpg" },
               ];
               const velvetColors = [
-                { name: "Изумруд", color: "#1E5C3A", dark: true },
-                { name: "Сапфир", color: "#152D5A", dark: true },
-                { name: "Терракота", color: "#8B3E20", dark: true },
-                { name: "Антрацит", color: "#252525", dark: true },
-                { name: "Пудра", color: "#C9948E", dark: false },
+                { name: "Изумрудный", color: "#2E6B50", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7026c721-08fd-477a-9b3f-458456081aeb.jpg" },
+                { name: "Мятный", color: "#4A8B7F", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0f90c222-411b-47a4-99b8-4b7db05c4aae.jpg" },
+                { name: "Светло-серый", color: "#9E9E9E", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fa28b136-c691-402a-8a2b-400331b434da.jpg" },
+                { name: "Синий", color: "#3A5A8A", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f0628c06-708c-46b9-b2a4-1c4caf218c0b.jpg" },
               ];
               const rActive = rogojkaColors[activeRogojka];
               const vActive = velvetColors[activeVelvet];
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               const rImg = (rActive as any).image as string;
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              const vImg = (vActive as any).image as string;
               return (
                 <section className="border-y border-border overflow-hidden">
                   {/* Header */}
@@ -252,7 +253,7 @@ export default function Index() {
                       <div className="relative z-10 flex flex-col h-full p-10 lg:p-14 text-white">
                         <div className="flex items-start justify-between mb-auto pb-8">
                           <div>
-                            <span className="font-body text-xs tracking-[0.35em] uppercase block mb-3 text-white/50">Все модели</span>
+                            <span className="font-body text-xs tracking-[0.35em] uppercase block mb-3 text-white/50"></span>
                             <h3 className="font-display text-7xl font-bold leading-none tracking-tight whitespace-nowrap">РОГОЖКА</h3>
                           </div>
                           <div className="border border-white/30 text-white/70 font-display text-xs tracking-widest px-3 py-1.5">
@@ -299,30 +300,25 @@ export default function Index() {
 
                     {/* ── ВЕЛЮР ── */}
                     <div
-                      className="relative flex flex-col overflow-hidden transition-colors duration-700 border-t lg:border-t-0 lg:border-l border-border/20"
+                      className="relative flex flex-col overflow-hidden border-t lg:border-t-0 lg:border-l border-border/20"
                       style={{ backgroundColor: vActive.color }}
                     >
-                      {/* Velvet micro-dot shimmer */}
+                      {/* Real fabric photo background */}
                       <div
-                        className="absolute inset-0"
+                        className="absolute inset-0 transition-opacity duration-700"
                         style={{
-                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='rgba(255,255,255,0.07)'/%3E%3Ccircle cx='4.5' cy='4.5' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E")`,
-                          backgroundSize: "6px 6px",
+                          backgroundImage: `url("${vImg}")`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
                         }}
                       />
-                      {/* Directional sheen — simulates nap */}
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          background: `linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 40%, rgba(0,0,0,0.15) 100%)`,
-                        }}
-                      />
-                      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.06) 0%, transparent 55%)" }} />
+                      {/* Dark overlay */}
+                      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)" }} />
 
                       <div className="relative z-10 flex flex-col h-full p-10 lg:p-14 text-white">
                         <div className="flex items-start justify-between mb-auto pb-8">
                           <div>
-                            <span className="font-body text-xs tracking-[0.35em] uppercase block mb-3 text-white/40">Отдельные модели</span>
+                            <span className="font-body text-xs tracking-[0.35em] uppercase block mb-3 text-white/40"></span>
                             <h3 className="font-display text-7xl font-bold leading-none tracking-tight whitespace-nowrap">ВЕЛЮР</h3>
                           </div>
                           <div className="border border-white/25 text-white/60 font-display text-xs tracking-widest px-3 py-1.5">
@@ -349,11 +345,12 @@ export default function Index() {
                                 <div
                                   className="w-full h-full border-2 transition-all duration-200"
                                   style={{
-                                    backgroundColor: c.color,
-                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='1' cy='1' r='0.8' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='3' cy='3' r='0.8' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")`,
-                                    backgroundSize: "4px 4px",
-                                    borderColor: i === activeVelvet ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.15)",
-                                    boxShadow: i === activeVelvet ? `0 0 16px ${c.color}, 0 2px 8px rgba(0,0,0,0.4)` : "none",
+                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                    backgroundImage: `url("${(c as any).image}")`,
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    borderColor: i === activeVelvet ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.2)",
+                                    boxShadow: i === activeVelvet ? "0 2px 12px rgba(0,0,0,0.5)" : "none",
                                   }}
                                 />
                                 {i === activeVelvet && (
@@ -400,7 +397,7 @@ export default function Index() {
                     <div className="flex items-end justify-between">
                       <div>
                         <h3 className="font-display text-xl tracking-widest">{p.name}</h3>
-                        <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : "Садовая мебель"}</p>
+                        <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : "Садовая мебель"}</p>
                       </div>
                       <div className="text-right">
                         <div className="font-display text-lg text-primary">{p.price.toLocaleString("ru")} ₽</div>
@@ -471,7 +468,7 @@ export default function Index() {
                   <div className="flex items-end justify-between">
                     <div>
                       <h3 className="font-display text-xl tracking-widest">{p.name}</h3>
-                      <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : "Садовая мебель"}</p>
+                      <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : "Садовая мебель"}</p>
                     </div>
                     <div className="font-display text-xl text-primary">{p.price.toLocaleString("ru")} ₽</div>
                   </div>
