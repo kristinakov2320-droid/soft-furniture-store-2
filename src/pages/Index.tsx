@@ -9,12 +9,115 @@ const SHOWROOM_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
 const catalogProducts = [
-  { id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит", desc: "Угловой диван с мягкими подлокотниками и независимым пружинным блоком. Обивка — рогожка или велюр на выбор. Срок изготовления до 7 рабочих дней.", specs: ["Ш 280 × Г 175 × В 85 см", "Механизм: дельфин", "Наполнитель: ППУ + холлофайбер", "Гарантия 18 месяцев"] },
-  { id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка", desc: "Комплект садовой мебели из ротанга с алюминиевым каркасом. Не боится влаги и перепадов температур. Подушки входят в комплект.", specs: ["Диван + 2 кресла + столик", "Материал: искусственный ротанг", "Каркас: алюминий", "Подушки: влагостойкая ткань"] },
-  { id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "", desc: "Кровать с мягким изголовьем в скандинавском стиле. Вертикальная стёжка придаёт объём и благородство. Обивка — бежевый велюр.", specs: ["160×200 / 180×200 см", "Подъёмный механизм", "Каркас: ЛДСП + металл", "Гарантия 18 месяцев"] },
-  { id: 4, name: "TERRA SET", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит", desc: "Премиальный комплект садовой мебели с широкими посадочными местами. Отлично подходит для террасы и зоны барбекю.", specs: ["Диван + 2 кресла + журнальный стол", "Каркас: сталь с порошковым покрытием", "Ткань: Olefin (UV-защита)", "Сборка включена"] },
-  { id: 5, name: "MINIMAL", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "", desc: "Прямой диван в стиле минимализм. Лаконичные линии, плотная посадка, высокие ножки. Идеален для небольших пространств.", specs: ["Ш 220 × Г 90 × В 80 см", "Механизм: еврокнижка", "Наполнитель: ППУ", "Ножки: натуральный дуб"] },
-  { id: 6, name: "PATIO DUO", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка", desc: "Двухместный диван для открытых террас и лоджий. Компактный, но вместительный. Легко собирается без инструментов.", specs: ["Ш 150 × Г 80 × В 75 см", "Материал: ротанг PE", "Подушки в комплекте", "Вес: 18 кг"] },
+  {
+    id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит",
+    images: [HERO_IMAGE, SHOWROOM_IMAGE, GARDEN_IMAGE],
+    desc: "Угловой диван с мягкими подлокотниками и независимым пружинным блоком. Обивка — рогожка или велюр на выбор. Срок изготовления до 7 рабочих дней.",
+    specs: [
+      { label: "Размер", value: "Ш 280 × Г 175 × В 85 см" },
+      { label: "Механизм", value: "Дельфин" },
+      { label: "Наполнитель", value: "ППУ 28кг/м³ + холлофайбер" },
+      { label: "Каркас", value: "Сосна + берёзовая фанера" },
+      { label: "Ткань", value: "Рогожка / велюр на выбор" },
+      { label: "Цвета", value: "5 цветов рогожки, 4 цвета велюра" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
+    id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка",
+    images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
+    desc: "Комплект садовой мебели из ротанга с алюминиевым каркасом. Не боится влаги и перепадов температур. Подушки входят в комплект.",
+    specs: [
+      { label: "Комплект", value: "Диван + 2 кресла + столик" },
+      { label: "Материал", value: "Искусственный ротанг PE" },
+      { label: "Каркас", value: "Алюминий, порошковая окраска" },
+      { label: "Подушки", value: "Влагостойкая ткань, входят в комплект" },
+      { label: "Нагрузка", value: "До 150 кг на место" },
+      { label: "Уход", value: "Протирать влажной тряпкой" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
+    id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "",
+    images: ["https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", SHOWROOM_IMAGE, HERO_IMAGE],
+    desc: "Кровать с мягким изголовьем в скандинавском стиле. Вертикальная стёжка придаёт объём и благородство. Обивка — бежевый велюр.",
+    specs: [
+      { label: "Спальное место", value: "160×200 / 180×200 см" },
+      { label: "Высота изголовья", value: "120 см" },
+      { label: "Механизм", value: "Подъёмный, газлифт" },
+      { label: "Каркас", value: "ЛДСП 25мм + металл" },
+      { label: "Обивка", value: "Велюр, бежевый" },
+      { label: "Ножки", value: "Массив дерева, натуральный" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
+    id: 4, name: "Terra Set", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит",
+    images: [GARDEN_IMAGE, SHOWROOM_IMAGE, HERO_IMAGE],
+    desc: "Премиальный комплект садовой мебели с широкими посадочными местами. Отлично подходит для террасы и зоны барбекю.",
+    specs: [
+      { label: "Комплект", value: "Диван + 2 кресла + журнальный стол" },
+      { label: "Каркас", value: "Сталь с порошковым покрытием" },
+      { label: "Ткань", value: "Olefin, UV-защита класса A" },
+      { label: "Наполнитель", value: "Пена высокой плотности" },
+      { label: "Вес комплекта", value: "48 кг" },
+      { label: "Сборка", value: "Входит в стоимость" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
+    id: 5, name: "Minimal", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "",
+    images: [HERO_IMAGE, GARDEN_IMAGE, SHOWROOM_IMAGE],
+    desc: "Прямой диван в стиле минимализм. Лаконичные линии, плотная посадка, высокие ножки. Идеален для небольших пространств.",
+    specs: [
+      { label: "Размер", value: "Ш 220 × Г 90 × В 80 см" },
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Наполнитель", value: "ППУ 30кг/м³" },
+      { label: "Каркас", value: "Берёзовая фанера + металл" },
+      { label: "Ножки", value: "Натуральный дуб, высота 18 см" },
+      { label: "Ткань", value: "Рогожка / велюр на выбор" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
+    id: 6, name: "Patio Duo", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка",
+    images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
+    desc: "Двухместный диван для открытых террас и лоджий. Компактный, но вместительный. Легко собирается без инструментов.",
+    specs: [
+      { label: "Размер", value: "Ш 150 × Г 80 × В 75 см" },
+      { label: "Материал", value: "Ротанг PE, устойчив к УФ" },
+      { label: "Каркас", value: "Алюминий" },
+      { label: "Подушки", value: "В комплекте, съёмные чехлы" },
+      { label: "Вес", value: "18 кг" },
+      { label: "Нагрузка", value: "До 240 кг" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
+    id: 7, name: "Ардо", category: "chair", price: 18900, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/4300a84d-f22a-46f5-bb64-31b787c56afd.jpg", tag: "Новинка",
+    images: [
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/4300a84d-f22a-46f5-bb64-31b787c56afd.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/9f50caee-1102-4e33-9527-3a1c2234fb89.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/493f29d0-f89e-49dd-9c32-8c760b879482.jpg",
+    ],
+    desc: "Кресло с глубокой мягкой посадкой и широкими подлокотниками. Идеально для чтения и отдыха. Обивка — велюр или рогожка на выбор.",
+    specs: [
+      { label: "Размер", value: "Ш 85 × Г 90 × В 95 см" },
+      { label: "Высота сиденья", value: "45 см" },
+      { label: "Наполнитель", value: "ППУ 28кг/м³ + перо" },
+      { label: "Каркас", value: "Сосна + берёзовая фанера" },
+      { label: "Ножки", value: "Массив дуба, высота 15 см" },
+      { label: "Ткань", value: "Велюр / рогожка на выбор" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
 ];
 
 const faqItems = [
@@ -34,6 +137,7 @@ export default function Index() {
   const [activeRogojka, setActiveRogojka] = useState(0);
   const [activeVelvet, setActiveVelvet] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<(typeof catalogProducts)[0] | null>(null);
+  const [activePhoto, setActivePhoto] = useState(0);
 
   const totalItems = cartItems.reduce((s, i) => s + i.qty, 0);
   const totalPrice = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
@@ -403,7 +507,7 @@ export default function Index() {
                     <div className="flex items-end justify-between">
                       <div>
                         <h3 className="font-display text-xl tracking-widest">{p.name}</h3>
-                        <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : "Садовая мебель"}</p>
+                        <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : p.category === "chair" ? "Кресло" : "Садовая мебель"}</p>
                       </div>
                       <div className="font-display text-lg text-primary">{p.price.toLocaleString("ru")} ₽</div>
                     </div>
@@ -440,7 +544,7 @@ export default function Index() {
               <h1 className="font-display text-6xl font-bold">КАТАЛОГ</h1>
             </div>
             <div className="flex gap-3 mb-10 flex-wrap">
-              {[{ id: "all", label: "Все модели" }, { id: "sofa", label: "Диваны" }, { id: "bed", label: "Кровати" }, { id: "garden", label: "Садовая мебель" }].map((f) => (
+              {[{ id: "all", label: "Все модели" }, { id: "sofa", label: "Диваны" }, { id: "chair", label: "Кресла" }, { id: "bed", label: "Кровати" }, { id: "garden", label: "Садовая мебель" }].map((f) => (
                 <button
                   key={f.id}
                   onClick={() => setActiveFilter(f.id)}
@@ -469,7 +573,7 @@ export default function Index() {
                   <div className="flex items-end justify-between">
                     <div>
                       <h3 className="font-display text-xl tracking-widest">{p.name}</h3>
-                      <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : "Садовая мебель"}</p>
+                      <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : p.category === "chair" ? "Кресло" : "Садовая мебель"}</p>
                     </div>
                     <div className="font-display text-xl text-primary">{p.price.toLocaleString("ru")} ₽</div>
                   </div>
@@ -741,74 +845,115 @@ export default function Index() {
       {selectedProduct && (
         <div
           className="fixed inset-0 z-[100] flex items-end md:items-center justify-center"
-          onClick={() => setSelectedProduct(null)}
+          onClick={() => { setSelectedProduct(null); setActivePhoto(0); }}
         >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
-          {/* Panel */}
           <div
-            className="relative z-10 w-full md:max-w-5xl md:mx-4 bg-background max-h-[92vh] md:max-h-[85vh] overflow-hidden flex flex-col md:flex-row md:rounded-none shadow-2xl"
+            className="relative z-10 w-full md:max-w-6xl md:mx-4 bg-background max-h-[95vh] overflow-hidden flex flex-col md:flex-row shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
             <button
-              onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 bg-background/80 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
+              onClick={() => { setSelectedProduct(null); setActivePhoto(0); }}
+              className="absolute top-4 right-4 z-30 w-10 h-10 bg-background/90 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
             >
               <Icon name="X" size={16} />
             </button>
 
-            {/* Image */}
-            <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto md:h-auto overflow-hidden flex-shrink-0">
-              <img
-                src={selectedProduct.img}
-                alt={selectedProduct.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Info */}
-            <div className="flex flex-col flex-1 p-8 md:p-10 overflow-y-auto">
-              {selectedProduct.tag && (
-                <span className="inline-block self-start bg-primary text-primary-foreground px-3 py-1 font-display text-xs tracking-widest mb-4">
-                  {selectedProduct.tag}
-                </span>
-              )}
-              <p className="font-body text-muted-foreground text-xs tracking-[0.3em] uppercase mb-2">
-                {selectedProduct.category === "sofa" ? "Диван" : selectedProduct.category === "bed" ? "Кровать" : "Садовая мебель"}
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-widest mb-4">{selectedProduct.name}</h2>
-              <div className="font-display text-3xl text-primary mb-6">{selectedProduct.price.toLocaleString("ru")} ₽</div>
-
-              <p className="font-body text-muted-foreground leading-relaxed mb-8 text-sm">{selectedProduct.desc}</p>
-
-              {/* Specs */}
-              <div className="border-t border-border pt-6 mb-8">
-                <p className="font-display text-xs tracking-[0.35em] uppercase text-muted-foreground mb-4">Характеристики</p>
-                <ul className="space-y-2">
-                  {selectedProduct.specs.map((s, i) => (
-                    <li key={i} className="flex items-center gap-3 font-body text-sm">
-                      <div className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
+            {/* ── LEFT: Gallery ── */}
+            <div className="w-full md:w-[55%] flex-shrink-0 flex flex-col bg-muted/30">
+              {/* Main photo */}
+              <div className="relative aspect-[4/3] md:aspect-auto md:flex-1 overflow-hidden">
+                <img
+                  key={activePhoto}
+                  src={selectedProduct.images[activePhoto]}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-cover transition-opacity duration-300"
+                />
+                {/* Arrow prev */}
+                {selectedProduct.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setActivePhoto((p) => (p - 1 + selectedProduct.images.length) % selectedProduct.images.length)}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
+                    >
+                      <Icon name="ChevronLeft" size={18} />
+                    </button>
+                    <button
+                      onClick={() => setActivePhoto((p) => (p + 1) % selectedProduct.images.length)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
+                    >
+                      <Icon name="ChevronRight" size={18} />
+                    </button>
+                  </>
+                )}
+                {/* Counter */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur px-3 py-1 font-display text-xs tracking-widest">
+                  {activePhoto + 1} / {selectedProduct.images.length}
+                </div>
               </div>
 
-              <div className="mt-auto flex flex-col gap-3">
-                <button
-                  onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }}
-                  className="w-full bg-primary text-primary-foreground py-4 font-display text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
-                >
-                  В корзину
-                </button>
-                <button
-                  onClick={() => { navigate("contacts"); setSelectedProduct(null); }}
-                  className="w-full border border-border text-muted-foreground py-3 font-display text-xs tracking-widest uppercase hover:border-primary hover:text-primary transition-colors"
-                >
-                  Задать вопрос
-                </button>
+              {/* Thumbnails */}
+              <div className="flex gap-2 p-3 bg-background border-t border-border overflow-x-auto">
+                {selectedProduct.images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActivePhoto(i)}
+                    className={`flex-shrink-0 w-20 h-16 overflow-hidden border-2 transition-all ${i === activePhoto ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"}`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* ── RIGHT: Info ── */}
+            <div className="flex flex-col flex-1 overflow-y-auto">
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                {/* Header */}
+                <div className="mb-6">
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <p className="font-body text-muted-foreground text-xs tracking-[0.35em] uppercase">
+                      {selectedProduct.category === "sofa" ? "Диван" : selectedProduct.category === "bed" ? "Кровать" : selectedProduct.category === "chair" ? "Кресло" : "Садовая мебель"}
+                    </p>
+                    {selectedProduct.tag && (
+                      <span className="bg-primary text-primary-foreground px-3 py-0.5 font-display text-xs tracking-widest flex-shrink-0">
+                        {selectedProduct.tag}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="font-display text-4xl md:text-5xl font-bold tracking-widest mb-3">{selectedProduct.name}</h2>
+                  <div className="font-display text-3xl text-primary">{selectedProduct.price.toLocaleString("ru")} ₽</div>
+                </div>
+
+                {/* Description */}
+                <p className="font-body text-muted-foreground leading-relaxed text-sm mb-6 pb-6 border-b border-border">
+                  {selectedProduct.desc}
+                </p>
+
+                {/* Specs table */}
+                <div className="mb-6">
+                  <p className="font-display text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">Характеристики</p>
+                  <div className="space-y-0">
+                    {selectedProduct.specs.map((s, i) => (
+                      <div key={i} className={`flex justify-between gap-4 py-3 text-sm ${i < selectedProduct.specs.length - 1 ? "border-b border-border/50" : ""}`}>
+                        <span className="font-body text-muted-foreground flex-shrink-0">{s.label}</span>
+                        <span className="font-body text-right">{s.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="mt-auto pt-4">
+                  <button
+                    onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); setActivePhoto(0); }}
+                    className="w-full bg-primary text-primary-foreground py-4 font-display text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
+                  >
+                    В корзину
+                  </button>
+                </div>
               </div>
             </div>
           </div>
