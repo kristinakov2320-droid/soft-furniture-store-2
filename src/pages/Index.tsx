@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/44c04827-b8a2-4dd5-a1b7-8b604e07ba3b.jpg";
 const GARDEN_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/83033b65-7386-435d-b653-94fddc213166.jpg";
 const SHOWROOM_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/c66e0e66-19b9-4ec7-b64b-3e8efa991827.jpg";
@@ -30,6 +31,8 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeRogojka, setActiveRogojka] = useState(0);
+  const [activeVelvet, setActiveVelvet] = useState(0);
 
   const totalItems = cartItems.reduce((s, i) => s + i.qty, 0);
   const totalPrice = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
@@ -199,113 +202,177 @@ export default function Index() {
             </section>
 
             {/* Materials */}
-            <section className="border-y border-border overflow-hidden">
-              <div className="text-center py-16 bg-card">
-                <p className="font-body text-accent text-sm tracking-[0.3em] uppercase mb-3">Обивка</p>
-                <h2 className="font-display text-5xl font-bold">МАТЕРИАЛЫ</h2>
-              </div>
-
-              {/* Two full-bleed panels */}
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                {/* РОГОЖКА */}
-                <div className="relative group overflow-hidden min-h-[600px] flex flex-col justify-between"
-                  style={{
-                    background: "#f5f0e8",
-                    backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px), repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px)`
-                  }}
-                >
-                  <div className="p-10 lg:p-14">
-                    <div className="flex items-start justify-between mb-6">
-                      <div>
-                        <span className="font-body text-xs tracking-[0.3em] uppercase text-stone-500 block mb-2">Ткань · Все модели</span>
-                        <h3 className="font-display text-6xl font-bold tracking-tight text-stone-800">РОГОЖКА</h3>
-                      </div>
-                      <span className="border border-stone-400 text-stone-600 font-display text-xs tracking-widest px-3 py-1.5 mt-1">БАЗОВАЯ</span>
-                    </div>
-                    <p className="font-body text-stone-600 text-sm leading-relaxed max-w-sm">
-                      Плотное структурное переплетение. Практична в уходе, устойчива к истиранию, не скатывается.
-                    </p>
+            {(() => {
+              const rogojkaColors = [
+                { name: "Бежевый", color: "#E2D5BE", dark: false },
+                { name: "Мёд", color: "#C4924A", dark: false },
+                { name: "Серый", color: "#8F8F8F", dark: false },
+                { name: "Кофе", color: "#5A3520", dark: true },
+                { name: "Синий", color: "#1E3560", dark: true },
+              ];
+              const velvetColors = [
+                { name: "Изумруд", color: "#1E5C3A", dark: true },
+                { name: "Сапфир", color: "#152D5A", dark: true },
+                { name: "Терракота", color: "#8B3E20", dark: true },
+                { name: "Антрацит", color: "#252525", dark: true },
+                { name: "Пудра", color: "#C9948E", dark: false },
+              ];
+              const rActive = rogojkaColors[activeRogojka];
+              const vActive = velvetColors[activeVelvet];
+              return (
+                <section className="border-y border-border overflow-hidden">
+                  {/* Header */}
+                  <div className="bg-card py-14 text-center border-b border-border">
+                    <p className="font-body text-accent text-xs tracking-[0.4em] uppercase mb-3">Обивка</p>
+                    <h2 className="font-display text-5xl md:text-6xl font-bold">МАТЕРИАЛЫ</h2>
+                    <p className="font-body text-muted-foreground text-sm mt-4 max-w-sm mx-auto">Нажмите на цвет — и увидите, как ткань выглядит вживую</p>
                   </div>
 
-                  {/* Color strips */}
-                  <div className="px-10 lg:px-14 pb-14">
-                    <p className="font-display text-xs tracking-[0.4em] uppercase text-stone-500 mb-5">5 цветов</p>
-                    <div className="flex gap-0">
-                      {[
-                        { name: "Бежевый", color: "#E8DCC8" },
-                        { name: "Мёд", color: "#C4924A" },
-                        { name: "Серый", color: "#9E9E9E" },
-                        { name: "Кофе", color: "#6B4226" },
-                        { name: "Синий", color: "#2C4B7A" },
-                      ].map((c, i) => (
-                        <div
-                          key={c.name}
-                          className="relative flex-1 h-28 cursor-pointer overflow-hidden transition-all duration-300 hover:flex-[2]"
-                          style={{ background: c.color }}
-                          title={c.name}
-                        >
-                          <div className="absolute inset-0 flex items-end p-2 opacity-0 hover:opacity-100 transition-opacity duration-200 bg-black/20">
-                            <span className="font-body text-[10px] text-white tracking-wider leading-tight">{c.name}</span>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[640px]">
+
+                    {/* ── РОГОЖКА ── */}
+                    <div
+                      className="relative flex flex-col overflow-hidden transition-colors duration-700"
+                      style={{ backgroundColor: rActive.color }}
+                    >
+                      {/* Textile weave pattern overlay */}
+                      <div
+                        className="absolute inset-0 opacity-100"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Crect x='0' y='0' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.10)'/%3E%3Crect x='6' y='3' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.10)'/%3E%3Crect x='0' y='6' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.07)'/%3E%3Crect x='6' y='9' width='6' height='3' rx='0.5' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")`,
+                          backgroundSize: "12px 12px",
+                        }}
+                      />
+                      {/* Subtle vignette */}
+                      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%)" }} />
+
+                      <div className={`relative z-10 flex flex-col h-full p-10 lg:p-14 ${rActive.dark ? "text-white" : "text-neutral-900"}`}>
+                        <div className="flex items-start justify-between mb-auto pb-8">
+                          <div>
+                            <span className={`font-body text-xs tracking-[0.35em] uppercase block mb-3 ${rActive.dark ? "text-white/50" : "text-black/40"}`}>Все модели</span>
+                            <h3 className="font-display text-7xl font-bold leading-none tracking-tight">РОГО<br/>ЖКА</h3>
                           </div>
-                          {i < 4 && <div className="absolute right-0 top-0 bottom-0 w-px bg-white/30" />}
+                          <div className={`border font-display text-xs tracking-widest px-3 py-1.5 ${rActive.dark ? "border-white/30 text-white/70" : "border-black/20 text-black/50"}`}>
+                            БАЗОВАЯ
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
 
-                {/* ВЕЛЮР */}
-                <div className="relative group overflow-hidden min-h-[600px] flex flex-col justify-between"
-                  style={{
-                    background: "#1a1a2e",
-                    backgroundImage: `radial-gradient(ellipse at 30% 20%, rgba(100,80,160,0.25) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(60,100,140,0.2) 0%, transparent 50%)`
-                  }}
-                >
-                  <div className="p-10 lg:p-14">
-                    <div className="flex items-start justify-between mb-6">
-                      <div>
-                        <span className="font-body text-xs tracking-[0.3em] uppercase text-purple-300/60 block mb-2">Ткань · Отдельные модели</span>
-                        <h3 className="font-display text-6xl font-bold tracking-tight text-white">ВЕЛЮР</h3>
+                        <div className="mt-auto">
+                          <p className={`font-body text-sm leading-relaxed mb-8 max-w-xs ${rActive.dark ? "text-white/60" : "text-black/55"}`}>
+                            Плотное структурное переплетение нитей. Устойчива к истиранию, не скатывается, легко чистится.
+                          </p>
+                          <p className={`font-display text-[10px] tracking-[0.4em] uppercase mb-4 ${rActive.dark ? "text-white/40" : "text-black/35"}`}>
+                            {rogojkaColors[activeRogojka].name} — выберите цвет
+                          </p>
+                          <div className="flex gap-2.5">
+                            {rogojkaColors.map((c, i) => (
+                              <button
+                                key={c.name}
+                                onClick={() => setActiveRogojka(i)}
+                                title={c.name}
+                                className="relative transition-all duration-200"
+                                style={{ width: i === activeRogojka ? 56 : 40, height: 40 }}
+                              >
+                                {/* Swatch with weave texture */}
+                                <div
+                                  className="w-full h-full border-2 transition-all duration-200"
+                                  style={{
+                                    backgroundColor: c.color,
+                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Crect x='0' y='0' width='3' height='2' fill='rgba(0,0,0,0.12)'/%3E%3Crect x='3' y='2' width='3' height='2' fill='rgba(0,0,0,0.12)'/%3E%3Crect x='0' y='4' width='3' height='2' fill='rgba(0,0,0,0.08)'/%3E%3C/svg%3E")`,
+                                    backgroundSize: "6px 6px",
+                                    borderColor: i === activeRogojka ? (rActive.dark ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.7)") : "rgba(0,0,0,0.15)",
+                                    boxShadow: i === activeRogojka ? "0 2px 12px rgba(0,0,0,0.3)" : "none",
+                                  }}
+                                />
+                                {i === activeRogojka && (
+                                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current" />
+                                )}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                      <span className="border border-purple-400/40 text-purple-200 font-display text-xs tracking-widest px-3 py-1.5 mt-1">PREMIUM</span>
                     </div>
-                    <p className="font-body text-purple-100/60 text-sm leading-relaxed max-w-sm">
-                      Мягкий ворс с эффектом глубины цвета. Приятен на ощупь, создаёт ощущение роскоши.
-                    </p>
-                  </div>
 
-                  {/* Color circles — big bold swatches */}
-                  <div className="px-10 lg:px-14 pb-14">
-                    <p className="font-display text-xs tracking-[0.4em] uppercase text-purple-300/50 mb-5">Оттенки</p>
-                    <div className="flex gap-3 flex-wrap">
-                      {[
-                        { name: "Изумруд", color: "#2D6A4F", light: false },
-                        { name: "Сапфир", color: "#1B3A6B", light: false },
-                        { name: "Терракота", color: "#A0522D", light: false },
-                        { name: "Антрацит", color: "#2C2C2C", light: false },
-                        { name: "Пудра", color: "#D4A5A5", light: true },
-                      ].map((c) => (
-                        <div key={c.name} className="group/swatch flex flex-col items-center gap-2 cursor-pointer">
-                          <div
-                            className="w-14 h-14 rounded-full border-2 border-white/10 shadow-lg transition-transform duration-200 group-hover/swatch:scale-110 group-hover/swatch:border-white/40"
-                            style={{ background: c.color, boxShadow: `0 4px 20px ${c.color}80` }}
-                          />
-                          <span className="font-body text-[10px] text-white/40 tracking-wider group-hover/swatch:text-white/80 transition-colors">{c.name}</span>
+                    {/* ── ВЕЛЮР ── */}
+                    <div
+                      className="relative flex flex-col overflow-hidden transition-colors duration-700 border-t lg:border-t-0 lg:border-l border-border/20"
+                      style={{ backgroundColor: vActive.color }}
+                    >
+                      {/* Velvet micro-dot shimmer */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='rgba(255,255,255,0.07)'/%3E%3Ccircle cx='4.5' cy='4.5' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E")`,
+                          backgroundSize: "6px 6px",
+                        }}
+                      />
+                      {/* Directional sheen — simulates nap */}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          background: `linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 40%, rgba(0,0,0,0.15) 100%)`,
+                        }}
+                      />
+                      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.06) 0%, transparent 55%)" }} />
+
+                      <div className="relative z-10 flex flex-col h-full p-10 lg:p-14 text-white">
+                        <div className="flex items-start justify-between mb-auto pb-8">
+                          <div>
+                            <span className="font-body text-xs tracking-[0.35em] uppercase block mb-3 text-white/40">Отдельные модели</span>
+                            <h3 className="font-display text-7xl font-bold leading-none tracking-tight">ВЕ<br/>ЛЮР</h3>
+                          </div>
+                          <div className="border border-white/25 text-white/60 font-display text-xs tracking-widest px-3 py-1.5">
+                            PREMIUM
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                    <p className="font-body text-xs text-white/25 mt-6">* Точные цвета уточняются при выборе модели</p>
-                  </div>
-                </div>
-              </div>
 
-              <div className="bg-card border-t border-border px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="font-body text-sm text-muted-foreground">Хотите увидеть образцы вживую? Приезжайте в наш шоурум.</p>
-                <button onClick={() => navigate("contacts")} className="bg-primary text-primary-foreground px-6 py-3 font-display text-sm tracking-widest uppercase whitespace-nowrap hover:opacity-90 transition-opacity">
-                  Записаться
-                </button>
-              </div>
-            </section>
+                        <div className="mt-auto">
+                          <p className="font-body text-sm leading-relaxed mb-8 max-w-xs text-white/55">
+                            Короткий мягкий ворс с эффектом глубины цвета. Приятен на ощупь, переливается при смене угла света.
+                          </p>
+                          <p className="font-display text-[10px] tracking-[0.4em] uppercase mb-4 text-white/35">
+                            {velvetColors[activeVelvet].name} — выберите оттенок
+                          </p>
+                          <div className="flex gap-2.5">
+                            {velvetColors.map((c, i) => (
+                              <button
+                                key={c.name}
+                                onClick={() => setActiveVelvet(i)}
+                                title={c.name}
+                                className="relative transition-all duration-200"
+                                style={{ width: i === activeVelvet ? 56 : 40, height: 40 }}
+                              >
+                                <div
+                                  className="w-full h-full border-2 transition-all duration-200"
+                                  style={{
+                                    backgroundColor: c.color,
+                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='1' cy='1' r='0.8' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='3' cy='3' r='0.8' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")`,
+                                    backgroundSize: "4px 4px",
+                                    borderColor: i === activeVelvet ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.15)",
+                                    boxShadow: i === activeVelvet ? `0 0 16px ${c.color}, 0 2px 8px rgba(0,0,0,0.4)` : "none",
+                                  }}
+                                />
+                                {i === activeVelvet && (
+                                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white" />
+                                )}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-card border-t border-border px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="font-body text-sm text-muted-foreground">Хотите увидеть образцы вживую? Приезжайте в шоурум.</p>
+                    <button onClick={() => navigate("contacts")} className="bg-primary text-primary-foreground px-6 py-3 font-display text-sm tracking-widest uppercase whitespace-nowrap hover:opacity-90 transition-opacity">
+                      Записаться
+                    </button>
+                  </div>
+                </section>
+              );
+            })()}
 
             {/* Catalog preview */}
             <section className="container py-24">
