@@ -311,7 +311,7 @@ export default function Index() {
                     <span className="text-accent">КОМФОРТ.</span>
                   </h1>
                   <p className="font-body text-muted-foreground text-lg mb-10 max-w-md">
-                    Мягкая и садовая мебель. Рогожка, велюр.
+                    Мягкая и садовая мебель, текстиль.
                   </p>
                   <div className="flex gap-4 flex-wrap">
                     <button
