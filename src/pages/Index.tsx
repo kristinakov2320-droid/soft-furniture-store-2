@@ -193,19 +193,16 @@ export default function Index() {
   const [selectedProduct, setSelectedProduct] = useState<(typeof catalogProducts)[0] | null>(null);
   const [activePhoto, setActivePhoto] = useState(0);
   const [activeColor, setActiveColor] = useState(0);
-  const [colorPreview, setColorPreview] = useState<string | null>(null);
 
   const openProduct = (p: (typeof catalogProducts)[0]) => {
     setSelectedProduct(p);
     setActivePhoto(0);
     setActiveColor(0);
-    setColorPreview(null);
   };
   const closeProduct = () => {
     setSelectedProduct(null);
     setActivePhoto(0);
     setActiveColor(0);
-    setColorPreview(null);
   };
 
   const totalItems = cartItems.reduce((s, i) => s + i.qty, 0);
@@ -916,126 +913,124 @@ export default function Index() {
           <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
 
           <div
-            className="relative z-10 w-full md:max-w-[90vw] lg:max-w-[1100px] md:mx-4 bg-background max-h-[95vh] overflow-hidden flex flex-col md:flex-row shadow-2xl"
+            className="relative z-10 w-full md:max-w-[92vw] lg:max-w-[1160px] md:mx-4 bg-background max-h-[95vh] overflow-hidden flex flex-col md:flex-row shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
-            <button
-              onClick={closeProduct}
-              className="absolute top-4 right-4 z-30 w-10 h-10 bg-background/90 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
-            >
+            <button onClick={closeProduct} className="absolute top-4 right-4 z-30 w-10 h-10 bg-background/90 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors">
               <Icon name="X" size={16} />
             </button>
 
-            {/* ── LEFT: Gallery ── */}
-            <div className="w-full md:w-[60%] flex-shrink-0 flex flex-col">
-              {/* Main photo — object-contain чтобы не обрезало */}
-              <div className="relative bg-muted/20 flex-1 min-h-[260px] md:min-h-0 overflow-hidden flex items-center justify-center">
-                {colorPreview ? (
-                  <img
-                    key={"color-" + activeColor}
-                    src={colorPreview}
-                    alt="Цвет обивки"
-                    className="w-full h-full object-contain transition-opacity duration-300 p-4"
-                  />
-                ) : (
-                  <img
-                    key={activePhoto}
-                    src={selectedProduct.images[activePhoto]}
-                    alt={selectedProduct.name}
-                    className="w-full h-full object-contain transition-opacity duration-300"
-                  />
-                )}
+            {/* ══ LEFT: Gallery — вертикальные миниатюры + большое фото ══ */}
+            <div className="w-full md:w-[58%] flex-shrink-0 flex flex-row h-[280px] md:h-auto">
 
-                {!colorPreview && selectedProduct.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={() => setActivePhoto((p) => (p - 1 + selectedProduct.images.length) % selectedProduct.images.length)}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
-                    >
-                      <Icon name="ChevronLeft" size={18} />
-                    </button>
-                    <button
-                      onClick={() => setActivePhoto((p) => (p + 1) % selectedProduct.images.length)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
-                    >
-                      <Icon name="ChevronRight" size={18} />
-                    </button>
-                  </>
-                )}
-
-                {/* Badge: ракурс или цвет */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur px-3 py-1 font-display text-xs tracking-widest whitespace-nowrap">
-                  {colorPreview
-                    ? `Цвет: ${selectedProduct.colors?.[activeColor]?.name ?? ""}`
-                    : `${activePhoto + 1} / ${selectedProduct.images.length}`}
-                </div>
-              </div>
-
-              {/* Thumbnails row — фото + цвета вместе */}
-              <div className="flex gap-2 p-3 bg-background border-t border-border overflow-x-auto flex-shrink-0">
-                {/* Photo thumbs */}
+              {/* Вертикальный стрип миниатюр — только фотографии товара */}
+              <div className="hidden md:flex flex-col gap-2 p-2 w-[88px] flex-shrink-0 overflow-y-auto border-r border-border bg-muted/10">
                 {selectedProduct.images.map((img, i) => (
                   <button
-                    key={"img-" + i}
-                    onClick={() => { setActivePhoto(i); setColorPreview(null); }}
-                    className={`flex-shrink-0 w-20 h-16 overflow-hidden border-2 transition-all ${!colorPreview && i === activePhoto ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"}`}
+                    key={i}
+                    onClick={() => setActivePhoto(i)}
+                    className={`w-full aspect-square flex-shrink-0 overflow-hidden border-2 transition-all ${i === activePhoto ? "border-primary" : "border-transparent opacity-55 hover:opacity-100 hover:border-border"}`}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
                   </button>
                 ))}
+              </div>
 
-                {/* Divider */}
-                {selectedProduct.colors && selectedProduct.colors.length > 0 && (
-                  <div className="w-px bg-border flex-shrink-0 mx-1" />
+              {/* Большое фото */}
+              <div className="relative flex-1 bg-muted/10 overflow-hidden flex items-center justify-center">
+                <img
+                  key={activePhoto}
+                  src={selectedProduct.images[activePhoto]}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-contain p-2 transition-opacity duration-300"
+                />
+
+                {/* Стрелки навигации */}
+                {selectedProduct.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setActivePhoto((p) => (p - 1 + selectedProduct.images.length) % selectedProduct.images.length)}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-background/85 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
+                    >
+                      <Icon name="ChevronLeft" size={16} />
+                    </button>
+                    <button
+                      onClick={() => setActivePhoto((p) => (p + 1) % selectedProduct.images.length)}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-background/85 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
+                    >
+                      <Icon name="ChevronRight" size={16} />
+                    </button>
+                  </>
                 )}
 
-                {/* Color swatches */}
-                {selectedProduct.colors?.map((c, i) => (
-                  <button
-                    key={"col-" + i}
-                    title={c.name}
-                    onClick={() => { setColorPreview(c.swatch); setActiveColor(i); }}
-                    className={`flex-shrink-0 w-16 h-16 overflow-hidden border-2 transition-all relative ${colorPreview && i === activeColor ? "border-primary" : "border-transparent opacity-70 hover:opacity-100"}`}
-                  >
-                    <img src={c.swatch} alt={c.name} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 flex items-end">
-                      <div className="w-full bg-black/40 py-0.5 px-1">
-                        <p className="text-white font-body leading-none" style={{ fontSize: "8px" }}>{c.name.split(" ")[0]}</p>
-                      </div>
-                    </div>
-                  </button>
-                ))}
+                {/* Счётчик */}
+                <div className="absolute bottom-2 right-3 bg-background/75 backdrop-blur px-2 py-0.5 font-display text-[11px] tracking-widest text-muted-foreground">
+                  {activePhoto + 1} / {selectedProduct.images.length}
+                </div>
+
+                {/* Горизонтальные точки — только мобайл */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 md:hidden">
+                  {selectedProduct.images.map((_, i) => (
+                    <button key={i} onClick={() => setActivePhoto(i)} className={`w-1.5 h-1.5 rounded-full transition-all ${i === activePhoto ? "bg-primary scale-125" : "bg-border"}`} />
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* ── RIGHT: Info ── */}
+            {/* ══ RIGHT: Info panel ══ */}
             <div className="flex flex-col flex-1 overflow-y-auto border-t md:border-t-0 md:border-l border-border">
-              <div className="p-7 md:p-9 flex flex-col h-full">
-                <div className="mb-5">
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <p className="font-body text-muted-foreground text-xs tracking-[0.35em] uppercase">
-                      {selectedProduct.category === "sofa" ? "Диван" : selectedProduct.category === "bed" ? "Кровать" : selectedProduct.category === "chair" ? "Кресло" : "Садовая мебель"}
-                    </p>
-                    {selectedProduct.tag && (
-                      <span className="bg-primary text-primary-foreground px-3 py-0.5 font-display text-xs tracking-widest flex-shrink-0">
-                        {selectedProduct.tag}
-                      </span>
-                    )}
-                  </div>
-                  <h2 className="font-display text-3xl md:text-4xl font-bold tracking-widest mb-3">{selectedProduct.name}</h2>
-                  <div className="font-display text-2xl text-primary">{selectedProduct.price.toLocaleString("ru")} ₽</div>
+              <div className="p-6 md:p-8 flex flex-col min-h-full">
+
+                {/* Категория + тег */}
+                <div className="flex items-center justify-between mb-2">
+                  <p className="font-body text-muted-foreground text-xs tracking-[0.35em] uppercase">
+                    {selectedProduct.category === "sofa" ? "Диван" : selectedProduct.category === "bed" ? "Кровать" : selectedProduct.category === "chair" ? "Кресло" : "Садовая мебель"}
+                  </p>
+                  {selectedProduct.tag && (
+                    <span className="bg-primary text-primary-foreground px-3 py-0.5 font-display text-xs tracking-widest">{selectedProduct.tag}</span>
+                  )}
                 </div>
 
-                <p className="font-body text-muted-foreground leading-relaxed text-sm mb-5 pb-5 border-b border-border">
-                  {selectedProduct.desc}
-                </p>
+                {/* Название */}
+                <h2 className="font-display text-3xl md:text-4xl font-bold tracking-widest mb-2">{selectedProduct.name}</h2>
 
-                <div className="mb-5 flex-1">
+                {/* Цена */}
+                <div className="font-display text-2xl text-primary mb-4">{selectedProduct.price.toLocaleString("ru")} ₽</div>
+
+                {/* Описание */}
+                <p className="font-body text-muted-foreground text-sm leading-relaxed mb-5 pb-5 border-b border-border">{selectedProduct.desc}</p>
+
+                {/* ── ВЫБОР ЦВЕТА ОБИВКИ — отдельный блок ── */}
+                {selectedProduct.colors && selectedProduct.colors.length > 0 && (
+                  <div className="mb-5 pb-5 border-b border-border">
+                    <div className="flex items-center justify-between mb-3">
+                      <p className="font-display text-xs tracking-[0.35em] uppercase text-muted-foreground">Цвет обивки</p>
+                      {activeColor !== null && (
+                        <p className="font-body text-xs text-primary font-medium">{selectedProduct.colors[activeColor].name}</p>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProduct.colors.map((c, i) => (
+                        <button
+                          key={i}
+                          title={c.name}
+                          onClick={() => setActiveColor(i)}
+                          className={`relative w-11 h-11 overflow-hidden transition-all duration-200 ${i === activeColor ? "ring-2 ring-primary ring-offset-2 scale-105" : "ring-1 ring-border hover:ring-primary/50 hover:scale-105"}`}
+                        >
+                          <img src={c.swatch} alt={c.name} className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Характеристики */}
+                <div className="mb-6 flex-1">
                   <p className="font-display text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">Характеристики</p>
                   <div>
                     {selectedProduct.specs.map((s, i) => (
-                      <div key={i} className={`flex justify-between gap-4 py-2.5 text-sm ${i < selectedProduct.specs.length - 1 ? "border-b border-border/50" : ""}`}>
+                      <div key={i} className={`flex justify-between gap-4 py-2.5 text-sm ${i < selectedProduct.specs.length - 1 ? "border-b border-border/40" : ""}`}>
                         <span className="font-body text-muted-foreground flex-shrink-0">{s.label}</span>
                         <span className="font-body text-right">{s.value}</span>
                       </div>
@@ -1043,14 +1038,13 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-border">
-                  <button
-                    onClick={() => { addToCart(selectedProduct); closeProduct(); }}
-                    className="w-full bg-primary text-primary-foreground py-4 font-display text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
-                  >
-                    В корзину
-                  </button>
-                </div>
+                {/* CTA */}
+                <button
+                  onClick={() => { addToCart(selectedProduct); closeProduct(); }}
+                  className="w-full bg-primary text-primary-foreground py-4 font-display text-sm tracking-widest uppercase hover:opacity-90 transition-opacity mt-auto"
+                >
+                  В корзину
+                </button>
               </div>
             </div>
           </div>
