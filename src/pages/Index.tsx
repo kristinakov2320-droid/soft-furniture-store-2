@@ -11,7 +11,7 @@ type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 const catalogProducts = [
   { id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит" },
   { id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка" },
-  { id: 3, name: "LUXE CORNER", category: "sofa", price: 124900, img: SHOWROOM_IMAGE, tag: "" },
+  { id: 3, name: "LUXE CORNER", category: "sofa", price: 124900, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/5f443225-c4af-42c9-a0fb-bafc5b33161c.jpg", tag: "" },
   { id: 4, name: "TERRA SET", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит" },
   { id: 5, name: "MINIMAL", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "" },
   { id: 6, name: "PATIO DUO", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка" },
@@ -139,7 +139,7 @@ export default function Index() {
                     <span className="text-accent">КОМФОРТ.</span>
                   </h1>
                   <p className="font-body text-muted-foreground text-lg mb-10 max-w-md">
-                    Диваны и садовая мебель. Велюр, рогожка, гарантия 18 месяцев.
+                    Мягкая и садовая мебель. Рогожка, велюр.
                   </p>
                   <div className="flex gap-4 flex-wrap">
                     <button
@@ -159,7 +159,7 @@ export default function Index() {
               </div>
               <div className="absolute top-32 right-8 hidden lg:flex flex-col gap-4 animate-fade-in delay-500">
                 {[
-                  { num: "4 200+", label: "Довольных клиентов" },
+                  { num: "1 млн+", label: "Довольных клиентов" },
                   { num: "18 мес.", label: "Гарантия" },
                   { num: "120+", label: "Моделей" },
                 ].map((s, i) => (
@@ -187,7 +187,7 @@ export default function Index() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
                   { icon: "Layers", title: "Качественные материалы", desc: "Велюр и рогожка — износостойкие ткани с богатой палитрой оттенков" },
-                  { icon: "Store", title: "Только из наличия", desc: "Покупайте из готового каталога — без ожидания и лишних договорённостей" },
+                  { icon: "Clock", title: "Срок изготовления до 7 дней", desc: "Изготавливаем под заказ из каталога — всё, что видите, доступно для заказа" },
                   { icon: "ShieldCheck", title: "Гарантия 18 месяцев", desc: "Гарантия на каркас, механизмы и обивку. Ремонт или замена без лишних вопросов" },
                 ].map((f, i) => (
                   <div key={i} className="border border-border p-8 hover:border-primary transition-colors group">
@@ -205,8 +205,8 @@ export default function Index() {
             {(() => {
               const rogojkaColors = [
                 { name: "Бежевый", color: "#C8B89A", dark: false, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a389bbba-23dd-4b56-899d-d2317ab26cee.jpg" },
-                { name: "Коричневый", color: "#3D2B1F", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f1b9a482-58b8-46af-857c-4847ef4e3917.jpg" },
-                { name: "Серо-бежевый", color: "#7A6E60", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg" },
+                { name: "Кофейный", color: "#3D2B1F", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f1b9a482-58b8-46af-857c-4847ef4e3917.jpg" },
+                { name: "Медово-коричневый", color: "#7A6E60", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg" },
                 { name: "Серый", color: "#4A4A4A", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/334bb3de-ee3c-4dec-a59a-f195d0648310.jpg" },
                 { name: "Синий", color: "#2E4A6B", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/46919192-f2f6-4f7b-a677-abb571901185.jpg" },
               ];
@@ -506,13 +506,13 @@ export default function Index() {
                     Каждый диван проходит через руки мастеров на нашем производстве в Москве. Итальянские ткани, немецкие механизмы, экологичный наполнитель.
                   </p>
                   <p className="font-body text-muted-foreground leading-relaxed">
-                    Сегодня FORMA — это 120+ моделей, 4 200 довольных клиентов и шоурум в центре Москвы.
+                    Сегодня FORMA — это 120+ моделей, более 1 млн довольных клиентов и шоурум в центре Москвы.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { num: "2015", label: "Год основания" },
-                    { num: "4 200+", label: "Клиентов" },
+                    { num: "1 млн+", label: "Клиентов" },
                     { num: "120+", label: "Моделей" },
                     { num: "18 мес.", label: "Гарантия" },
                   ].map((s, i) => (
