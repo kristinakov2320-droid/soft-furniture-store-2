@@ -13,10 +13,11 @@ const ROGOJKA_COFFEE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528
 const ROGOJKA_HONEY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg";
 const ROGOJKA_GREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/334bb3de-ee3c-4dec-a59a-f195d0648310.jpg";
 const ROGOJKA_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/46919192-f2f6-4f7b-a677-abb571901185.jpg";
-const VELVET_EMERALD = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7026c721-08fd-477a-9b3f-458456081aeb.jpg";
-const VELVET_MINT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0f90c222-411b-47a4-99b8-4b7db05c4aae.jpg";
-const VELVET_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fa28b136-c691-402a-8a2b-400331b434da.jpg";
-const VELVET_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f0628c06-708c-46b9-b2a4-1c4caf218c0b.jpg";
+const VELVET_EMERALD = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7ad6636c-e785-4898-a1b0-817c74a1a421.jpg";
+const VELVET_CHOCOLATE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/19dbaa83-4956-42d1-8120-ea5f77c5ae71.jpg";
+const VELVET_MINT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b9a818cd-a59c-4b69-b5c0-b4ca163ddba8.jpg";
+const VELVET_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b01460c2-6ca9-4767-a94b-238dfb5d32f4.jpg";
+const VELVET_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f12ee5bf-0cf4-4300-8af6-16ef12060d2a.jpg";
 
 const catalogProducts = [
   {
@@ -382,10 +383,11 @@ export default function Index() {
                 { name: "Синий", color: "#2E4A6B", dark: true, image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/46919192-f2f6-4f7b-a677-abb571901185.jpg" },
               ];
               const velvetColors = [
-                { name: "Изумрудный", color: "#2E6B50", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7026c721-08fd-477a-9b3f-458456081aeb.jpg" },
-                { name: "Мятный", color: "#4A8B7F", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0f90c222-411b-47a4-99b8-4b7db05c4aae.jpg" },
-                { name: "Светло-серый", color: "#9E9E9E", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fa28b136-c691-402a-8a2b-400331b434da.jpg" },
-                { name: "Синий", color: "#3A5A8A", image: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f0628c06-708c-46b9-b2a4-1c4caf218c0b.jpg" },
+                { name: "Изумрудный", color: "#2E6B50", image: VELVET_EMERALD },
+                { name: "Шоколадный", color: "#6B4A35", image: VELVET_CHOCOLATE },
+                { name: "Мятный", color: "#4A8B7F", image: VELVET_MINT },
+                { name: "Светло-серый", color: "#9E9E9E", image: VELVET_LGREY },
+                { name: "Синий", color: "#3A5A8A", image: VELVET_BLUE },
               ];
               const rActive = rogojkaColors[activeRogojka];
               const vActive = velvetColors[activeVelvet];
