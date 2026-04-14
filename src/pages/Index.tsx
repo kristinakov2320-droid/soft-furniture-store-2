@@ -8,10 +8,29 @@ const SHOWROOM_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528
 
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
+const ROGOJKA_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a389bbba-23dd-4b56-899d-d2317ab26cee.jpg";
+const ROGOJKA_COFFEE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f1b9a482-58b8-46af-857c-4847ef4e3917.jpg";
+const ROGOJKA_HONEY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg";
+const ROGOJKA_GREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/334bb3de-ee3c-4dec-a59a-f195d0648310.jpg";
+const ROGOJKA_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/46919192-f2f6-4f7b-a677-abb571901185.jpg";
+const VELVET_EMERALD = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7026c721-08fd-477a-9b3f-458456081aeb.jpg";
+const VELVET_MINT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0f90c222-411b-47a4-99b8-4b7db05c4aae.jpg";
+const VELVET_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fa28b136-c691-402a-8a2b-400331b434da.jpg";
+const VELVET_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f0628c06-708c-46b9-b2a4-1c4caf218c0b.jpg";
+
 const catalogProducts = [
   {
     id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит",
     images: [HERO_IMAGE, SHOWROOM_IMAGE, GARDEN_IMAGE],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Синий (рогожка)", swatch: ROGOJKA_BLUE },
+      { name: "Изумрудный", swatch: VELVET_EMERALD },
+      { name: "Мятный", swatch: VELVET_MINT },
+    ],
     desc: "Угловой диван с мягкими подлокотниками и независимым пружинным блоком. Обивка — рогожка или велюр на выбор. Срок изготовления до 7 рабочих дней.",
     specs: [
       { label: "Размер", value: "Ш 280 × Г 175 × В 85 см" },
@@ -27,6 +46,10 @@ const catalogProducts = [
   {
     id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка",
     images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+    ],
     desc: "Комплект садовой мебели из ротанга с алюминиевым каркасом. Не боится влаги и перепадов температур. Подушки входят в комплект.",
     specs: [
       { label: "Комплект", value: "Диван + 2 кресла + столик" },
@@ -42,6 +65,12 @@ const catalogProducts = [
   {
     id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "",
     images: ["https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", SHOWROOM_IMAGE, HERO_IMAGE],
+    colors: [
+      { name: "Бежевый (велюр)", swatch: VELVET_LGREY },
+      { name: "Мятный (велюр)", swatch: VELVET_MINT },
+      { name: "Синий (велюр)", swatch: VELVET_BLUE },
+      { name: "Изумрудный (велюр)", swatch: VELVET_EMERALD },
+    ],
     desc: "Кровать с мягким изголовьем в скандинавском стиле. Вертикальная стёжка придаёт объём и благородство. Обивка — бежевый велюр.",
     specs: [
       { label: "Спальное место", value: "160×200 / 180×200 см" },
@@ -57,6 +86,11 @@ const catalogProducts = [
   {
     id: 4, name: "Terra Set", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит",
     images: [GARDEN_IMAGE, SHOWROOM_IMAGE, HERO_IMAGE],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+    ],
     desc: "Премиальный комплект садовой мебели с широкими посадочными местами. Отлично подходит для террасы и зоны барбекю.",
     specs: [
       { label: "Комплект", value: "Диван + 2 кресла + журнальный стол" },
@@ -72,6 +106,13 @@ const catalogProducts = [
   {
     id: 5, name: "Minimal", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "",
     images: [HERO_IMAGE, GARDEN_IMAGE, SHOWROOM_IMAGE],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Синий (рогожка)", swatch: ROGOJKA_BLUE },
+      { name: "Изумрудный (велюр)", swatch: VELVET_EMERALD },
+      { name: "Синий (велюр)", swatch: VELVET_BLUE },
+    ],
     desc: "Прямой диван в стиле минимализм. Лаконичные линии, плотная посадка, высокие ножки. Идеален для небольших пространств.",
     specs: [
       { label: "Размер", value: "Ш 220 × Г 90 × В 80 см" },
@@ -87,6 +128,10 @@ const catalogProducts = [
   {
     id: 6, name: "Patio Duo", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка",
     images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+    ],
     desc: "Двухместный диван для открытых террас и лоджий. Компактный, но вместительный. Легко собирается без инструментов.",
     specs: [
       { label: "Размер", value: "Ш 150 × Г 80 × В 75 см" },
@@ -105,6 +150,15 @@ const catalogProducts = [
       "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/4300a84d-f22a-46f5-bb64-31b787c56afd.jpg",
       "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/9f50caee-1102-4e33-9527-3a1c2234fb89.jpg",
       "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/493f29d0-f89e-49dd-9c32-8c760b879482.jpg",
+    ],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Изумрудный (велюр)", swatch: VELVET_EMERALD },
+      { name: "Мятный (велюр)", swatch: VELVET_MINT },
+      { name: "Светло-серый (велюр)", swatch: VELVET_LGREY },
+      { name: "Синий (велюр)", swatch: VELVET_BLUE },
     ],
     desc: "Кресло с глубокой мягкой посадкой и широкими подлокотниками. Идеально для чтения и отдыха. Обивка — велюр или рогожка на выбор.",
     specs: [
@@ -138,6 +192,21 @@ export default function Index() {
   const [activeVelvet, setActiveVelvet] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<(typeof catalogProducts)[0] | null>(null);
   const [activePhoto, setActivePhoto] = useState(0);
+  const [activeColor, setActiveColor] = useState(0);
+  const [colorPreview, setColorPreview] = useState<string | null>(null);
+
+  const openProduct = (p: (typeof catalogProducts)[0]) => {
+    setSelectedProduct(p);
+    setActivePhoto(0);
+    setActiveColor(0);
+    setColorPreview(null);
+  };
+  const closeProduct = () => {
+    setSelectedProduct(null);
+    setActivePhoto(0);
+    setActiveColor(0);
+    setColorPreview(null);
+  };
 
   const totalItems = cartItems.reduce((s, i) => s + i.qty, 0);
   const totalPrice = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
@@ -492,7 +561,7 @@ export default function Index() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {catalogProducts.slice(0, 3).map((p) => (
-                  <div key={p.id} className="group cursor-pointer" onClick={() => setSelectedProduct(p)}>
+                  <div key={p.id} className="group cursor-pointer" onClick={() => openProduct(p)}>
                     <div className="aspect-[4/3] overflow-hidden relative mb-4">
                       <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       {p.tag && (
@@ -558,7 +627,7 @@ export default function Index() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.map((p) => (
-                <div key={p.id} className="group cursor-pointer" onClick={() => setSelectedProduct(p)}>
+                <div key={p.id} className="group cursor-pointer" onClick={() => openProduct(p)}>
                   <div className="aspect-[4/3] overflow-hidden relative mb-4">
                     <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     {p.tag && (
@@ -843,36 +912,42 @@ export default function Index() {
 
       {/* ── PRODUCT MODAL ── */}
       {selectedProduct && (
-        <div
-          className="fixed inset-0 z-[100] flex items-end md:items-center justify-center"
-          onClick={() => { setSelectedProduct(null); setActivePhoto(0); }}
-        >
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+        <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center" onClick={closeProduct}>
+          <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
 
           <div
-            className="relative z-10 w-full md:max-w-6xl md:mx-4 bg-background max-h-[95vh] overflow-hidden flex flex-col md:flex-row shadow-2xl"
+            className="relative z-10 w-full md:max-w-[90vw] lg:max-w-[1100px] md:mx-4 bg-background max-h-[95vh] overflow-hidden flex flex-col md:flex-row shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
             <button
-              onClick={() => { setSelectedProduct(null); setActivePhoto(0); }}
+              onClick={closeProduct}
               className="absolute top-4 right-4 z-30 w-10 h-10 bg-background/90 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
             >
               <Icon name="X" size={16} />
             </button>
 
             {/* ── LEFT: Gallery ── */}
-            <div className="w-full md:w-[55%] flex-shrink-0 flex flex-col bg-muted/30">
-              {/* Main photo */}
-              <div className="relative aspect-[4/3] md:aspect-auto md:flex-1 overflow-hidden">
-                <img
-                  key={activePhoto}
-                  src={selectedProduct.images[activePhoto]}
-                  alt={selectedProduct.name}
-                  className="w-full h-full object-cover transition-opacity duration-300"
-                />
-                {/* Arrow prev */}
-                {selectedProduct.images.length > 1 && (
+            <div className="w-full md:w-[60%] flex-shrink-0 flex flex-col">
+              {/* Main photo — object-contain чтобы не обрезало */}
+              <div className="relative bg-muted/20 flex-1 min-h-[260px] md:min-h-0 overflow-hidden flex items-center justify-center">
+                {colorPreview ? (
+                  <img
+                    key={"color-" + activeColor}
+                    src={colorPreview}
+                    alt="Цвет обивки"
+                    className="w-full h-full object-contain transition-opacity duration-300 p-4"
+                  />
+                ) : (
+                  <img
+                    key={activePhoto}
+                    src={selectedProduct.images[activePhoto]}
+                    alt={selectedProduct.name}
+                    className="w-full h-full object-contain transition-opacity duration-300"
+                  />
+                )}
+
+                {!colorPreview && selectedProduct.images.length > 1 && (
                   <>
                     <button
                       onClick={() => setActivePhoto((p) => (p - 1 + selectedProduct.images.length) % selectedProduct.images.length)}
@@ -888,31 +963,56 @@ export default function Index() {
                     </button>
                   </>
                 )}
-                {/* Counter */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur px-3 py-1 font-display text-xs tracking-widest">
-                  {activePhoto + 1} / {selectedProduct.images.length}
+
+                {/* Badge: ракурс или цвет */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur px-3 py-1 font-display text-xs tracking-widest whitespace-nowrap">
+                  {colorPreview
+                    ? `Цвет: ${selectedProduct.colors?.[activeColor]?.name ?? ""}`
+                    : `${activePhoto + 1} / ${selectedProduct.images.length}`}
                 </div>
               </div>
 
-              {/* Thumbnails */}
-              <div className="flex gap-2 p-3 bg-background border-t border-border overflow-x-auto">
+              {/* Thumbnails row — фото + цвета вместе */}
+              <div className="flex gap-2 p-3 bg-background border-t border-border overflow-x-auto flex-shrink-0">
+                {/* Photo thumbs */}
                 {selectedProduct.images.map((img, i) => (
                   <button
-                    key={i}
-                    onClick={() => setActivePhoto(i)}
-                    className={`flex-shrink-0 w-20 h-16 overflow-hidden border-2 transition-all ${i === activePhoto ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"}`}
+                    key={"img-" + i}
+                    onClick={() => { setActivePhoto(i); setColorPreview(null); }}
+                    className={`flex-shrink-0 w-20 h-16 overflow-hidden border-2 transition-all ${!colorPreview && i === activePhoto ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"}`}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
+                  </button>
+                ))}
+
+                {/* Divider */}
+                {selectedProduct.colors && selectedProduct.colors.length > 0 && (
+                  <div className="w-px bg-border flex-shrink-0 mx-1" />
+                )}
+
+                {/* Color swatches */}
+                {selectedProduct.colors?.map((c, i) => (
+                  <button
+                    key={"col-" + i}
+                    title={c.name}
+                    onClick={() => { setColorPreview(c.swatch); setActiveColor(i); }}
+                    className={`flex-shrink-0 w-16 h-16 overflow-hidden border-2 transition-all relative ${colorPreview && i === activeColor ? "border-primary" : "border-transparent opacity-70 hover:opacity-100"}`}
+                  >
+                    <img src={c.swatch} alt={c.name} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 flex items-end">
+                      <div className="w-full bg-black/40 py-0.5 px-1">
+                        <p className="text-white font-body leading-none" style={{ fontSize: "8px" }}>{c.name.split(" ")[0]}</p>
+                      </div>
+                    </div>
                   </button>
                 ))}
               </div>
             </div>
 
             {/* ── RIGHT: Info ── */}
-            <div className="flex flex-col flex-1 overflow-y-auto">
-              <div className="p-8 md:p-10 flex flex-col h-full">
-                {/* Header */}
-                <div className="mb-6">
+            <div className="flex flex-col flex-1 overflow-y-auto border-t md:border-t-0 md:border-l border-border">
+              <div className="p-7 md:p-9 flex flex-col h-full">
+                <div className="mb-5">
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <p className="font-body text-muted-foreground text-xs tracking-[0.35em] uppercase">
                       {selectedProduct.category === "sofa" ? "Диван" : selectedProduct.category === "bed" ? "Кровать" : selectedProduct.category === "chair" ? "Кресло" : "Садовая мебель"}
@@ -923,21 +1023,19 @@ export default function Index() {
                       </span>
                     )}
                   </div>
-                  <h2 className="font-display text-4xl md:text-5xl font-bold tracking-widest mb-3">{selectedProduct.name}</h2>
-                  <div className="font-display text-3xl text-primary">{selectedProduct.price.toLocaleString("ru")} ₽</div>
+                  <h2 className="font-display text-3xl md:text-4xl font-bold tracking-widest mb-3">{selectedProduct.name}</h2>
+                  <div className="font-display text-2xl text-primary">{selectedProduct.price.toLocaleString("ru")} ₽</div>
                 </div>
 
-                {/* Description */}
-                <p className="font-body text-muted-foreground leading-relaxed text-sm mb-6 pb-6 border-b border-border">
+                <p className="font-body text-muted-foreground leading-relaxed text-sm mb-5 pb-5 border-b border-border">
                   {selectedProduct.desc}
                 </p>
 
-                {/* Specs table */}
-                <div className="mb-6">
-                  <p className="font-display text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">Характеристики</p>
-                  <div className="space-y-0">
+                <div className="mb-5 flex-1">
+                  <p className="font-display text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">Характеристики</p>
+                  <div>
                     {selectedProduct.specs.map((s, i) => (
-                      <div key={i} className={`flex justify-between gap-4 py-3 text-sm ${i < selectedProduct.specs.length - 1 ? "border-b border-border/50" : ""}`}>
+                      <div key={i} className={`flex justify-between gap-4 py-2.5 text-sm ${i < selectedProduct.specs.length - 1 ? "border-b border-border/50" : ""}`}>
                         <span className="font-body text-muted-foreground flex-shrink-0">{s.label}</span>
                         <span className="font-body text-right">{s.value}</span>
                       </div>
@@ -945,10 +1043,9 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* CTA */}
-                <div className="mt-auto pt-4">
+                <div className="pt-4 border-t border-border">
                   <button
-                    onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); setActivePhoto(0); }}
+                    onClick={() => { addToCart(selectedProduct); closeProduct(); }}
                     className="w-full bg-primary text-primary-foreground py-4 font-display text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
                   >
                     В корзину
