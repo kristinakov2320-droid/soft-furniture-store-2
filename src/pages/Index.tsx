@@ -9,12 +9,12 @@ const SHOWROOM_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
 const catalogProducts = [
-  { id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит" },
-  { id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка" },
-  { id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "" },
-  { id: 4, name: "TERRA SET", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит" },
-  { id: 5, name: "MINIMAL", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "" },
-  { id: 6, name: "PATIO DUO", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка" },
+  { id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит", desc: "Угловой диван с мягкими подлокотниками и независимым пружинным блоком. Обивка — рогожка или велюр на выбор. Срок изготовления до 7 рабочих дней.", specs: ["Ш 280 × Г 175 × В 85 см", "Механизм: дельфин", "Наполнитель: ППУ + холлофайбер", "Гарантия 18 месяцев"] },
+  { id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка", desc: "Комплект садовой мебели из ротанга с алюминиевым каркасом. Не боится влаги и перепадов температур. Подушки входят в комплект.", specs: ["Диван + 2 кресла + столик", "Материал: искусственный ротанг", "Каркас: алюминий", "Подушки: влагостойкая ткань"] },
+  { id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "", desc: "Кровать с мягким изголовьем в скандинавском стиле. Вертикальная стёжка придаёт объём и благородство. Обивка — бежевый велюр.", specs: ["160×200 / 180×200 см", "Подъёмный механизм", "Каркас: ЛДСП + металл", "Гарантия 18 месяцев"] },
+  { id: 4, name: "TERRA SET", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит", desc: "Премиальный комплект садовой мебели с широкими посадочными местами. Отлично подходит для террасы и зоны барбекю.", specs: ["Диван + 2 кресла + журнальный стол", "Каркас: сталь с порошковым покрытием", "Ткань: Olefin (UV-защита)", "Сборка включена"] },
+  { id: 5, name: "MINIMAL", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "", desc: "Прямой диван в стиле минимализм. Лаконичные линии, плотная посадка, высокие ножки. Идеален для небольших пространств.", specs: ["Ш 220 × Г 90 × В 80 см", "Механизм: еврокнижка", "Наполнитель: ППУ", "Ножки: натуральный дуб"] },
+  { id: 6, name: "PATIO DUO", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка", desc: "Двухместный диван для открытых террас и лоджий. Компактный, но вместительный. Легко собирается без инструментов.", specs: ["Ш 150 × Г 80 × В 75 см", "Материал: ротанг PE", "Подушки в комплекте", "Вес: 18 кг"] },
 ];
 
 const faqItems = [
@@ -33,6 +33,7 @@ export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeRogojka, setActiveRogojka] = useState(0);
   const [activeVelvet, setActiveVelvet] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState<(typeof catalogProducts)[0] | null>(null);
 
   const totalItems = cartItems.reduce((s, i) => s + i.qty, 0);
   const totalPrice = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
@@ -386,25 +387,25 @@ export default function Index() {
                 </button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {catalogProducts.slice(0, 3).map((p, i) => (
-                  <div key={p.id} className="group cursor-pointer">
+                {catalogProducts.slice(0, 3).map((p) => (
+                  <div key={p.id} className="group cursor-pointer" onClick={() => setSelectedProduct(p)}>
                     <div className="aspect-[4/3] overflow-hidden relative mb-4">
-                      <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       {p.tag && (
                         <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-2 py-1 font-display text-xs tracking-widest">{p.tag}</div>
                       )}
+                      <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <div className="bg-background/90 backdrop-blur px-6 py-3 font-display text-sm tracking-widest uppercase border border-border">
+                          Подробнее →
+                        </div>
+                      </div>
                     </div>
                     <div className="flex items-end justify-between">
                       <div>
                         <h3 className="font-display text-xl tracking-widest">{p.name}</h3>
                         <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : "Садовая мебель"}</p>
                       </div>
-                      <div className="text-right">
-                        <div className="font-display text-lg text-primary">{p.price.toLocaleString("ru")} ₽</div>
-                        <button onClick={() => addToCart(p)} className="mt-1 text-xs font-body text-muted-foreground hover:text-primary transition-colors">
-                          + В корзину
-                        </button>
-                      </div>
+                      <div className="font-display text-lg text-primary">{p.price.toLocaleString("ru")} ₽</div>
                     </div>
                   </div>
                 ))}
@@ -439,7 +440,7 @@ export default function Index() {
               <h1 className="font-display text-6xl font-bold">КАТАЛОГ</h1>
             </div>
             <div className="flex gap-3 mb-10 flex-wrap">
-              {[{ id: "all", label: "Все модели" }, { id: "sofa", label: "Диваны" }, { id: "garden", label: "Садовая мебель" }].map((f) => (
+              {[{ id: "all", label: "Все модели" }, { id: "sofa", label: "Диваны" }, { id: "bed", label: "Кровати" }, { id: "garden", label: "Садовая мебель" }].map((f) => (
                 <button
                   key={f.id}
                   onClick={() => setActiveFilter(f.id)}
@@ -453,16 +454,16 @@ export default function Index() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.map((p) => (
-                <div key={p.id} className="group">
+                <div key={p.id} className="group cursor-pointer" onClick={() => setSelectedProduct(p)}>
                   <div className="aspect-[4/3] overflow-hidden relative mb-4">
-                    <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     {p.tag && (
                       <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-2 py-1 font-display text-xs tracking-widest">{p.tag}</div>
                     )}
-                    <div className="absolute inset-0 bg-background/0 group-hover:bg-background/30 transition-all duration-300 flex items-end p-4 opacity-0 group-hover:opacity-100">
-                      <button onClick={() => addToCart(p)} className="w-full bg-primary text-primary-foreground py-3 font-display text-sm tracking-widest uppercase">
-                        В корзину
-                      </button>
+                    <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      <div className="bg-background/90 backdrop-blur px-6 py-3 font-display text-sm tracking-widest uppercase border border-border">
+                        Подробнее →
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-end justify-between">
@@ -735,6 +736,84 @@ export default function Index() {
           </div>
         </footer>
       </main>
+
+      {/* ── PRODUCT MODAL ── */}
+      {selectedProduct && (
+        <div
+          className="fixed inset-0 z-[100] flex items-end md:items-center justify-center"
+          onClick={() => setSelectedProduct(null)}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+          {/* Panel */}
+          <div
+            className="relative z-10 w-full md:max-w-5xl md:mx-4 bg-background max-h-[92vh] md:max-h-[85vh] overflow-hidden flex flex-col md:flex-row md:rounded-none shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close */}
+            <button
+              onClick={() => setSelectedProduct(null)}
+              className="absolute top-4 right-4 z-20 w-10 h-10 bg-background/80 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
+            >
+              <Icon name="X" size={16} />
+            </button>
+
+            {/* Image */}
+            <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto md:h-auto overflow-hidden flex-shrink-0">
+              <img
+                src={selectedProduct.img}
+                alt={selectedProduct.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Info */}
+            <div className="flex flex-col flex-1 p-8 md:p-10 overflow-y-auto">
+              {selectedProduct.tag && (
+                <span className="inline-block self-start bg-primary text-primary-foreground px-3 py-1 font-display text-xs tracking-widest mb-4">
+                  {selectedProduct.tag}
+                </span>
+              )}
+              <p className="font-body text-muted-foreground text-xs tracking-[0.3em] uppercase mb-2">
+                {selectedProduct.category === "sofa" ? "Диван" : selectedProduct.category === "bed" ? "Кровать" : "Садовая мебель"}
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-widest mb-4">{selectedProduct.name}</h2>
+              <div className="font-display text-3xl text-primary mb-6">{selectedProduct.price.toLocaleString("ru")} ₽</div>
+
+              <p className="font-body text-muted-foreground leading-relaxed mb-8 text-sm">{selectedProduct.desc}</p>
+
+              {/* Specs */}
+              <div className="border-t border-border pt-6 mb-8">
+                <p className="font-display text-xs tracking-[0.35em] uppercase text-muted-foreground mb-4">Характеристики</p>
+                <ul className="space-y-2">
+                  {selectedProduct.specs.map((s, i) => (
+                    <li key={i} className="flex items-center gap-3 font-body text-sm">
+                      <div className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-auto flex flex-col gap-3">
+                <button
+                  onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }}
+                  className="w-full bg-primary text-primary-foreground py-4 font-display text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
+                >
+                  В корзину
+                </button>
+                <button
+                  onClick={() => { navigate("contacts"); setSelectedProduct(null); }}
+                  className="w-full border border-border text-muted-foreground py-3 font-display text-xs tracking-widest uppercase hover:border-primary hover:text-primary transition-colors"
+                >
+                  Задать вопрос
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
