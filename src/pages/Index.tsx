@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 
@@ -194,6 +194,23 @@ export default function Index() {
   const [selectedProduct, setSelectedProduct] = useState<(typeof catalogProducts)[0] | null>(null);
   const [activePhoto, setActivePhoto] = useState(0);
   const [activeColor, setActiveColor] = useState(0);
+  const [promoTimeLeft, setPromoTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
+  useEffect(() => {
+    const promoEnd = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
+    const tick = () => {
+      const diff = promoEnd.getTime() - Date.now();
+      if (diff <= 0) return;
+      setPromoTimeLeft({
+        d: Math.floor(diff / 86400000),
+        h: Math.floor((diff % 86400000) / 3600000),
+        m: Math.floor((diff % 3600000) / 60000),
+        s: Math.floor((diff % 60000) / 1000),
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   const openProduct = (p: (typeof catalogProducts)[0]) => {
     setSelectedProduct(p);
@@ -372,6 +389,107 @@ export default function Index() {
                 ))}
               </div>
             </section>
+
+            {/* Promo of the Month */}
+            {(() => {
+              const pad = (n: number) => String(n).padStart(2, "0");
+              return (
+                <section className="relative overflow-hidden bg-[#0d0d0d] text-white">
+                  {/* Фоновая текстура */}
+                  <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "24px 24px" }} />
+                  {/* Акцентная полоса сверху */}
+                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
+
+                  <div className="container relative z-10 py-20 lg:py-24">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                      {/* Левая часть — текст */}
+                      <div>
+                        <div className="flex items-center gap-3 mb-8">
+                          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                          <span className="font-display text-[10px] tracking-[0.5em] uppercase text-primary">Акция месяца</span>
+                        </div>
+
+                        <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
+                          МОДЕЛЬ<br />
+                          <span className="text-white/20">МЕСЯЦА</span>
+                        </h2>
+
+                        <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-10">
+                          Диван «Название модели» — изумрудный велюр
+                        </p>
+
+                        {/* Цена */}
+                        <div className="flex items-end gap-5 mb-12">
+                          <span className="font-display text-6xl lg:text-8xl font-bold text-white leading-none">
+                            00 000 ₽
+                          </span>
+                          <div className="mb-2">
+                            <span className="font-body text-white/30 line-through text-2xl block">00 000 ₽</span>
+                            <span className="font-display text-primary text-sm tracking-widest">−XX%</span>
+                          </div>
+                        </div>
+
+                        {/* Таймер */}
+                        <div className="mb-10">
+                          <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
+                          <div className="flex items-end gap-1">
+                            {[
+                              { val: promoTimeLeft.d, label: "дней" },
+                              { val: promoTimeLeft.h, label: "часов" },
+                              { val: promoTimeLeft.m, label: "минут" },
+                              { val: promoTimeLeft.s, label: "секунд" },
+                            ].map((t, i) => (
+                              <div key={i} className="flex items-end gap-1">
+                                <div className="text-center">
+                                  <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
+                                    {pad(t.val)}
+                                  </div>
+                                  <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
+                                </div>
+                                {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => setSection("catalog")}
+                          className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-primary/90 transition-colors"
+                        >
+                          Воспользоваться акцией
+                          <Icon name="ArrowRight" size={14} />
+                        </button>
+                      </div>
+
+                      {/* Правая часть — фото */}
+                      <div className="relative">
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                          <img
+                            src={HERO_IMAGE}
+                            alt="Акция месяца"
+                            className="w-full h-full object-cover opacity-80"
+                          />
+                          {/* Градиент слева для плавного слияния */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-transparent to-transparent lg:block hidden" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent" />
+                          {/* Бейдж */}
+                          <div className="absolute top-6 right-6 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
+                            −XX%
+                          </div>
+                        </div>
+                        {/* Декоративная рамка */}
+                        <div className="absolute -bottom-4 -right-4 w-32 h-32 border border-white/10 pointer-events-none hidden lg:block" />
+                      </div>
+
+                    </div>
+                  </div>
+
+                  {/* Акцентная полоса снизу */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/5" />
+                </section>
+              );
+            })()}
 
             {/* Materials */}
             {(() => {
