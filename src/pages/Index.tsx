@@ -394,9 +394,9 @@ export default function Index() {
             {(() => {
               const pad = (n: number) => String(n).padStart(2, "0");
               return (
-                <section className="relative overflow-hidden bg-[#0d0d0d] text-white">
+                <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
                   {/* Фоновая текстура */}
-                  <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "24px 24px" }} />
+                  <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "24px 24px" }} />
                   {/* Акцентная полоса сверху */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -407,16 +407,16 @@ export default function Index() {
                       <div>
                         <div className="flex items-center gap-3 mb-8">
                           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                          <span className="font-display text-[10px] tracking-[0.5em] uppercase text-primary">Акция месяца</span>
+                          <span className="font-display text-lg tracking-[0.3em] uppercase text-primary font-bold">АКЦИЯ</span>
                         </div>
 
                         <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
-                          МОДЕЛЬ<br />
-                          <span className="text-white/20">МЕСЯЦА</span>
+                          ДИВАН<br />
+                          <span className="text-white/20">«НАЗВАНИЕ»</span>
                         </h2>
 
                         <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-10">
-                          Диван «Название модели» — изумрудный велюр
+                          Название модели — изумрудный велюр
                         </p>
 
                         {/* Цена */}
@@ -454,7 +454,7 @@ export default function Index() {
                         </div>
 
                         <button
-                          onClick={() => setActiveSection("catalog")}
+                          onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts[0]); }}
                           className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-primary/90 transition-colors"
                         >
                           Воспользоваться акцией
@@ -463,16 +463,15 @@ export default function Index() {
                       </div>
 
                       {/* Правая часть — фото */}
-                      <div className="relative">
-                        <div className="relative aspect-[4/3] overflow-hidden">
+                      <div className="relative lg:-my-20 lg:-mr-8">
+                        <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[540px] overflow-hidden">
                           <img
                             src={HERO_IMAGE}
                             alt="Акция месяца"
-                            className="w-full h-full object-cover opacity-80"
+                            className="w-full h-full object-cover opacity-90"
                           />
-                          {/* Градиент слева для плавного слияния */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-transparent to-transparent lg:block hidden" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-transparent to-transparent lg:block hidden" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent" />
                           {/* Бейдж */}
                           <div className="absolute top-6 right-6 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
                             −XX%
