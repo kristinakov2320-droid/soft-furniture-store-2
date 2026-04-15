@@ -484,9 +484,9 @@ export default function Index() {
             {(() => {
               const pad = (n: number) => String(n).padStart(2, "0");
               return (
-                <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
+                <section className="relative overflow-hidden bg-[#2e2a24] text-white">
                   {/* Фоновая текстура */}
-                  <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "24px 24px" }} />
+                  <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "24px 24px" }} />
                   {/* Акцентная полоса сверху */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -494,7 +494,7 @@ export default function Index() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                       {/* Левая часть — текст */}
-                      <div>
+                      <div className="order-2 lg:order-1">
                         <div className="flex items-center gap-3 mb-8">
                           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                           <span className="font-display text-lg tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
@@ -546,15 +546,15 @@ export default function Index() {
                       </div>
 
                       {/* Правая часть — фото */}
-                      <div className="relative lg:-mr-8 lg:my-[-60px]">
+                      <div className="relative order-1 lg:order-2 lg:-mr-8 lg:my-[-60px]">
                         <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                           <img
                             src={OASIS_IMAGE}
                             alt="Акция месяца — Оазис"
                             className="w-full h-full object-cover object-center opacity-95"
                           />
-                          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#1a1a1a] to-transparent" />
-                          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a1a1a] to-transparent" />
+                          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#2e2a24] to-transparent" />
+                          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2e2a24] to-transparent" />
                           <div className="absolute top-4 right-4 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
                             −24%
                           </div>
