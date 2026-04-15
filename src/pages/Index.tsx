@@ -32,30 +32,39 @@ const LIBERTY_DGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-
 const catalogProducts = [
   {
     id: 1, name: "Либерти", category: "sofa", price: 69399, img: LIBERTY_BEIGE, tag: "Хит",
-    images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6, LIBERTY_GREEN, LIBERTY_LGREY, LIBERTY_DGREY],
+    images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6],
     colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE, img: LIBERTY_BEIGE },
-      { name: "Зелёный", swatch: VELVET_EMERALD, img: LIBERTY_GREEN },
-      { name: "Светло-серый", swatch: VELVET_LGREY, img: LIBERTY_LGREY },
-      { name: "Тёмно-серый", swatch: ROGOJKA_GREY, img: LIBERTY_DGREY },
+      { name: "Бежевый", swatch: LIBERTY_BEIGE, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
+      { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN] },
+      { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY] },
+      { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY] },
     ],
     desc: "Большой современный диван из трёх секций станет стильным и функциональным акцентом в вашей гостиной.",
     specs: [
       { label: "Размер дивана", value: "334 × 80 × 168 см" },
       { label: "Спальное место", value: "298 × 166 см" },
-      { label: "Глубина сиденья", value: "68 см (98 см без подушек)" },
+      { label: "Глубина сиденья", value: "68 см" },
+      { label: "Глубина сиденья без подушек", value: "98 см" },
       { label: "Высота сиденья", value: "40 см" },
       { label: "Ширина сиденья", value: "298 см" },
+      { label: "Ширина сиденья оттоманки", value: "99 см" },
       { label: "Высота спинки", value: "28 см" },
-      { label: "Высота подлокотников", value: "58 см" },
       { label: "Высота ножек", value: "2,5 см" },
+      { label: "Высота подлокотников", value: "58 см" },
+      { label: "Ширина левого подлокотника", value: "18 см" },
+      { label: "Ширина правого подлокотника", value: "18 см" },
       { label: "Ящик для белья", value: "99,5 × 19,5 × 80 см — 3 шт." },
       { label: "Приспинные подушки", value: "98 × 41 × 28 см — 3 шт." },
       { label: "Каркас", value: "ДСП (ЛДСП)" },
       { label: "Основа сиденья", value: "Ламели ДСП (ЛДСП)" },
       { label: "Наполнитель", value: "Пенополиуретан" },
       { label: "Тип угла", value: "Универсальный" },
-      { label: "Нагрузка на место", value: "До 90 кг" },
+      { label: "Нагрузка на одно место", value: "До 90 кг" },
+      { label: "Коробка 1", value: "100 × 39 × 100 см — 46 кг" },
+      { label: "Коробка 2", value: "100 × 39 × 100 см — 46 кг" },
+      { label: "Коробка 3", value: "123 × 37 × 59 см — 26 кг" },
+      { label: "Коробка 4", value: "100 × 53 × 42 см — 6 кг" },
+      { label: "Коробка 5", value: "147 × 46 × 100 см — 60 кг" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
@@ -209,6 +218,7 @@ export default function Index() {
   const [selectedProduct, setSelectedProduct] = useState<(typeof catalogProducts)[0] | null>(null);
   const [activePhoto, setActivePhoto] = useState(0);
   const [activeColor, setActiveColor] = useState(0);
+  const [activeImages, setActiveImages] = useState<string[]>([]);
   const [promoTimeLeft, setPromoTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
   useEffect(() => {
     const promoEnd = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
@@ -231,6 +241,9 @@ export default function Index() {
     setSelectedProduct(p);
     setActivePhoto(0);
     setActiveColor(0);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const firstColorImages = (p.colors[0] as any)?.images as string[] | undefined;
+    setActiveImages(firstColorImages ?? p.images);
   };
   const closeProduct = () => {
     setSelectedProduct(null);
@@ -1057,7 +1070,7 @@ export default function Index() {
 
               {/* Вертикальный стрип миниатюр — только фотографии товара */}
               <div className="hidden md:flex flex-col gap-2 p-2 w-[88px] flex-shrink-0 overflow-y-auto border-r border-border bg-muted/10">
-                {selectedProduct.images.map((img, i) => (
+                {activeImages.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActivePhoto(i)}
@@ -1072,22 +1085,22 @@ export default function Index() {
               <div className="relative flex-1 bg-muted/10 overflow-hidden flex items-center justify-center">
                 <img
                   key={activePhoto}
-                  src={selectedProduct.images[activePhoto]}
+                  src={activeImages[activePhoto]}
                   alt={selectedProduct.name}
                   className="w-full h-full object-contain p-2 transition-opacity duration-300"
                 />
 
                 {/* Стрелки навигации */}
-                {selectedProduct.images.length > 1 && (
+                {activeImages.length > 1 && (
                   <>
                     <button
-                      onClick={() => setActivePhoto((p) => (p - 1 + selectedProduct.images.length) % selectedProduct.images.length)}
+                      onClick={() => setActivePhoto((p) => (p - 1 + activeImages.length) % activeImages.length)}
                       className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-background/85 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
                     >
                       <Icon name="ChevronLeft" size={16} />
                     </button>
                     <button
-                      onClick={() => setActivePhoto((p) => (p + 1) % selectedProduct.images.length)}
+                      onClick={() => setActivePhoto((p) => (p + 1) % activeImages.length)}
                       className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-background/85 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors"
                     >
                       <Icon name="ChevronRight" size={16} />
@@ -1097,12 +1110,12 @@ export default function Index() {
 
                 {/* Счётчик */}
                 <div className="absolute bottom-2 right-3 bg-background/75 backdrop-blur px-2 py-0.5 font-display text-[11px] tracking-widest text-muted-foreground">
-                  {activePhoto + 1} / {selectedProduct.images.length}
+                  {activePhoto + 1} / {activeImages.length}
                 </div>
 
                 {/* Горизонтальные точки — только мобайл */}
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 md:hidden">
-                  {selectedProduct.images.map((_, i) => (
+                  {activeImages.map((_, i) => (
                     <button key={i} onClick={() => setActivePhoto(i)} className={`w-1.5 h-1.5 rounded-full transition-all ${i === activePhoto ? "bg-primary scale-125" : "bg-border"}`} />
                   ))}
                 </div>
@@ -1148,12 +1161,10 @@ export default function Index() {
                           title={c.name}
                           onClick={() => {
                             setActiveColor(i);
+                            setActivePhoto(0);
                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            const colorImg = (c as any).img as string | undefined;
-                            if (colorImg) {
-                              const idx = selectedProduct.images.indexOf(colorImg);
-                              setActivePhoto(idx >= 0 ? idx : 0);
-                            }
+                            const colorImgs = (c as any).images as string[] | undefined;
+                            setActiveImages(colorImgs ?? selectedProduct.images);
                           }}
                           className={`relative w-11 h-11 overflow-hidden transition-all duration-200 ${i === activeColor ? "ring-2 ring-primary ring-offset-2 scale-105" : "ring-1 ring-border hover:ring-primary/50 hover:scale-105"}`}
                         >
