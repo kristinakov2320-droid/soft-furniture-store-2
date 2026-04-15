@@ -546,14 +546,14 @@ export default function Index() {
                       </div>
 
                       {/* Правая часть — фото */}
-                      <div className="relative">
+                      <div className="relative lg:-mr-8 lg:my-[-60px]">
                         <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                           <img
                             src={OASIS_IMAGE}
                             alt="Акция месяца — Оазис"
                             className="w-full h-full object-cover object-center opacity-95"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/60 via-transparent to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/70 via-transparent to-transparent" />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/70 via-transparent to-transparent" />
                           <div className="absolute top-4 right-4 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
                             −24%
