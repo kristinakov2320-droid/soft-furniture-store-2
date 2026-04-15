@@ -43,10 +43,12 @@ const LIBERTY_DGREY_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const LIBERTY_DGREY_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6b00d059-11fc-49c7-86c5-7b04765547c5.jpg";
 const LIBERTY_DGREY_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0ed867d2-170a-49f6-9ad8-87f969c1bbe9.jpg";
 const LIBERTY_DGREY_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4ddcbc92-990c-4005-9768-a775c55c2cc5.jpg";
+const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 
 const catalogProducts = [
   {
     id: 1, name: "Либерти", category: "sofa", price: 69399, img: LIBERTY_BEIGE, tag: "Хит",
+    angleType: "угловой", fabric: "велюр", createdAt: 2,
     images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6],
     colors: [
       { name: "Бежевый", swatch: LIBERTY_BEIGE, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
@@ -85,6 +87,7 @@ const catalogProducts = [
   },
   {
     id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка",
+    angleType: "прямой", fabric: "рогожка", createdAt: 5,
     images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
     colors: [
       { name: "Бежевый", swatch: ROGOJKA_BEIGE },
@@ -104,6 +107,7 @@ const catalogProducts = [
   },
   {
     id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "",
+    angleType: "прямой", fabric: "велюр", createdAt: 7,
     images: ["https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", SHOWROOM_IMAGE, HERO_IMAGE],
     colors: [
       { name: "Бежевый (велюр)", swatch: VELVET_LGREY },
@@ -125,6 +129,7 @@ const catalogProducts = [
   },
   {
     id: 4, name: "Terra Set", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит",
+    angleType: "угловой", fabric: "рогожка", createdAt: 3,
     images: [GARDEN_IMAGE, SHOWROOM_IMAGE, HERO_IMAGE],
     colors: [
       { name: "Бежевый", swatch: ROGOJKA_BEIGE },
@@ -145,6 +150,7 @@ const catalogProducts = [
   },
   {
     id: 5, name: "Minimal", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "",
+    angleType: "прямой", fabric: "рогожка", createdAt: 6,
     images: [HERO_IMAGE, GARDEN_IMAGE, SHOWROOM_IMAGE],
     colors: [
       { name: "Бежевый", swatch: ROGOJKA_BEIGE },
@@ -167,6 +173,7 @@ const catalogProducts = [
   },
   {
     id: 6, name: "Patio Duo", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка",
+    angleType: "прямой", fabric: "рогожка", createdAt: 4,
     images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
     colors: [
       { name: "Бежевый", swatch: ROGOJKA_BEIGE },
@@ -185,7 +192,27 @@ const catalogProducts = [
     ],
   },
   {
+    id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_IMAGE, tag: "Акция",
+    angleType: "прямой", fabric: "рогожка", createdAt: 1,
+    images: [OASIS_IMAGE],
+    colors: [
+      { name: "Чёрный", swatch: OASIS_IMAGE },
+    ],
+    desc: "Комплект садовой мебели из искусственного ротанга. В комплекте диван, два кресла и журнальный столик. Подходит для террасы, балкона и сада.",
+    specs: [
+      { label: "Комплект", value: "Диван + 2 кресла + столик" },
+      { label: "Материал", value: "Искусственный ротанг PE" },
+      { label: "Каркас", value: "Металл с порошковым покрытием" },
+      { label: "Подушки", value: "Влагостойкая ткань, входят в комплект" },
+      { label: "Нагрузка", value: "До 150 кг на место" },
+      { label: "Уход", value: "Протирать влажной тряпкой" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
     id: 7, name: "Ардо", category: "chair", price: 18900, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/4300a84d-f22a-46f5-bb64-31b787c56afd.jpg", tag: "Новинка",
+    angleType: "прямой", fabric: "рогожка", createdAt: 8,
     images: [
       "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/4300a84d-f22a-46f5-bb64-31b787c56afd.jpg",
       "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/9f50caee-1102-4e33-9527-3a1c2234fb89.jpg",
@@ -227,6 +254,9 @@ export default function Index() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
+  const [filterAngle, setFilterAngle] = useState("all");
+  const [filterFabric, setFilterFabric] = useState("all");
+  const [sortOrder, setSortOrder] = useState("default");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeRogojka, setActiveRogojka] = useState(0);
   const [activeVelvet, setActiveVelvet] = useState(0);
@@ -288,7 +318,24 @@ export default function Index() {
   const updateQty = (id: number, delta: number) =>
     setCartItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)));
 
-  const filteredProducts = activeFilter === "all" ? catalogProducts : catalogProducts.filter((p) => p.category === activeFilter);
+  const filteredProducts = (() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const list = catalogProducts.filter((p: any) => {
+      if (activeFilter !== "all" && p.category !== activeFilter) return false;
+      if (filterAngle !== "all" && p.angleType !== filterAngle) return false;
+      if (filterFabric !== "all" && p.fabric !== filterFabric) return false;
+      return true;
+    }) as typeof catalogProducts;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const s = list as any[];
+    if (sortOrder === "price_asc") s.sort((a, b) => a.price - b.price);
+    else if (sortOrder === "price_desc") s.sort((a, b) => b.price - a.price);
+    else if (sortOrder === "name_az") s.sort((a, b) => a.name.localeCompare(b.name, "ru"));
+    else if (sortOrder === "name_za") s.sort((a, b) => b.name.localeCompare(a.name, "ru"));
+    else if (sortOrder === "new_first") s.sort((a, b) => a.createdAt - b.createdAt);
+    else if (sortOrder === "old_first") s.sort((a, b) => b.createdAt - a.createdAt);
+    return s as typeof catalogProducts;
+  })();
 
   const navLinks: { id: Section; label: string }[] = [
     { id: "home", label: "Главная" },
@@ -454,22 +501,22 @@ export default function Index() {
                         </div>
 
                         <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
-                          ДИВАН<br />
-                          <span className="text-white/20">«НАЗВАНИЕ»</span>
+                          САДОВАЯ<br />МЕБЕЛЬ<br />
+                          <span className="text-white/20">«ОАЗИС»</span>
                         </h2>
 
                         <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-10">
-                          Название модели — изумрудный велюр
+                          Комплект: диван + 2 кресла + столик
                         </p>
 
                         {/* Цена */}
                         <div className="flex items-end gap-5 mb-12">
                           <span className="font-display text-6xl lg:text-8xl font-bold text-white leading-none">
-                            00 000 ₽
+                            12 999 ₽
                           </span>
                           <div className="mb-2">
-                            <span className="font-body text-white/30 line-through text-2xl block">00 000 ₽</span>
-                            <span className="font-display text-primary text-sm tracking-widest">−XX%</span>
+                            <span className="font-body text-white/30 line-through text-2xl block">16 999 ₽</span>
+                            <span className="font-display text-primary text-sm tracking-widest">−24%</span>
                           </div>
                         </div>
 
@@ -497,7 +544,7 @@ export default function Index() {
                         </div>
 
                         <button
-                          onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts[0]); }}
+                          onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
                           className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
                         >
                           Воспользоваться акцией
@@ -509,15 +556,15 @@ export default function Index() {
                       <div className="relative lg:-my-20 lg:-mr-8">
                         <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[540px] overflow-hidden">
                           <img
-                            src={HERO_IMAGE}
-                            alt="Акция месяца"
+                            src={OASIS_IMAGE}
+                            alt="Акция месяца — Оазис"
                             className="w-full h-full object-cover opacity-90"
                           />
                           <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-transparent to-transparent lg:block hidden" />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent" />
                           {/* Бейдж */}
                           <div className="absolute top-6 right-6 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
-                            −XX%
+                            −24%
                           </div>
                         </div>
                         {/* Декоративная рамка */}
@@ -771,7 +818,9 @@ export default function Index() {
               <p className="font-body text-primary text-sm tracking-[0.3em] uppercase mb-3">Вся коллекция</p>
               <h1 className="font-display text-6xl font-bold">КАТАЛОГ</h1>
             </div>
-            <div className="flex gap-3 mb-10 flex-wrap">
+
+            {/* Категории */}
+            <div className="flex gap-3 mb-6 flex-wrap">
               {[{ id: "all", label: "Все модели" }, { id: "sofa", label: "Диваны" }, { id: "chair", label: "Кресла" }, { id: "bed", label: "Кровати" }, { id: "garden", label: "Садовая мебель" }].map((f) => (
                 <button
                   key={f.id}
@@ -783,6 +832,63 @@ export default function Index() {
                   {f.label}
                 </button>
               ))}
+            </div>
+
+            {/* Фильтры */}
+            <div className="flex gap-4 mb-10 flex-wrap items-center border-t border-border pt-6">
+              {/* Тип угла */}
+              <div className="flex items-center gap-2">
+                <span className="font-display text-xs tracking-widest uppercase text-muted-foreground">Тип:</span>
+                <div className="flex gap-1.5">
+                  {[{ id: "all", label: "Все" }, { id: "прямой", label: "Прямые" }, { id: "угловой", label: "Угловые" }].map((f) => (
+                    <button
+                      key={f.id}
+                      onClick={() => setFilterAngle(f.id)}
+                      className={`px-3 py-1.5 font-body text-xs tracking-wide transition-all border ${
+                        filterAngle === f.id ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Ткань */}
+              <div className="flex items-center gap-2">
+                <span className="font-display text-xs tracking-widest uppercase text-muted-foreground">Ткань:</span>
+                <div className="flex gap-1.5">
+                  {[{ id: "all", label: "Все" }, { id: "рогожка", label: "Рогожка" }, { id: "велюр", label: "Велюр" }].map((f) => (
+                    <button
+                      key={f.id}
+                      onClick={() => setFilterFabric(f.id)}
+                      className={`px-3 py-1.5 font-body text-xs tracking-wide transition-all border ${
+                        filterFabric === f.id ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Сортировка */}
+              <div className="flex items-center gap-2 ml-auto">
+                <span className="font-display text-xs tracking-widest uppercase text-muted-foreground">Порядок:</span>
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  className="border border-border bg-background text-foreground font-body text-xs px-3 py-1.5 focus:outline-none focus:border-primary transition-colors cursor-pointer"
+                >
+                  <option value="default">По умолчанию</option>
+                  <option value="price_asc">Цена: по возрастанию</option>
+                  <option value="price_desc">Цена: по убыванию</option>
+                  <option value="name_az">Название: А–Я</option>
+                  <option value="name_za">Название: Я–А</option>
+                  <option value="new_first">Сперва новые</option>
+                  <option value="old_first">Сперва старые</option>
+                </select>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.map((p) => (
@@ -803,7 +909,13 @@ export default function Index() {
                       <h3 className="font-display text-xl tracking-widest">{p.name}</h3>
                       <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : p.category === "chair" ? "Кресло" : "Садовая мебель"}</p>
                     </div>
-                    <div className="font-display text-xl text-primary">{p.price.toLocaleString("ru")} ₽</div>
+                    <div className="text-right">
+                      {"oldPrice" in p && p.oldPrice && (
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        <div className="font-body text-muted-foreground line-through text-sm">{(p as any).oldPrice.toLocaleString("ru")} ₽</div>
+                      )}
+                      <div className="font-display text-xl text-primary">{p.price.toLocaleString("ru")} ₽</div>
+                    </div>
                   </div>
                 </div>
               ))}
