@@ -454,7 +454,7 @@ export default function Index() {
                         </div>
 
                         <button
-                          onClick={() => setSection("catalog")}
+                          onClick={() => setActiveSection("catalog")}
                           className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-primary/90 transition-colors"
                         >
                           Воспользоваться акцией
