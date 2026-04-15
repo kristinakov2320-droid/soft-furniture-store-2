@@ -922,10 +922,9 @@ export default function Index() {
               <div className="text-center py-24 border border-border">
                 <Icon name="ShoppingBag" size={64} className="text-muted-foreground mx-auto mb-6" />
                 <h3 className="font-display text-3xl mb-3">Корзина пуста</h3>
-                <p className="font-body text-muted-foreground mb-8">Добавьте товары из каталога или настройте диван в конфигураторе</p>
+                <p className="font-body text-muted-foreground mb-8">Добавьте товары из каталога</p>
                 <div className="flex gap-4 justify-center flex-wrap">
                   <button onClick={() => navigate("catalog")} className="bg-primary text-primary-foreground px-8 py-3 font-display tracking-widest text-sm uppercase">В каталог</button>
-                  <button onClick={() => navigate("home")} className="border border-border text-foreground px-8 py-3 font-display tracking-widest text-sm uppercase hover:border-primary hover:text-primary transition-colors">Конфигуратор</button>
                 </div>
               </div>
             ) : (
