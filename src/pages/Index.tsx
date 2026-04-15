@@ -959,9 +959,7 @@ export default function Index() {
                     <div className="flex justify-between text-muted-foreground">
                       <span>Товаров</span><span>{totalItems} шт.</span>
                     </div>
-                    <div className="flex justify-between text-muted-foreground">
-                      <span>Доставка</span><span>Бесплатно</span>
-                    </div>
+
                     <div className="border-t border-border pt-3 flex justify-between">
                       <span className="font-display tracking-widest">Итого</span>
                       <span className="font-display text-xl text-primary">{totalPrice.toLocaleString("ru")} ₽</span>
