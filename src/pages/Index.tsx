@@ -490,77 +490,77 @@ export default function Index() {
                   {/* Акцентная полоса сверху */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-                  {/* Фото на всю ширину */}
-                  <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9" }}>
-                    <img
-                      src={OASIS_IMAGE}
-                      alt="Акция месяца — Оазис"
-                      className="w-full h-full object-cover object-center opacity-95"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/80 via-transparent to-[#1a1a1a]/60" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/20 to-transparent" />
+                  <div className="container relative z-10 py-20 lg:py-24">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                    {/* Бейдж */}
-                    <div className="absolute top-6 right-6 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2 z-10">
-                      −24%
-                    </div>
-
-                    {/* Текст поверх фото */}
-                    <div className="absolute inset-0 flex items-end z-10">
-                      <div className="container pb-12 lg:pb-16">
-                        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-                          <div>
-                            <div className="flex items-center gap-3 mb-4">
-                              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                              <span className="font-display text-sm tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
-                            </div>
-                            <h2 className="font-display text-4xl lg:text-6xl font-bold leading-none tracking-tight mb-2">
-                              САДОВАЯ МЕБЕЛЬ <span className="text-white/40">«ОАЗИС»</span>
-                            </h2>
-                            <p className="font-body text-white/50 text-sm tracking-widest uppercase">
-                              Комплект: диван + 2 кресла + столик
-                            </p>
+                      {/* Левая часть — текст */}
+                      <div>
+                        <div className="flex items-center gap-3 mb-8">
+                          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                          <span className="font-display text-lg tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
+                        </div>
+                        <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
+                          САДОВАЯ<br />МЕБЕЛЬ<br />
+                          <span className="text-white/20">«ОАЗИС»</span>
+                        </h2>
+                        <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-10">
+                          Комплект: диван + 2 кресла + столик
+                        </p>
+                        <div className="flex items-end gap-5 mb-12">
+                          <span className="font-display text-6xl lg:text-8xl font-bold text-white leading-none">
+                            12 999 ₽
+                          </span>
+                          <div className="mb-2">
+                            <span className="font-body text-white/30 line-through text-2xl block">16 999 ₽</span>
+                            <span className="font-display text-primary text-sm tracking-widest">−24%</span>
                           </div>
-
-                          <div className="flex flex-col lg:flex-row items-start lg:items-end gap-8">
-                            {/* Цена */}
-                            <div>
-                              <span className="font-body text-white/30 line-through text-lg block">16 999 ₽</span>
-                              <span className="font-display text-5xl lg:text-6xl font-bold text-white leading-none">12 999 ₽</span>
-                            </div>
-
-                            {/* Таймер + кнопка */}
-                            <div>
-                              <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-3">Акция заканчивается через</p>
-                              <div className="flex items-end gap-1 mb-6">
-                                {[
-                                  { val: promoTimeLeft.d, label: "дней" },
-                                  { val: promoTimeLeft.h, label: "часов" },
-                                  { val: promoTimeLeft.m, label: "минут" },
-                                  { val: promoTimeLeft.s, label: "секунд" },
-                                ].map((t, i) => (
-                                  <div key={i} className="flex items-end gap-1">
-                                    <div className="text-center">
-                                      <div className="font-display text-2xl lg:text-3xl font-bold tabular-nums leading-none bg-white/10 border border-white/10 px-2 py-1.5 min-w-[48px] text-center">
-                                        {pad(t.val)}
-                                      </div>
-                                      <div className="font-body text-[8px] tracking-widest uppercase text-white/25 mt-1">{t.label}</div>
-                                    </div>
-                                    {i < 3 && <span className="font-display text-xl text-white/20 mb-3 mx-0.5">:</span>}
+                        </div>
+                        <div className="mb-10">
+                          <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
+                          <div className="flex items-end gap-1">
+                            {[
+                              { val: promoTimeLeft.d, label: "дней" },
+                              { val: promoTimeLeft.h, label: "часов" },
+                              { val: promoTimeLeft.m, label: "минут" },
+                              { val: promoTimeLeft.s, label: "секунд" },
+                            ].map((t, i) => (
+                              <div key={i} className="flex items-end gap-1">
+                                <div className="text-center">
+                                  <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
+                                    {pad(t.val)}
                                   </div>
-                                ))}
+                                  <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
+                                </div>
+                                {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
                               </div>
-                              <button
-                                onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
-                                className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-6 py-3 hover:bg-white hover:text-black transition-colors"
-                              >
-                                Воспользоваться акцией
-                                <Icon name="ArrowRight" size={14} />
-                              </button>
-                            </div>
+                            ))}
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
+                          className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
+                        >
+                          Воспользоваться акцией
+                          <Icon name="ArrowRight" size={14} />
+                        </button>
+                      </div>
+
+                      {/* Правая часть — фото */}
+                      <div className="relative">
+                        <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                          <img
+                            src={OASIS_IMAGE}
+                            alt="Акция месяца — Оазис"
+                            className="w-full h-full object-cover object-center opacity-95"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/60 via-transparent to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/70 via-transparent to-transparent" />
+                          <div className="absolute top-4 right-4 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
+                            −24%
                           </div>
                         </div>
                       </div>
+
                     </div>
                   </div>
 
