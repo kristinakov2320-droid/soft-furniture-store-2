@@ -20,6 +20,11 @@ const VELVET_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-e
 const VELVET_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f12ee5bf-0cf4-4300-8af6-16ef12060d2a.jpg";
 
 const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/44c04827-b8a2-4dd5-a1b7-8b604e07ba3b.jpg";
+const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/055bfca5-ec85-40c4-a77d-805f619d4604.jpg";
+const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/9dff180e-72af-4a03-92c1-b6de52f525e9.jpg";
+const LIBERTY_BEIGE_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/540a4dd7-14e5-4112-95ae-f317b53e2993.jpg";
+const LIBERTY_BEIGE_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/2b436eba-1a0c-4382-a32a-41ad451d35c7.jpg";
+const LIBERTY_BEIGE_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/608c45f8-3fad-45ea-ad3d-2a561fbc5e0d.jpg";
 const LIBERTY_GREEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70e8a243-f774-40e0-846a-0a7e4d2c4dec.jpg";
 const LIBERTY_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/916b75d0-369c-4773-8fa5-d7a740f9129f.jpg";
 const LIBERTY_DGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/11e16f82-0bbf-49ac-b849-a57028b94191.jpg";
@@ -27,7 +32,7 @@ const LIBERTY_DGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-
 const catalogProducts = [
   {
     id: 1, name: "Либерти", category: "sofa", price: 69399, img: LIBERTY_BEIGE, tag: "Хит",
-    images: [LIBERTY_BEIGE, LIBERTY_GREEN, LIBERTY_LGREY, LIBERTY_DGREY],
+    images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6, LIBERTY_GREEN, LIBERTY_LGREY, LIBERTY_DGREY],
     colors: [
       { name: "Бежевый", swatch: ROGOJKA_BEIGE, img: LIBERTY_BEIGE },
       { name: "Зелёный", swatch: VELVET_EMERALD, img: LIBERTY_GREEN },
