@@ -407,7 +407,7 @@ export default function Index() {
                       <div>
                         <div className="flex items-center gap-3 mb-8">
                           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                          <span className="font-display text-lg tracking-[0.3em] uppercase text-primary font-bold">АКЦИЯ</span>
+                          <span className="font-display text-lg tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
                         </div>
 
                         <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
@@ -455,7 +455,7 @@ export default function Index() {
 
                         <button
                           onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts[0]); }}
-                          className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-primary/90 transition-colors"
+                          className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
                         >
                           Воспользоваться акцией
                           <Icon name="ArrowRight" size={14} />
