@@ -501,7 +501,7 @@ export default function Index() {
                         </div>
                         <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
                           САДОВАЯ<br />МЕБЕЛЬ<br />
-                          <span className="text-primary/80">«ОАЗИС»</span>
+                          <span className="text-white/60">«ОАЗИС»</span>
                         </h2>
                         <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-10">
                           Комплект: диван + 2 кресла + столик
