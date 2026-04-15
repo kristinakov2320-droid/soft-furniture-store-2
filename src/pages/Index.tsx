@@ -26,6 +26,11 @@ const LIBERTY_BEIGE_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const LIBERTY_BEIGE_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/2b436eba-1a0c-4382-a32a-41ad451d35c7.jpg";
 const LIBERTY_BEIGE_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/608c45f8-3fad-45ea-ad3d-2a561fbc5e0d.jpg";
 const LIBERTY_GREEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70e8a243-f774-40e0-846a-0a7e4d2c4dec.jpg";
+const LIBERTY_GREEN_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d945a851-0a8c-42d7-93b5-6f3a6d07a3b0.jpg";
+const LIBERTY_GREEN_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d35ef5a6-004f-439a-b68b-c4ced16099e2.jpg";
+const LIBERTY_GREEN_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/955f1ef0-52f0-44d7-8e5a-8391facdc744.jpg";
+const LIBERTY_GREEN_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/dd108ae2-b8f1-455b-a911-5d52e6bc9088.jpg";
+const LIBERTY_GREEN_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/489a3631-d5b1-4f12-95ae-7c3c57eff380.jpg";
 const LIBERTY_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/916b75d0-369c-4773-8fa5-d7a740f9129f.jpg";
 const LIBERTY_DGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/11e16f82-0bbf-49ac-b849-a57028b94191.jpg";
 
@@ -35,7 +40,7 @@ const catalogProducts = [
     images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6],
     colors: [
       { name: "Бежевый", swatch: LIBERTY_BEIGE, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
-      { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN] },
+      { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN, LIBERTY_GREEN_2, LIBERTY_GREEN_3, LIBERTY_GREEN_4, LIBERTY_GREEN_5, LIBERTY_GREEN_6] },
       { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY] },
       { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY] },
     ],
