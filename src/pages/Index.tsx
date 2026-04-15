@@ -558,8 +558,7 @@ export default function Index() {
                           <img
                             src={OASIS_IMAGE}
                             alt="Акция месяца — Оазис"
-                            className="w-full h-full object-contain object-center opacity-90"
-                            style={{ backgroundColor: "transparent" }}
+                            className="w-full h-full object-cover object-center opacity-90 scale-75"
                           />
                           <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-transparent to-transparent lg:block hidden" />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent" />
