@@ -265,6 +265,12 @@ export default function Index() {
   const [activeColor, setActiveColor] = useState(0);
   const [activeImages, setActiveImages] = useState<string[]>([]);
   const [promoTimeLeft, setPromoTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
   useEffect(() => {
     const promoEnd = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
     const tick = () => {
@@ -483,6 +489,70 @@ export default function Index() {
             {/* Promo of the Month */}
             {(() => {
               const pad = (n: number) => String(n).padStart(2, "0");
+              const promoBtn = (
+                <button
+                  onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
+                  className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
+                >
+                  Воспользоваться акцией
+                  <Icon name="ArrowRight" size={14} />
+                </button>
+              );
+              const promoTimer = (
+                <div className="mb-10">
+                  <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
+                  <div className="flex items-end gap-1">
+                    {[
+                      { val: promoTimeLeft.d, label: "дней" },
+                      { val: promoTimeLeft.h, label: "часов" },
+                      { val: promoTimeLeft.m, label: "минут" },
+                      { val: promoTimeLeft.s, label: "секунд" },
+                    ].map((t, i) => (
+                      <div key={i} className="flex items-end gap-1">
+                        <div className="text-center">
+                          <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
+                            {pad(t.val)}
+                          </div>
+                          <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
+                        </div>
+                        {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+              const promoPrice = (
+                <div className="flex items-end gap-5 mb-12 mt-8">
+                  <span className="font-display text-6xl lg:text-8xl font-bold text-white leading-none">12 999 ₽</span>
+                  <div className="mb-2">
+                    <span className="font-body text-white/30 line-through text-2xl block">16 999 ₽</span>
+                    <span className="font-display text-accent text-sm tracking-widest">−24%</span>
+                  </div>
+                </div>
+              );
+              const promoTitle = (
+                <div>
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <span className="font-display text-lg tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
+                  </div>
+                  <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
+                    САДОВАЯ<br />МЕБЕЛЬ<br />
+                    <span className="text-white/60">«ОАЗИС»</span>
+                  </h2>
+                  <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-0 lg:mb-0">
+                    Комплект: диван + 2 кресла + столик
+                  </p>
+                </div>
+              );
+              const promoPhoto = (
+                <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <img src={OASIS_IMAGE} alt="Акция месяца — Оазис" className="w-full h-full object-cover object-center opacity-95" />
+                  <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#1a1a1a] to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a1a1a] to-transparent" />
+                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">−24%</div>
+                </div>
+              );
               return (
                 <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
                   {/* Фоновая текстура */}
@@ -491,127 +561,26 @@ export default function Index() {
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
                   <div className="container relative z-10 py-20 lg:py-24">
-                    {/* Мобилка: flex-col с явным порядком. Десктоп: grid 2 колонки */}
-                    <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
-
-                      {/* 1. Название (мобилка: 1е, десктоп: левая колонка верх) */}
-                      <div className="lg:row-start-1 lg:col-start-1 mb-4 lg:mb-0">
-                        <div className="flex items-center gap-3 mb-8">
-                          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                          <span className="font-display text-lg tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
-                        </div>
-                        <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
-                          САДОВАЯ<br />МЕБЕЛЬ<br />
-                          <span className="text-white/60">«ОАЗИС»</span>
-                        </h2>
-                        <p className="font-body text-white/50 text-sm tracking-widest uppercase">
-                          Комплект: диван + 2 кресла + столик
-                        </p>
+                    {isMobile ? (
+                      /* МОБИЛКА: название → цена → фото → таймер → кнопка */
+                      <div className="flex flex-col">
+                        <div className="mb-6">{promoTitle}</div>
+                        <div className="mb-8">{promoPrice}</div>
+                        <div className="mb-8">{promoPhoto}</div>
+                        <div>{promoTimer}{promoBtn}</div>
                       </div>
-
-                      {/* 2. Цена (мобилка: 2е, десктоп: левая колонка, часть того же блока) */}
-                      <div className="lg:hidden mt-8 mb-10">
-                        <div className="flex items-end gap-5">
-                          <span className="font-display text-6xl font-bold text-white leading-none">
-                            12 999 ₽
-                          </span>
-                          <div className="mb-2">
-                            <span className="font-body text-white/30 line-through text-2xl block">16 999 ₽</span>
-                            <span className="font-display text-accent text-sm tracking-widest">−24%</span>
-                          </div>
+                    ) : (
+                      /* ДЕСКТОП: левая колонка — текст+цена+таймер+кнопка, правая — фото */
+                      <div className="grid grid-cols-2 gap-20 items-center">
+                        <div>
+                          {promoTitle}
+                          {promoPrice}
+                          {promoTimer}
+                          {promoBtn}
                         </div>
+                        <div className="-mr-8 my-[-60px]">{promoPhoto}</div>
                       </div>
-
-                      {/* Фото (мобилка: 3е, десктоп: правая колонка) */}
-                      <div className="relative lg:row-start-1 lg:col-start-2 lg:-mr-8 lg:my-[-60px] mb-12 lg:mb-0">
-                        <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                          <img
-                            src={OASIS_IMAGE}
-                            alt="Акция месяца — Оазис"
-                            className="w-full h-full object-cover object-center opacity-95"
-                          />
-                          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#1a1a1a] to-transparent" />
-                          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a1a1a] to-transparent" />
-                          <div className="absolute top-4 right-4 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
-                            −24%
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Цена на десктопе + таймер + кнопка */}
-                      <div className="lg:col-start-1 lg:row-start-1 lg:self-end lg:pb-0 hidden lg:block">
-                        <div className="flex items-end gap-5 mb-12 mt-8">
-                          <span className="font-display text-6xl lg:text-8xl font-bold text-white leading-none">
-                            12 999 ₽
-                          </span>
-                          <div className="mb-2">
-                            <span className="font-body text-white/30 line-through text-2xl block">16 999 ₽</span>
-                            <span className="font-display text-accent text-sm tracking-widest">−24%</span>
-                          </div>
-                        </div>
-                        <div className="mb-10">
-                          <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
-                          <div className="flex items-end gap-1">
-                            {[
-                              { val: promoTimeLeft.d, label: "дней" },
-                              { val: promoTimeLeft.h, label: "часов" },
-                              { val: promoTimeLeft.m, label: "минут" },
-                              { val: promoTimeLeft.s, label: "секунд" },
-                            ].map((t, i) => (
-                              <div key={i} className="flex items-end gap-1">
-                                <div className="text-center">
-                                  <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
-                                    {pad(t.val)}
-                                  </div>
-                                  <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
-                                </div>
-                                {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        <button
-                          onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
-                          className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
-                        >
-                          Воспользоваться акцией
-                          <Icon name="ArrowRight" size={14} />
-                        </button>
-                      </div>
-
-                      {/* Таймер и кнопка — только на мобилке, после фото */}
-                      <div className="lg:hidden">
-                        <div className="mb-10">
-                          <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
-                          <div className="flex items-end gap-1">
-                            {[
-                              { val: promoTimeLeft.d, label: "дней" },
-                              { val: promoTimeLeft.h, label: "часов" },
-                              { val: promoTimeLeft.m, label: "минут" },
-                              { val: promoTimeLeft.s, label: "секунд" },
-                            ].map((t, i) => (
-                              <div key={i} className="flex items-end gap-1">
-                                <div className="text-center">
-                                  <div className="font-display text-4xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
-                                    {pad(t.val)}
-                                  </div>
-                                  <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
-                                </div>
-                                {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        <button
-                          onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
-                          className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
-                        >
-                          Воспользоваться акцией
-                          <Icon name="ArrowRight" size={14} />
-                        </button>
-                      </div>
-
-                    </div>
+                    )}
                   </div>
 
                   {/* Акцентная полоса снизу */}
