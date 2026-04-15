@@ -32,6 +32,11 @@ const LIBERTY_GREEN_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const LIBERTY_GREEN_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/dd108ae2-b8f1-455b-a911-5d52e6bc9088.jpg";
 const LIBERTY_GREEN_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/489a3631-d5b1-4f12-95ae-7c3c57eff380.jpg";
 const LIBERTY_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/916b75d0-369c-4773-8fa5-d7a740f9129f.jpg";
+const LIBERTY_LGREY_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/000c0701-c1aa-4614-8b2a-9550a93cd77c.jpg";
+const LIBERTY_LGREY_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/94f5592f-8f8a-4c9d-b34e-d0593e3d2a0e.jpg";
+const LIBERTY_LGREY_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7f6f2341-e8a0-4cb4-b5c6-c948a3f3e818.jpg";
+const LIBERTY_LGREY_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d68d0cc0-6dcf-416b-a336-6d51810aaa1e.jpg";
+const LIBERTY_LGREY_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8b1bda31-3532-479b-a571-4b79a80c9ca8.jpg";
 const LIBERTY_DGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/11e16f82-0bbf-49ac-b849-a57028b94191.jpg";
 
 const catalogProducts = [
@@ -41,7 +46,7 @@ const catalogProducts = [
     colors: [
       { name: "Бежевый", swatch: LIBERTY_BEIGE, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
       { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN, LIBERTY_GREEN_2, LIBERTY_GREEN_3, LIBERTY_GREEN_4, LIBERTY_GREEN_5, LIBERTY_GREEN_6] },
-      { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY] },
+      { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY, LIBERTY_LGREY_2, LIBERTY_LGREY_3, LIBERTY_LGREY_4, LIBERTY_LGREY_5, LIBERTY_LGREY_6] },
       { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY] },
     ],
     desc: "Большой современный диван из трёх секций станет стильным и функциональным акцентом в вашей гостиной.",
