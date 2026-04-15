@@ -554,11 +554,11 @@ export default function Index() {
 
                       {/* Правая часть — фото */}
                       <div className="relative lg:-my-24 lg:-mr-8">
-                        <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[620px] overflow-hidden">
+                        <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[860px] overflow-hidden">
                           <img
                             src={OASIS_IMAGE}
                             alt="Акция месяца — Оазис"
-                            className="w-full h-full object-cover object-center opacity-90 scale-75"
+                            className="w-full h-full object-cover object-center opacity-90"
                           />
                           <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-transparent to-transparent lg:block hidden" />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent" />
