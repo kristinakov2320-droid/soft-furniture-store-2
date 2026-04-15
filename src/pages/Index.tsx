@@ -38,6 +38,11 @@ const LIBERTY_LGREY_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const LIBERTY_LGREY_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d68d0cc0-6dcf-416b-a336-6d51810aaa1e.jpg";
 const LIBERTY_LGREY_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8b1bda31-3532-479b-a571-4b79a80c9ca8.jpg";
 const LIBERTY_DGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/11e16f82-0bbf-49ac-b849-a57028b94191.jpg";
+const LIBERTY_DGREY_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ce4730b4-73e8-4e08-b598-1f862343d91b.jpg";
+const LIBERTY_DGREY_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b187d13e-42a3-4e5f-b454-9aadc70e793d.jpg";
+const LIBERTY_DGREY_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6b00d059-11fc-49c7-86c5-7b04765547c5.jpg";
+const LIBERTY_DGREY_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0ed867d2-170a-49f6-9ad8-87f969c1bbe9.jpg";
+const LIBERTY_DGREY_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4ddcbc92-990c-4005-9768-a775c55c2cc5.jpg";
 
 const catalogProducts = [
   {
@@ -47,7 +52,7 @@ const catalogProducts = [
       { name: "Бежевый", swatch: LIBERTY_BEIGE, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
       { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN, LIBERTY_GREEN_2, LIBERTY_GREEN_3, LIBERTY_GREEN_4, LIBERTY_GREEN_5, LIBERTY_GREEN_6] },
       { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY, LIBERTY_LGREY_2, LIBERTY_LGREY_3, LIBERTY_LGREY_4, LIBERTY_LGREY_5, LIBERTY_LGREY_6] },
-      { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY] },
+      { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY, LIBERTY_DGREY_2, LIBERTY_DGREY_3, LIBERTY_DGREY_4, LIBERTY_DGREY_5, LIBERTY_DGREY_6] },
     ],
     desc: "Большой современный диван из трёх секций станет стильным и функциональным акцентом в вашей гостиной.",
     specs: [
