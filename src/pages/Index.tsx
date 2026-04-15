@@ -19,28 +19,38 @@ const VELVET_MINT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-ee
 const VELVET_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b01460c2-6ca9-4767-a94b-238dfb5d32f4.jpg";
 const VELVET_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f12ee5bf-0cf4-4300-8af6-16ef12060d2a.jpg";
 
+const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/44c04827-b8a2-4dd5-a1b7-8b604e07ba3b.jpg";
+const LIBERTY_GREEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70e8a243-f774-40e0-846a-0a7e4d2c4dec.jpg";
+const LIBERTY_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/916b75d0-369c-4773-8fa5-d7a740f9129f.jpg";
+const LIBERTY_DGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/11e16f82-0bbf-49ac-b849-a57028b94191.jpg";
+
 const catalogProducts = [
   {
-    id: 1, name: "Либерти", category: "sofa", price: 69399, img: HERO_IMAGE, tag: "Хит",
-    images: [HERO_IMAGE, SHOWROOM_IMAGE, GARDEN_IMAGE],
+    id: 1, name: "Либерти", category: "sofa", price: 69399, img: LIBERTY_BEIGE, tag: "Хит",
+    images: [LIBERTY_BEIGE, LIBERTY_GREEN, LIBERTY_LGREY, LIBERTY_DGREY],
     colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
-      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
-      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
-      { name: "Серый", swatch: ROGOJKA_GREY },
-      { name: "Синий (рогожка)", swatch: ROGOJKA_BLUE },
-      { name: "Изумрудный", swatch: VELVET_EMERALD },
-      { name: "Мятный", swatch: VELVET_MINT },
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE, img: LIBERTY_BEIGE },
+      { name: "Зелёный", swatch: VELVET_EMERALD, img: LIBERTY_GREEN },
+      { name: "Светло-серый", swatch: VELVET_LGREY, img: LIBERTY_LGREY },
+      { name: "Тёмно-серый", swatch: ROGOJKA_GREY, img: LIBERTY_DGREY },
     ],
-    desc: "Угловой диван с мягкими подлокотниками и независимым пружинным блоком. Обивка — рогожка или велюр на выбор. Срок изготовления до 7 рабочих дней.",
+    desc: "Большой современный диван из трёх секций станет стильным и функциональным акцентом в вашей гостиной.",
     specs: [
-      { label: "Размер", value: "Ш 280 × Г 175 × В 85 см" },
-      { label: "Механизм", value: "Дельфин" },
-      { label: "Наполнитель", value: "ППУ 28кг/м³ + холлофайбер" },
-      { label: "Каркас", value: "Сосна + берёзовая фанера" },
-      { label: "Ткань", value: "Рогожка / велюр на выбор" },
-      { label: "Цвета", value: "5 цветов рогожки, 4 цвета велюра" },
-      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Размер дивана", value: "334 × 80 × 168 см" },
+      { label: "Спальное место", value: "298 × 166 см" },
+      { label: "Глубина сиденья", value: "68 см (98 см без подушек)" },
+      { label: "Высота сиденья", value: "40 см" },
+      { label: "Ширина сиденья", value: "298 см" },
+      { label: "Высота спинки", value: "28 см" },
+      { label: "Высота подлокотников", value: "58 см" },
+      { label: "Высота ножек", value: "2,5 см" },
+      { label: "Ящик для белья", value: "99,5 × 19,5 × 80 см — 3 шт." },
+      { label: "Приспинные подушки", value: "98 × 41 × 28 см — 3 шт." },
+      { label: "Каркас", value: "ДСП (ЛДСП)" },
+      { label: "Основа сиденья", value: "Ламели ДСП (ЛДСП)" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Тип угла", value: "Универсальный" },
+      { label: "Нагрузка на место", value: "До 90 кг" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
@@ -1131,7 +1141,15 @@ export default function Index() {
                         <button
                           key={i}
                           title={c.name}
-                          onClick={() => setActiveColor(i)}
+                          onClick={() => {
+                            setActiveColor(i);
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            const colorImg = (c as any).img as string | undefined;
+                            if (colorImg) {
+                              const idx = selectedProduct.images.indexOf(colorImg);
+                              setActivePhoto(idx >= 0 ? idx : 0);
+                            }
+                          }}
                           className={`relative w-11 h-11 overflow-hidden transition-all duration-200 ${i === activeColor ? "ring-2 ring-primary ring-offset-2 scale-105" : "ring-1 ring-border hover:ring-primary/50 hover:scale-105"}`}
                         >
                           <img src={c.swatch} alt={c.name} className="w-full h-full object-cover" />
