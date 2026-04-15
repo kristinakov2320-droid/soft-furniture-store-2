@@ -491,10 +491,11 @@ export default function Index() {
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
                   <div className="container relative z-10 py-20 lg:py-24">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-20 items-center">
+                    {/* Мобилка: flex-col с явным порядком. Десктоп: grid 2 колонки */}
+                    <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
 
-                      {/* Левая часть — название + цена + таймер + кнопка (на десктопе всё вместе) */}
-                      <div className="order-1 lg:order-1">
+                      {/* 1. Название (мобилка: 1е, десктоп: левая колонка верх) */}
+                      <div className="lg:row-start-1 lg:col-start-1 mb-4 lg:mb-0">
                         <div className="flex items-center gap-3 mb-8">
                           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                           <span className="font-display text-lg tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
@@ -503,53 +504,26 @@ export default function Index() {
                           САДОВАЯ<br />МЕБЕЛЬ<br />
                           <span className="text-white/60">«ОАЗИС»</span>
                         </h2>
-                        <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-10">
+                        <p className="font-body text-white/50 text-sm tracking-widest uppercase">
                           Комплект: диван + 2 кресла + столик
                         </p>
-                        <div className="flex items-end gap-5 mb-12">
-                          <span className="font-display text-6xl lg:text-8xl font-bold text-white leading-none">
+                      </div>
+
+                      {/* 2. Цена (мобилка: 2е, десктоп: левая колонка, часть того же блока) */}
+                      <div className="lg:hidden mt-8 mb-10">
+                        <div className="flex items-end gap-5">
+                          <span className="font-display text-6xl font-bold text-white leading-none">
                             12 999 ₽
                           </span>
                           <div className="mb-2">
                             <span className="font-body text-white/30 line-through text-2xl block">16 999 ₽</span>
-                            <span className="font-display text-primary text-sm tracking-widest">−24%</span>
+                            <span className="font-display text-accent text-sm tracking-widest">−24%</span>
                           </div>
-                        </div>
-                        {/* Таймер и кнопка — только на десктопе */}
-                        <div className="hidden lg:block">
-                          <div className="mb-10">
-                            <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
-                            <div className="flex items-end gap-1">
-                              {[
-                                { val: promoTimeLeft.d, label: "дней" },
-                                { val: promoTimeLeft.h, label: "часов" },
-                                { val: promoTimeLeft.m, label: "минут" },
-                                { val: promoTimeLeft.s, label: "секунд" },
-                              ].map((t, i) => (
-                                <div key={i} className="flex items-end gap-1">
-                                  <div className="text-center">
-                                    <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
-                                      {pad(t.val)}
-                                    </div>
-                                    <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
-                                  </div>
-                                  {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                          <button
-                            onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
-                            className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
-                          >
-                            Воспользоваться акцией
-                            <Icon name="ArrowRight" size={14} />
-                          </button>
                         </div>
                       </div>
 
-                      {/* Правая часть — фото */}
-                      <div className="relative order-2 lg:order-2 lg:-mr-8 lg:my-[-60px] mb-12 lg:mb-0">
+                      {/* Фото (мобилка: 3е, десктоп: правая колонка) */}
+                      <div className="relative lg:row-start-1 lg:col-start-2 lg:-mr-8 lg:my-[-60px] mb-12 lg:mb-0">
                         <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                           <img
                             src={OASIS_IMAGE}
@@ -564,8 +538,49 @@ export default function Index() {
                         </div>
                       </div>
 
+                      {/* Цена на десктопе + таймер + кнопка */}
+                      <div className="lg:col-start-1 lg:row-start-1 lg:self-end lg:pb-0 hidden lg:block">
+                        <div className="flex items-end gap-5 mb-12 mt-8">
+                          <span className="font-display text-6xl lg:text-8xl font-bold text-white leading-none">
+                            12 999 ₽
+                          </span>
+                          <div className="mb-2">
+                            <span className="font-body text-white/30 line-through text-2xl block">16 999 ₽</span>
+                            <span className="font-display text-accent text-sm tracking-widest">−24%</span>
+                          </div>
+                        </div>
+                        <div className="mb-10">
+                          <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
+                          <div className="flex items-end gap-1">
+                            {[
+                              { val: promoTimeLeft.d, label: "дней" },
+                              { val: promoTimeLeft.h, label: "часов" },
+                              { val: promoTimeLeft.m, label: "минут" },
+                              { val: promoTimeLeft.s, label: "секунд" },
+                            ].map((t, i) => (
+                              <div key={i} className="flex items-end gap-1">
+                                <div className="text-center">
+                                  <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
+                                    {pad(t.val)}
+                                  </div>
+                                  <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
+                                </div>
+                                {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
+                          className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
+                        >
+                          Воспользоваться акцией
+                          <Icon name="ArrowRight" size={14} />
+                        </button>
+                      </div>
+
                       {/* Таймер и кнопка — только на мобилке, после фото */}
-                      <div className="order-3 lg:hidden">
+                      <div className="lg:hidden">
                         <div className="mb-10">
                           <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
                           <div className="flex items-end gap-1">
