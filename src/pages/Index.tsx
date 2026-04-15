@@ -484,24 +484,24 @@ export default function Index() {
             {(() => {
               const pad = (n: number) => String(n).padStart(2, "0");
               return (
-                <section className="relative overflow-hidden bg-[#2e2a24] text-white">
+                <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
                   {/* Фоновая текстура */}
-                  <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "24px 24px" }} />
+                  <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "24px 24px" }} />
                   {/* Акцентная полоса сверху */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
                   <div className="container relative z-10 py-20 lg:py-24">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-20 items-center">
 
-                      {/* Левая часть — текст */}
-                      <div className="order-2 lg:order-1">
+                      {/* Левая часть — название + цена + таймер + кнопка (на десктопе всё вместе) */}
+                      <div className="order-1 lg:order-1">
                         <div className="flex items-center gap-3 mb-8">
                           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                           <span className="font-display text-lg tracking-[0.3em] uppercase text-white font-bold">АКЦИЯ</span>
                         </div>
                         <h2 className="font-display text-5xl lg:text-7xl font-bold leading-none tracking-tight mb-4">
                           САДОВАЯ<br />МЕБЕЛЬ<br />
-                          <span className="text-white/20">«ОАЗИС»</span>
+                          <span className="text-primary/80">«ОАЗИС»</span>
                         </h2>
                         <p className="font-body text-white/50 text-sm tracking-widest uppercase mb-10">
                           Комплект: диван + 2 кресла + столик
@@ -515,6 +515,57 @@ export default function Index() {
                             <span className="font-display text-primary text-sm tracking-widest">−24%</span>
                           </div>
                         </div>
+                        {/* Таймер и кнопка — только на десктопе */}
+                        <div className="hidden lg:block">
+                          <div className="mb-10">
+                            <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
+                            <div className="flex items-end gap-1">
+                              {[
+                                { val: promoTimeLeft.d, label: "дней" },
+                                { val: promoTimeLeft.h, label: "часов" },
+                                { val: promoTimeLeft.m, label: "минут" },
+                                { val: promoTimeLeft.s, label: "секунд" },
+                              ].map((t, i) => (
+                                <div key={i} className="flex items-end gap-1">
+                                  <div className="text-center">
+                                    <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
+                                      {pad(t.val)}
+                                    </div>
+                                    <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
+                                  </div>
+                                  {i < 3 && <span className="font-display text-3xl text-white/20 mb-3 mx-0.5">:</span>}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => { setActiveSection("catalog"); openProduct(catalogProducts.find(p => p.id === 8)!); }}
+                            className="inline-flex items-center gap-3 border border-white/30 text-white font-display text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors"
+                          >
+                            Воспользоваться акцией
+                            <Icon name="ArrowRight" size={14} />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Правая часть — фото */}
+                      <div className="relative order-2 lg:order-2 lg:-mr-8 lg:my-[-60px] mb-12 lg:mb-0">
+                        <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                          <img
+                            src={OASIS_IMAGE}
+                            alt="Акция месяца — Оазис"
+                            className="w-full h-full object-cover object-center opacity-95"
+                          />
+                          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#1a1a1a] to-transparent" />
+                          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a1a1a] to-transparent" />
+                          <div className="absolute top-4 right-4 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
+                            −24%
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Таймер и кнопка — только на мобилке, после фото */}
+                      <div className="order-3 lg:hidden">
                         <div className="mb-10">
                           <p className="font-display text-[9px] tracking-[0.5em] uppercase text-white/25 mb-4">Акция заканчивается через</p>
                           <div className="flex items-end gap-1">
@@ -526,7 +577,7 @@ export default function Index() {
                             ].map((t, i) => (
                               <div key={i} className="flex items-end gap-1">
                                 <div className="text-center">
-                                  <div className="font-display text-4xl lg:text-5xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
+                                  <div className="font-display text-4xl font-bold tabular-nums leading-none bg-white/5 border border-white/10 px-3 py-2 min-w-[64px] text-center">
                                     {pad(t.val)}
                                   </div>
                                   <div className="font-body text-[9px] tracking-widest uppercase text-white/25 mt-2">{t.label}</div>
@@ -543,22 +594,6 @@ export default function Index() {
                           Воспользоваться акцией
                           <Icon name="ArrowRight" size={14} />
                         </button>
-                      </div>
-
-                      {/* Правая часть — фото */}
-                      <div className="relative order-1 lg:order-2 lg:-mr-8 lg:my-[-60px]">
-                        <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                          <img
-                            src={OASIS_IMAGE}
-                            alt="Акция месяца — Оазис"
-                            className="w-full h-full object-cover object-center opacity-95"
-                          />
-                          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#2e2a24] to-transparent" />
-                          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2e2a24] to-transparent" />
-                          <div className="absolute top-4 right-4 bg-primary text-primary-foreground font-display text-xs tracking-[0.3em] uppercase px-4 py-2">
-                            −24%
-                          </div>
-                        </div>
                       </div>
 
                     </div>
