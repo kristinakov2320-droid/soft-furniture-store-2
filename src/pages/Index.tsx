@@ -44,6 +44,11 @@ const LIBERTY_DGREY_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const LIBERTY_DGREY_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0ed867d2-170a-49f6-9ad8-87f969c1bbe9.jpg";
 const LIBERTY_DGREY_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4ddcbc92-990c-4005-9768-a775c55c2cc5.jpg";
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
+const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
+const OASIS_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/52ee79b9-7a9f-40ce-a20f-280be918369c.jpg";
+const OASIS_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/240da403-b6c5-4a63-a6cd-306a75026db3.jpg";
+const OASIS_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/33e92a3f-07e6-4d9c-8bf6-e4cdafacdc5f.jpg";
+const OASIS_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/610b60d0-3a6c-46b1-b9a1-dd8cad1857be.jpg";
 
 const catalogProducts = [
   {
@@ -131,7 +136,7 @@ const catalogProducts = [
   {
     id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_IMAGE, tag: "Акция",
     angleType: "прямой", fabric: "рогожка", createdAt: 1,
-    images: [OASIS_IMAGE],
+    images: [OASIS_IMAGE, OASIS_2, OASIS_3, OASIS_4, OASIS_5, OASIS_6],
     colors: [
       { name: "Чёрный", swatch: OASIS_IMAGE },
     ],
