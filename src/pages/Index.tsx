@@ -127,70 +127,7 @@ const catalogProducts = [
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
-  {
-    id: 4, name: "Terra Set", category: "garden", price: 79900, img: GARDEN_IMAGE, tag: "Хит",
-    angleType: "угловой", fabric: "рогожка", createdAt: 3,
-    images: [GARDEN_IMAGE, SHOWROOM_IMAGE, HERO_IMAGE],
-    colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
-      { name: "Серый", swatch: ROGOJKA_GREY },
-      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
-    ],
-    desc: "Премиальный комплект садовой мебели с широкими посадочными местами. Отлично подходит для террасы и зоны барбекю.",
-    specs: [
-      { label: "Комплект", value: "Диван + 2 кресла + журнальный стол" },
-      { label: "Каркас", value: "Сталь с порошковым покрытием" },
-      { label: "Ткань", value: "Olefin, UV-защита класса A" },
-      { label: "Наполнитель", value: "Пена высокой плотности" },
-      { label: "Вес комплекта", value: "48 кг" },
-      { label: "Сборка", value: "Входит в стоимость" },
-      { label: "Срок изготовления", value: "До 7 рабочих дней" },
-      { label: "Гарантия", value: "18 месяцев" },
-    ],
-  },
-  {
-    id: 5, name: "Minimal", category: "sofa", price: 54900, img: HERO_IMAGE, tag: "",
-    angleType: "прямой", fabric: "рогожка", createdAt: 6,
-    images: [HERO_IMAGE, GARDEN_IMAGE, SHOWROOM_IMAGE],
-    colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
-      { name: "Серый", swatch: ROGOJKA_GREY },
-      { name: "Синий (рогожка)", swatch: ROGOJKA_BLUE },
-      { name: "Изумрудный (велюр)", swatch: VELVET_EMERALD },
-      { name: "Синий (велюр)", swatch: VELVET_BLUE },
-    ],
-    desc: "Прямой диван в стиле минимализм. Лаконичные линии, плотная посадка, высокие ножки. Идеален для небольших пространств.",
-    specs: [
-      { label: "Размер", value: "Ш 220 × Г 90 × В 80 см" },
-      { label: "Механизм", value: "Еврокнижка" },
-      { label: "Наполнитель", value: "ППУ 30кг/м³" },
-      { label: "Каркас", value: "Берёзовая фанера + металл" },
-      { label: "Ножки", value: "Натуральный дуб, высота 18 см" },
-      { label: "Ткань", value: "Рогожка / велюр на выбор" },
-      { label: "Срок изготовления", value: "До 7 рабочих дней" },
-      { label: "Гарантия", value: "18 месяцев" },
-    ],
-  },
-  {
-    id: 6, name: "Patio Duo", category: "garden", price: 44900, img: GARDEN_IMAGE, tag: "Новинка",
-    angleType: "прямой", fabric: "рогожка", createdAt: 4,
-    images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
-    colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
-      { name: "Серый", swatch: ROGOJKA_GREY },
-    ],
-    desc: "Двухместный диван для открытых террас и лоджий. Компактный, но вместительный. Легко собирается без инструментов.",
-    specs: [
-      { label: "Размер", value: "Ш 150 × Г 80 × В 75 см" },
-      { label: "Материал", value: "Ротанг PE, устойчив к УФ" },
-      { label: "Каркас", value: "Алюминий" },
-      { label: "Подушки", value: "В комплекте, съёмные чехлы" },
-      { label: "Вес", value: "18 кг" },
-      { label: "Нагрузка", value: "До 240 кг" },
-      { label: "Срок изготовления", value: "До 7 рабочих дней" },
-      { label: "Гарантия", value: "18 месяцев" },
-    ],
-  },
+
   {
     id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_IMAGE, tag: "Акция",
     angleType: "прямой", fabric: "рогожка", createdAt: 1,
@@ -210,35 +147,7 @@ const catalogProducts = [
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
-  {
-    id: 7, name: "Ардо", category: "chair", price: 18900, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/4300a84d-f22a-46f5-bb64-31b787c56afd.jpg", tag: "Новинка",
-    angleType: "прямой", fabric: "рогожка", createdAt: 8,
-    images: [
-      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/4300a84d-f22a-46f5-bb64-31b787c56afd.jpg",
-      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/9f50caee-1102-4e33-9527-3a1c2234fb89.jpg",
-      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/493f29d0-f89e-49dd-9c32-8c760b879482.jpg",
-    ],
-    colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
-      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
-      { name: "Серый", swatch: ROGOJKA_GREY },
-      { name: "Изумрудный (велюр)", swatch: VELVET_EMERALD },
-      { name: "Мятный (велюр)", swatch: VELVET_MINT },
-      { name: "Светло-серый (велюр)", swatch: VELVET_LGREY },
-      { name: "Синий (велюр)", swatch: VELVET_BLUE },
-    ],
-    desc: "Кресло с глубокой мягкой посадкой и широкими подлокотниками. Идеально для чтения и отдыха. Обивка — велюр или рогожка на выбор.",
-    specs: [
-      { label: "Размер", value: "Ш 85 × Г 90 × В 95 см" },
-      { label: "Высота сиденья", value: "45 см" },
-      { label: "Наполнитель", value: "ППУ 28кг/м³ + перо" },
-      { label: "Каркас", value: "Сосна + берёзовая фанера" },
-      { label: "Ножки", value: "Массив дуба, высота 15 см" },
-      { label: "Ткань", value: "Велюр / рогожка на выбор" },
-      { label: "Срок изготовления", value: "До 7 рабочих дней" },
-      { label: "Гарантия", value: "18 месяцев" },
-    ],
-  },
+
 ];
 
 const faqItems = [
