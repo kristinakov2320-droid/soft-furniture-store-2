@@ -265,11 +265,12 @@ export default function Index() {
   const [activeColor, setActiveColor] = useState(0);
   const [activeImages, setActiveImages] = useState<string[]>([]);
   const [promoTimeLeft, setPromoTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth < 1024);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
   useEffect(() => {
     const promoEnd = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
@@ -561,23 +562,24 @@ export default function Index() {
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
                   <div className="container relative z-10 py-20 lg:py-24">
-                    {/* МОБИЛКА */}
-                    <div className="flex flex-col lg:hidden">
-                      <div className="mb-6">{promoTitle}</div>
-                      <div className="mb-8">{promoPrice}</div>
-                      <div className="mb-8">{promoPhoto}</div>
-                      <div>{promoTimer}{promoBtn}</div>
-                    </div>
-                    {/* ДЕСКТОП */}
-                    <div className="hidden lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
-                      <div>
-                        {promoTitle}
-                        {promoPrice}
-                        {promoTimer}
-                        {promoBtn}
+                    {isMobile ? (
+                      <div style={{display:"flex", flexDirection:"column"}}>
+                        <div style={{marginBottom:"1.5rem"}}>{promoTitle}</div>
+                        <div style={{marginBottom:"2rem"}}>{promoPrice}</div>
+                        <div style={{marginBottom:"2rem"}}>{promoPhoto}</div>
+                        <div>{promoTimer}{promoBtn}</div>
                       </div>
-                      <div className="-mr-8 my-[-60px]">{promoPhoto}</div>
-                    </div>
+                    ) : (
+                      <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:"5rem", alignItems:"center"}}>
+                        <div>
+                          {promoTitle}
+                          {promoPrice}
+                          {promoTimer}
+                          {promoBtn}
+                        </div>
+                        <div style={{marginRight:"-2rem", marginTop:"-60px", marginBottom:"-60px"}}>{promoPhoto}</div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Акцентная полоса снизу */}
