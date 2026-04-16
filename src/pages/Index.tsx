@@ -561,12 +561,22 @@ export default function Index() {
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
                   <div className="container relative z-10 py-20 lg:py-24">
-                    {/* Мобилка: flex-col с явными style order. Десктоп: grid */}
-                    <div style={{display: "flex", flexDirection: "column"}} className="lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
-                      <div style={{order: 1}} className="lg:order-none mb-6 lg:mb-0 lg:col-start-1 lg:row-start-1">{promoTitle}</div>
-                      <div style={{order: 2}} className="lg:order-none mb-8 lg:mb-0 lg:col-start-1 lg:row-start-2">{promoPrice}</div>
-                      <div style={{order: 3}} className="lg:order-none mb-8 lg:mb-0 lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:-mr-8 lg:my-[-60px]">{promoPhoto}</div>
-                      <div style={{order: 4}} className="lg:order-none lg:col-start-1 lg:row-start-3">{promoTimer}{promoBtn}</div>
+                    {/* МОБИЛКА */}
+                    <div className="flex flex-col lg:hidden">
+                      <div className="mb-6">{promoTitle}</div>
+                      <div className="mb-8">{promoPrice}</div>
+                      <div className="mb-8">{promoPhoto}</div>
+                      <div>{promoTimer}{promoBtn}</div>
+                    </div>
+                    {/* ДЕСКТОП */}
+                    <div className="hidden lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
+                      <div>
+                        {promoTitle}
+                        {promoPrice}
+                        {promoTimer}
+                        {promoBtn}
+                      </div>
+                      <div className="-mr-8 my-[-60px]">{promoPhoto}</div>
                     </div>
                   </div>
 
