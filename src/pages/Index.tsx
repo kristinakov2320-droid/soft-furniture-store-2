@@ -561,28 +561,12 @@ export default function Index() {
                   {/* Акцентная полоса сверху */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-                  <style>{`
-                    @media (max-width: 1023px) {
-                      .promo-layout { display: flex !important; flex-direction: column !important; }
-                      .promo-title  { order: 1; margin-bottom: 1.5rem; }
-                      .promo-price  { order: 2; margin-bottom: 2rem; }
-                      .promo-photo  { order: 3; margin-bottom: 2rem; }
-                      .promo-bottom { order: 4; }
-                    }
-                    @media (min-width: 1024px) {
-                      .promo-layout { display: grid !important; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-                      .promo-title  { grid-column: 1; grid-row: 1; }
-                      .promo-price  { grid-column: 1; grid-row: 2; }
-                      .promo-photo  { grid-column: 2; grid-row: 1 / span 3; margin-right: -2rem; margin-top: -60px; margin-bottom: -60px; }
-                      .promo-bottom { grid-column: 1; grid-row: 3; }
-                    }
-                  `}</style>
                   <div className="container relative z-10 py-20 lg:py-24">
-                    <div className="promo-layout">
-                      <div className="promo-title">{promoTitle}</div>
-                      <div className="promo-price">{promoPrice}</div>
-                      <div className="promo-photo">{promoPhoto}</div>
-                      <div className="promo-bottom">{promoTimer}{promoBtn}</div>
+                    <div className="flex flex-col">
+                      <div className="mb-6">{promoTitle}</div>
+                      <div className="mb-8">{promoPrice}</div>
+                      <div className="mb-8">{promoPhoto}</div>
+                      <div>{promoTimer}{promoBtn}</div>
                     </div>
                   </div>
 
