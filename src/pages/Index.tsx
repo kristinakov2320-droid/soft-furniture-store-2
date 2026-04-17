@@ -24,7 +24,8 @@ const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/21d1f267-a06d-4ab4-95b5-c500b245be22.jpg";
 const LIBERTY_BEIGE_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c00a284b-abb2-4e59-9894-a9fc743162bf.jpg";
 const LIBERTY_BEIGE_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b967c61e-80f3-4638-85c9-2b7aa345a6b5.jpg";
-const LIBERTY_BEIGE_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/608c45f8-3fad-45ea-ad3d-2a561fbc5e0d.jpg";
+const LIBERTY_BEIGE_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49024401-e5df-4c5a-8b68-876329ce1f09.jpg";
+const LIBERTY_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49024401-e5df-4c5a-8b68-876329ce1f09.jpg";
 const LIBERTY_GREEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70e8a243-f774-40e0-846a-0a7e4d2c4dec.jpg";
 const LIBERTY_GREEN_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d945a851-0a8c-42d7-93b5-6f3a6d07a3b0.jpg";
 const LIBERTY_GREEN_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d35ef5a6-004f-439a-b68b-c4ced16099e2.jpg";
@@ -56,7 +57,7 @@ const catalogProducts = [
     angleType: "угловой", fabric: "велюр", createdAt: 2,
     images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6],
     colors: [
-      { name: "Бежевый", swatch: LIBERTY_BEIGE, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
+      { name: "Бежевый", swatch: LIBERTY_INTERIOR, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
       { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN, LIBERTY_GREEN_2, LIBERTY_GREEN_3, LIBERTY_GREEN_4, LIBERTY_GREEN_5, LIBERTY_GREEN_6] },
       { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY, LIBERTY_LGREY_2, LIBERTY_LGREY_3, LIBERTY_LGREY_4, LIBERTY_LGREY_5, LIBERTY_LGREY_6] },
       { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY, LIBERTY_DGREY_2, LIBERTY_DGREY_3, LIBERTY_DGREY_4, LIBERTY_DGREY_5, LIBERTY_DGREY_6] },
@@ -656,13 +657,13 @@ export default function Index() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { p: catalogProducts[0], label: "Диваны", filter: "sofa" },
-                  { p: catalogProducts[1], label: "Садовая мебель", filter: "garden" },
-                  { p: catalogProducts[2], label: "Кровати", filter: "bed" },
-                ].map(({ p, label, filter }) => (
+                  { p: catalogProducts[0], label: "Диваны", filter: "sofa", heroImg: LIBERTY_INTERIOR },
+                  { p: catalogProducts[1], label: "Садовая мебель", filter: "garden", heroImg: catalogProducts[1].img },
+                  { p: catalogProducts[2], label: "Кровати", filter: "bed", heroImg: catalogProducts[2].img },
+                ].map(({ p, label, filter, heroImg }) => (
                   <div key={p.id} className="group">
                     <div className="aspect-[4/3] overflow-hidden relative mb-4 cursor-pointer" onClick={() => openProduct(p)}>
-                      <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <img src={heroImg} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                         <div className="bg-background/90 backdrop-blur px-6 py-3 font-display text-sm tracking-widest uppercase border border-border">
                           Подробнее →
