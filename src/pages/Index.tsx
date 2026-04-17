@@ -648,20 +648,21 @@ export default function Index() {
               <div className="flex items-end justify-between mb-12">
                 <div>
                   <p className="font-body text-primary text-sm tracking-[0.3em] uppercase mb-2">Популярное</p>
-                  <h2 className="font-display text-5xl font-bold">КАТАЛОГ</h2>
+                  <h2 className="font-display text-5xl font-bold cursor-pointer hover:text-primary transition-colors" onClick={() => navigate("catalog")}>КАТАЛОГ</h2>
                 </div>
                 <button onClick={() => navigate("catalog")} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider">
                   Все модели →
                 </button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {catalogProducts.slice(0, 3).map((p) => (
-                  <div key={p.id} className="group cursor-pointer" onClick={() => openProduct(p)}>
-                    <div className="aspect-[4/3] overflow-hidden relative mb-4">
+                {[
+                  { p: catalogProducts[0], label: "Диваны", filter: "sofa" },
+                  { p: catalogProducts[1], label: "Садовая мебель", filter: "garden" },
+                  { p: catalogProducts[2], label: "Кровати", filter: "bed" },
+                ].map(({ p, label, filter }) => (
+                  <div key={p.id} className="group">
+                    <div className="aspect-[4/3] overflow-hidden relative mb-4 cursor-pointer" onClick={() => openProduct(p)}>
                       <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      {p.tag && (
-                        <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-2 py-1 font-display text-xs tracking-widest">{p.tag}</div>
-                      )}
                       <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                         <div className="bg-background/90 backdrop-blur px-6 py-3 font-display text-sm tracking-widest uppercase border border-border">
                           Подробнее →
@@ -670,8 +671,10 @@ export default function Index() {
                     </div>
                     <div className="flex items-end justify-between">
                       <div>
-                        <h3 className="font-display text-xl tracking-widest">{p.name}</h3>
-                        <p className="font-body text-muted-foreground text-sm mt-1">{p.category === "sofa" ? "Диван" : p.category === "bed" ? "Кровать" : p.category === "chair" ? "Кресло" : "Садовая мебель"}</p>
+                        <button
+                          className="font-display text-xl tracking-widest hover:text-primary transition-colors"
+                          onClick={() => { setActiveFilter(filter); navigate("catalog"); }}
+                        >{label}</button>
                       </div>
                       <div className="font-display text-lg text-primary">{p.price.toLocaleString("ru")} ₽</div>
                     </div>
@@ -689,7 +692,7 @@ export default function Index() {
                   <p className="font-body text-primary text-sm tracking-[0.3em] uppercase mb-3">Новая коллекция</p>
                   <h2 className="font-display text-5xl md:text-7xl font-bold mb-6">САДОВАЯ<br />МЕБЕЛЬ</h2>
                   <button
-                    onClick={() => navigate("catalog")}
+                    onClick={() => { setActiveFilter("garden"); navigate("catalog"); }}
                     className="border border-primary text-primary px-8 py-3 font-display tracking-widest text-sm uppercase hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     Смотреть коллекцию
