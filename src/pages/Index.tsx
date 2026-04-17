@@ -881,10 +881,9 @@ export default function Index() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               <div className="space-y-8">
                 {[
-                  { icon: "MapPin", title: "Шоурум", info: "Москва, Садовая-Сухаревская, 2\nПн–Вс: 10:00–21:00" },
-                  { icon: "Phone", title: "Телефон", info: "+7 (495) 000-00-00\nБесплатно по России" },
-                  { icon: "Mail", title: "Email", info: "hello@forma-mebel.ru\nОтвечаем в течение 2 часов" },
-                  { icon: "MessageCircle", title: "WhatsApp / Telegram", info: "@forma_mebel" },
+                  { icon: "MapPin", title: "Шоурум", info: "г. Ульяновск, Московское шоссе 9к2\n(ориентир Адреналин парк)\nКаждый день: 08:00–19:00" },
+                  { icon: "Phone", title: "Телефон", info: "+7 (842) 230-36-80" },
+                  { icon: "Mail", title: "Email", info: "info@vmm24.com" },
                 ].map((c, i) => (
                   <div key={i} className="flex gap-5">
                     <div className="w-12 h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -1039,23 +1038,14 @@ export default function Index() {
               <div>
                 <div className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">Контакты</div>
                 <ul className="space-y-2">
-                  {["+7 (495) 000-00-00", "hello@forma-mebel.ru", "Москва, Садовая-Сухаревская, 2"].map((t, i) => (
+                  {["+7 (842) 230-36-80", "info@vmm24.com", "г. Ульяновск, Московское шоссе 9к2"].map((t, i) => (
                     <li key={i}>
                       <button onClick={() => navigate("contacts")} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors text-left">{t}</button>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <div className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">Соцсети</div>
-                <div className="flex gap-3">
-                  {["Instagram", "Youtube", "Send"].map((ic) => (
-                    <div key={ic} className="w-10 h-10 border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors cursor-pointer">
-                      <Icon name={ic as "Send"} size={16} />
-                    </div>
-                  ))}
-                </div>
-              </div>
+
             </div>
             <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between gap-3">
               <p className="font-body text-xs text-muted-foreground">© 2024 FORMA. Все права защищены.</p>
