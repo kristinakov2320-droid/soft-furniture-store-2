@@ -19,11 +19,11 @@ const VELVET_MINT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-ee
 const VELVET_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b01460c2-6ca9-4767-a94b-238dfb5d32f4.jpg";
 const VELVET_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f12ee5bf-0cf4-4300-8af6-16ef12060d2a.jpg";
 
-const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/44c04827-b8a2-4dd5-a1b7-8b604e07ba3b.jpg";
-const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/055bfca5-ec85-40c4-a77d-805f619d4604.jpg";
-const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/9dff180e-72af-4a03-92c1-b6de52f525e9.jpg";
-const LIBERTY_BEIGE_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/540a4dd7-14e5-4112-95ae-f317b53e2993.jpg";
-const LIBERTY_BEIGE_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/2b436eba-1a0c-4382-a32a-41ad451d35c7.jpg";
+const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70b59a71-e765-488e-a164-678623171323.jpg";
+const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6ee27df5-6bc9-4098-b59c-9073aa16f69d.jpg";
+const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/21d1f267-a06d-4ab4-95b5-c500b245be22.jpg";
+const LIBERTY_BEIGE_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c00a284b-abb2-4e59-9894-a9fc743162bf.jpg";
+const LIBERTY_BEIGE_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b967c61e-80f3-4638-85c9-2b7aa345a6b5.jpg";
 const LIBERTY_BEIGE_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/608c45f8-3fad-45ea-ad3d-2a561fbc5e0d.jpg";
 const LIBERTY_GREEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70e8a243-f774-40e0-846a-0a7e4d2c4dec.jpg";
 const LIBERTY_GREEN_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d945a851-0a8c-42d7-93b5-6f3a6d07a3b0.jpg";
@@ -676,7 +676,6 @@ export default function Index() {
                           onClick={() => { setActiveFilter(filter); navigate("catalog"); }}
                         >{label}</button>
                       </div>
-                      <div className="font-display text-lg text-primary">{p.price.toLocaleString("ru")} ₽</div>
                     </div>
                   </div>
                 ))}
