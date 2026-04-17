@@ -58,9 +58,9 @@ const catalogProducts = [
     images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6],
     colors: [
       { name: "Бежевый", swatch: LIBERTY_INTERIOR, images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6] },
-      { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN, LIBERTY_GREEN_2, LIBERTY_GREEN_3, LIBERTY_GREEN_4, LIBERTY_GREEN_5, LIBERTY_GREEN_6] },
-      { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY, LIBERTY_LGREY_2, LIBERTY_LGREY_3, LIBERTY_LGREY_4, LIBERTY_LGREY_5, LIBERTY_LGREY_6] },
-      { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY, LIBERTY_DGREY_2, LIBERTY_DGREY_3, LIBERTY_DGREY_4, LIBERTY_DGREY_5, LIBERTY_DGREY_6] },
+      { name: "Зелёный", swatch: LIBERTY_GREEN, images: [LIBERTY_GREEN_2, LIBERTY_GREEN_3, LIBERTY_GREEN_4, LIBERTY_GREEN_5, LIBERTY_GREEN_6, LIBERTY_GREEN] },
+      { name: "Светло-серый", swatch: LIBERTY_LGREY, images: [LIBERTY_LGREY_2, LIBERTY_LGREY_3, LIBERTY_LGREY_4, LIBERTY_LGREY_5, LIBERTY_LGREY_6, LIBERTY_LGREY] },
+      { name: "Тёмно-серый", swatch: LIBERTY_DGREY, images: [LIBERTY_DGREY_2, LIBERTY_DGREY_3, LIBERTY_DGREY_4, LIBERTY_DGREY_5, LIBERTY_DGREY_6, LIBERTY_DGREY] },
     ],
     desc: "Большой современный диван из трёх секций станет стильным и функциональным акцентом в вашей гостиной.",
     specs: [
