@@ -53,7 +53,7 @@ const OASIS_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21
 
 const catalogProducts = [
   {
-    id: 1, name: "Либерти", category: "sofa", price: 69399, img: LIBERTY_BEIGE, tag: "Хит",
+    id: 1, name: "Либерти", category: "sofa", price: 69399, img: LIBERTY_BEIGE,
     angleType: "угловой", fabric: "велюр", createdAt: 2,
     images: [LIBERTY_BEIGE, LIBERTY_BEIGE_2, LIBERTY_BEIGE_3, LIBERTY_BEIGE_4, LIBERTY_BEIGE_5, LIBERTY_BEIGE_6],
     colors: [
@@ -92,7 +92,7 @@ const catalogProducts = [
     ],
   },
   {
-    id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE, tag: "Новинка",
+    id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE,
     angleType: "прямой", fabric: "рогожка", createdAt: 5,
     images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
     colors: [
