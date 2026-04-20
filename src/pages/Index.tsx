@@ -105,7 +105,7 @@ const catalogProducts = [
     ],
   },
   {
-    id: 2, name: "Фарелл", category: "garden", price: 44999, img: FARELL_SET,
+    id: 2, name: "Фарелл", category: "garden", price: 44999, img: FARELL_INTERIOR,
     angleType: "прямой", fabric: "рогожка", createdAt: 5,
     images: [FARELL_SET, FARELL_SOFA, FARELL_CHAIR, FARELL_TABLE, FARELL_POUF, FARELL_INTERIOR],
     colors: [
@@ -125,7 +125,7 @@ const catalogProducts = [
     ],
   },
   {
-    id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3ad5b393-8b63-4162-b394-f9be6af5fe4e.jpg", tag: "",
+    id: 3, name: "Моника", category: "bed", price: 24999, img: SHOWROOM_IMAGE, tag: "",
     angleType: "прямой", fabric: "велюр", createdAt: 7,
     images: ["https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3ad5b393-8b63-4162-b394-f9be6af5fe4e.jpg", SHOWROOM_IMAGE],
     colors: [
@@ -145,7 +145,7 @@ const catalogProducts = [
   },
 
   {
-    id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_2, tag: "Акция",
+    id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_IMAGE, tag: "Акция",
     angleType: "прямой", fabric: "рогожка", createdAt: 1,
     images: [OASIS_2, OASIS_3, OASIS_4, OASIS_5, OASIS_6, OASIS_IMAGE],
     colors: [
