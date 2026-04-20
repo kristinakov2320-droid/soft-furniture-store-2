@@ -17,6 +17,7 @@ const FARELL_GREY_SOFA = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const FARELL_GREY_CHAIR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6e434d00-0341-4258-99fe-1d6531ca9aac.jpg";
 const FARELL_GREY_POUF = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f83232aa-7a7c-42df-bbaa-d1ac16b64a2c.jpg";
 const FARELL_GREY_TABLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/002795c6-cff0-4304-946b-a09d8b3cf957.jpg";
+const FARELL_GREY_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7e19a8f2-cc10-43d3-b36b-c30c2da01ae5.jpg";
 
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
@@ -109,7 +110,7 @@ const catalogProducts = [
     images: [FARELL_SET, FARELL_SOFA, FARELL_CHAIR, FARELL_TABLE, FARELL_POUF, FARELL_INTERIOR],
     colors: [
       { name: "Градиент", swatch: FARELL_INTERIOR, images: [FARELL_SET, FARELL_SOFA, FARELL_CHAIR, FARELL_TABLE, FARELL_POUF, FARELL_INTERIOR] },
-      { name: "Серый", swatch: FARELL_GREY_SET, images: [FARELL_GREY_SET, FARELL_GREY_SOFA, FARELL_GREY_CHAIR, FARELL_GREY_POUF, FARELL_GREY_TABLE] },
+      { name: "Серый", swatch: FARELL_GREY_INTERIOR, images: [FARELL_GREY_SET, FARELL_GREY_SOFA, FARELL_GREY_CHAIR, FARELL_GREY_POUF, FARELL_GREY_TABLE, FARELL_GREY_INTERIOR] },
     ],
     desc: "Комплект садовой мебели из ротанга с алюминиевым каркасом. Не боится влаги и перепадов температур. Подушки входят в комплект.",
     specs: [
