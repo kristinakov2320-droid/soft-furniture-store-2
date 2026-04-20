@@ -125,14 +125,11 @@ const catalogProducts = [
     ],
   },
   {
-    id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", tag: "",
+    id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3ad5b393-8b63-4162-b394-f9be6af5fe4e.jpg", tag: "",
     angleType: "прямой", fabric: "велюр", createdAt: 7,
-    images: ["https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49ffffd3-0c1f-467b-8a3b-1d215802383e.jpg", SHOWROOM_IMAGE, HERO_IMAGE],
+    images: ["https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3ad5b393-8b63-4162-b394-f9be6af5fe4e.jpg", SHOWROOM_IMAGE],
     colors: [
-      { name: "Бежевый (велюр)", swatch: VELVET_LGREY },
-      { name: "Мятный (велюр)", swatch: VELVET_MINT },
-      { name: "Синий (велюр)", swatch: VELVET_BLUE },
-      { name: "Изумрудный (велюр)", swatch: VELVET_EMERALD },
+      { name: "Бежевый (велюр)", swatch: SHOWROOM_IMAGE },
     ],
     desc: "Кровать с мягким изголовьем в скандинавском стиле. Вертикальная стёжка придаёт объём и благородство. Обивка — бежевый велюр.",
     specs: [
