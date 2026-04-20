@@ -145,7 +145,7 @@ const catalogProducts = [
   },
 
   {
-    id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_IMAGE, tag: "Акция",
+    id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_2, tag: "Акция",
     angleType: "прямой", fabric: "рогожка", createdAt: 1,
     images: [OASIS_2, OASIS_3, OASIS_4, OASIS_5, OASIS_6, OASIS_IMAGE],
     colors: [
