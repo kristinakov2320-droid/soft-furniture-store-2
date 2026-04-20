@@ -820,7 +820,7 @@ export default function Index() {
         {activeSection === "about" && (
           <div>
             <div className="relative h-[50vh] overflow-hidden">
-              <img src={SHOWROOM_IMAGE} className="w-full h-full object-cover" alt="О нас" />
+              <img src="https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/2b5d281a-cbc5-4293-a05d-6f95d0dcb8c9.jpg" className="w-full h-full object-cover" alt="О нас" />
               <div className="absolute inset-0 bg-background/70" />
               <div className="absolute inset-0 flex items-end container pb-16">
                 <div>
@@ -834,20 +834,20 @@ export default function Index() {
                 <div>
                   <h2 className="font-display text-4xl font-bold mb-6">Мы создаём мебель<br /><span className="text-primary">с характером</span></h2>
                   <p className="font-body text-muted-foreground leading-relaxed mb-4">
-                    Мебель за стеклом основана в 2015 году командой дизайнеров и мебельщиков, которые хотели изменить рынок. Мы устали от мебели без идеи — и решили делать иначе.
+                    Стабильно находимся на рынке уже более 10 лет, соответственно, имеем большой опыт работы. Мы знаем, как сделать лучше, красивее и удобнее.
                   </p>
                   <p className="font-body text-muted-foreground leading-relaxed mb-4">
-                    Каждый диван проходит через руки мастеров на нашем производстве в Москве. Итальянские ткани, немецкие механизмы, экологичный наполнитель.
+                    Мы уже добились рекордно низкой по мировым меркам себестоимости продукции, а также качества и объемов производства уровня мировых лидеров.
                   </p>
                   <p className="font-body text-muted-foreground leading-relaxed">
-                    Сегодня FORMA — это 120+ моделей, более 1 млн довольных клиентов и шоурум в центре Москвы.
+                    У нас запущен полный цикл производства от нити до готового изделия, а значит мы уверены в том, что делаем.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { num: "2015", label: "Год основания" },
+                    { num: "10 лет", label: "На рынке" },
                     { num: "1 млн+", label: "Клиентов" },
-                    { num: "120+", label: "Моделей" },
+                    { num: "100+", label: "Моделей" },
                     { num: "18 мес.", label: "Гарантия" },
                   ].map((s, i) => (
                     <div key={i} className="border border-border p-6">
@@ -857,22 +857,13 @@ export default function Index() {
                   ))}
                 </div>
               </div>
-              <h2 className="font-display text-4xl font-bold mb-10">КОМАНДА</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { name: "Алексей Морозов", role: "Основатель и CEO" },
-                  { name: "Марина Ким", role: "Главный дизайнер" },
-                  { name: "Дмитрий Волков", role: "Руководитель производства" },
-                  { name: "Анна Соколова", role: "Директор по клиентам" },
-                ].map((m, i) => (
-                  <div key={i}>
-                    <div className="aspect-square bg-secondary mb-3 flex items-center justify-center">
-                      <Icon name="User" size={48} className="text-muted-foreground" />
-                    </div>
-                    <div className="font-display tracking-wide">{m.name}</div>
-                    <div className="font-body text-muted-foreground text-sm mt-1">{m.role}</div>
-                  </div>
-                ))}
+              <div className="w-full aspect-video">
+                <iframe
+                  src="https://vkvideo.ru/video_ext.php?oid=665766586&id=456239028&hd=2"
+                  className="w-full h-full"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
