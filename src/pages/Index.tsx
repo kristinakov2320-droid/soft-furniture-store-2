@@ -6,6 +6,13 @@ const HERO_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eea
 const GARDEN_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/83033b65-7386-435d-b653-94fddc213166.jpg";
 const SHOWROOM_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/c66e0e66-19b9-4ec7-b64b-3e8efa991827.jpg";
 
+const FARELL_SET = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/914c8a59-3e47-4a46-989c-88db594d9867.jpg";
+const FARELL_SOFA = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/280b420e-136d-48a2-8315-2173c4eb006a.jpg";
+const FARELL_CHAIR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ba1c2848-c465-4796-b98f-0b4bececaad8.jpg";
+const FARELL_TABLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/79cb88b3-2d26-48c8-8783-c5362afa0719.jpg";
+const FARELL_POUF = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f915ce97-2dbe-42a4-a0cf-49011193cff8.jpg";
+const FARELL_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/c66e0e66-19b9-4ec7-b64b-3e8efa991827.jpg";
+
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
 const ROGOJKA_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a389bbba-23dd-4b56-899d-d2317ab26cee.jpg";
@@ -92,12 +99,12 @@ const catalogProducts = [
     ],
   },
   {
-    id: 2, name: "Фарелл", category: "garden", price: 44999, img: GARDEN_IMAGE,
+    id: 2, name: "Фарелл", category: "garden", price: 44999, img: FARELL_SET,
     angleType: "прямой", fabric: "рогожка", createdAt: 5,
-    images: [GARDEN_IMAGE, HERO_IMAGE, SHOWROOM_IMAGE],
+    images: [FARELL_SET, FARELL_SOFA, FARELL_CHAIR, FARELL_TABLE, FARELL_POUF, FARELL_INTERIOR],
     colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE },
-      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Градиент", swatch: FARELL_INTERIOR, images: [FARELL_SET, FARELL_SOFA, FARELL_CHAIR, FARELL_TABLE, FARELL_POUF, FARELL_INTERIOR] },
+      { name: "Серый", swatch: FARELL_INTERIOR, images: [FARELL_SET, FARELL_SOFA, FARELL_CHAIR, FARELL_TABLE, FARELL_POUF, FARELL_INTERIOR] },
     ],
     desc: "Комплект садовой мебели из ротанга с алюминиевым каркасом. Не боится влаги и перепадов температур. Подушки входят в комплект.",
     specs: [
