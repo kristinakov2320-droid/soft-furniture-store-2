@@ -105,7 +105,7 @@ const catalogProducts = [
     ],
   },
   {
-    id: 2, name: "Фарелл", category: "garden", price: 44999, img: FARELL_INTERIOR,
+    id: 2, name: "Фарелл", category: "garden", price: 44999, img: FARELL_SET,
     angleType: "прямой", fabric: "рогожка", createdAt: 5,
     images: [FARELL_SET, FARELL_SOFA, FARELL_CHAIR, FARELL_TABLE, FARELL_POUF, FARELL_INTERIOR],
     colors: [
@@ -125,7 +125,7 @@ const catalogProducts = [
     ],
   },
   {
-    id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5eda887c-89c3-416b-b309-832f244149bf.jpg", tag: "",
+    id: 3, name: "Моника", category: "bed", price: 24999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3ad5b393-8b63-4162-b394-f9be6af5fe4e.jpg", tag: "",
     angleType: "прямой", fabric: "велюр", createdAt: 7,
     images: ["https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3ad5b393-8b63-4162-b394-f9be6af5fe4e.jpg", "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5eda887c-89c3-416b-b309-832f244149bf.jpg"],
     colors: [
@@ -145,7 +145,7 @@ const catalogProducts = [
   },
 
   {
-    id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_IMAGE, tag: "Акция",
+    id: 8, name: "Оазис", category: "garden", price: 12999, oldPrice: 16999, img: OASIS_2, tag: "Акция",
     angleType: "прямой", fabric: "рогожка", createdAt: 1,
     images: [OASIS_2, OASIS_3, OASIS_4, OASIS_5, OASIS_6, OASIS_IMAGE],
     colors: [
@@ -668,8 +668,8 @@ export default function Index() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
                   { p: catalogProducts[0], label: "Диваны", filter: "sofa", heroImg: LIBERTY_INTERIOR },
-                  { p: catalogProducts[1], label: "Садовая мебель", filter: "garden", heroImg: catalogProducts[1].img },
-                  { p: catalogProducts[2], label: "Кровати", filter: "bed", heroImg: catalogProducts[2].img },
+                  { p: catalogProducts[1], label: "Садовая мебель", filter: "garden", heroImg: FARELL_INTERIOR },
+                  { p: catalogProducts[2], label: "Кровати", filter: "bed", heroImg: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5eda887c-89c3-416b-b309-832f244149bf.jpg" },
                 ].map(({ p, label, filter, heroImg }) => (
                   <div key={p.id} className="group">
                     <div className="aspect-[4/3] overflow-hidden relative mb-4 cursor-pointer" onClick={() => openProduct(p)}>
