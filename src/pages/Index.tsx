@@ -11,7 +11,7 @@ const FARELL_SOFA = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-ee
 const FARELL_CHAIR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ba1c2848-c465-4796-b98f-0b4bececaad8.jpg";
 const FARELL_TABLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/79cb88b3-2d26-48c8-8783-c5362afa0719.jpg";
 const FARELL_POUF = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f915ce97-2dbe-42a4-a0cf-49011193cff8.jpg";
-const FARELL_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/files/c66e0e66-19b9-4ec7-b64b-3e8efa991827.jpg";
+const FARELL_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5300ce1a-9c41-4883-9312-ec2c10276dce.jpg";
 
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
