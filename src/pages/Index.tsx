@@ -62,6 +62,7 @@ const MALAGA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-e
 const MALAGA_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/88470d94-f58f-48cf-87ce-11e343ce3d76.jpg";
 const MALAGA_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e1f57707-c827-4146-8e4c-8db9886783c3.jpg";
 const MALAGA_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/13fbf4b2-533d-4927-9b99-f8a76437bc67.jpg";
+const MALAGA_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/39221181-692f-4180-9201-8a043bea269d.jpg";
 
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
@@ -153,26 +154,37 @@ const catalogProducts = [
   {
     id: 9, name: "Малага", category: "sofa", price: 14999, img: MALAGA_FRONT,
     angleType: "прямой", fabric: "рогожка", createdAt: 3,
-    images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK],
+    images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR],
     colors: [
-      { name: "Бежевый", swatch: MALAGA_FRONT, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
-      { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
-      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
-      { name: "Серый", swatch: ROGOJKA_GREY, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
-      { name: "Синий", swatch: ROGOJKA_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
-      { name: "Бирюзовый", swatch: VELVET_MINT, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
-      { name: "Ультрамарин", swatch: VELVET_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+      { name: "Бежевый", swatch: MALAGA_INTERIOR, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
+      { name: "Серый", swatch: ROGOJKA_GREY, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
+      { name: "Синий", swatch: ROGOJKA_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
+      { name: "Бирюзовый", swatch: VELVET_MINT, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
+      { name: "Ультрамарин", swatch: VELVET_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
     ],
-    desc: "Компактный прямой диван-кровать из рогожки с ящиком для хранения. Лаконичный дизайн, съёмные подлокотники, раскладной механизм. Идеален для небольших гостиных и детских комнат.",
+    desc: "Компактный прямой диван-кровать из рогожки с ящиком для хранения. Лаконичный дизайн, раскладной механизм. Идеален для небольших гостиных и детских комнат.",
     specs: [
       { label: "Тип", value: "Прямой диван-кровать" },
-      { label: "Размер дивана", value: "210 × 90 × 85 см" },
-      { label: "Спальное место", value: "195 × 130 см" },
-      { label: "Механизм", value: "Еврокнижка" },
-      { label: "Ящик для хранения", value: "Есть" },
-      { label: "Обивка", value: "Рогожка" },
-      { label: "Каркас", value: "Массив дерева + ЛДСП" },
+      { label: "Основа сиденья", value: "ДСП (ЛДСП)" },
+      { label: "Каркас", value: "ДСП (ЛДСП)" },
       { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Обивка", value: "Рогожка" },
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Габариты дивана", value: "195 × 80 × 78 см" },
+      { label: "Спальное место", value: "130 × 195 см" },
+      { label: "Бельевой ящик", value: "150 × 26 × 50 см" },
+      { label: "Глубина сиденья", value: "48 см" },
+      { label: "Глубина сиденья без подушек", value: "66 см" },
+      { label: "Высота сиденья", value: "41 см" },
+      { label: "Ширина сиденья", value: "195 см" },
+      { label: "Высота спинки", value: "29 см" },
+      { label: "Высота ножек", value: "4 см" },
+      { label: "Подушки спинки", value: "2 шт, 70 × 46 × 18 см" },
+      { label: "Декоративные подушки", value: "2 шт, 63 × 26 × 10 см" },
+      { label: "Упаковка (1 коробка)", value: "195 × 50 × 70 см, 44 кг" },
+      { label: "Максимальная нагрузка", value: "100 кг" },
       { label: "Срок изготовления", value: "До 7 рабочих дней" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
