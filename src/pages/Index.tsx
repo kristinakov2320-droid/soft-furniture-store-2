@@ -57,6 +57,12 @@ const LIBERTY_DGREY_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const LIBERTY_DGREY_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6b00d059-11fc-49c7-86c5-7b04765547c5.jpg";
 const LIBERTY_DGREY_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0ed867d2-170a-49f6-9ad8-87f969c1bbe9.jpg";
 const LIBERTY_DGREY_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4ddcbc92-990c-4005-9768-a775c55c2cc5.jpg";
+const MALAGA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3946c9a3-4a91-4663-808f-1ae68d85d1ed.jpg";
+const MALAGA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ad737619-4ef0-4c28-b2d8-5f832c1ea5e3.jpg";
+const MALAGA_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/88470d94-f58f-48cf-87ce-11e343ce3d76.jpg";
+const MALAGA_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e1f57707-c827-4146-8e4c-8db9886783c3.jpg";
+const MALAGA_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/13fbf4b2-533d-4927-9b99-f8a76437bc67.jpg";
+
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
 const OASIS_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/52ee79b9-7a9f-40ce-a20f-280be918369c.jpg";
@@ -139,6 +145,34 @@ const catalogProducts = [
       { label: "Каркас", value: "ЛДСП 25мм + металл" },
       { label: "Обивка", value: "Велюр, бежевый" },
       { label: "Ножки", value: "Массив дерева, натуральный" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
+  {
+    id: 9, name: "Малага", category: "sofa", price: 14999, img: MALAGA_FRONT,
+    angleType: "прямой", fabric: "рогожка", createdAt: 3,
+    images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK],
+    colors: [
+      { name: "Бежевый", swatch: MALAGA_FRONT, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+      { name: "Серый", swatch: ROGOJKA_GREY, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+      { name: "Синий", swatch: ROGOJKA_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+      { name: "Бирюзовый", swatch: VELVET_MINT, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+      { name: "Ультрамарин", swatch: VELVET_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK] },
+    ],
+    desc: "Компактный прямой диван-кровать из рогожки с ящиком для хранения. Лаконичный дизайн, съёмные подлокотники, раскладной механизм. Идеален для небольших гостиных и детских комнат.",
+    specs: [
+      { label: "Тип", value: "Прямой диван-кровать" },
+      { label: "Размер дивана", value: "210 × 90 × 85 см" },
+      { label: "Спальное место", value: "195 × 130 см" },
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Ящик для хранения", value: "Есть" },
+      { label: "Обивка", value: "Рогожка" },
+      { label: "Каркас", value: "Массив дерева + ЛДСП" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
       { label: "Срок изготовления", value: "До 7 рабочих дней" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
