@@ -94,6 +94,11 @@ const ATLANTA_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-494
 const ATLANTA_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fa39447-850c-48c0-ab38-0c19868aa3dc.jpg";
 const ATLANTA_COFFEE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4597654f-db53-4f85-8e19-d92d4a8672f1.jpg";
 const ATLANTA_COFFEE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e99f30a1-5180-4ff0-9981-b99ded351950.jpg";
+const ATLANTA_HONEY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/42c37c3f-ad9d-4602-aa26-4b8c54371bfb.jpg";
+const ATLANTA_HONEY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/df6a9eeb-87ac-4b4a-b507-3dfc7017cda9.jpg";
+const ATLANTA_HONEY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5f9bd78c-6e0a-4a1a-a4ae-9cb566cb4127.jpg";
+const ATLANTA_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/9a8b6192-1726-464d-b5bc-9210934bb525.jpg";
+const ATLANTA_HONEY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/03c93145-2f2f-4ae9-9d76-43da2a9b9348.jpg";
 
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
@@ -228,7 +233,7 @@ const catalogProducts = [
     colors: [
       { name: "Бежевый", swatch: ATLANTA_FRONT, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK] },
       { name: "Кофейный", swatch: ATLANTA_COFFEE_FRONT, images: [ATLANTA_COFFEE_FRONT, ATLANTA_COFFEE_ANGLE, ATLANTA_COFFEE_BED, ATLANTA_COFFEE_STORAGE, ATLANTA_COFFEE_BACK] },
-      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK] },
+      { name: "Медово-коричневый", swatch: ATLANTA_HONEY_FRONT, images: [ATLANTA_HONEY_FRONT, ATLANTA_HONEY_ANGLE, ATLANTA_HONEY_BED, ATLANTA_HONEY_STORAGE, ATLANTA_HONEY_BACK] },
       { name: "Серый", swatch: ROGOJKA_GREY, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK] },
       { name: "Синий", swatch: ROGOJKA_BLUE, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK] },
     ],
