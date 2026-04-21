@@ -84,6 +84,12 @@ const MALAGA_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const MALAGA_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/86d342a6-fada-4175-9208-f8742fdef222.jpg";
 const MALAGA_HONEY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8534d866-f8af-49c1-a7b3-389fef31c0c1.jpg";
 
+const ATLANTA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/71532990-2a41-453b-ac57-787d13d7f398.jpg";
+const ATLANTA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c169294a-2223-4ba7-a773-60c8a4873a55.jpg";
+const ATLANTA_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/796c0b11-fec1-4808-9875-4f9f29d76ecf.jpg";
+const ATLANTA_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/47408c90-b56b-4821-ab00-bd947ece1342.jpg";
+const ATLANTA_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/07490716-c219-48ac-b996-0f741d9f85d9.jpg";
+
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
 const OASIS_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/52ee79b9-7a9f-40ce-a20f-280be918369c.jpg";
@@ -205,6 +211,28 @@ const catalogProducts = [
       { label: "Декоративные подушки", value: "2 шт, 63 × 26 × 10 см" },
       { label: "Упаковка (1 коробка)", value: "195 × 50 × 70 см, 44 кг" },
       { label: "Максимальная нагрузка", value: "100 кг" },
+      { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
+  {
+    id: 10, name: "Атланта", category: "sofa", price: 16999, img: ATLANTA_FRONT,
+    angleType: "прямой", fabric: "рогожка", createdAt: 0,
+    images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK],
+    colors: [
+      { name: "Бежевый", swatch: ATLANTA_FRONT, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK] },
+    ],
+    desc: "Прямой диван-кровать с деревянными подлокотниками и вместительным ящиком для хранения. Механизм еврокнижка, обивка — рогожка. Отличное решение для гостиной или спальни.",
+    specs: [
+      { label: "Тип", value: "Прямой диван-кровать" },
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Обивка", value: "Рогожка" },
+      { label: "Каркас", value: "ДСП (ЛДСП)" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Подлокотники", value: "Массив дерева" },
+      { label: "Бельевой ящик", value: "Есть" },
+      { label: "Спальное место", value: "уточняйте у менеджера" },
       { label: "Срок изготовления", value: "До 7 рабочих дней" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
