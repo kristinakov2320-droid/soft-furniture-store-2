@@ -62,7 +62,7 @@ const MALAGA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-e
 const MALAGA_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/88470d94-f58f-48cf-87ce-11e343ce3d76.jpg";
 const MALAGA_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e1f57707-c827-4146-8e4c-8db9886783c3.jpg";
 const MALAGA_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/13fbf4b2-533d-4927-9b99-f8a76437bc67.jpg";
-const MALAGA_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/39221181-692f-4180-9201-8a043bea269d.jpg";
+const MALAGA_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a52bf45e-4244-41cb-89eb-2462fda8e863.jpg";
 
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
