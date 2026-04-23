@@ -126,6 +126,10 @@ const REIN_GREY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-952
 const REIN_GREY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3cd2e0ff-a1bf-46db-a06c-e9f40c227d68.jpg";
 const REIN_GREY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/468d2126-2bda-45ee-9539-c6103d55423f.jpg";
 const REIN_GREY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0465534b-9c05-44c3-87fc-cc3e2b8ad435.jpg";
+const REIN_BLUE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5621de5b-14c6-4574-8abb-a77019f70be6.jpg";
+const REIN_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/57c9a075-462d-4bd4-a342-bcbc1585b99c.jpg";
+const REIN_BLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/cf22898f-2149-426c-966c-c82c5f5a4aa6.jpg";
+const REIN_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efc0ac5c-e7a7-461a-aa95-fa2a168a65b3.jpg";
 
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
@@ -300,7 +304,7 @@ const catalogProducts = [
       { name: "Кофейный", swatch: REIN_COFFEE_FRONT, images: [REIN_COFFEE_FRONT, REIN_COFFEE_ANGLE, REIN_COFFEE_STORAGE, REIN_COFFEE_BED] },
       { name: "Медово-коричневый", swatch: REIN_HONEY_FRONT, images: [REIN_HONEY_FRONT, REIN_HONEY_ANGLE, REIN_HONEY_STORAGE, REIN_HONEY_BED] },
       { name: "Серый", swatch: REIN_GREY_FRONT, images: [REIN_GREY_FRONT, REIN_GREY_ANGLE, REIN_GREY_STORAGE, REIN_GREY_BED] },
-      { name: "Синий", swatch: ROGOJKA_BLUE, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
+      { name: "Синий", swatch: REIN_BLUE_FRONT, images: [REIN_BLUE_FRONT, REIN_BLUE_ANGLE, REIN_BLUE_STORAGE, REIN_BLUE_BED] },
     ],
     desc: "Угловой диван-кровать с механизмом «дельфин» и вместительным ящиком для хранения. Обивка — рогожка, российское производство. Универсальный угол — подойдёт для любой планировки.",
     specs: [
