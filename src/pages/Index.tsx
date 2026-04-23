@@ -118,6 +118,10 @@ const REIN_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9
 const REIN_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/51955a93-e54c-480f-a227-32ee2e19edcb.jpg";
 const REIN_COFFEE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/04ee527c-2cbb-43ae-80a9-919f4b2103fd.jpg";
 const REIN_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a25d3168-5d46-458e-b155-ff0c57a7b0a7.jpg";
+const REIN_HONEY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fcc3119a-5ccb-4ed0-bad2-1bfc2122be54.jpg";
+const REIN_HONEY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/850d3a5e-2055-4747-ab8c-a6ac94b505a7.jpg";
+const REIN_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0b05ff77-80a7-4cd0-85dd-20d9cc294b83.jpg";
+const REIN_HONEY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a1ce0c75-6fcc-4a70-b518-8aa11842ce3f.jpg";
 
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
@@ -290,7 +294,7 @@ const catalogProducts = [
     colors: [
       { name: "Бежевый", swatch: ROGOJKA_BEIGE, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
       { name: "Кофейный", swatch: REIN_COFFEE_FRONT, images: [REIN_COFFEE_FRONT, REIN_COFFEE_ANGLE, REIN_COFFEE_STORAGE, REIN_COFFEE_BED] },
-      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
+      { name: "Медово-коричневый", swatch: REIN_HONEY_FRONT, images: [REIN_HONEY_FRONT, REIN_HONEY_ANGLE, REIN_HONEY_STORAGE, REIN_HONEY_BED] },
       { name: "Серый", swatch: ROGOJKA_GREY, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
       { name: "Синий", swatch: ROGOJKA_BLUE, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
     ],
