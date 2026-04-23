@@ -84,6 +84,11 @@ const MALAGA_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const MALAGA_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/86d342a6-fada-4175-9208-f8742fdef222.jpg";
 const MALAGA_HONEY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8534d866-f8af-49c1-a7b3-389fef31c0c1.jpg";
 
+const KADIS_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efb98718-9bd5-45c0-a4f1-72b58ca985be.jpg";
+const KADIS_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/03709229-72da-452b-ab07-3cb4b5dd5863.jpg";
+const KADIS_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0c60518a-53d8-49e1-9b35-6693bbf9bf57.jpg";
+const KADIS_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/de95114a-51f6-4d4e-a00e-de7b7cc6a143.jpg";
+
 const ATLANTA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/71532990-2a41-453b-ac57-787d13d7f398.jpg";
 const ATLANTA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c169294a-2223-4ba7-a773-60c8a4873a55.jpg";
 const ATLANTA_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/796c0b11-fec1-4808-9875-4f9f29d76ecf.jpg";
@@ -353,6 +358,62 @@ const catalogProducts = [
       { label: "Нагрузка", value: "До 150 кг на место" },
       { label: "Уход", value: "Протирать влажной тряпкой" },
       { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+  {
+    id: 12,
+    name: "Кадис",
+    category: "sofa",
+    price: 10099,
+    img: KADIS_FRONT,
+    angleType: "прямой",
+    fabric: "рогожка",
+    createdAt: 8,
+    images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+    colors: [
+      {
+        name: "Бежевый",
+        swatch: ROGOJKA_BEIGE,
+        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+      },
+      {
+        name: "Кофейный",
+        swatch: ROGOJKA_COFFEE,
+        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+      },
+      {
+        name: "Медово-коричневый",
+        swatch: ROGOJKA_HONEY,
+        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+      },
+      {
+        name: "Серый",
+        swatch: ROGOJKA_GREY,
+        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+      },
+      {
+        name: "Синий",
+        swatch: ROGOJKA_BLUE,
+        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+      },
+    ],
+    desc: "Компактный прямой диван-кровать из рогожки с ящиком для хранения постельного белья. Механизм трансформации — выкатной. Металлические хромированные ножки.",
+    specs: [
+      { label: "Габариты дивана", value: "147 × 76 × 67 см" },
+      { label: "Ширина общая", value: "150 см" },
+      { label: "Высота общая", value: "89 см" },
+      { label: "Высота сиденья", value: "39 см" },
+      { label: "Глубина сиденья", value: "73 см" },
+      { label: "Спальное место", value: "190 × 73 см" },
+      { label: "Ящик для белья", value: "110,4 × 25,5 × 65 см" },
+      { label: "Размер подушек", value: "30 × 54 × 15 см (2 шт.)" },
+      { label: "Основа сиденья", value: "ДСП (ЛДСП)" },
+      { label: "Каркас", value: "ДСП (ЛДСП)" },
+      { label: "Наполнитель", value: "ППУ + синтепон" },
+      { label: "Обивка", value: "Рогожка" },
+      { label: "Нагрузка на место", value: "До 90 кг" },
+      { label: "Упаковка", value: "1 коробка 47 кг (140 × 74 × 42 см)" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
