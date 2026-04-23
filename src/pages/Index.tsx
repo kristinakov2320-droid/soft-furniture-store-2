@@ -92,6 +92,10 @@ const KADIS_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-
 const KADIS_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/85afd861-28f6-4e98-9de5-77263b8daaf7.jpg";
 const KADIS_COFFEE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4a8e23b8-0714-4577-abf1-0fa3643d7482.jpg";
 const KADIS_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e3008abc-9c2c-443c-8bc2-98e14719533c.jpg";
+const KADIS_HONEY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1c0d8e51-9b80-4d92-8727-03bd8a8eafbe.jpg";
+const KADIS_HONEY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8e91aa37-d4dc-4655-9f77-5144a33259fb.jpg";
+const KADIS_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3afde386-c63b-4881-b166-28f5278ff267.jpg";
+const KADIS_HONEY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ddeb90c5-e71e-42ba-92f2-9e170059b07c.jpg";
 
 const ATLANTA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/71532990-2a41-453b-ac57-787d13d7f398.jpg";
 const ATLANTA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c169294a-2223-4ba7-a773-60c8a4873a55.jpg";
@@ -389,7 +393,7 @@ const catalogProducts = [
       {
         name: "Медово-коричневый",
         swatch: ROGOJKA_HONEY,
-        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+        images: [KADIS_HONEY_FRONT, KADIS_HONEY_ANGLE, KADIS_HONEY_STORAGE, KADIS_HONEY_BED],
       },
       {
         name: "Серый",
