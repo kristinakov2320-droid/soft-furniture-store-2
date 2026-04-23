@@ -88,6 +88,10 @@ const KADIS_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-ee
 const KADIS_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/03709229-72da-452b-ab07-3cb4b5dd5863.jpg";
 const KADIS_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0c60518a-53d8-49e1-9b35-6693bbf9bf57.jpg";
 const KADIS_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/de95114a-51f6-4d4e-a00e-de7b7cc6a143.jpg";
+const KADIS_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/2d3761fb-83ce-4204-9383-74737e47b085.jpg";
+const KADIS_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/85afd861-28f6-4e98-9de5-77263b8daaf7.jpg";
+const KADIS_COFFEE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4a8e23b8-0714-4577-abf1-0fa3643d7482.jpg";
+const KADIS_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e3008abc-9c2c-443c-8bc2-98e14719533c.jpg";
 
 const ATLANTA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/71532990-2a41-453b-ac57-787d13d7f398.jpg";
 const ATLANTA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c169294a-2223-4ba7-a773-60c8a4873a55.jpg";
@@ -380,7 +384,7 @@ const catalogProducts = [
       {
         name: "Кофейный",
         swatch: ROGOJKA_COFFEE,
-        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+        images: [KADIS_COFFEE_FRONT, KADIS_COFFEE_ANGLE, KADIS_COFFEE_STORAGE, KADIS_COFFEE_BED],
       },
       {
         name: "Медово-коричневый",
