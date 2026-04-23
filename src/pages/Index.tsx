@@ -110,6 +110,11 @@ const ATLANTA_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const ATLANTA_BLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58de5fda-32d7-4c15-b8a0-80445e560423.jpg";
 const ATLANTA_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fcda1084-8a82-41a3-a410-97a56c1c6f99.jpg";
 
+const REIN_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b2836fa4-9c52-498d-b03b-df8f7573ceee.jpg";
+const REIN_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/68e00dd6-430c-4ff4-843f-5a524ebd1798.jpg";
+const REIN_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a28f3a47-e814-47b6-ae5f-92b6960eb33b.jpg";
+const REIN_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/17f18565-8fee-4726-8056-0f887a30d362.jpg";
+
 const OASIS_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ac269839-175f-422b-8f85-26520562cb1a.jpg";
 const OASIS_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58df0632-46ee-4fc0-9c6b-28b93aca70e9.jpg";
 const OASIS_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/52ee79b9-7a9f-40ce-a20f-280be918369c.jpg";
@@ -270,6 +275,48 @@ const catalogProducts = [
       { label: "Упаковка (коробка 2)", value: "80 × 33 × 64 см — 17,5 кг" },
       { label: "Максимальная нагрузка", value: "100 кг" },
       { label: "Срок изготовления", value: "До 7 рабочих дней" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
+  {
+    id: 11, name: "Рейн угловой", category: "sofa", price: 17999, img: REIN_FRONT,
+    angleType: "угловой", fabric: "рогожка", createdAt: 0,
+    images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
+      { name: "Серый", swatch: ROGOJKA_GREY, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
+      { name: "Синий", swatch: ROGOJKA_BLUE, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
+    ],
+    desc: "Угловой диван-кровать с механизмом «дельфин» и вместительным ящиком для хранения. Обивка — рогожка, российское производство. Универсальный угол — подойдёт для любой планировки.",
+    specs: [
+      { label: "Тип", value: "Угловой диван-кровать" },
+      { label: "Механизм", value: "Дельфин" },
+      { label: "Основа сиденья", value: "Ламели" },
+      { label: "Каркас", value: "Металл" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Материал обивки", value: "Рогожка" },
+      { label: "Производство", value: "Российское" },
+      { label: "Тип угла", value: "Универсальный" },
+      { label: "Ящик для белья", value: "Есть (138 × 22,5 × 65 см)" },
+      { label: "Габариты дивана", value: "241 × 89 × 153 см" },
+      { label: "Спальное место", value: "141 × 204 см" },
+      { label: "Глубина сиденья", value: "58 см" },
+      { label: "Глубина сиденья без подушек", value: "78 см" },
+      { label: "Высота сиденья", value: "42 см" },
+      { label: "Ширина сиденья", value: "135 см" },
+      { label: "Высота спинки", value: "25,1 см" },
+      { label: "Высота подлокотников", value: "62 см" },
+      { label: "Ширина подлокотников", value: "19 см" },
+      { label: "Высота ножек", value: "5 см" },
+      { label: "Подушки (3 шт)", value: "75 × 47 × 20 см" },
+      { label: "Декоративные подушки (2 шт)", value: "38 × 38 × 10 см" },
+      { label: "Упаковка (коробка 1)", value: "145 × 72 × 39 см — 33 кг" },
+      { label: "Упаковка (коробка 2)", value: "137 × 81 × 46 см — 55 кг" },
+      { label: "Упаковка (коробка 3)", value: "90 × 63 × 33 см — 23 кг" },
+      { label: "Нагрузка на одно место", value: "До 90 кг" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
