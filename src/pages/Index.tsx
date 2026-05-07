@@ -271,9 +271,9 @@ const catalogProducts = [
   },
 
   {
-    id: 10, name: "Атланта", category: "sofa", price: 16999, img: ATLANTA_FRONT,
+    id: 10, name: "Атланта", category: "sofa", price: 16999, img: ATLANTA_HONEY_FRONT,
     angleType: "прямой", fabric: "рогожка", createdAt: 0,
-    images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK],
+    images: [ATLANTA_HONEY_FRONT, ATLANTA_HONEY_ANGLE, ATLANTA_HONEY_BED, ATLANTA_HONEY_STORAGE, ATLANTA_HONEY_BACK],
     colors: [
       { name: "Бежевый", swatch: ATLANTA_FRONT, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK] },
       { name: "Кофейный", swatch: ATLANTA_COFFEE_FRONT, images: [ATLANTA_COFFEE_FRONT, ATLANTA_COFFEE_ANGLE, ATLANTA_COFFEE_BED, ATLANTA_COFFEE_STORAGE, ATLANTA_COFFEE_BACK] },
@@ -309,9 +309,9 @@ const catalogProducts = [
   },
 
   {
-    id: 11, name: "Рейн угловой", category: "sofa", price: 17999, img: REIN_FRONT,
+    id: 11, name: "Рейн угловой", category: "sofa", price: 17999, img: REIN_GREY_FRONT,
     angleType: "угловой", fabric: "рогожка", createdAt: 0,
-    images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED],
+    images: [REIN_GREY_FRONT, REIN_GREY_ANGLE, REIN_GREY_STORAGE, REIN_GREY_BED],
     colors: [
       { name: "Бежевый", swatch: ROGOJKA_BEIGE, images: [REIN_FRONT, REIN_ANGLE, REIN_STORAGE, REIN_BED] },
       { name: "Кофейный", swatch: REIN_COFFEE_FRONT, images: [REIN_COFFEE_FRONT, REIN_COFFEE_ANGLE, REIN_COFFEE_STORAGE, REIN_COFFEE_BED] },
