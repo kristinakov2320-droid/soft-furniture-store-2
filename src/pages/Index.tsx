@@ -83,6 +83,10 @@ const MALAGA_BLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940
 const MALAGA_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e54e64cf-1a19-48d0-9617-3880af49caad.jpg";
 const MALAGA_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/86d342a6-fada-4175-9208-f8742fdef222.jpg";
 const MALAGA_HONEY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8534d866-f8af-49c1-a7b3-389fef31c0c1.jpg";
+const MALAGA_COFFEE_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7ba2bf23-ae71-454f-84e8-5398d65f3d23.jpg";
+const MALAGA_HONEY_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f17125b2-09fd-4efb-acb3-5803a0ec5173.jpg";
+const MALAGA_GREY_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f93850ab-abe9-409b-9b1d-9ce709332ba4.jpg";
+const MALAGA_BLUE_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/16d5572b-8cc8-42e5-9af4-60584893bc5e.jpg";
 
 const KADIS_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efb98718-9bd5-45c0-a4f1-72b58ca985be.jpg";
 const KADIS_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/03709229-72da-452b-ab07-3cb4b5dd5863.jpg";
@@ -237,10 +241,10 @@ const catalogProducts = [
     images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR],
     colors: [
       { name: "Бежевый", swatch: MALAGA_INTERIOR, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
-      { name: "Кофейный", swatch: MALAGA_COFFEE_FRONT, images: [MALAGA_COFFEE_FRONT, MALAGA_COFFEE_ANGLE, MALAGA_COFFEE_BED, MALAGA_COFFEE_STORAGE, MALAGA_COFFEE_BACK] },
-      { name: "Медово-коричневый", swatch: MALAGA_HONEY_FRONT, images: [MALAGA_HONEY_FRONT, MALAGA_HONEY_ANGLE, MALAGA_HONEY_BED, MALAGA_HONEY_STORAGE, MALAGA_HONEY_BACK] },
-      { name: "Серый", swatch: ROGOJKA_GREY, images: [MALAGA_GREY_FRONT, MALAGA_GREY_ANGLE, MALAGA_GREY_BED, MALAGA_GREY_STORAGE, MALAGA_GREY_BACK] },
-      { name: "Синий", swatch: ROGOJKA_BLUE, images: [MALAGA_BLUE_FRONT, MALAGA_BLUE_ANGLE, MALAGA_BLUE_BED, MALAGA_BLUE_STORAGE, MALAGA_BLUE_BACK] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [MALAGA_COFFEE_FRONT, MALAGA_COFFEE_ANGLE, MALAGA_COFFEE_BED, MALAGA_COFFEE_STORAGE, MALAGA_COFFEE_BACK, MALAGA_COFFEE_INTERIOR] },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [MALAGA_HONEY_FRONT, MALAGA_HONEY_ANGLE, MALAGA_HONEY_BED, MALAGA_HONEY_STORAGE, MALAGA_HONEY_BACK, MALAGA_HONEY_INTERIOR] },
+      { name: "Серый", swatch: ROGOJKA_GREY, images: [MALAGA_GREY_FRONT, MALAGA_GREY_ANGLE, MALAGA_GREY_BED, MALAGA_GREY_STORAGE, MALAGA_GREY_BACK, MALAGA_GREY_INTERIOR] },
+      { name: "Синий", swatch: ROGOJKA_BLUE, images: [MALAGA_BLUE_FRONT, MALAGA_BLUE_ANGLE, MALAGA_BLUE_BED, MALAGA_BLUE_STORAGE, MALAGA_BLUE_BACK, MALAGA_BLUE_INTERIOR] },
       { name: "Бирюзовый", swatch: VELVET_MINT, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
       { name: "Ультрамарин", swatch: VELVET_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
     ],
