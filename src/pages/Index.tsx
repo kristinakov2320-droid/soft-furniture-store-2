@@ -93,6 +93,11 @@ const MALAGA_LIGHTBLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-494
 const MALAGA_LIGHTBLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/2aa199f7-ea51-4ea8-946c-b9bd14650576.jpg";
 const MALAGA_LIGHTBLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4bbe6aea-22e9-47a8-8300-0fe393ffc2d3.jpg";
 const MALAGA_LIGHTBLUE_SWATCH = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/dec3361d-b0ed-4b31-ace9-11319c15062c.jpg";
+const MALAGA_ULTRA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c1008a25-b54a-44e5-9d23-dc175360a191.jpg";
+const MALAGA_ULTRA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f3eded9b-0d7f-45c4-845f-047421f88138.jpg";
+const MALAGA_ULTRA_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f796cc6e-2a9b-4cfa-90a1-2085e9f70675.jpg";
+const MALAGA_ULTRA_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5e9fe8b8-d855-46e9-97d7-be25e0407511.jpg";
+const MALAGA_ULTRA_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3de9db44-28fe-4f9f-aea2-7fea9681e76f.jpg";
 
 const KADIS_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efb98718-9bd5-45c0-a4f1-72b58ca985be.jpg";
 const KADIS_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/03709229-72da-452b-ab07-3cb4b5dd5863.jpg";
@@ -252,7 +257,7 @@ const catalogProducts = [
       { name: "Серый", swatch: MALAGA_GREY_INTERIOR, images: [MALAGA_GREY_FRONT, MALAGA_GREY_ANGLE, MALAGA_GREY_BED, MALAGA_GREY_STORAGE, MALAGA_GREY_BACK, MALAGA_GREY_INTERIOR] },
       { name: "Синий", swatch: MALAGA_BLUE_INTERIOR, images: [MALAGA_BLUE_FRONT, MALAGA_BLUE_ANGLE, MALAGA_BLUE_BED, MALAGA_BLUE_STORAGE, MALAGA_BLUE_BACK, MALAGA_BLUE_INTERIOR] },
       { name: "Голубой", swatch: MALAGA_LIGHTBLUE_SWATCH, images: [MALAGA_LIGHTBLUE_FRONT, MALAGA_LIGHTBLUE_ANGLE, MALAGA_LIGHTBLUE_BED, MALAGA_LIGHTBLUE_STORAGE, MALAGA_LIGHTBLUE_BACK, MALAGA_LIGHTBLUE_FRONT] },
-      { name: "Ультрамарин", swatch: VELVET_BLUE, images: [MALAGA_FRONT, MALAGA_ANGLE, MALAGA_BED, MALAGA_STORAGE, MALAGA_BACK, MALAGA_INTERIOR] },
+      { name: "Ультрамарин", swatch: MALAGA_ULTRA_FRONT, images: [MALAGA_ULTRA_FRONT, MALAGA_ULTRA_ANGLE, MALAGA_ULTRA_BED, MALAGA_ULTRA_STORAGE, MALAGA_ULTRA_BACK] },
     ],
     desc: "Компактный прямой диван-кровать из рогожки с ящиком для хранения. Лаконичный дизайн, раскладной механизм. Идеален для небольших гостиных и детских комнат.",
     specs: [
