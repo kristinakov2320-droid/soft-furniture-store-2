@@ -148,6 +148,12 @@ const ATLANTA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-
 const ATLANTA_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/796c0b11-fec1-4808-9875-4f9f29d76ecf.jpg";
 const ATLANTA_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/47408c90-b56b-4821-ab00-bd947ece1342.jpg";
 const ATLANTA_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/07490716-c219-48ac-b996-0f741d9f85d9.jpg";
+
+const MONZA_EMERALD_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/34eb44b4-8a60-4124-b49d-fa59700736c4.jpg";
+const MONZA_EMERALD_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/dc9a47f1-b000-4f2a-8a85-39d3f55010d3.jpg";
+const MONZA_EMERALD_BED1 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/411ac192-0234-4e26-bde4-1f990aef1901.jpg";
+const MONZA_EMERALD_BED2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d2fa5db5-a713-4a31-ba02-8bda71a33633.jpg";
+const MONZA_EMERALD_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49d0e4f9-76ea-4497-ab84-feeb6712e971.jpg";
 const ATLANTA_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1b58f826-4c1d-4070-8668-47b42974eb35.jpg";
 const ATLANTA_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efb69e8b-7f0b-4fd9-ab00-024ff3682711.jpg";
 const ATLANTA_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fa39447-850c-48c0-ab38-0c19868aa3dc.jpg";
@@ -513,6 +519,59 @@ const catalogProducts = [
       { label: "Высота ножек", value: "5 см" },
       { label: "Размер подушек (1 шт)", value: "70 × 50 × 20 см" },
       { label: "Упаковка (1 коробка, 91 кг)", value: "180 × 60 × 111 см" },
+      { label: "Максимальная нагрузка на место", value: "100 кг" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
+  {
+    id: 14,
+    name: "Монца",
+    category: "sofa",
+    price: 0,
+    img: MONZA_EMERALD_FRONT,
+    angleType: "прямой",
+    fabric: "велюр",
+    createdAt: 10,
+    images: [
+      MONZA_EMERALD_FRONT,
+      MONZA_EMERALD_ANGLE,
+      MONZA_EMERALD_BED1,
+      MONZA_EMERALD_BED2,
+      MONZA_EMERALD_BACK,
+    ],
+    colors: [
+      {
+        name: "Изумрудный",
+        swatch: MONZA_EMERALD_FRONT,
+        images: [
+          MONZA_EMERALD_FRONT,
+          MONZA_EMERALD_ANGLE,
+          MONZA_EMERALD_BED1,
+          MONZA_EMERALD_BED2,
+          MONZA_EMERALD_BACK,
+        ],
+      },
+      { name: "Мятный", swatch: VELVET_MINT },
+      { name: "Светло-серый", swatch: VELVET_LGREY },
+      { name: "Синий", swatch: VELVET_BLUE },
+      { name: "Тёмно-серый", swatch: ROGOJKA_GREY },
+      { name: "Шоколадный", swatch: VELVET_CHOCOLATE },
+    ],
+    desc: "Прямой диван-кровать Монца на механизме еврокнижка. Обивка из мягкого велюра, бельевой ящик для хранения. В комплекте 3 приспинные и 2 декоративные подушки.",
+    specs: [
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Материал обивки", value: "Велюр" },
+      { label: "Бельевой ящик", value: "Есть" },
+      { label: "Габариты дивана", value: "221 × 87 × 79 см" },
+      { label: "Спальное место", value: "194 × 132 см" },
+      { label: "Глубина сиденья", value: "70 см" },
+      { label: "Высота сиденья", value: "45 см" },
+      { label: "Ширина сиденья", value: "194 см" },
+      { label: "Высота спинки", value: "30 см" },
+      { label: "Размер ящика для белья", value: "191 × 12,8 × 54 см" },
+      { label: "Приспинные подушки", value: "3 шт, 63 × 43 см" },
+      { label: "Декоративные подушки", value: "2 шт, 30 × 28 см" },
       { label: "Максимальная нагрузка на место", value: "100 кг" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
@@ -1170,7 +1229,7 @@ export default function Index() {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         <div className="font-body text-muted-foreground line-through text-sm">{(p as any).oldPrice.toLocaleString("ru")} ₽</div>
                       )}
-                      <div className="font-display text-xl text-primary">{p.price.toLocaleString("ru")} ₽</div>
+                      <div className="font-display text-xl text-primary">{p.price > 0 ? `${p.price.toLocaleString("ru")} ₽` : "Цена по запросу"}</div>
                     </div>
                   </div>
                 </div>
@@ -1504,7 +1563,7 @@ export default function Index() {
                 <h2 className="font-display text-3xl md:text-4xl font-bold tracking-widest mb-2">{selectedProduct.name}</h2>
 
                 {/* Цена */}
-                <div className="font-display text-2xl text-primary mb-4">{selectedProduct.price.toLocaleString("ru")} ₽</div>
+                <div className="font-display text-2xl text-primary mb-4">{selectedProduct.price > 0 ? `${selectedProduct.price.toLocaleString("ru")} ₽` : "Цена по запросу"}</div>
 
                 {/* Описание */}
                 <p className="font-body text-muted-foreground text-sm leading-relaxed mb-5 pb-5 border-b border-border">{selectedProduct.desc}</p>
