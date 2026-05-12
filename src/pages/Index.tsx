@@ -473,7 +473,7 @@ const catalogProducts = [
   },
 
   {
-    id: 13, name: "Дубай", category: "sofa", price: 19999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
+    id: 13, name: "Дубай", category: "sofa", price: 19999, img: DUBAI_HONEY_FRONT,
     angleType: "прямой", fabric: "рогожка", createdAt: 9,
     images: [
       "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
