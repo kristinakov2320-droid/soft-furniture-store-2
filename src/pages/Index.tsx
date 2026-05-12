@@ -154,6 +154,12 @@ const MONZA_EMERALD_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940
 const MONZA_EMERALD_BED1 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/411ac192-0234-4e26-bde4-1f990aef1901.jpg";
 const MONZA_EMERALD_BED2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d2fa5db5-a713-4a31-ba02-8bda71a33633.jpg";
 const MONZA_EMERALD_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/49d0e4f9-76ea-4497-ab84-feeb6712e971.jpg";
+
+const MONZA_MINT_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/813e7ee8-579d-404a-b540-be8a3dd79e77.jpg";
+const MONZA_MINT_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6093b280-2a51-46e6-84c6-37ce00a418b1.jpg";
+const MONZA_MINT_BED1 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fb0d010d-fb7d-47c6-917b-f673b10ec46a.jpg";
+const MONZA_MINT_BED2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fe8f5b60-8bd3-4145-ade6-323d3412680c.jpg";
+const MONZA_MINT_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0c838fa5-e91b-49bd-9a1e-e6faa29eac1d.jpg";
 const ATLANTA_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1b58f826-4c1d-4070-8668-47b42974eb35.jpg";
 const ATLANTA_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efb69e8b-7f0b-4fd9-ab00-024ff3682711.jpg";
 const ATLANTA_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fa39447-850c-48c0-ab38-0c19868aa3dc.jpg";
@@ -552,7 +558,17 @@ const catalogProducts = [
           MONZA_EMERALD_BACK,
         ],
       },
-      { name: "Мятный", swatch: VELVET_MINT },
+      {
+        name: "Мятный",
+        swatch: MONZA_MINT_FRONT,
+        images: [
+          MONZA_MINT_FRONT,
+          MONZA_MINT_ANGLE,
+          MONZA_MINT_BED1,
+          MONZA_MINT_BED2,
+          MONZA_MINT_BACK,
+        ],
+      },
       { name: "Светло-серый", swatch: VELVET_LGREY },
       { name: "Синий", swatch: VELVET_BLUE },
       { name: "Тёмно-серый", swatch: ROGOJKA_GREY },
