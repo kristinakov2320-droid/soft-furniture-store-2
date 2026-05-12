@@ -456,6 +456,52 @@ const catalogProducts = [
     ],
   },
 
+  {
+    id: 13, name: "Дубай", category: "sofa", price: 19999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
+    angleType: "прямой", fabric: "рогожка", createdAt: 9,
+    images: [
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7d88e75e-ee9e-44d5-8cee-4987978826bb.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/87c00535-a5fe-406d-9628-9c73ae329c05.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/cfa2bf9a-f328-4098-a3e6-81b8539bbc8c.jpg",
+    ],
+    colors: [
+      {
+        name: "Бежевый",
+        swatch: ROGOJKA_BEIGE,
+        images: [
+          "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
+          "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7d88e75e-ee9e-44d5-8cee-4987978826bb.jpg",
+          "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/87c00535-a5fe-406d-9628-9c73ae329c05.jpg",
+          "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/cfa2bf9a-f328-4098-a3e6-81b8539bbc8c.jpg",
+        ],
+      },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Синий", swatch: ROGOJKA_BLUE },
+    ],
+    desc: "Прямой диван-кровать с механизмом трёхсекционная еврокнижка и удобным карманом сбоку. Обивка — рогожка, латофлексная сборка с ППУ и синтепоном. Деревянные подлокотники. Отличное решение для гостиной.",
+    specs: [
+      { label: "Механизм", value: "Трёхсекционная еврокнижка" },
+      { label: "Материал обивки", value: "Рогожка" },
+      { label: "Карман", value: "Есть (сбоку)" },
+      { label: "Наполнитель", value: "Латофлексная сборка, ППУ, синтепон, поролоновая крошка" },
+      { label: "Габариты дивана", value: "180 × 94 × 110 см" },
+      { label: "Спальное место", value: "140 × 200 см" },
+      { label: "Глубина сиденья", value: "90 см" },
+      { label: "Глубина сиденья без подушек", value: "110 см" },
+      { label: "Высота сиденья", value: "44 см" },
+      { label: "Ширина сиденья", value: "140 см" },
+      { label: "Высота спинки", value: "33 см" },
+      { label: "Высота ножек", value: "5 см" },
+      { label: "Размер подушек (1 шт)", value: "70 × 50 × 20 см" },
+      { label: "Упаковка (1 коробка, 91 кг)", value: "180 × 60 × 111 см" },
+      { label: "Максимальная нагрузка на место", value: "100 кг" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
 ];
 
 const faqItems = [
