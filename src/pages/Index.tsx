@@ -172,6 +172,12 @@ const MONZA_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const MONZA_BLUE_BED1 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8179ad1f-216b-4114-ad30-48c43d86ebe7.jpg";
 const MONZA_BLUE_BED2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e77a2c10-6fe9-40ab-a919-0de6cdcf3ea6.jpg";
 const MONZA_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e8835d43-7099-4c39-9bf7-9078e4f226b6.jpg";
+
+const MONZA_DGREY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fdd4c4b-68d2-44d5-93b4-520f77104292.jpg";
+const MONZA_DGREY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5d54ec93-7de3-4086-9995-5c8ce3587995.jpg";
+const MONZA_DGREY_BED1 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0c75d591-adef-415e-8dd7-b8dc595f4ccc.jpg";
+const MONZA_DGREY_BED2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4c0f693f-3982-4ddb-95ca-557f669ad5ac.jpg";
+const MONZA_DGREY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/734e2dd3-01a9-4d55-b56e-f1d6d1812cf6.jpg";
 const ATLANTA_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1b58f826-4c1d-4070-8668-47b42974eb35.jpg";
 const ATLANTA_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efb69e8b-7f0b-4fd9-ab00-024ff3682711.jpg";
 const ATLANTA_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fa39447-850c-48c0-ab38-0c19868aa3dc.jpg";
@@ -603,7 +609,17 @@ const catalogProducts = [
           MONZA_BLUE_BACK,
         ],
       },
-      { name: "Тёмно-серый", swatch: ROGOJKA_GREY },
+      {
+        name: "Тёмно-серый",
+        swatch: MONZA_DGREY_FRONT,
+        images: [
+          MONZA_DGREY_FRONT,
+          MONZA_DGREY_ANGLE,
+          MONZA_DGREY_BED1,
+          MONZA_DGREY_BED2,
+          MONZA_DGREY_BACK,
+        ],
+      },
       { name: "Шоколадный", swatch: VELVET_CHOCOLATE },
     ],
     desc: "Прямой диван-кровать Монца на механизме еврокнижка. Обивка из мягкого велюра, бельевой ящик для хранения. В комплекте 3 приспинные и 2 декоративные подушки.",
