@@ -117,6 +117,10 @@ const KADIS_GREY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const KADIS_GREY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b7af572e-6dd7-4a43-9a27-1cd34f513bea.jpg";
 const KADIS_GREY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/00300348-7365-4929-b011-b980947260e6.jpg";
 const KADIS_GREY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5c3839ec-526f-4724-a952-0b36354a59f9.jpg";
+const KADIS_BLUE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6cead465-f758-457a-8683-db724daca223.jpg";
+const KADIS_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/10a87395-08a7-4754-8cb8-21ff61b431af.jpg";
+const KADIS_BLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/066ac3f4-9a86-4bf1-b10e-cc5ca299501c.jpg";
+const KADIS_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/65b45dd6-c791-48b2-8a36-b5dabdcfb970.jpg";
 
 const ATLANTA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/71532990-2a41-453b-ac57-787d13d7f398.jpg";
 const ATLANTA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c169294a-2223-4ba7-a773-60c8a4873a55.jpg";
@@ -424,7 +428,7 @@ const catalogProducts = [
       {
         name: "Синий",
         swatch: ROGOJKA_BLUE,
-        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+        images: [KADIS_BLUE_FRONT, KADIS_BLUE_ANGLE, KADIS_BLUE_STORAGE, KADIS_BLUE_BED],
       },
     ],
     desc: "Компактный прямой диван-кровать из рогожки с ящиком для хранения постельного белья. Механизм трансформации — выкатной. Металлические хромированные ножки.",
