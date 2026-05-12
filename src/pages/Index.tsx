@@ -121,6 +121,11 @@ const KADIS_BLUE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const KADIS_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/10a87395-08a7-4754-8cb8-21ff61b431af.jpg";
 const KADIS_BLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/066ac3f4-9a86-4bf1-b10e-cc5ca299501c.jpg";
 const KADIS_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/65b45dd6-c791-48b2-8a36-b5dabdcfb970.jpg";
+const KADIS_BEIGE_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/9122e8ce-9031-498a-9e3f-fcc844629a89.jpg";
+const KADIS_COFFEE_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e359776f-aee5-4ac6-aaa7-c14835ebaa17.jpg";
+const KADIS_HONEY_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1da6183a-c097-45f4-a91d-adfcabb2aa8e.jpg";
+const KADIS_GREY_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/96478fca-1ce2-455b-95a7-dbd1f90b809f.jpg";
+const KADIS_BLUE_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/bb02f74f-8fc9-44a3-9cf8-3521816a2082.jpg";
 
 const ATLANTA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/71532990-2a41-453b-ac57-787d13d7f398.jpg";
 const ATLANTA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c169294a-2223-4ba7-a773-60c8a4873a55.jpg";
@@ -407,28 +412,28 @@ const catalogProducts = [
     colors: [
       {
         name: "Бежевый",
-        swatch: ROGOJKA_BEIGE,
-        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED],
+        swatch: KADIS_BEIGE_INTERIOR,
+        images: [KADIS_FRONT, KADIS_ANGLE, KADIS_STORAGE, KADIS_BED, ROGOJKA_BEIGE, KADIS_BEIGE_INTERIOR],
       },
       {
         name: "Кофейный",
-        swatch: ROGOJKA_COFFEE,
-        images: [KADIS_COFFEE_FRONT, KADIS_COFFEE_ANGLE, KADIS_COFFEE_STORAGE, KADIS_COFFEE_BED],
+        swatch: KADIS_COFFEE_INTERIOR,
+        images: [KADIS_COFFEE_FRONT, KADIS_COFFEE_ANGLE, KADIS_COFFEE_STORAGE, KADIS_COFFEE_BED, ROGOJKA_COFFEE, KADIS_COFFEE_INTERIOR],
       },
       {
         name: "Медово-коричневый",
-        swatch: ROGOJKA_HONEY,
-        images: [KADIS_HONEY_FRONT, KADIS_HONEY_ANGLE, KADIS_HONEY_STORAGE, KADIS_HONEY_BED],
+        swatch: KADIS_HONEY_INTERIOR,
+        images: [KADIS_HONEY_FRONT, KADIS_HONEY_ANGLE, KADIS_HONEY_STORAGE, KADIS_HONEY_BED, ROGOJKA_HONEY, KADIS_HONEY_INTERIOR],
       },
       {
         name: "Серый",
-        swatch: ROGOJKA_GREY,
-        images: [KADIS_GREY_FRONT, KADIS_GREY_ANGLE, KADIS_GREY_STORAGE, KADIS_GREY_BED],
+        swatch: KADIS_GREY_INTERIOR,
+        images: [KADIS_GREY_FRONT, KADIS_GREY_ANGLE, KADIS_GREY_STORAGE, KADIS_GREY_BED, ROGOJKA_GREY, KADIS_GREY_INTERIOR],
       },
       {
         name: "Синий",
-        swatch: ROGOJKA_BLUE,
-        images: [KADIS_BLUE_FRONT, KADIS_BLUE_ANGLE, KADIS_BLUE_STORAGE, KADIS_BLUE_BED],
+        swatch: KADIS_BLUE_INTERIOR,
+        images: [KADIS_BLUE_FRONT, KADIS_BLUE_ANGLE, KADIS_BLUE_STORAGE, KADIS_BLUE_BED, ROGOJKA_BLUE, KADIS_BLUE_INTERIOR],
       },
     ],
     desc: "Компактный прямой диван-кровать из рогожки с ящиком для хранения постельного белья. Механизм трансформации — выкатной. Металлические хромированные ножки.",
