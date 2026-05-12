@@ -33,6 +33,10 @@ const DUBAI_GREY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const DUBAI_GREY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6b908898-d7cf-4c08-b63a-db9bcc439f9a.jpg";
 const DUBAI_GREY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/55c66cda-8d53-484b-aa28-f9eca66ac256.jpg";
 const DUBAI_GREY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/9fdccfab-43c7-45b9-8592-507206af539f.jpg";
+const DUBAI_BLUE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7bd5eef7-b283-477c-9f09-f9bdfdd10d3f.jpg";
+const DUBAI_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/61af66a9-7c53-41af-9f4c-15e0e5eaaa0d.jpg";
+const DUBAI_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b64da040-4b78-4daf-bd75-bdb81da70b6f.jpg";
+const DUBAI_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b15b3747-bfe5-4337-84d7-991044d75827.jpg";
 const ROGOJKA_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a389bbba-23dd-4b56-899d-d2317ab26cee.jpg";
 const ROGOJKA_COFFEE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f1b9a482-58b8-46af-857c-4847ef4e3917.jpg";
 const ROGOJKA_HONEY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg";
@@ -491,7 +495,7 @@ const catalogProducts = [
       { name: "Кофейный", swatch: DUBAI_COFFEE_FRONT, images: [DUBAI_COFFEE_FRONT, DUBAI_COFFEE_ANGLE, DUBAI_COFFEE_BED, DUBAI_COFFEE_BACK] },
       { name: "Медово-коричневый", swatch: DUBAI_HONEY_FRONT, images: [DUBAI_HONEY_FRONT, DUBAI_HONEY_ANGLE, DUBAI_HONEY_BED, DUBAI_HONEY_BACK] },
       { name: "Серый", swatch: DUBAI_GREY_FRONT, images: [DUBAI_GREY_FRONT, DUBAI_GREY_ANGLE, DUBAI_GREY_BED, DUBAI_GREY_BACK] },
-      { name: "Синий", swatch: ROGOJKA_BLUE },
+      { name: "Синий", swatch: DUBAI_BLUE_FRONT, images: [DUBAI_BLUE_FRONT, DUBAI_BLUE_ANGLE, DUBAI_BLUE_BED, DUBAI_BLUE_BACK] },
     ],
     desc: "Прямой диван-кровать с механизмом трёхсекционная еврокнижка и удобным карманом сбоку. Обивка — рогожка, латофлексная сборка с ППУ и синтепоном. Деревянные подлокотники. Отличное решение для гостиной.",
     specs: [
