@@ -21,6 +21,10 @@ const FARELL_GREY_INTERIOR = "https://cdn.poehali.dev/projects/8bb3cf44-af11-494
 
 type Section = "home" | "catalog" | "about" | "contacts" | "faq" | "cart";
 
+const DUBAI_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/edbc1d40-8567-4e0e-bed7-264c9074662a.jpg";
+const DUBAI_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7e2f6c1a-da4b-4915-8772-f03e28e04094.jpg";
+const DUBAI_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0a199a81-6f37-4d06-bb46-c032a961f151.jpg";
+const DUBAI_COFFEE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/79076fcf-a215-4de3-bbd3-48bbff8b611b.jpg";
 const ROGOJKA_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a389bbba-23dd-4b56-899d-d2317ab26cee.jpg";
 const ROGOJKA_COFFEE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f1b9a482-58b8-46af-857c-4847ef4e3917.jpg";
 const ROGOJKA_HONEY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg";
@@ -476,7 +480,7 @@ const catalogProducts = [
           "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/cfa2bf9a-f328-4098-a3e6-81b8539bbc8c.jpg",
         ],
       },
-      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Кофейный", swatch: DUBAI_COFFEE_FRONT, images: [DUBAI_COFFEE_FRONT, DUBAI_COFFEE_ANGLE, DUBAI_COFFEE_BED, DUBAI_COFFEE_BACK] },
       { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
       { name: "Серый", swatch: ROGOJKA_GREY },
       { name: "Синий", swatch: ROGOJKA_BLUE },
