@@ -271,6 +271,11 @@ const PRAGUE_BEIGE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-
 const PRAGUE_BEIGE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3fdb021f-0298-49c6-b82c-3b13521fd476.jpg";
 const PRAGUE_BEIGE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8dacb4a9-b927-4201-a492-31d4b9f3ddfa.jpg";
 const PRAGUE_BEIGE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/24fb5985-be3e-48c2-8df3-f2935f2264d1.jpg";
+const PRAGUE_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c03ece8e-f0c5-4ac7-89bf-a0bb571f7fe0.jpg";
+const PRAGUE_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/53aa1d36-3f10-4213-ad52-4b649ab186d3.jpg";
+const PRAGUE_COFFEE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5c53ef75-01ca-4732-9c45-9c71fe6ec912.jpg";
+const PRAGUE_COFFEE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a952a08e-ff84-41ee-a2a3-afdd71f6ad24.jpg";
+const PRAGUE_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/89fa527a-e262-44ea-977c-7e8f3515eb59.jpg";
 
 const catalogProducts = [
   {
@@ -743,7 +748,7 @@ const catalogProducts = [
     images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED],
     colors: [
       { name: "Бежевый", swatch: PRAGUE_BEIGE_FRONT, images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED] },
-      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Кофейный", swatch: PRAGUE_COFFEE_FRONT, images: [PRAGUE_COFFEE_FRONT, PRAGUE_COFFEE_ANGLE, PRAGUE_COFFEE_BACK, PRAGUE_COFFEE_STORAGE, PRAGUE_COFFEE_BED] },
       { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
       { name: "Серый", swatch: ROGOJKA_GREY },
       { name: "Синий", swatch: ROGOJKA_BLUE },
