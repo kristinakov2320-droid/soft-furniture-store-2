@@ -676,6 +676,7 @@ export default function Index() {
   const [filterAngle, setFilterAngle] = useState("all");
   const [filterFabric, setFilterFabric] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
+  const [searchQuery, setSearchQuery] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeRogojka, setActiveRogojka] = useState(0);
   const [activeVelvet, setActiveVelvet] = useState(0);
@@ -750,6 +751,7 @@ export default function Index() {
       if (activeFilter !== "all" && p.category !== activeFilter) return false;
       if (filterAngle !== "all" && p.angleType !== filterAngle) return false;
       if (filterFabric !== "all" && p.fabric !== filterFabric) return false;
+      if (searchQuery.trim() && !p.name.toLowerCase().includes(searchQuery.trim().toLowerCase())) return false;
       return true;
     }) as typeof catalogProducts;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -1211,6 +1213,23 @@ export default function Index() {
             <div className="mb-12">
               <p className="font-body text-primary text-sm tracking-[0.3em] uppercase mb-3">Вся коллекция</p>
               <h1 className="font-display text-6xl font-bold">КАТАЛОГ</h1>
+            </div>
+
+            {/* Поиск */}
+            <div className="relative mb-6">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Поиск по названию..."
+                className="w-full border border-border bg-background text-foreground font-body text-sm px-4 py-3 pl-10 focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground"
+              />
+              <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              {searchQuery && (
+                <button onClick={() => setSearchQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+              )}
             </div>
 
             {/* Категории */}
