@@ -281,6 +281,11 @@ const PRAGUE_HONEY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-
 const PRAGUE_HONEY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d8e82558-159e-4500-b08e-3c06cb75564d.jpg";
 const PRAGUE_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/41e7b39b-6065-4e44-8988-a1d24f5444ad.jpg";
 const PRAGUE_HONEY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1da7ab18-80ef-4c33-9909-fbe24ea45c80.jpg";
+const PRAGUE_GREY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/84868057-4063-4e42-8cf7-d8c9ff330142.jpg";
+const PRAGUE_GREY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8a6d5d43-d821-4336-b9f0-b0950a5468cf.jpg";
+const PRAGUE_GREY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/904fe674-6981-4af8-a4f0-e3f57a1f10bb.jpg";
+const PRAGUE_GREY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/527382c7-f067-4fa1-9f36-ace6fcc62dc0.jpg";
+const PRAGUE_GREY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/345da06b-928c-4451-9828-2f6438c86d77.jpg";
 
 const catalogProducts = [
   {
@@ -755,7 +760,7 @@ const catalogProducts = [
       { name: "Бежевый", swatch: PRAGUE_BEIGE_FRONT, images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED] },
       { name: "Кофейный", swatch: PRAGUE_COFFEE_FRONT, images: [PRAGUE_COFFEE_FRONT, PRAGUE_COFFEE_ANGLE, PRAGUE_COFFEE_BACK, PRAGUE_COFFEE_STORAGE, PRAGUE_COFFEE_BED] },
       { name: "Медово-коричневый", swatch: PRAGUE_HONEY_FRONT, images: [PRAGUE_HONEY_FRONT, PRAGUE_HONEY_ANGLE, PRAGUE_HONEY_BACK, PRAGUE_HONEY_STORAGE, PRAGUE_HONEY_BED] },
-      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Серый", swatch: PRAGUE_GREY_FRONT, images: [PRAGUE_GREY_FRONT, PRAGUE_GREY_ANGLE, PRAGUE_GREY_BACK, PRAGUE_GREY_STORAGE, PRAGUE_GREY_BED] },
       { name: "Синий", swatch: ROGOJKA_BLUE },
     ],
     desc: "Прямой диван-кровать Прага на механизме еврокнижка. Обивка из рогожки, вместительный бельевой ящик. Мягкие округлые подлокотники, 3 приспинные подушки в комплекте.",
