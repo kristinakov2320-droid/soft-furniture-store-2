@@ -37,6 +37,11 @@ const DUBAI_BLUE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-95
 const DUBAI_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/61af66a9-7c53-41af-9f4c-15e0e5eaaa0d.jpg";
 const DUBAI_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b64da040-4b78-4daf-bd75-bdb81da70b6f.jpg";
 const DUBAI_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b15b3747-bfe5-4337-84d7-991044d75827.jpg";
+const DUBAI_BEIGE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/819259a2-c0ea-473f-a11e-1bbd7415d9ba.jpg";
+const DUBAI_COFFEE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/46df1297-bc9a-4706-b3f5-6e5691c1b285.jpg";
+const DUBAI_HONEY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ad7909e7-597b-4bec-a70e-cfd786605fea.jpg";
+const DUBAI_GREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/bb46db57-3761-42c6-af98-ad78e32d2bf9.jpg";
+const DUBAI_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7fec2cdd-bdf1-4c37-9e35-c99a71a77b25.jpg";
 const ROGOJKA_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a389bbba-23dd-4b56-899d-d2317ab26cee.jpg";
 const ROGOJKA_COFFEE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f1b9a482-58b8-46af-857c-4847ef4e3917.jpg";
 const ROGOJKA_HONEY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/985b83d3-f532-4f91-81af-58a255e5db43.jpg";
@@ -519,18 +524,19 @@ const catalogProducts = [
     colors: [
       {
         name: "Бежевый",
-        swatch: ROGOJKA_BEIGE,
+        swatch: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
         images: [
           "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
           "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7d88e75e-ee9e-44d5-8cee-4987978826bb.jpg",
           "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/87c00535-a5fe-406d-9628-9c73ae329c05.jpg",
           "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/cfa2bf9a-f328-4098-a3e6-81b8539bbc8c.jpg",
+          DUBAI_BEIGE_INT,
         ],
       },
-      { name: "Кофейный", swatch: DUBAI_COFFEE_FRONT, images: [DUBAI_COFFEE_FRONT, DUBAI_COFFEE_ANGLE, DUBAI_COFFEE_BED, DUBAI_COFFEE_BACK] },
-      { name: "Медово-коричневый", swatch: DUBAI_HONEY_FRONT, images: [DUBAI_HONEY_FRONT, DUBAI_HONEY_ANGLE, DUBAI_HONEY_BED, DUBAI_HONEY_BACK] },
-      { name: "Серый", swatch: DUBAI_GREY_FRONT, images: [DUBAI_GREY_FRONT, DUBAI_GREY_ANGLE, DUBAI_GREY_BED, DUBAI_GREY_BACK] },
-      { name: "Синий", swatch: DUBAI_BLUE_FRONT, images: [DUBAI_BLUE_FRONT, DUBAI_BLUE_ANGLE, DUBAI_BLUE_BED, DUBAI_BLUE_BACK] },
+      { name: "Кофейный", swatch: DUBAI_COFFEE_FRONT, images: [DUBAI_COFFEE_FRONT, DUBAI_COFFEE_ANGLE, DUBAI_COFFEE_BED, DUBAI_COFFEE_BACK, DUBAI_COFFEE_INT] },
+      { name: "Медово-коричневый", swatch: DUBAI_HONEY_FRONT, images: [DUBAI_HONEY_FRONT, DUBAI_HONEY_ANGLE, DUBAI_HONEY_BED, DUBAI_HONEY_BACK, DUBAI_HONEY_INT] },
+      { name: "Серый", swatch: DUBAI_GREY_FRONT, images: [DUBAI_GREY_FRONT, DUBAI_GREY_ANGLE, DUBAI_GREY_BED, DUBAI_GREY_BACK, DUBAI_GREY_INT] },
+      { name: "Синий", swatch: DUBAI_BLUE_FRONT, images: [DUBAI_BLUE_FRONT, DUBAI_BLUE_ANGLE, DUBAI_BLUE_BED, DUBAI_BLUE_BACK, DUBAI_BLUE_INT] },
     ],
     desc: "Прямой диван-кровать с механизмом трёхсекционная еврокнижка и удобным карманом сбоку. Обивка — рогожка, латофлексная сборка с ППУ и синтепоном. Деревянные подлокотники. Отличное решение для гостиной.",
     specs: [
