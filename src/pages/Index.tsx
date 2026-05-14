@@ -299,6 +299,10 @@ const PRAGUE_GREY_VELOUR_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11
 const PRAGUE_GREY_VELOUR_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b2e9b50f-2621-4d8d-9a01-ea8b7af7a35b.jpg";
 const PRAGUE_GREY_VELOUR_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3f307b1d-da7c-4c36-a5e4-1cf44a064256.jpg";
 const PRAGUE_GREY_VELOUR_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/9fd6a5b2-ac20-46f6-b9b0-ac753b54bfc4.jpg";
+const PRAGUE_BLUE_VELOUR_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a58d6dd1-457c-4b0d-b830-d94da0639c4b.jpg";
+const PRAGUE_BLUE_VELOUR_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a20e0c89-d1d4-465d-b86f-5a1ab76f182d.jpg";
+const PRAGUE_BLUE_VELOUR_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4c2c2b8c-8a5c-445b-b9ab-666e46a810d1.jpg";
+const PRAGUE_BLUE_VELOUR_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ea0c84e9-ccda-4927-ad25-b8d23fad0472.jpg";
 
 const catalogProducts = [
   {
@@ -777,6 +781,7 @@ const catalogProducts = [
       { name: "Синий", swatch: PRAGUE_BLUE_FRONT, images: [PRAGUE_BLUE_FRONT, PRAGUE_BLUE_ANGLE, PRAGUE_BLUE_BACK, PRAGUE_BLUE_STORAGE, PRAGUE_BLUE_BED] },
       { name: "Изумрудный", fabric: "велюр", swatch: PRAGUE_EMERALD_FRONT, images: [PRAGUE_EMERALD_FRONT, PRAGUE_EMERALD_ANGLE, PRAGUE_EMERALD_STORAGE, PRAGUE_EMERALD_BED] },
       { name: "Серый велюр", fabric: "велюр", swatch: PRAGUE_GREY_VELOUR_FRONT, images: [PRAGUE_GREY_VELOUR_FRONT, PRAGUE_GREY_VELOUR_ANGLE, PRAGUE_GREY_VELOUR_STORAGE, PRAGUE_GREY_VELOUR_BED] },
+      { name: "Синий велюр", fabric: "велюр", swatch: PRAGUE_BLUE_VELOUR_FRONT, images: [PRAGUE_BLUE_VELOUR_FRONT, PRAGUE_BLUE_VELOUR_ANGLE, PRAGUE_BLUE_VELOUR_STORAGE, PRAGUE_BLUE_VELOUR_BED] },
     ],
     desc: "Прямой диван-кровать Прага на механизме еврокнижка. Обивка из рогожки, вместительный бельевой ящик. Мягкие округлые подлокотники, 3 приспинные подушки в комплекте.",
     specs: [
