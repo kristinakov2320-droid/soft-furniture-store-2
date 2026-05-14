@@ -236,6 +236,11 @@ const OASIS_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21
 const OASIS_4 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/240da403-b6c5-4a63-a6cd-306a75026db3.jpg";
 const OASIS_5 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/33e92a3f-07e6-4d9c-8bf6-e4cdafacdc5f.jpg";
 const OASIS_6 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/610b60d0-3a6c-46b1-b9a1-dd8cad1857be.jpg";
+const TORONTO_BEIGE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/701b4198-7e6b-412b-aa0e-f27c18ca419e.jpg";
+const TORONTO_BEIGE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e1773775-f706-487f-b9d9-78956b028a27.jpg";
+const TORONTO_BEIGE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7c44117c-00d0-44ba-9e36-34f3c7ab1da3.jpg";
+const TORONTO_BEIGE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6dc53b28-fff3-45a7-9590-3207dbd7edcb.jpg";
+const TORONTO_BEIGE_SIDE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/39106f58-bbdb-4838-820e-4d76e0199ed6.jpg";
 
 const catalogProducts = [
   {
@@ -658,6 +663,46 @@ const catalogProducts = [
       { label: "Приспинные подушки", value: "3 шт, 63 × 43 см" },
       { label: "Декоративные подушки", value: "2 шт, 30 × 28 см" },
       { label: "Максимальная нагрузка на место", value: "100 кг" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
+  {
+    id: 15, name: "Торонто", category: "sofa", price: 22999, img: TORONTO_BEIGE_FRONT,
+    angleType: "угловой", fabric: "рогожка", createdAt: 11,
+    images: [TORONTO_BEIGE_FRONT, TORONTO_BEIGE_ANGLE, TORONTO_BEIGE_STORAGE, TORONTO_BEIGE_BED, TORONTO_BEIGE_SIDE],
+    colors: [
+      { name: "Бежевый", swatch: TORONTO_BEIGE_FRONT, images: [TORONTO_BEIGE_FRONT, TORONTO_BEIGE_ANGLE, TORONTO_BEIGE_STORAGE, TORONTO_BEIGE_BED, TORONTO_BEIGE_SIDE] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Синий", swatch: ROGOJKA_BLUE },
+    ],
+    desc: "Угловой диван-кровать Торонто на механизме Дельфин. Тип угла — универсальный, расположение оттоманки можно выбрать при сборке. Обивка из рогожки, бельевой ящик в оттоманке, ламельное основание сиденья.",
+    specs: [
+      { label: "Механизм", value: "Дельфин" },
+      { label: "Материал обивки", value: "Рогожка" },
+      { label: "Тип угла", value: "Универсальный" },
+      { label: "Бельевой ящик", value: "Есть" },
+      { label: "Основа сиденья", value: "Ламели (латы)" },
+      { label: "Каркас", value: "Металл" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Материал ножек", value: "Пластмасса" },
+      { label: "Габариты дивана", value: "235 × 90 × 155 см" },
+      { label: "Спальное место", value: "143 × 204 см" },
+      { label: "Бельевой ящик", value: "138 × 22,5 × 65 см" },
+      { label: "Габариты разложенного", value: "235 × 67 × 155 см" },
+      { label: "Глубина сиденья", value: "58 см (78 см без подушек)" },
+      { label: "Высота сиденья", value: "42,5 см" },
+      { label: "Ширина сиденья", value: "135 см" },
+      { label: "Ширина сиденья оттоманки", value: "71 см" },
+      { label: "Высота спинки", value: "25,1 см" },
+      { label: "Высота подлокотника", value: "56 см" },
+      { label: "Ширина подлокотника", value: "15,5 см" },
+      { label: "Высота ножек", value: "5 см" },
+      { label: "Подушки", value: "3 шт, 70 × 45 × 20 см" },
+      { label: "Максимальная нагрузка", value: "90 кг" },
+      { label: "Упаковка", value: "3 коробки: 145×39×72 см (32 кг), 137×46×81 см (53 кг), 90×32×52 см (19 кг)" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
