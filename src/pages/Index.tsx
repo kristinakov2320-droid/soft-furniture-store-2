@@ -524,7 +524,7 @@ const catalogProducts = [
     colors: [
       {
         name: "Бежевый",
-        swatch: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
+        swatch: DUBAI_BEIGE_INT,
         images: [
           "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/beb86743-2a34-47b6-806b-05235c128358.jpg",
           "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7d88e75e-ee9e-44d5-8cee-4987978826bb.jpg",
@@ -533,10 +533,10 @@ const catalogProducts = [
           DUBAI_BEIGE_INT,
         ],
       },
-      { name: "Кофейный", swatch: DUBAI_COFFEE_FRONT, images: [DUBAI_COFFEE_FRONT, DUBAI_COFFEE_ANGLE, DUBAI_COFFEE_BED, DUBAI_COFFEE_BACK, DUBAI_COFFEE_INT] },
-      { name: "Медово-коричневый", swatch: DUBAI_HONEY_FRONT, images: [DUBAI_HONEY_FRONT, DUBAI_HONEY_ANGLE, DUBAI_HONEY_BED, DUBAI_HONEY_BACK, DUBAI_HONEY_INT] },
-      { name: "Серый", swatch: DUBAI_GREY_FRONT, images: [DUBAI_GREY_FRONT, DUBAI_GREY_ANGLE, DUBAI_GREY_BED, DUBAI_GREY_BACK, DUBAI_GREY_INT] },
-      { name: "Синий", swatch: DUBAI_BLUE_FRONT, images: [DUBAI_BLUE_FRONT, DUBAI_BLUE_ANGLE, DUBAI_BLUE_BED, DUBAI_BLUE_BACK, DUBAI_BLUE_INT] },
+      { name: "Кофейный", swatch: DUBAI_COFFEE_INT, images: [DUBAI_COFFEE_FRONT, DUBAI_COFFEE_ANGLE, DUBAI_COFFEE_BED, DUBAI_COFFEE_BACK, DUBAI_COFFEE_INT] },
+      { name: "Медово-коричневый", swatch: DUBAI_HONEY_INT, images: [DUBAI_HONEY_FRONT, DUBAI_HONEY_ANGLE, DUBAI_HONEY_BED, DUBAI_HONEY_BACK, DUBAI_HONEY_INT] },
+      { name: "Серый", swatch: DUBAI_GREY_INT, images: [DUBAI_GREY_FRONT, DUBAI_GREY_ANGLE, DUBAI_GREY_BED, DUBAI_GREY_BACK, DUBAI_GREY_INT] },
+      { name: "Синий", swatch: DUBAI_BLUE_INT, images: [DUBAI_BLUE_FRONT, DUBAI_BLUE_ANGLE, DUBAI_BLUE_BED, DUBAI_BLUE_BACK, DUBAI_BLUE_INT] },
     ],
     desc: "Прямой диван-кровать с механизмом трёхсекционная еврокнижка и удобным карманом сбоку. Обивка — рогожка, латофлексная сборка с ППУ и синтепоном. Деревянные подлокотники. Отличное решение для гостиной.",
     specs: [
