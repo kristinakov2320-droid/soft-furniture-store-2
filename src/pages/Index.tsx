@@ -291,6 +291,10 @@ const PRAGUE_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9
 const PRAGUE_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b36f3905-0d34-4506-a772-07c32b621ce1.jpg";
 const PRAGUE_BLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/456858d3-918f-4bd8-b894-4407173b680c.jpg";
 const PRAGUE_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/343a9e1a-03df-40f1-a111-1bf73c43ceac.jpg";
+const PRAGUE_EMERALD_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f5897836-760f-4298-8c78-869a8d8a920c.jpg";
+const PRAGUE_EMERALD_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/21465640-fac4-44c7-8fbf-ffd7954ed530.jpg";
+const PRAGUE_EMERALD_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/142b6434-9b28-4357-be47-bd267f5ed0f6.jpg";
+const PRAGUE_EMERALD_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1eee1f8c-3172-4596-b4ee-b568607df1dd.jpg";
 
 const catalogProducts = [
   {
@@ -767,6 +771,7 @@ const catalogProducts = [
       { name: "Медово-коричневый", swatch: PRAGUE_HONEY_FRONT, images: [PRAGUE_HONEY_FRONT, PRAGUE_HONEY_ANGLE, PRAGUE_HONEY_BACK, PRAGUE_HONEY_STORAGE, PRAGUE_HONEY_BED] },
       { name: "Серый", swatch: PRAGUE_GREY_FRONT, images: [PRAGUE_GREY_FRONT, PRAGUE_GREY_ANGLE, PRAGUE_GREY_BACK, PRAGUE_GREY_STORAGE, PRAGUE_GREY_BED] },
       { name: "Синий", swatch: PRAGUE_BLUE_FRONT, images: [PRAGUE_BLUE_FRONT, PRAGUE_BLUE_ANGLE, PRAGUE_BLUE_BACK, PRAGUE_BLUE_STORAGE, PRAGUE_BLUE_BED] },
+      { name: "Изумрудный", fabric: "велюр", swatch: PRAGUE_EMERALD_FRONT, images: [PRAGUE_EMERALD_FRONT, PRAGUE_EMERALD_ANGLE, PRAGUE_EMERALD_STORAGE, PRAGUE_EMERALD_BED] },
     ],
     desc: "Прямой диван-кровать Прага на механизме еврокнижка. Обивка из рогожки, вместительный бельевой ящик. Мягкие округлые подлокотники, 3 приспинные подушки в комплекте.",
     specs: [
@@ -1838,12 +1843,21 @@ export default function Index() {
                 <div className="mb-6 flex-1">
                   <p className="font-display text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">Характеристики</p>
                   <div>
-                    {selectedProduct.specs.map((s, i) => (
-                      <div key={i} className={`flex justify-between gap-4 py-2.5 text-sm ${i < selectedProduct.specs.length - 1 ? "border-b border-border/40" : ""}`}>
-                        <span className="font-body text-muted-foreground flex-shrink-0">{s.label}</span>
-                        <span className="font-body text-right">{s.value}</span>
-                      </div>
-                    ))}
+                    {selectedProduct.specs.map((s, i) => {
+                      const activeColorFabric = activeColor !== null && selectedProduct.colors
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        ? (selectedProduct.colors[activeColor] as any).fabric as string | undefined
+                        : undefined;
+                      const displayValue = s.label === "Материал обивки" && activeColorFabric
+                        ? activeColorFabric.charAt(0).toUpperCase() + activeColorFabric.slice(1)
+                        : s.value;
+                      return (
+                        <div key={i} className={`flex justify-between gap-4 py-2.5 text-sm ${i < selectedProduct.specs.length - 1 ? "border-b border-border/40" : ""}`}>
+                          <span className="font-body text-muted-foreground flex-shrink-0">{s.label}</span>
+                          <span className="font-body text-right">{displayValue}</span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 
