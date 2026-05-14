@@ -251,6 +251,11 @@ const TORONTO_HONEY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940
 const TORONTO_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7f363588-4dca-4b89-bb8e-2ba5778e5ad3.jpg";
 const TORONTO_HONEY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e1416d71-c490-459d-a8ad-7da42de57b8a.jpg";
 const TORONTO_HONEY_SIDE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/9e013ea2-f4fe-4518-9fb5-bb43895d5cde.jpg";
+const TORONTO_GREY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0f4b9072-d28e-4a57-8a3a-b532b72d1a5f.jpg";
+const TORONTO_GREY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/cb5deafa-2c98-47fa-be4e-01dc22133548.jpg";
+const TORONTO_GREY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e318e4a3-f24e-4261-a2ee-d99a732ebaa3.jpg";
+const TORONTO_GREY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/574e1d16-3ebd-4ae0-9e53-4e9e80cec548.jpg";
+const TORONTO_GREY_SIDE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5b81eb02-4cdd-45c6-b946-978fbac0928f.jpg";
 
 const catalogProducts = [
   {
@@ -685,7 +690,7 @@ const catalogProducts = [
       { name: "Бежевый", swatch: TORONTO_BEIGE_FRONT, images: [TORONTO_BEIGE_FRONT, TORONTO_BEIGE_ANGLE, TORONTO_BEIGE_STORAGE, TORONTO_BEIGE_BED, TORONTO_BEIGE_SIDE] },
       { name: "Кофейный", swatch: TORONTO_COFFEE_FRONT, images: [TORONTO_COFFEE_FRONT, TORONTO_COFFEE_ANGLE, TORONTO_COFFEE_STORAGE, TORONTO_COFFEE_BED, TORONTO_COFFEE_SIDE] },
       { name: "Медово-коричневый", swatch: TORONTO_HONEY_FRONT, images: [TORONTO_HONEY_FRONT, TORONTO_HONEY_ANGLE, TORONTO_HONEY_STORAGE, TORONTO_HONEY_BED, TORONTO_HONEY_SIDE] },
-      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Серый", swatch: TORONTO_GREY_FRONT, images: [TORONTO_GREY_FRONT, TORONTO_GREY_ANGLE, TORONTO_GREY_STORAGE, TORONTO_GREY_BED, TORONTO_GREY_SIDE] },
       { name: "Синий", swatch: ROGOJKA_BLUE },
     ],
     desc: "Угловой диван-кровать Торонто на механизме Дельфин. Тип угла — универсальный, расположение оттоманки можно выбрать при сборке. Обивка из рогожки, бельевой ящик в оттоманке, ламельное основание сиденья.",
