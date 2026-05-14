@@ -241,6 +241,11 @@ const TORONTO_BEIGE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940
 const TORONTO_BEIGE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7c44117c-00d0-44ba-9e36-34f3c7ab1da3.jpg";
 const TORONTO_BEIGE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6dc53b28-fff3-45a7-9590-3207dbd7edcb.jpg";
 const TORONTO_BEIGE_SIDE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/39106f58-bbdb-4838-820e-4d76e0199ed6.jpg";
+const TORONTO_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a3845f4d-9605-4701-ae3e-58382b818702.jpg";
+const TORONTO_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/aa1664d7-9ccb-41c1-8ef2-0385c51da7fc.jpg";
+const TORONTO_COFFEE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0883987f-b356-4354-9948-7fc39be67c37.jpg";
+const TORONTO_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/64919b6f-2f2c-4574-a93c-d63c30b6c841.jpg";
+const TORONTO_COFFEE_SIDE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b17a4b1b-aa3f-4335-a43e-d960bae1986a.jpg";
 
 const catalogProducts = [
   {
@@ -673,7 +678,7 @@ const catalogProducts = [
     images: [TORONTO_BEIGE_FRONT, TORONTO_BEIGE_ANGLE, TORONTO_BEIGE_STORAGE, TORONTO_BEIGE_BED, TORONTO_BEIGE_SIDE],
     colors: [
       { name: "Бежевый", swatch: TORONTO_BEIGE_FRONT, images: [TORONTO_BEIGE_FRONT, TORONTO_BEIGE_ANGLE, TORONTO_BEIGE_STORAGE, TORONTO_BEIGE_BED, TORONTO_BEIGE_SIDE] },
-      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Кофейный", swatch: TORONTO_COFFEE_FRONT, images: [TORONTO_COFFEE_FRONT, TORONTO_COFFEE_ANGLE, TORONTO_COFFEE_STORAGE, TORONTO_COFFEE_BED, TORONTO_COFFEE_SIDE] },
       { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
       { name: "Серый", swatch: ROGOJKA_GREY },
       { name: "Синий", swatch: ROGOJKA_BLUE },
