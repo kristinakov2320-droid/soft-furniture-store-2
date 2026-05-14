@@ -276,6 +276,11 @@ const PRAGUE_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940
 const PRAGUE_COFFEE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5c53ef75-01ca-4732-9c45-9c71fe6ec912.jpg";
 const PRAGUE_COFFEE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a952a08e-ff84-41ee-a2a3-afdd71f6ad24.jpg";
 const PRAGUE_COFFEE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/89fa527a-e262-44ea-977c-7e8f3515eb59.jpg";
+const PRAGUE_HONEY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b31b3f76-8195-4b90-9ae4-314c4a81d996.jpg";
+const PRAGUE_HONEY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/11167095-7740-4cb1-b741-f3d498f421c1.jpg";
+const PRAGUE_HONEY_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d8e82558-159e-4500-b08e-3c06cb75564d.jpg";
+const PRAGUE_HONEY_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/41e7b39b-6065-4e44-8988-a1d24f5444ad.jpg";
+const PRAGUE_HONEY_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1da7ab18-80ef-4c33-9909-fbe24ea45c80.jpg";
 
 const catalogProducts = [
   {
@@ -749,7 +754,7 @@ const catalogProducts = [
     colors: [
       { name: "Бежевый", swatch: PRAGUE_BEIGE_FRONT, images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED] },
       { name: "Кофейный", swatch: PRAGUE_COFFEE_FRONT, images: [PRAGUE_COFFEE_FRONT, PRAGUE_COFFEE_ANGLE, PRAGUE_COFFEE_BACK, PRAGUE_COFFEE_STORAGE, PRAGUE_COFFEE_BED] },
-      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
+      { name: "Медово-коричневый", swatch: PRAGUE_HONEY_FRONT, images: [PRAGUE_HONEY_FRONT, PRAGUE_HONEY_ANGLE, PRAGUE_HONEY_BACK, PRAGUE_HONEY_STORAGE, PRAGUE_HONEY_BED] },
       { name: "Серый", swatch: ROGOJKA_GREY },
       { name: "Синий", swatch: ROGOJKA_BLUE },
     ],
