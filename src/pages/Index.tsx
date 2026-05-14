@@ -266,6 +266,11 @@ const TORONTO_COFFEE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-
 const TORONTO_HONEY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e602428b-79e3-4ee6-9a78-bbdc4a3ac2df.jpg";
 const TORONTO_GREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/bd1dbcdb-d032-4d6e-b40f-ef4bb91d7cf8.jpg";
 const TORONTO_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/784f131f-fd5b-4f48-9b95-79e6fbab3d98.jpg";
+const PRAGUE_BEIGE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/20d404b1-9467-4f14-8473-e5805d456275.jpg";
+const PRAGUE_BEIGE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0b86720f-ad5e-4ae1-9c40-695c2af2a920.jpg";
+const PRAGUE_BEIGE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/3fdb021f-0298-49c6-b82c-3b13521fd476.jpg";
+const PRAGUE_BEIGE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/8dacb4a9-b927-4201-a492-31d4b9f3ddfa.jpg";
+const PRAGUE_BEIGE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/24fb5985-be3e-48c2-8df3-f2935f2264d1.jpg";
 
 const catalogProducts = [
   {
@@ -728,6 +733,43 @@ const catalogProducts = [
       { label: "Подушки", value: "3 шт, 70 × 45 × 20 см" },
       { label: "Максимальная нагрузка", value: "90 кг" },
       { label: "Упаковка", value: "3 коробки: 145×39×72 см (32 кг), 137×46×81 см (53 кг), 90×32×52 см (19 кг)" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
+  {
+    id: 16, name: "Прага", category: "sofa", price: 15999, img: PRAGUE_BEIGE_FRONT,
+    angleType: "прямой", fabric: "рогожка", createdAt: 12,
+    images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED],
+    colors: [
+      { name: "Бежевый", swatch: PRAGUE_BEIGE_FRONT, images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY },
+      { name: "Серый", swatch: ROGOJKA_GREY },
+      { name: "Синий", swatch: ROGOJKA_BLUE },
+    ],
+    desc: "Прямой диван-кровать Прага на механизме еврокнижка. Обивка из рогожки, вместительный бельевой ящик. Мягкие округлые подлокотники, 3 приспинные подушки в комплекте.",
+    specs: [
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Материал обивки", value: "Рогожка" },
+      { label: "Бельевой ящик", value: "Есть" },
+      { label: "Основа сиденья", value: "ДСП (ЛДСП)" },
+      { label: "Каркас", value: "ДСП (ЛДСП)" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Материал ножек", value: "Пластмасса" },
+      { label: "Габариты дивана", value: "226 × 87 × 79 см" },
+      { label: "Спальное место", value: "132 × 194 см" },
+      { label: "Бельевой ящик", value: "192 × 26 × 54 см" },
+      { label: "Глубина сиденья", value: "54 см (70 см без подушек)" },
+      { label: "Высота сиденья", value: "40 см" },
+      { label: "Ширина сиденья", value: "194 см" },
+      { label: "Высота спинки", value: "81 см" },
+      { label: "Высота подлокотника", value: "61 см" },
+      { label: "Ширина подлокотника", value: "16 см" },
+      { label: "Высота ножек", value: "4 см" },
+      { label: "Подушки", value: "3 шт, 65 × 48 × 15,5 см" },
+      { label: "Максимальная нагрузка", value: "90 кг" },
+      { label: "Упаковка", value: "2 коробки: 194×53×72 см (52 кг), 78×33×54 см (17,5 кг)" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
