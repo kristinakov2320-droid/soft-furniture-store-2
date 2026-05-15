@@ -303,6 +303,10 @@ const PRAGUE_BLUE_VELOUR_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11
 const PRAGUE_BLUE_VELOUR_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/a20e0c89-d1d4-465d-b86f-5a1ab76f182d.jpg";
 const PRAGUE_BLUE_VELOUR_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4c2c2b8c-8a5c-445b-b9ab-666e46a810d1.jpg";
 const PRAGUE_BLUE_VELOUR_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ea0c84e9-ccda-4927-ad25-b8d23fad0472.jpg";
+const PRAGUE_CHOCO_VELOUR_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ea399506-bd15-4e2a-b740-81574031bce6.jpg";
+const PRAGUE_CHOCO_VELOUR_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fcb83fd-920f-41e8-b361-1dde68a8a0f8.jpg";
+const PRAGUE_CHOCO_VELOUR_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fbbba7a5-430b-4fbd-b928-79d1bdf9c4e7.jpg";
+const PRAGUE_CHOCO_VELOUR_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0dcfb673-2002-449e-8343-e284f7de1efe.jpg";
 
 const catalogProducts = [
   {
@@ -782,6 +786,7 @@ const catalogProducts = [
       { name: "Изумрудный", fabric: "велюр", swatch: PRAGUE_EMERALD_FRONT, images: [PRAGUE_EMERALD_FRONT, PRAGUE_EMERALD_ANGLE, PRAGUE_EMERALD_STORAGE, PRAGUE_EMERALD_BED] },
       { name: "Серый велюр", fabric: "велюр", swatch: PRAGUE_GREY_VELOUR_FRONT, images: [PRAGUE_GREY_VELOUR_FRONT, PRAGUE_GREY_VELOUR_ANGLE, PRAGUE_GREY_VELOUR_STORAGE, PRAGUE_GREY_VELOUR_BED] },
       { name: "Синий велюр", fabric: "велюр", swatch: PRAGUE_BLUE_VELOUR_FRONT, images: [PRAGUE_BLUE_VELOUR_FRONT, PRAGUE_BLUE_VELOUR_ANGLE, PRAGUE_BLUE_VELOUR_STORAGE, PRAGUE_BLUE_VELOUR_BED] },
+      { name: "Шоколадный велюр", fabric: "велюр", swatch: PRAGUE_CHOCO_VELOUR_FRONT, images: [PRAGUE_CHOCO_VELOUR_FRONT, PRAGUE_CHOCO_VELOUR_ANGLE, PRAGUE_CHOCO_VELOUR_STORAGE, PRAGUE_CHOCO_VELOUR_BED] },
     ],
     desc: "Прямой диван-кровать Прага на механизме еврокнижка. Обивка из рогожки, вместительный бельевой ящик. Мягкие округлые подлокотники, 3 приспинные подушки в комплекте.",
     specs: [
