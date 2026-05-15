@@ -950,11 +950,23 @@ const catalogProducts = [
   },
 
   {
-    id: 18, name: "Парма", category: "sofa", price: 12999, img: ROGOJKA_BEIGE,
+    id: 18, name: "Парма", category: "sofa", price: 12999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6216bfbd-8a98-4a28-9405-388788eb6537.jpg",
     angleType: "прямой", fabric: "рогожка", createdAt: 14,
-    images: [ROGOJKA_BEIGE],
+    images: [
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6216bfbd-8a98-4a28-9405-388788eb6537.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4d47cf50-65a6-4c7f-a2d8-27b7d547e50e.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70e975b7-a7c3-41c9-a63c-8fa700877058.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7c0e3be3-8284-41fa-80ed-82562464b3c6.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/82ba9ca5-494a-43d4-9c32-c061be267a81.jpg",
+    ],
     colors: [
-      { name: "Бежевый", swatch: ROGOJKA_BEIGE, images: [ROGOJKA_BEIGE] },
+      { name: "Бежевый", swatch: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6216bfbd-8a98-4a28-9405-388788eb6537.jpg", images: [
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6216bfbd-8a98-4a28-9405-388788eb6537.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4d47cf50-65a6-4c7f-a2d8-27b7d547e50e.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/70e975b7-a7c3-41c9-a63c-8fa700877058.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/7c0e3be3-8284-41fa-80ed-82562464b3c6.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/82ba9ca5-494a-43d4-9c32-c061be267a81.jpg",
+      ] },
       { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [ROGOJKA_COFFEE] },
       { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [ROGOJKA_HONEY] },
       { name: "Серый", swatch: ROGOJKA_GREY, images: [ROGOJKA_GREY] },
