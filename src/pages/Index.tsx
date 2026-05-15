@@ -312,6 +312,10 @@ const PRAGUE_COFFEE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9
 const PRAGUE_HONEY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/adfc2042-191a-4c11-8754-7fbc647ad340.jpg";
 const PRAGUE_GREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4a390e87-5558-4afb-ac6e-ead8eaf94117.jpg";
 const PRAGUE_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/abb4d612-60d2-4b1a-9843-ee0b177fec04.jpg";
+const PRAGUE_EMERALD_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/bf0342e0-75c9-420f-b806-8e3ac2a12208.jpg";
+const PRAGUE_GREY_VELOUR_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/232fd0c3-de81-41c0-9453-a5b0aad0c4df.jpg";
+const PRAGUE_BLUE_VELOUR_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c4935241-3d90-47d6-a623-b4b7db875f6a.jpg";
+const PRAGUE_CHOCO_VELOUR_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d39c95eb-8df4-4250-9c78-1e5e8960a6c2.jpg";
 
 const catalogProducts = [
   {
@@ -788,10 +792,10 @@ const catalogProducts = [
       { name: "Медово-коричневый", swatch: PRAGUE_HONEY_INT, images: [PRAGUE_HONEY_FRONT, PRAGUE_HONEY_ANGLE, PRAGUE_HONEY_BACK, PRAGUE_HONEY_STORAGE, PRAGUE_HONEY_BED, PRAGUE_HONEY_INT] },
       { name: "Серый", swatch: PRAGUE_GREY_INT, images: [PRAGUE_GREY_FRONT, PRAGUE_GREY_ANGLE, PRAGUE_GREY_BACK, PRAGUE_GREY_STORAGE, PRAGUE_GREY_BED, PRAGUE_GREY_INT] },
       { name: "Синий", swatch: PRAGUE_BLUE_INT, images: [PRAGUE_BLUE_FRONT, PRAGUE_BLUE_ANGLE, PRAGUE_BLUE_BACK, PRAGUE_BLUE_STORAGE, PRAGUE_BLUE_BED, PRAGUE_BLUE_INT] },
-      { name: "Изумрудный", fabric: "велюр", swatch: PRAGUE_EMERALD_FRONT, images: [PRAGUE_EMERALD_FRONT, PRAGUE_EMERALD_ANGLE, PRAGUE_EMERALD_STORAGE, PRAGUE_EMERALD_BED] },
-      { name: "Серый велюр", fabric: "велюр", swatch: PRAGUE_GREY_VELOUR_FRONT, images: [PRAGUE_GREY_VELOUR_FRONT, PRAGUE_GREY_VELOUR_ANGLE, PRAGUE_GREY_VELOUR_STORAGE, PRAGUE_GREY_VELOUR_BED] },
-      { name: "Синий велюр", fabric: "велюр", swatch: PRAGUE_BLUE_VELOUR_FRONT, images: [PRAGUE_BLUE_VELOUR_FRONT, PRAGUE_BLUE_VELOUR_ANGLE, PRAGUE_BLUE_VELOUR_STORAGE, PRAGUE_BLUE_VELOUR_BED] },
-      { name: "Шоколадный велюр", fabric: "велюр", swatch: PRAGUE_CHOCO_VELOUR_FRONT, images: [PRAGUE_CHOCO_VELOUR_FRONT, PRAGUE_CHOCO_VELOUR_ANGLE, PRAGUE_CHOCO_VELOUR_STORAGE, PRAGUE_CHOCO_VELOUR_BED] },
+      { name: "Изумрудный велюр", fabric: "велюр", swatch: PRAGUE_EMERALD_INT, images: [PRAGUE_EMERALD_FRONT, PRAGUE_EMERALD_ANGLE, PRAGUE_EMERALD_STORAGE, PRAGUE_EMERALD_BED, PRAGUE_EMERALD_INT] },
+      { name: "Серый велюр", fabric: "велюр", swatch: PRAGUE_GREY_VELOUR_INT, images: [PRAGUE_GREY_VELOUR_FRONT, PRAGUE_GREY_VELOUR_ANGLE, PRAGUE_GREY_VELOUR_STORAGE, PRAGUE_GREY_VELOUR_BED, PRAGUE_GREY_VELOUR_INT] },
+      { name: "Синий велюр", fabric: "велюр", swatch: PRAGUE_BLUE_VELOUR_INT, images: [PRAGUE_BLUE_VELOUR_FRONT, PRAGUE_BLUE_VELOUR_ANGLE, PRAGUE_BLUE_VELOUR_STORAGE, PRAGUE_BLUE_VELOUR_BED, PRAGUE_BLUE_VELOUR_INT] },
+      { name: "Шоколадный велюр", fabric: "велюр", swatch: PRAGUE_CHOCO_VELOUR_INT, images: [PRAGUE_CHOCO_VELOUR_FRONT, PRAGUE_CHOCO_VELOUR_ANGLE, PRAGUE_CHOCO_VELOUR_STORAGE, PRAGUE_CHOCO_VELOUR_BED, PRAGUE_CHOCO_VELOUR_INT] },
     ],
     desc: "Прямой диван-кровать Прага на механизме еврокнижка. Обивка из рогожки, вместительный бельевой ящик. Мягкие округлые подлокотники, 3 приспинные подушки в комплекте.",
     specs: [
