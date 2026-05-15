@@ -307,11 +307,11 @@ const PRAGUE_CHOCO_VELOUR_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af1
 const PRAGUE_CHOCO_VELOUR_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fcb83fd-920f-41e8-b361-1dde68a8a0f8.jpg";
 const PRAGUE_CHOCO_VELOUR_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fbbba7a5-430b-4fbd-b928-79d1bdf9c4e7.jpg";
 const PRAGUE_CHOCO_VELOUR_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0dcfb673-2002-449e-8343-e284f7de1efe.jpg";
-const PRAGUE_BEIGE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d3facafc-023f-4774-a02d-02d7cb7b3d25.jpg";
-const PRAGUE_COFFEE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/08209233-f5ea-4917-b9d3-36033d23e82d.jpg";
-const PRAGUE_HONEY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fa466d13-e619-45af-88d1-592990deeb15.jpg";
-const PRAGUE_GREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ceec9f0d-6b57-4f73-a817-b730e62e79b6.jpg";
-const PRAGUE_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/83f89604-d52e-4c26-b9ad-5b97d37d94ac.jpg";
+const PRAGUE_BEIGE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/edc75829-0ac9-4260-9f4c-4a4cac9525d0.jpg";
+const PRAGUE_COFFEE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/64151cf2-c7a3-401c-88a5-5ce47e3c6ae6.jpg";
+const PRAGUE_HONEY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/adfc2042-191a-4c11-8754-7fbc647ad340.jpg";
+const PRAGUE_GREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4a390e87-5558-4afb-ac6e-ead8eaf94117.jpg";
+const PRAGUE_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/abb4d612-60d2-4b1a-9843-ee0b177fec04.jpg";
 
 const catalogProducts = [
   {
