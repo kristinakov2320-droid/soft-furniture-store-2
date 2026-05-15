@@ -1000,6 +1000,58 @@ const catalogProducts = [
     ],
   },
 
+  {
+    id: 19, name: "Поло", category: "sofa", price: 25999, img: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4aa828b5-f354-470f-8afd-11f3abb3ab1e.jpg",
+    angleType: "угловой", fabric: "рогожка", createdAt: 15,
+    images: [
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4aa828b5-f354-470f-8afd-11f3abb3ab1e.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/22f52218-8b1c-4917-bf5d-741182a52952.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6a8212d6-eb4c-494b-ae91-db8c045f7dd2.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/29be5b1c-a1ff-43bb-a48e-dbe278390e34.jpg",
+      "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/feb6b4e2-bbe4-4163-9b07-bf58a24a2a4a.jpg",
+    ],
+    colors: [
+      { name: "Бежевый", swatch: "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4aa828b5-f354-470f-8afd-11f3abb3ab1e.jpg", images: [
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4aa828b5-f354-470f-8afd-11f3abb3ab1e.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/22f52218-8b1c-4917-bf5d-741182a52952.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6a8212d6-eb4c-494b-ae91-db8c045f7dd2.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/29be5b1c-a1ff-43bb-a48e-dbe278390e34.jpg",
+        "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/feb6b4e2-bbe4-4163-9b07-bf58a24a2a4a.jpg",
+      ] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [ROGOJKA_COFFEE] },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [ROGOJKA_HONEY] },
+      { name: "Серый", swatch: ROGOJKA_GREY, images: [ROGOJKA_GREY] },
+      { name: "Синий", swatch: ROGOJKA_BLUE, images: [ROGOJKA_BLUE] },
+    ],
+    desc: "Угловой диван-кровать Поло на механизме Дельфин. Российское производство. Обивка из рогожки, бельевой ящик в оттоманке. В комплекте 4 приспинные подушки. Тип угла — универсальный.",
+    specs: [
+      { label: "Производство", value: "Россия" },
+      { label: "Механизм", value: "Дельфин" },
+      { label: "Материал обивки", value: "Рогожка" },
+      { label: "Бельевой ящик", value: "Есть" },
+      { label: "Основа сиденья", value: "Ламели (латы)" },
+      { label: "Каркас", value: "Металл" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Габариты дивана", value: "226 × 92 × 152 см" },
+      { label: "Спальное место", value: "141 × 204 см" },
+      { label: "Глубина сиденья", value: "54 см" },
+      { label: "Глубина сиденья без подушек", value: "77 см" },
+      { label: "Высота сиденья", value: "43 см" },
+      { label: "Ширина сиденья", value: "135 см" },
+      { label: "Высота спинки", value: "25,1 см" },
+      { label: "Высота подлокотника", value: "67/43 см" },
+      { label: "Ширина подлокотника", value: "11 см" },
+      { label: "Высота ножек", value: "5 см" },
+      { label: "Бельевой ящик", value: "140 × 24 × 67,5 см" },
+      { label: "Подушки", value: "4 шт, 68 × 49 × 20 см" },
+      { label: "Упаковка (коробка 1)", value: "143 × 39 × 72 см (32 кг)" },
+      { label: "Упаковка (коробка 2)", value: "137 × 46 × 81 см (53 кг)" },
+      { label: "Упаковка (коробка 3)", value: "153 × 24 × 64 см (23 кг)" },
+      { label: "Максимальная нагрузка", value: "90 кг" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
 ];
 
 const faqItems = [
