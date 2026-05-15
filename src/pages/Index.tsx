@@ -77,6 +77,12 @@ const SHANGHAI_BLUE_BED_OPEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4
 const SHANGHAI_BLUE_BED_CLOSED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/afea7803-e6fd-427e-99b8-56c1e1ab8073.jpg";
 const SHANGHAI_BLUE_TEXTURE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/125d157d-97da-46fc-9f0b-d856c344c5ee.jpg";
 
+const SHANGHAI_DGREY_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/747bb20f-0817-41c7-8d36-5dd2182ba385.jpg";
+const SHANGHAI_DGREY_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/08ec362c-2ecf-455a-ae5b-20c5c4d30d6f.jpg";
+const SHANGHAI_DGREY_BED_OPEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ebaee53e-4d70-4e89-b79c-43ab8cce9d83.jpg";
+const SHANGHAI_DGREY_BED_CLOSED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/dde4fd93-8afb-41fe-95fa-8bfbc37a1746.jpg";
+const SHANGHAI_DGREY_TEXTURE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/acc3df3a-9c17-4f75-bec7-b5642926e26b.jpg";
+
 const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4b410866-de7b-48af-9cbe-db2d7a9a9d2f.jpg";
 const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/09049858-f497-4f1f-a50d-543a7db6d6b9.jpg";
 const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/de82509f-d634-41dd-8954-4da566855028.jpg";
@@ -881,6 +887,11 @@ const catalogProducts = [
         name: "Синий",
         swatch: SHANGHAI_BLUE_TEXTURE,
         images: [SHANGHAI_BLUE_FRONT, SHANGHAI_BLUE_ANGLE, SHANGHAI_BLUE_BED_OPEN, SHANGHAI_BLUE_BED_CLOSED, SHANGHAI_BLUE_TEXTURE],
+      },
+      {
+        name: "Тёмно-серый",
+        swatch: SHANGHAI_DGREY_TEXTURE,
+        images: [SHANGHAI_DGREY_FRONT, SHANGHAI_DGREY_ANGLE, SHANGHAI_DGREY_BED_OPEN, SHANGHAI_DGREY_BED_CLOSED, SHANGHAI_DGREY_TEXTURE],
       },
     ],
     desc: "Прямой диван-кровать Шанхай на механизме еврокнижка. Обивка из мягкого велюра изумрудного цвета. Вместительный бельевой ящик для хранения постельных принадлежностей. В комплекте 5 приспинных подушек.",
