@@ -94,6 +94,7 @@ const SHANGHAI_MINT_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9
 const SHANGHAI_LGREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1dec4307-63c8-4ddf-90a9-1b47a6c98885.jpg";
 const SHANGHAI_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ec94b99a-e5f7-4e62-ac55-4c47e721f634.jpg";
 const SHANGHAI_DGREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/77826e77-5c2d-43cf-927b-888fa64b0e1f.jpg";
+const SHANGHAI_CHOCO_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/acc51d30-15b6-4c21-a571-7ce832982013.jpg";
 
 const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4b410866-de7b-48af-9cbe-db2d7a9a9d2f.jpg";
 const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/09049858-f497-4f1f-a50d-543a7db6d6b9.jpg";
@@ -907,8 +908,8 @@ const catalogProducts = [
       },
       {
         name: "Шоколадный",
-        swatch: SHANGHAI_CHOCO_TEXTURE,
-        images: [SHANGHAI_CHOCO_FRONT, SHANGHAI_CHOCO_ANGLE, SHANGHAI_CHOCO_BED_OPEN, SHANGHAI_CHOCO_BED_CLOSED, SHANGHAI_CHOCO_TEXTURE],
+        swatch: SHANGHAI_CHOCO_INT,
+        images: [SHANGHAI_CHOCO_FRONT, SHANGHAI_CHOCO_ANGLE, SHANGHAI_CHOCO_BED_OPEN, SHANGHAI_CHOCO_BED_CLOSED, SHANGHAI_CHOCO_TEXTURE, SHANGHAI_CHOCO_INT],
       },
     ],
     desc: "Прямой диван-кровать Шанхай на механизме еврокнижка. Обивка из мягкого велюра изумрудного цвета. Вместительный бельевой ящик для хранения постельных принадлежностей. В комплекте 5 приспинных подушек.",
