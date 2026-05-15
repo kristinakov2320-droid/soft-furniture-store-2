@@ -53,6 +53,12 @@ const VELVET_MINT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-ee
 const VELVET_LGREY = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b01460c2-6ca9-4767-a94b-238dfb5d32f4.jpg";
 const VELVET_BLUE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f12ee5bf-0cf4-4300-8af6-16ef12060d2a.jpg";
 
+const VICENZA_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4e93d41d-eabe-48bf-abe6-2908aaf7cd0f.jpg";
+const VICENZA_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e07dfaad-9a52-4d2a-a9b0-b8021e7a7d05.jpg";
+const VICENZA_BED_OPEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4b55d8e8-9550-43bf-ab7f-67fc4bf5e607.jpg";
+const VICENZA_BED_CLOSED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/86ce10de-8b39-4517-8f24-5cc61cf6c0c5.jpg";
+const VICENZA_TEXTURE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d96490f5-003a-4c1f-ad01-4a74d7d6abbd.jpg";
+
 const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4b410866-de7b-48af-9cbe-db2d7a9a9d2f.jpg";
 const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/09049858-f497-4f1f-a50d-543a7db6d6b9.jpg";
 const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/de82509f-d634-41dd-8954-4da566855028.jpg";
@@ -829,6 +835,40 @@ const catalogProducts = [
       { label: "Подушки", value: "3 шт, 65 × 48 × 15,5 см" },
       { label: "Максимальная нагрузка", value: "90 кг" },
       { label: "Упаковка", value: "2 коробки: 194×53×72 см (52 кг), 78×33×54 см (17,5 кг)" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
+  {
+    id: 17, name: "Виченца", category: "sofa", price: 18999, img: VICENZA_FRONT,
+    angleType: "прямой", fabric: "велюр", createdAt: 13,
+    images: [VICENZA_FRONT, VICENZA_ANGLE, VICENZA_BED_OPEN, VICENZA_BED_CLOSED, VICENZA_TEXTURE],
+    colors: [
+      {
+        name: "Изумрудный",
+        swatch: VICENZA_TEXTURE,
+        images: [VICENZA_FRONT, VICENZA_ANGLE, VICENZA_BED_OPEN, VICENZA_BED_CLOSED, VICENZA_TEXTURE],
+      },
+    ],
+    desc: "Прямой диван-кровать Виченца на механизме еврокнижка. Обивка из мягкого велюра изумрудного цвета. Вместительный бельевой ящик для хранения постельных принадлежностей. В комплекте 5 приспинных подушек.",
+    specs: [
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Материал обивки", value: "Велюр" },
+      { label: "Бельевой ящик", value: "Есть" },
+      { label: "Основа сиденья", value: "Ламели (латы)" },
+      { label: "Каркас", value: "ДСП (ЛДСП)" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Материал ножек", value: "Пластмасса" },
+      { label: "Габариты дивана", value: "225 × 87 × 79 см" },
+      { label: "Спальное место", value: "132 × 194 см" },
+      { label: "Глубина сиденья", value: "54 см (70 см без подушек)" },
+      { label: "Высота сиденья", value: "45 см" },
+      { label: "Ширина сиденья", value: "194 см" },
+      { label: "Высота спинки", value: "79 см" },
+      { label: "Высота подлокотника", value: "61 см" },
+      { label: "Ширина подлокотника", value: "16 см" },
+      { label: "Приспинные подушки", value: "5 шт" },
+      { label: "Максимальная нагрузка", value: "90 кг" },
       { label: "Гарантия", value: "18 месяцев" },
     ],
   },
