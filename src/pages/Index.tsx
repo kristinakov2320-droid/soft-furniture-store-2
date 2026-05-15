@@ -810,9 +810,9 @@ const catalogProducts = [
   },
 
   {
-    id: 15, name: "Торонто", category: "sofa", price: 22999, img: TORONTO_BEIGE_FRONT,
+    id: 15, name: "Торонто", category: "sofa", price: 22999, img: TORONTO_GREY_FRONT,
     angleType: "угловой", fabric: "рогожка", createdAt: 11,
-    images: [TORONTO_BEIGE_FRONT, TORONTO_BEIGE_ANGLE, TORONTO_BEIGE_STORAGE, TORONTO_BEIGE_BED, TORONTO_BEIGE_SIDE],
+    images: [TORONTO_GREY_FRONT, TORONTO_GREY_ANGLE, TORONTO_GREY_STORAGE, TORONTO_GREY_BED, TORONTO_GREY_SIDE, TORONTO_GREY_INT],
     colors: [
       { name: "Бежевый", swatch: TORONTO_BEIGE_INT, images: [TORONTO_BEIGE_FRONT, TORONTO_BEIGE_ANGLE, TORONTO_BEIGE_STORAGE, TORONTO_BEIGE_BED, TORONTO_BEIGE_SIDE, TORONTO_BEIGE_INT] },
       { name: "Кофейный", swatch: TORONTO_COFFEE_INT, images: [TORONTO_COFFEE_FRONT, TORONTO_COFFEE_ANGLE, TORONTO_COFFEE_STORAGE, TORONTO_COFFEE_BED, TORONTO_COFFEE_SIDE, TORONTO_COFFEE_INT] },
@@ -850,9 +850,9 @@ const catalogProducts = [
   },
 
   {
-    id: 16, name: "Прага", category: "sofa", price: 15999, img: PRAGUE_BEIGE_FRONT,
+    id: 16, name: "Прага", category: "sofa", price: 15999, img: PRAGUE_BLUE_VELOUR_FRONT,
     angleType: "прямой", fabric: "рогожка", createdAt: 12,
-    images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED],
+    images: [PRAGUE_BLUE_VELOUR_FRONT, PRAGUE_BLUE_VELOUR_ANGLE, PRAGUE_BLUE_VELOUR_STORAGE, PRAGUE_BLUE_VELOUR_BED, PRAGUE_BLUE_VELOUR_INT],
     colors: [
       { name: "Бежевый", swatch: PRAGUE_BEIGE_INT, images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED, PRAGUE_BEIGE_INT] },
       { name: "Кофейный", swatch: PRAGUE_COFFEE_INT, images: [PRAGUE_COFFEE_FRONT, PRAGUE_COFFEE_ANGLE, PRAGUE_COFFEE_BACK, PRAGUE_COFFEE_STORAGE, PRAGUE_COFFEE_BED, PRAGUE_COFFEE_INT] },
@@ -891,9 +891,9 @@ const catalogProducts = [
   },
 
   {
-    id: 17, name: "Шанхай", category: "sofa", price: 0, img: VICENZA_FRONT,
+    id: 17, name: "Шанхай", category: "sofa", price: 0, img: SHANGHAI_MINT_FRONT,
     angleType: "прямой", fabric: "велюр", createdAt: 13,
-    images: [VICENZA_FRONT, VICENZA_ANGLE, VICENZA_BED_OPEN, VICENZA_BED_CLOSED, VICENZA_TEXTURE],
+    images: [SHANGHAI_MINT_FRONT, SHANGHAI_MINT_ANGLE, SHANGHAI_MINT_BED_OPEN, SHANGHAI_MINT_BED_CLOSED, SHANGHAI_MINT_TEXTURE, SHANGHAI_MINT_INT],
     colors: [
       {
         name: "Изумрудный",
