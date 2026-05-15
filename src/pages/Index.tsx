@@ -307,6 +307,11 @@ const PRAGUE_CHOCO_VELOUR_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af1
 const PRAGUE_CHOCO_VELOUR_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/6fcb83fd-920f-41e8-b361-1dde68a8a0f8.jpg";
 const PRAGUE_CHOCO_VELOUR_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fbbba7a5-430b-4fbd-b928-79d1bdf9c4e7.jpg";
 const PRAGUE_CHOCO_VELOUR_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0dcfb673-2002-449e-8343-e284f7de1efe.jpg";
+const PRAGUE_BEIGE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/d3facafc-023f-4774-a02d-02d7cb7b3d25.jpg";
+const PRAGUE_COFFEE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/08209233-f5ea-4917-b9d3-36033d23e82d.jpg";
+const PRAGUE_HONEY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fa466d13-e619-45af-88d1-592990deeb15.jpg";
+const PRAGUE_GREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ceec9f0d-6b57-4f73-a817-b730e62e79b6.jpg";
+const PRAGUE_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/83f89604-d52e-4c26-b9ad-5b97d37d94ac.jpg";
 
 const catalogProducts = [
   {
@@ -778,11 +783,11 @@ const catalogProducts = [
     angleType: "прямой", fabric: "рогожка", createdAt: 12,
     images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED],
     colors: [
-      { name: "Бежевый", swatch: PRAGUE_BEIGE_FRONT, images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED] },
-      { name: "Кофейный", swatch: PRAGUE_COFFEE_FRONT, images: [PRAGUE_COFFEE_FRONT, PRAGUE_COFFEE_ANGLE, PRAGUE_COFFEE_BACK, PRAGUE_COFFEE_STORAGE, PRAGUE_COFFEE_BED] },
-      { name: "Медово-коричневый", swatch: PRAGUE_HONEY_FRONT, images: [PRAGUE_HONEY_FRONT, PRAGUE_HONEY_ANGLE, PRAGUE_HONEY_BACK, PRAGUE_HONEY_STORAGE, PRAGUE_HONEY_BED] },
-      { name: "Серый", swatch: PRAGUE_GREY_FRONT, images: [PRAGUE_GREY_FRONT, PRAGUE_GREY_ANGLE, PRAGUE_GREY_BACK, PRAGUE_GREY_STORAGE, PRAGUE_GREY_BED] },
-      { name: "Синий", swatch: PRAGUE_BLUE_FRONT, images: [PRAGUE_BLUE_FRONT, PRAGUE_BLUE_ANGLE, PRAGUE_BLUE_BACK, PRAGUE_BLUE_STORAGE, PRAGUE_BLUE_BED] },
+      { name: "Бежевый", swatch: PRAGUE_BEIGE_INT, images: [PRAGUE_BEIGE_FRONT, PRAGUE_BEIGE_ANGLE, PRAGUE_BEIGE_BACK, PRAGUE_BEIGE_STORAGE, PRAGUE_BEIGE_BED, PRAGUE_BEIGE_INT] },
+      { name: "Кофейный", swatch: PRAGUE_COFFEE_INT, images: [PRAGUE_COFFEE_FRONT, PRAGUE_COFFEE_ANGLE, PRAGUE_COFFEE_BACK, PRAGUE_COFFEE_STORAGE, PRAGUE_COFFEE_BED, PRAGUE_COFFEE_INT] },
+      { name: "Медово-коричневый", swatch: PRAGUE_HONEY_INT, images: [PRAGUE_HONEY_FRONT, PRAGUE_HONEY_ANGLE, PRAGUE_HONEY_BACK, PRAGUE_HONEY_STORAGE, PRAGUE_HONEY_BED, PRAGUE_HONEY_INT] },
+      { name: "Серый", swatch: PRAGUE_GREY_INT, images: [PRAGUE_GREY_FRONT, PRAGUE_GREY_ANGLE, PRAGUE_GREY_BACK, PRAGUE_GREY_STORAGE, PRAGUE_GREY_BED, PRAGUE_GREY_INT] },
+      { name: "Синий", swatch: PRAGUE_BLUE_INT, images: [PRAGUE_BLUE_FRONT, PRAGUE_BLUE_ANGLE, PRAGUE_BLUE_BACK, PRAGUE_BLUE_STORAGE, PRAGUE_BLUE_BED, PRAGUE_BLUE_INT] },
       { name: "Изумрудный", fabric: "велюр", swatch: PRAGUE_EMERALD_FRONT, images: [PRAGUE_EMERALD_FRONT, PRAGUE_EMERALD_ANGLE, PRAGUE_EMERALD_STORAGE, PRAGUE_EMERALD_BED] },
       { name: "Серый велюр", fabric: "велюр", swatch: PRAGUE_GREY_VELOUR_FRONT, images: [PRAGUE_GREY_VELOUR_FRONT, PRAGUE_GREY_VELOUR_ANGLE, PRAGUE_GREY_VELOUR_STORAGE, PRAGUE_GREY_VELOUR_BED] },
       { name: "Синий велюр", fabric: "велюр", swatch: PRAGUE_BLUE_VELOUR_FRONT, images: [PRAGUE_BLUE_VELOUR_FRONT, PRAGUE_BLUE_VELOUR_ANGLE, PRAGUE_BLUE_VELOUR_STORAGE, PRAGUE_BLUE_VELOUR_BED] },
