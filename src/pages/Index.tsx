@@ -208,6 +208,11 @@ const ATLANTA_BLUE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-
 const ATLANTA_BLUE_BED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/c4665e02-a89c-4322-9b09-61d130c4a6c9.jpg";
 const ATLANTA_BLUE_STORAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/58de5fda-32d7-4c15-b8a0-80445e560423.jpg";
 const ATLANTA_BLUE_BACK = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/fcda1084-8a82-41a3-a410-97a56c1c6f99.jpg";
+const ATLANTA_BEIGE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f92bc187-2b82-44cc-9739-658b311f1280.jpg";
+const ATLANTA_COFFEE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/f4f2c93b-827e-4587-8103-01aa67828531.jpg";
+const ATLANTA_HONEY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ab1c6cb1-948a-4949-90ab-e6f5ea1ed09d.jpg";
+const ATLANTA_GREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/457b3e55-222b-4f02-8e49-bd76615a29dc.jpg";
+const ATLANTA_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/74a11f0b-1165-4064-a181-1fa88d16f6de.jpg";
 
 const REIN_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b2836fa4-9c52-498d-b03b-df8f7573ceee.jpg";
 const REIN_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/68e00dd6-430c-4ff4-843f-5a524ebd1798.jpg";
@@ -441,11 +446,11 @@ const catalogProducts = [
     angleType: "прямой", fabric: "рогожка", createdAt: 0,
     images: [ATLANTA_HONEY_FRONT, ATLANTA_HONEY_ANGLE, ATLANTA_HONEY_BED, ATLANTA_HONEY_STORAGE, ATLANTA_HONEY_BACK],
     colors: [
-      { name: "Бежевый", swatch: ATLANTA_FRONT, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK] },
-      { name: "Кофейный", swatch: ATLANTA_COFFEE_FRONT, images: [ATLANTA_COFFEE_FRONT, ATLANTA_COFFEE_ANGLE, ATLANTA_COFFEE_BED, ATLANTA_COFFEE_STORAGE, ATLANTA_COFFEE_BACK] },
-      { name: "Медово-коричневый", swatch: ATLANTA_HONEY_FRONT, images: [ATLANTA_HONEY_FRONT, ATLANTA_HONEY_ANGLE, ATLANTA_HONEY_BED, ATLANTA_HONEY_STORAGE, ATLANTA_HONEY_BACK] },
-      { name: "Серый", swatch: ATLANTA_GREY_FRONT, images: [ATLANTA_GREY_FRONT, ATLANTA_GREY_ANGLE, ATLANTA_GREY_BED, ATLANTA_GREY_STORAGE, ATLANTA_GREY_BACK] },
-      { name: "Синий", swatch: ATLANTA_BLUE_FRONT, images: [ATLANTA_BLUE_FRONT, ATLANTA_BLUE_ANGLE, ATLANTA_BLUE_BED, ATLANTA_BLUE_STORAGE, ATLANTA_BLUE_BACK] },
+      { name: "Бежевый", swatch: ATLANTA_BEIGE_INT, images: [ATLANTA_FRONT, ATLANTA_ANGLE, ATLANTA_BED, ATLANTA_STORAGE, ATLANTA_BACK, ATLANTA_BEIGE_INT] },
+      { name: "Кофейный", swatch: ATLANTA_COFFEE_INT, images: [ATLANTA_COFFEE_FRONT, ATLANTA_COFFEE_ANGLE, ATLANTA_COFFEE_BED, ATLANTA_COFFEE_STORAGE, ATLANTA_COFFEE_BACK, ATLANTA_COFFEE_INT] },
+      { name: "Медово-коричневый", swatch: ATLANTA_HONEY_INT, images: [ATLANTA_HONEY_FRONT, ATLANTA_HONEY_ANGLE, ATLANTA_HONEY_BED, ATLANTA_HONEY_STORAGE, ATLANTA_HONEY_BACK, ATLANTA_HONEY_INT] },
+      { name: "Серый", swatch: ATLANTA_GREY_INT, images: [ATLANTA_GREY_FRONT, ATLANTA_GREY_ANGLE, ATLANTA_GREY_BED, ATLANTA_GREY_STORAGE, ATLANTA_GREY_BACK, ATLANTA_GREY_INT] },
+      { name: "Синий", swatch: ATLANTA_BLUE_INT, images: [ATLANTA_BLUE_FRONT, ATLANTA_BLUE_ANGLE, ATLANTA_BLUE_BED, ATLANTA_BLUE_STORAGE, ATLANTA_BLUE_BACK, ATLANTA_BLUE_INT] },
     ],
     desc: "Прямой диван-кровать с деревянными подлокотниками и вместительным ящиком для хранения. Механизм еврокнижка, обивка — рогожка. Отличное решение для гостиной или спальни.",
     specs: [
