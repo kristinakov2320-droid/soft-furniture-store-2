@@ -237,6 +237,7 @@ const MONZA_MINT_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528
 const MONZA_LGREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e409cc1c-6ab2-406e-b516-6aa7ba271b3b.jpg";
 const MONZA_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/0d731861-41f0-4633-83db-3a9f3aaaca2b.jpg";
 const MONZA_DGREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/57ca6a09-729f-4eb9-b0bb-7500f4ff822f.jpg";
+const MONZA_CHOCO_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/acd48b7a-ce3b-4501-9d67-d927dc27235d.jpg";
 
 const ATLANTA_COFFEE_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1b58f826-4c1d-4070-8668-47b42974eb35.jpg";
 const ATLANTA_COFFEE_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/efb69e8b-7f0b-4fd9-ab00-024ff3682711.jpg";
@@ -778,13 +779,14 @@ const catalogProducts = [
       },
       {
         name: "Шоколадный",
-        swatch: MONZA_CHOCO_FRONT,
+        swatch: MONZA_CHOCO_INT,
         images: [
           MONZA_CHOCO_FRONT,
           MONZA_CHOCO_ANGLE,
           MONZA_CHOCO_BED1,
           MONZA_CHOCO_BED2,
           MONZA_CHOCO_BACK,
+          MONZA_CHOCO_INT,
         ],
       },
     ],
