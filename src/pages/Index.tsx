@@ -840,7 +840,7 @@ const catalogProducts = [
   },
 
   {
-    id: 17, name: "Виченца", category: "sofa", price: 18999, img: VICENZA_FRONT,
+    id: 17, name: "Шанхай", category: "sofa", price: 0, img: VICENZA_FRONT,
     angleType: "прямой", fabric: "велюр", createdAt: 13,
     images: [VICENZA_FRONT, VICENZA_ANGLE, VICENZA_BED_OPEN, VICENZA_BED_CLOSED, VICENZA_TEXTURE],
     colors: [
@@ -850,7 +850,7 @@ const catalogProducts = [
         images: [VICENZA_FRONT, VICENZA_ANGLE, VICENZA_BED_OPEN, VICENZA_BED_CLOSED, VICENZA_TEXTURE],
       },
     ],
-    desc: "Прямой диван-кровать Виченца на механизме еврокнижка. Обивка из мягкого велюра изумрудного цвета. Вместительный бельевой ящик для хранения постельных принадлежностей. В комплекте 5 приспинных подушек.",
+    desc: "Прямой диван-кровать Шанхай на механизме еврокнижка. Обивка из мягкого велюра изумрудного цвета. Вместительный бельевой ящик для хранения постельных принадлежностей. В комплекте 5 приспинных подушек.",
     specs: [
       { label: "Механизм", value: "Еврокнижка" },
       { label: "Материал обивки", value: "Велюр" },
