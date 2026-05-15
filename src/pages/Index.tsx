@@ -89,6 +89,12 @@ const SHANGHAI_CHOCO_BED_OPEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-
 const SHANGHAI_CHOCO_BED_CLOSED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/688c7fa0-1176-4805-a5bb-7e3d327ce04b.jpg";
 const SHANGHAI_CHOCO_TEXTURE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b98ac5c0-1b12-495e-b730-a0a3bd0f761a.jpg";
 
+const SHANGHAI_EMERALD_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/5148358b-9e23-476c-9f6a-9c769afc3b7d.jpg";
+const SHANGHAI_MINT_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b2c634f3-03bf-4aa9-9d77-19116a182d7e.jpg";
+const SHANGHAI_LGREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/1dec4307-63c8-4ddf-90a9-1b47a6c98885.jpg";
+const SHANGHAI_BLUE_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/ec94b99a-e5f7-4e62-ac55-4c47e721f634.jpg";
+const SHANGHAI_DGREY_INT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/77826e77-5c2d-43cf-927b-888fa64b0e1f.jpg";
+
 const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4b410866-de7b-48af-9cbe-db2d7a9a9d2f.jpg";
 const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/09049858-f497-4f1f-a50d-543a7db6d6b9.jpg";
 const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/de82509f-d634-41dd-8954-4da566855028.jpg";
@@ -876,28 +882,28 @@ const catalogProducts = [
     colors: [
       {
         name: "Изумрудный",
-        swatch: VICENZA_TEXTURE,
-        images: [VICENZA_FRONT, VICENZA_ANGLE, VICENZA_BED_OPEN, VICENZA_BED_CLOSED, VICENZA_TEXTURE],
+        swatch: SHANGHAI_EMERALD_INT,
+        images: [VICENZA_FRONT, VICENZA_ANGLE, VICENZA_BED_OPEN, VICENZA_BED_CLOSED, VICENZA_TEXTURE, SHANGHAI_EMERALD_INT],
       },
       {
         name: "Мятный",
-        swatch: SHANGHAI_MINT_TEXTURE,
-        images: [SHANGHAI_MINT_FRONT, SHANGHAI_MINT_ANGLE, SHANGHAI_MINT_BED_OPEN, SHANGHAI_MINT_BED_CLOSED, SHANGHAI_MINT_TEXTURE],
+        swatch: SHANGHAI_MINT_INT,
+        images: [SHANGHAI_MINT_FRONT, SHANGHAI_MINT_ANGLE, SHANGHAI_MINT_BED_OPEN, SHANGHAI_MINT_BED_CLOSED, SHANGHAI_MINT_TEXTURE, SHANGHAI_MINT_INT],
       },
       {
         name: "Светло-серый",
-        swatch: SHANGHAI_LGREY_TEXTURE,
-        images: [SHANGHAI_LGREY_FRONT, SHANGHAI_LGREY_ANGLE, SHANGHAI_LGREY_BED_OPEN, SHANGHAI_LGREY_BED_CLOSED, SHANGHAI_LGREY_TEXTURE],
+        swatch: SHANGHAI_LGREY_INT,
+        images: [SHANGHAI_LGREY_FRONT, SHANGHAI_LGREY_ANGLE, SHANGHAI_LGREY_BED_OPEN, SHANGHAI_LGREY_BED_CLOSED, SHANGHAI_LGREY_TEXTURE, SHANGHAI_LGREY_INT],
       },
       {
         name: "Синий",
-        swatch: SHANGHAI_BLUE_TEXTURE,
-        images: [SHANGHAI_BLUE_FRONT, SHANGHAI_BLUE_ANGLE, SHANGHAI_BLUE_BED_OPEN, SHANGHAI_BLUE_BED_CLOSED, SHANGHAI_BLUE_TEXTURE],
+        swatch: SHANGHAI_BLUE_INT,
+        images: [SHANGHAI_BLUE_FRONT, SHANGHAI_BLUE_ANGLE, SHANGHAI_BLUE_BED_OPEN, SHANGHAI_BLUE_BED_CLOSED, SHANGHAI_BLUE_TEXTURE, SHANGHAI_BLUE_INT],
       },
       {
         name: "Тёмно-серый",
-        swatch: SHANGHAI_DGREY_TEXTURE,
-        images: [SHANGHAI_DGREY_FRONT, SHANGHAI_DGREY_ANGLE, SHANGHAI_DGREY_BED_OPEN, SHANGHAI_DGREY_BED_CLOSED, SHANGHAI_DGREY_TEXTURE],
+        swatch: SHANGHAI_DGREY_INT,
+        images: [SHANGHAI_DGREY_FRONT, SHANGHAI_DGREY_ANGLE, SHANGHAI_DGREY_BED_OPEN, SHANGHAI_DGREY_BED_CLOSED, SHANGHAI_DGREY_TEXTURE, SHANGHAI_DGREY_INT],
       },
       {
         name: "Шоколадный",
