@@ -949,6 +949,45 @@ const catalogProducts = [
     ],
   },
 
+  {
+    id: 18, name: "Парма", category: "sofa", price: 12999, img: ROGOJKA_BEIGE,
+    angleType: "прямой", fabric: "рогожка", createdAt: 14,
+    images: [ROGOJKA_BEIGE],
+    colors: [
+      { name: "Бежевый", swatch: ROGOJKA_BEIGE, images: [ROGOJKA_BEIGE] },
+      { name: "Кофейный", swatch: ROGOJKA_COFFEE, images: [ROGOJKA_COFFEE] },
+      { name: "Медово-коричневый", swatch: ROGOJKA_HONEY, images: [ROGOJKA_HONEY] },
+      { name: "Серый", swatch: ROGOJKA_GREY, images: [ROGOJKA_GREY] },
+      { name: "Синий", swatch: ROGOJKA_BLUE, images: [ROGOJKA_BLUE] },
+      { name: "Кофейный велюр", fabric: "велюр", swatch: VELVET_CHOCOLATE, images: [VELVET_CHOCOLATE] },
+      { name: "Светло-серый велюр", fabric: "велюр", swatch: VELVET_LGREY, images: [VELVET_LGREY] },
+      { name: "Серый велюр", fabric: "велюр", swatch: VELVET_LGREY, images: [VELVET_LGREY] },
+      { name: "Синий велюр", fabric: "велюр", swatch: VELVET_BLUE, images: [VELVET_BLUE] },
+      { name: "Шоколадный велюр", fabric: "велюр", swatch: VELVET_CHOCOLATE, images: [VELVET_CHOCOLATE] },
+    ],
+    desc: "Прямой диван-кровать Парма на механизме еврокнижка. Обивка из рогожки, вместительный бельевой ящик. В комплекте 2 приспинные подушки.",
+    specs: [
+      { label: "Механизм", value: "Еврокнижка" },
+      { label: "Основа сиденья", value: "Ламели (латы)" },
+      { label: "Каркас", value: "ДСП (ЛДСП)" },
+      { label: "Наполнитель", value: "Пенополиуретан" },
+      { label: "Материал обивки", value: "Рогожка" },
+      { label: "Бельевой ящик", value: "Есть" },
+      { label: "Габариты дивана", value: "195 × 80 × 78 см" },
+      { label: "Спальное место", value: "130 × 195 см" },
+      { label: "Бельевой ящик", value: "147 × 25,5 × 47 см" },
+      { label: "Глубина сиденья", value: "68 см" },
+      { label: "Высота сиденья", value: "41 см" },
+      { label: "Ширина сиденья", value: "195 см" },
+      { label: "Высота спинки", value: "33 см" },
+      { label: "Высота ножек", value: "12 см" },
+      { label: "Подушки", value: "2 шт, 70 × 45 × 23 см" },
+      { label: "Максимальная нагрузка", value: "90 кг" },
+      { label: "Упаковка", value: "1 коробка 60 кг (195 × 50 × 70 см)" },
+      { label: "Гарантия", value: "18 месяцев" },
+    ],
+  },
+
 ];
 
 const faqItems = [
