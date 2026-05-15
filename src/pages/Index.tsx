@@ -83,6 +83,12 @@ const SHANGHAI_DGREY_BED_OPEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-
 const SHANGHAI_DGREY_BED_CLOSED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/dde4fd93-8afb-41fe-95fa-8bfbc37a1746.jpg";
 const SHANGHAI_DGREY_TEXTURE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/acc3df3a-9c17-4f75-bec7-b5642926e26b.jpg";
 
+const SHANGHAI_CHOCO_FRONT = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/74d93f03-6f1b-47f8-b788-38aabee407d9.jpg";
+const SHANGHAI_CHOCO_ANGLE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/80ab11d0-3629-47c9-8edd-b8e701df9dc9.jpg";
+const SHANGHAI_CHOCO_BED_OPEN = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/e55bdea1-6142-414b-a718-214cf9014c5c.jpg";
+const SHANGHAI_CHOCO_BED_CLOSED = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/688c7fa0-1176-4805-a5bb-7e3d327ce04b.jpg";
+const SHANGHAI_CHOCO_TEXTURE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/b98ac5c0-1b12-495e-b730-a0a3bd0f761a.jpg";
+
 const LIBERTY_BEIGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/4b410866-de7b-48af-9cbe-db2d7a9a9d2f.jpg";
 const LIBERTY_BEIGE_2 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/09049858-f497-4f1f-a50d-543a7db6d6b9.jpg";
 const LIBERTY_BEIGE_3 = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/de82509f-d634-41dd-8954-4da566855028.jpg";
@@ -892,6 +898,11 @@ const catalogProducts = [
         name: "Тёмно-серый",
         swatch: SHANGHAI_DGREY_TEXTURE,
         images: [SHANGHAI_DGREY_FRONT, SHANGHAI_DGREY_ANGLE, SHANGHAI_DGREY_BED_OPEN, SHANGHAI_DGREY_BED_CLOSED, SHANGHAI_DGREY_TEXTURE],
+      },
+      {
+        name: "Шоколадный",
+        swatch: SHANGHAI_CHOCO_TEXTURE,
+        images: [SHANGHAI_CHOCO_FRONT, SHANGHAI_CHOCO_ANGLE, SHANGHAI_CHOCO_BED_OPEN, SHANGHAI_CHOCO_BED_CLOSED, SHANGHAI_CHOCO_TEXTURE],
       },
     ],
     desc: "Прямой диван-кровать Шанхай на механизме еврокнижка. Обивка из мягкого велюра изумрудного цвета. Вместительный бельевой ящик для хранения постельных принадлежностей. В комплекте 5 приспинных подушек.",
