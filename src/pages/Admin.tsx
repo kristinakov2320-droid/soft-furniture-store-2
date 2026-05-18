@@ -179,22 +179,35 @@ export default function Admin() {
     loadProducts();
   }
 
-  async function uploadImage(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
+  async function resizeImage(file: File, maxWidth: number, maxHeight: number, quality = 0.85): Promise<string> {
+    return new Promise((resolve) => {
       const reader = new FileReader();
-      reader.onload = async (e) => {
-        const base64 = e.target?.result as string;
-        const res = await fetch(UPLOAD_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Admin-Token": token },
-          body: JSON.stringify({ file: base64, name: file.name }),
-        });
-        const data = await res.json();
-        if (data.url) resolve(data.url);
-        else reject(new Error("Ошибка загрузки"));
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const scale = Math.min(1, maxWidth / img.width, maxHeight / img.height);
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+          canvas.getContext("2d")!.drawImage(img, 0, 0, canvas.width, canvas.height);
+          resolve(canvas.toDataURL("image/jpeg", quality));
+        };
+        img.src = e.target?.result as string;
       };
       reader.readAsDataURL(file);
     });
+  }
+
+  async function uploadImage(file: File, maxWidth = 1600, maxHeight = 1600): Promise<string> {
+    const base64 = await resizeImage(file, maxWidth, maxHeight);
+    const res = await fetch(UPLOAD_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Admin-Token": token },
+      body: JSON.stringify({ file: base64, name: file.name.replace(/\.[^.]+$/, ".jpg") }),
+    });
+    const data = await res.json();
+    if (data.url) return data.url;
+    throw new Error("Ошибка загрузки");
   }
 
   async function handleMainPhotoUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -233,7 +246,7 @@ export default function Admin() {
     const file = e.target.files?.[0];
     if (!file) return;
     toast({ title: "Загружаю иконку цвета..." });
-    const url = await uploadImage(file);
+    const url = await uploadImage(file, 200, 200);
     setColors(c => c.map((col, i) => i === idx ? { ...col, swatch: url } : col));
     toast({ title: "Готово!" });
     e.target.value = "";
