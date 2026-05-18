@@ -12,6 +12,12 @@ const AUTH_URL = "https://functions.poehali.dev/f66f0046-fdd4-4f52-9ba3-caf7e195
 const PRODUCTS_URL = "https://functions.poehali.dev/cc987470-88b3-4cb2-a38b-ab04c1988231";
 const UPLOAD_URL = "https://functions.poehali.dev/859d4f7d-7403-476f-b1b0-f6abb2e2e1c9";
 
+interface ColorVariant {
+  name: string;
+  swatch: string;
+  images: string[];
+}
+
 interface Product {
   id: number;
   name: string;
@@ -24,7 +30,7 @@ interface Product {
   fabric?: string;
   desc: string;
   specs: { label: string; value: string }[];
-  colors: { name: string; swatch: string; images?: string[] }[];
+  colors: ColorVariant[];
   images: string[];
   isActive: boolean;
 }
@@ -44,6 +50,13 @@ const emptyProduct = (): Omit<Product, "id" | "isActive"> => ({
   images: [],
 });
 
+const CATEGORY_LABELS: Record<string, string> = {
+  sofa: "Диван",
+  garden: "Садовая мебель",
+  bed: "Кровать",
+  chair: "Кресло",
+};
+
 export default function Admin() {
   const [token, setToken] = useState(() => localStorage.getItem("admin_token") || "");
   const [password, setPassword] = useState("");
@@ -54,8 +67,8 @@ export default function Admin() {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [form, setForm] = useState(emptyProduct());
   const [specsText, setSpecsText] = useState("");
-  const [colorsText, setColorsText] = useState("");
   const [imagesText, setImagesText] = useState("");
+  const [colors, setColors] = useState<ColorVariant[]>([]);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -81,9 +94,7 @@ export default function Admin() {
 
   async function loadProducts() {
     setLoading(true);
-    const res = await fetch(PRODUCTS_URL, {
-      headers: { "X-Admin-Token": token },
-    });
+    const res = await fetch(PRODUCTS_URL, { headers: { "X-Admin-Token": token } });
     const data = await res.json();
     setLoading(false);
     if (res.ok) setProducts(data.products || []);
@@ -98,8 +109,8 @@ export default function Admin() {
     setEditingProduct(null);
     setForm(emptyProduct());
     setSpecsText("");
-    setColorsText("");
     setImagesText("");
+    setColors([]);
     setShowForm(true);
   }
 
@@ -112,8 +123,8 @@ export default function Admin() {
       desc: p.desc, specs: p.specs, colors: p.colors, images: p.images,
     });
     setSpecsText(p.specs.map(s => `${s.label}: ${s.value}`).join("\n"));
-    setColorsText(p.colors.map(c => c.name).join("\n"));
     setImagesText(p.images.join("\n"));
+    setColors(p.colors.map(c => ({ name: c.name, swatch: c.swatch || "", images: c.images || [] })));
     setShowForm(true);
   }
 
@@ -126,20 +137,12 @@ export default function Admin() {
     });
   }
 
-  function parseColors(text: string) {
-    return text.split("\n").filter(Boolean).map(name => ({ name: name.trim(), swatch: "" }));
-  }
-
-  function parseImages(text: string) {
-    return text.split("\n").filter(Boolean).map(u => u.trim());
-  }
-
   async function saveProduct() {
     const payload = {
       ...form,
       specs: parseSpecs(specsText),
-      colors: parseColors(colorsText),
-      images: parseImages(imagesText),
+      colors,
+      images: imagesText.split("\n").filter(Boolean).map(u => u.trim()),
     };
     const isEdit = !!editingProduct;
     const url = isEdit ? `${PRODUCTS_URL}?id=${editingProduct!.id}` : PRODUCTS_URL;
@@ -201,6 +204,7 @@ export default function Admin() {
     const url = await uploadImage(file);
     setForm(f => ({ ...f, img: url }));
     toast({ title: "Фото загружено!" });
+    e.target.value = "";
   }
 
   async function handleExtraPhotosUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -210,6 +214,46 @@ export default function Admin() {
     const urls = await Promise.all(files.map(uploadImage));
     setImagesText(t => [...t.split("\n").filter(Boolean), ...urls].join("\n"));
     toast({ title: "Фото загружены!" });
+    e.target.value = "";
+  }
+
+  function addColor() {
+    setColors(c => [...c, { name: "", swatch: "", images: [] }]);
+  }
+
+  function removeColor(idx: number) {
+    setColors(c => c.filter((_, i) => i !== idx));
+  }
+
+  function updateColorName(idx: number, name: string) {
+    setColors(c => c.map((col, i) => i === idx ? { ...col, name } : col));
+  }
+
+  async function handleSwatchUpload(idx: number, e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    toast({ title: "Загружаю иконку цвета..." });
+    const url = await uploadImage(file);
+    setColors(c => c.map((col, i) => i === idx ? { ...col, swatch: url } : col));
+    toast({ title: "Готово!" });
+    e.target.value = "";
+  }
+
+  async function handleColorPhotosUpload(idx: number, e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+    toast({ title: `Загружаю ${files.length} фото...` });
+    const urls = await Promise.all(files.map(uploadImage));
+    setColors(c => c.map((col, i) => i === idx ? { ...col, images: [...col.images, ...urls] } : col));
+    toast({ title: "Фото загружены!" });
+    e.target.value = "";
+  }
+
+  function removeColorImage(colorIdx: number, imgIdx: number) {
+    setColors(c => c.map((col, i) => i === colorIdx
+      ? { ...col, images: col.images.filter((_, j) => j !== imgIdx) }
+      : col
+    ));
   }
 
   if (!token) {
@@ -287,9 +331,7 @@ export default function Admin() {
                       )}
                     </td>
                     <td className="px-4 py-3 font-medium text-gray-900">{p.name}</td>
-                    <td className="px-4 py-3 text-gray-500">
-                      {{ sofa: "Диван", garden: "Садовая мебель", bed: "Кровать", chair: "Кресло" }[p.category] || p.category}
-                    </td>
+                    <td className="px-4 py-3 text-gray-500">{CATEGORY_LABELS[p.category] || p.category}</td>
                     <td className="px-4 py-3 text-gray-900">{p.price.toLocaleString()} ₽</td>
                     <td className="px-4 py-3">
                       <Badge variant={p.isActive ? "default" : "secondary"}>
@@ -327,6 +369,8 @@ export default function Admin() {
               </Button>
             </div>
             <div className="p-6 space-y-4">
+
+              {/* Название + Категория */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label>Название *</Label>
@@ -335,9 +379,7 @@ export default function Admin() {
                 <div>
                   <Label>Категория</Label>
                   <Select value={form.category} onValueChange={v => setForm({ ...form, category: v })}>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue />
-                    </SelectTrigger>
+                    <SelectTrigger className="mt-1"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="sofa">Диван</SelectItem>
                       <SelectItem value="garden">Садовая мебель</SelectItem>
@@ -348,6 +390,7 @@ export default function Admin() {
                 </div>
               </div>
 
+              {/* Цена */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label>Цена (₽) *</Label>
@@ -359,6 +402,7 @@ export default function Admin() {
                 </div>
               </div>
 
+              {/* Главное фото */}
               <div>
                 <Label>Главное фото</Label>
                 <div className="mt-1 flex gap-2">
@@ -366,16 +410,14 @@ export default function Admin() {
                   <label className="cursor-pointer">
                     <input type="file" accept="image/*" className="hidden" onChange={handleMainPhotoUpload} />
                     <div className="flex items-center gap-1 px-3 py-2 border rounded-md text-sm bg-white hover:bg-gray-50 transition-colors whitespace-nowrap">
-                      <Icon name="Upload" size={14} />
-                      Загрузить
+                      <Icon name="Upload" size={14} /> Загрузить
                     </div>
                   </label>
                 </div>
-                {form.img && (
-                  <img src={form.img} alt="preview" className="mt-2 h-24 w-24 object-cover rounded-lg border" />
-                )}
+                {form.img && <img src={form.img} alt="preview" className="mt-2 h-24 w-24 object-cover rounded-lg border" />}
               </div>
 
+              {/* Тег / Угол / Обивка */}
               <div className="grid grid-cols-3 gap-4">
                 <div>
                   <Label>Тег</Label>
@@ -403,11 +445,13 @@ export default function Admin() {
                 </div>
               </div>
 
+              {/* Описание */}
               <div>
                 <Label>Описание</Label>
                 <Textarea value={form.desc} onChange={e => setForm({ ...form, desc: e.target.value })} className="mt-1" rows={3} />
               </div>
 
+              {/* Характеристики */}
               <div>
                 <Label>Характеристики <span className="text-gray-400 font-normal">(каждая с новой строки, формат: Название: Значение)</span></Label>
                 <Textarea
@@ -415,29 +459,98 @@ export default function Admin() {
                   onChange={e => setSpecsText(e.target.value)}
                   className="mt-1 font-mono text-xs"
                   rows={4}
-                  placeholder={"Ширина: 240 см\nВысота: 90 см\nГлубина: 155 см"}
+                  placeholder={"Ширина: 240 см\nВысота: 90 см\nГарантия: 18 месяцев"}
                 />
               </div>
 
+              {/* Варианты цветов */}
               <div>
-                <Label>Цвета/варианты <span className="text-gray-400 font-normal">(название каждого с новой строки)</span></Label>
-                <Textarea
-                  value={colorsText}
-                  onChange={e => setColorsText(e.target.value)}
-                  className="mt-1 font-mono text-xs"
-                  rows={3}
-                  placeholder={"Бежевый\nТёмно-серый\nЗелёный"}
-                />
+                <div className="flex items-center justify-between mb-2">
+                  <Label>Варианты цветов</Label>
+                  <Button type="button" variant="outline" size="sm" onClick={addColor}>
+                    <Icon name="Plus" size={14} className="mr-1" /> Добавить цвет
+                  </Button>
+                </div>
+
+                {colors.length === 0 && (
+                  <p className="text-sm text-gray-400 py-3 text-center border rounded-lg">Нет вариантов цветов. Нажмите «Добавить цвет»</p>
+                )}
+
+                <div className="space-y-3">
+                  {colors.map((color, idx) => (
+                    <div key={idx} className="border rounded-xl p-4 bg-gray-50 space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-gray-600 w-6">{idx + 1}.</span>
+                        <Input
+                          value={color.name}
+                          onChange={e => updateColorName(idx, e.target.value)}
+                          placeholder="Название цвета (напр. Синий)"
+                          className="flex-1 bg-white"
+                        />
+                        <Button type="button" variant="ghost" size="sm" onClick={() => removeColor(idx)} className="text-red-400 hover:text-red-600 shrink-0">
+                          <Icon name="Trash2" size={14} />
+                        </Button>
+                      </div>
+
+                      {/* Иконка цвета (swatch) */}
+                      <div className="flex items-center gap-3">
+                        <div className="shrink-0">
+                          {color.swatch ? (
+                            <img src={color.swatch} alt="swatch" className="w-10 h-10 rounded-full object-cover border-2 border-white shadow" />
+                          ) : (
+                            <div className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white shadow flex items-center justify-center">
+                              <Icon name="Image" size={14} className="text-gray-400" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs text-gray-500 mb-1">Иконка цвета (маленькое круглое фото)</p>
+                          <label className="cursor-pointer inline-flex items-center gap-1 px-2 py-1 border rounded text-xs bg-white hover:bg-gray-50">
+                            <input type="file" accept="image/*" className="hidden" onChange={e => handleSwatchUpload(idx, e)} />
+                            <Icon name="Upload" size={12} /> Загрузить иконку
+                          </label>
+                        </div>
+                      </div>
+
+                      {/* Фото этого цвета */}
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <p className="text-xs text-gray-500">Фото для этого цвета</p>
+                          <label className="cursor-pointer inline-flex items-center gap-1 px-2 py-1 border rounded text-xs bg-white hover:bg-gray-50">
+                            <input type="file" accept="image/*" multiple className="hidden" onChange={e => handleColorPhotosUpload(idx, e)} />
+                            <Icon name="Upload" size={12} /> Загрузить фото
+                          </label>
+                        </div>
+                        {color.images.length > 0 ? (
+                          <div className="flex flex-wrap gap-2">
+                            {color.images.map((img, imgIdx) => (
+                              <div key={imgIdx} className="relative group">
+                                <img src={img} alt="" className="w-14 h-14 object-cover rounded-lg border" />
+                                <button
+                                  type="button"
+                                  onClick={() => removeColorImage(idx, imgIdx)}
+                                  className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white rounded-full text-xs hidden group-hover:flex items-center justify-center"
+                                >×</button>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-xs text-gray-400 italic">Нет фото — загрузите через кнопку выше</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
+              {/* Общие фото товара */}
               <div>
                 <div className="flex items-center justify-between">
-                  <Label>Дополнительные фото <span className="text-gray-400 font-normal">(каждый URL с новой строки)</span></Label>
+                  <Label>Общие фото товара <span className="text-gray-400 font-normal">(показываются по умолчанию)</span></Label>
                   <label className="cursor-pointer">
                     <input type="file" accept="image/*" multiple className="hidden" onChange={handleExtraPhotosUpload} />
                     <div className="flex items-center gap-1 px-2 py-1 border rounded text-xs bg-white hover:bg-gray-50 transition-colors">
-                      <Icon name="Upload" size={12} />
-                      Загрузить фото
+                      <Icon name="Upload" size={12} /> Загрузить фото
                     </div>
                   </label>
                 </div>
