@@ -256,9 +256,19 @@ export default function Admin() {
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
     toast({ title: `Загружаю ${files.length} фото...` });
-    const urls = await Promise.all(files.map(uploadImage));
-    setColors(c => c.map((col, i) => i === idx ? { ...col, images: [...col.images, ...urls] } : col));
-    toast({ title: "Фото загружены!" });
+    try {
+      const urls = await Promise.all(files.map(f => uploadImage(f)));
+      console.log("Color photos uploaded:", urls);
+      setColors(c => {
+        const updated = c.map((col, i) => i === idx ? { ...col, images: [...col.images, ...urls] } : col);
+        console.log("Updated colors state:", updated);
+        return updated;
+      });
+      toast({ title: `Фото загружены! (${urls.length} шт.)` });
+    } catch (err) {
+      console.error("Upload error:", err);
+      toast({ title: "Ошибка загрузки фото", description: String(err), variant: "destructive" });
+    }
     e.target.value = "";
   }
 
