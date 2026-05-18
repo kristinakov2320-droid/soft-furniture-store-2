@@ -10,6 +10,7 @@ import Icon from "@/components/ui/icon";
 
 const AUTH_URL = "https://functions.poehali.dev/f66f0046-fdd4-4f52-9ba3-caf7e195760c";
 const PRODUCTS_URL = "https://functions.poehali.dev/cc987470-88b3-4cb2-a38b-ab04c1988231";
+const UPLOAD_URL = "https://functions.poehali.dev/859d4f7d-7403-476f-b1b0-f6abb2e2e1c9";
 
 interface Product {
   id: number;
@@ -175,6 +176,42 @@ export default function Admin() {
     loadProducts();
   }
 
+  async function uploadImage(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64 = e.target?.result as string;
+        const res = await fetch(UPLOAD_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-Admin-Token": token },
+          body: JSON.stringify({ file: base64, name: file.name }),
+        });
+        const data = await res.json();
+        if (data.url) resolve(data.url);
+        else reject(new Error("Ошибка загрузки"));
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function handleMainPhotoUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    toast({ title: "Загружаю фото..." });
+    const url = await uploadImage(file);
+    setForm(f => ({ ...f, img: url }));
+    toast({ title: "Фото загружено!" });
+  }
+
+  async function handleExtraPhotosUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+    toast({ title: `Загружаю ${files.length} фото...` });
+    const urls = await Promise.all(files.map(uploadImage));
+    setImagesText(t => [...t.split("\n").filter(Boolean), ...urls].join("\n"));
+    toast({ title: "Фото загружены!" });
+  }
+
   if (!token) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -251,7 +288,7 @@ export default function Admin() {
                     </td>
                     <td className="px-4 py-3 font-medium text-gray-900">{p.name}</td>
                     <td className="px-4 py-3 text-gray-500">
-                      {{ sofa: "Диван", garden: "Садовая мебель", bed: "Кровать" }[p.category] || p.category}
+                      {{ sofa: "Диван", garden: "Садовая мебель", bed: "Кровать", chair: "Кресло" }[p.category] || p.category}
                     </td>
                     <td className="px-4 py-3 text-gray-900">{p.price.toLocaleString()} ₽</td>
                     <td className="px-4 py-3">
@@ -305,6 +342,7 @@ export default function Admin() {
                       <SelectItem value="sofa">Диван</SelectItem>
                       <SelectItem value="garden">Садовая мебель</SelectItem>
                       <SelectItem value="bed">Кровать</SelectItem>
+                      <SelectItem value="chair">Кресло</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -322,8 +360,20 @@ export default function Admin() {
               </div>
 
               <div>
-                <Label>URL главного фото</Label>
-                <Input value={form.img} onChange={e => setForm({ ...form, img: e.target.value })} className="mt-1" placeholder="https://..." />
+                <Label>Главное фото</Label>
+                <div className="mt-1 flex gap-2">
+                  <Input value={form.img} onChange={e => setForm({ ...form, img: e.target.value })} placeholder="https://..." className="flex-1" />
+                  <label className="cursor-pointer">
+                    <input type="file" accept="image/*" className="hidden" onChange={handleMainPhotoUpload} />
+                    <div className="flex items-center gap-1 px-3 py-2 border rounded-md text-sm bg-white hover:bg-gray-50 transition-colors whitespace-nowrap">
+                      <Icon name="Upload" size={14} />
+                      Загрузить
+                    </div>
+                  </label>
+                </div>
+                {form.img && (
+                  <img src={form.img} alt="preview" className="mt-2 h-24 w-24 object-cover rounded-lg border" />
+                )}
               </div>
 
               <div className="grid grid-cols-3 gap-4">
@@ -381,7 +431,16 @@ export default function Admin() {
               </div>
 
               <div>
-                <Label>Дополнительные фото <span className="text-gray-400 font-normal">(каждый URL с новой строки)</span></Label>
+                <div className="flex items-center justify-between">
+                  <Label>Дополнительные фото <span className="text-gray-400 font-normal">(каждый URL с новой строки)</span></Label>
+                  <label className="cursor-pointer">
+                    <input type="file" accept="image/*" multiple className="hidden" onChange={handleExtraPhotosUpload} />
+                    <div className="flex items-center gap-1 px-2 py-1 border rounded text-xs bg-white hover:bg-gray-50 transition-colors">
+                      <Icon name="Upload" size={12} />
+                      Загрузить фото
+                    </div>
+                  </label>
+                </div>
                 <Textarea
                   value={imagesText}
                   onChange={e => setImagesText(e.target.value)}
