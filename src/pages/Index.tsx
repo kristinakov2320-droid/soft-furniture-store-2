@@ -1082,6 +1082,8 @@ const faqItems = [
 
 type CartItem = { id: number; name: string; price: number; img: string; qty: number };
 
+const PRODUCTS_API = "https://functions.poehali.dev/fb3aa756-0147-4337-9a02-6c47c2e797aa";
+
 export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>("home");
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -1094,12 +1096,21 @@ export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeRogojka, setActiveRogojka] = useState(0);
   const [activeVelvet, setActiveVelvet] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState<(typeof catalogProducts)[0] | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [dbProducts, setDbProducts] = useState<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
   const [activePhoto, setActivePhoto] = useState(0);
   const [activeColor, setActiveColor] = useState(0);
   const [activeImages, setActiveImages] = useState<string[]>([]);
   const [promoTimeLeft, setPromoTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    fetch(PRODUCTS_API)
+      .then(r => r.json())
+      .then(d => { if (d.products?.length) setDbProducts(d.products); })
+      .catch(() => {});
+  }, []);
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024);
     check();
@@ -1159,15 +1170,17 @@ export default function Index() {
   const updateQty = (id: number, delta: number) =>
     setCartItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)));
 
+  const allProducts = dbProducts.length > 0 ? dbProducts : catalogProducts;
   const filteredProducts = (() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const list = catalogProducts.filter((p: any) => {
+    const list = allProducts.filter((p: any) => {
       if (activeFilter !== "all" && p.category !== activeFilter) return false;
       if (filterAngle !== "all" && p.angleType !== filterAngle) return false;
       if (filterFabric !== "all" && p.fabric !== filterFabric) return false;
       if (searchQuery.trim() && !p.name.toLowerCase().includes(searchQuery.trim().toLowerCase())) return false;
       return true;
-    }) as typeof catalogProducts;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }) as any[];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const s = list as any[];
     if (sortOrder === "price_asc") s.sort((a, b) => a.price - b.price);
