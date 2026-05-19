@@ -378,10 +378,10 @@ export default function Admin() {
 
       {showForm && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center overflow-y-auto py-8">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl mx-4">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl mx-4" onKeyDown={e => { if (e.key === "Enter" && (e.target as HTMLElement).tagName !== "TEXTAREA") e.preventDefault(); }}>
             <div className="flex items-center justify-between px-6 py-4 border-b">
               <h2 className="text-lg font-bold">{editingProduct ? "Редактировать товар" : "Новый товар"}</h2>
-              <Button variant="ghost" size="sm" onClick={() => setShowForm(false)}>
+              <Button type="button" variant="ghost" size="sm" onClick={() => setShowForm(false)}>
                 <Icon name="X" size={18} />
               </Button>
             </div>
@@ -581,10 +581,10 @@ export default function Admin() {
               </div>
 
               <div className="flex gap-3 pt-2">
-                <Button onClick={saveProduct} className="flex-1">
+                <Button type="button" onClick={saveProduct} className="flex-1">
                   {editingProduct ? "Сохранить изменения" : "Добавить товар"}
                 </Button>
-                <Button variant="outline" onClick={() => setShowForm(false)}>Отмена</Button>
+                <Button type="button" variant="outline" onClick={() => setShowForm(false)}>Отмена</Button>
               </div>
             </div>
           </div>
