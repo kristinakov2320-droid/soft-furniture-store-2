@@ -34,7 +34,7 @@ def handler(event: dict, context) -> dict:
             "img": r[5],
             "tag": r[6],
             "angleType": r[7],
-            "fabric": r[8],
+            "fabric": (json.loads(r[8]) if r[8] and isinstance(r[8], str) and r[8].startswith("[") else (list(r[8]) if r[8] and isinstance(r[8], list) else ([r[8]] if r[8] and not r[8].startswith("{") else ([x.strip() for x in r[8].strip("{}").split(",") if x.strip()] if r[8] else [])))),
             "desc": r[9],
             "specs": r[10] if r[10] else [],
             "colors": r[11] if r[11] else [],

@@ -48,7 +48,8 @@ def handler(event: dict, context) -> dict:
             products.append({
                 "id": r[0], "name": r[1], "category": r[2], "price": r[3],
                 "oldPrice": r[4], "img": r[5], "tag": r[6], "angleType": r[7],
-                "fabric": r[8], "desc": r[9],
+                "fabric": (json.loads(r[8]) if r[8] and isinstance(r[8], str) and r[8].startswith("[") else (list(r[8]) if r[8] and isinstance(r[8], list) else ([r[8]] if r[8] and not r[8].startswith("{") else ([x.strip() for x in r[8].strip("{}").split(",") if x.strip()] if r[8] else [])))),
+                "desc": r[9],
                 "specs": r[10] if r[10] else [],
                 "colors": r[11] if r[11] else [],
                 "images": r[12] if r[12] else [],
@@ -64,7 +65,8 @@ def handler(event: dict, context) -> dict:
         img = body.get("img", "")
         tag = body.get("tag")
         angle_type = body.get("angleType")
-        fabric = body.get("fabric")
+        fabric_raw = body.get("fabric")
+        fabric = json.dumps(fabric_raw) if isinstance(fabric_raw, list) else fabric_raw
         desc = body.get("desc", "")
         specs = json.dumps(body.get("specs", []))
         colors = json.dumps(body.get("colors", []))
@@ -93,7 +95,10 @@ def handler(event: dict, context) -> dict:
         for key, col in mapping.items():
             if key in body:
                 fields.append(f"{col} = %s")
-                values.append(body[key])
+                val = body[key]
+                if key == "fabric" and isinstance(val, list):
+                    val = json.dumps(val)
+                values.append(val)
         for key, col in [("specs", "specs"), ("colors", "colors"), ("images", "images")]:
             if key in body:
                 fields.append(f"{col} = %s")
