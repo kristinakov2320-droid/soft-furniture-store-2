@@ -2131,10 +2131,9 @@ export default function Index() {
                   <p className="font-display text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">Характеристики</p>
                   <div>
                     {selectedProduct.specs.map((s, i) => {
-                      const activeColorFabric = activeColor !== null && selectedProduct.colors
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        ? (selectedProduct.colors[activeColor] as any).fabric as string | undefined
-                        : undefined;
+                      const activeColorObj = activeColor !== null && selectedProduct.colors ? selectedProduct.colors[activeColor] : undefined;
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      const activeColorFabric = activeColorObj ? (activeColorObj as any).fabric as string | undefined : undefined;
                       const displayValue = s.label === "Материал обивки" && activeColorFabric
                         ? activeColorFabric.charAt(0).toUpperCase() + activeColorFabric.slice(1)
                         : s.value;
