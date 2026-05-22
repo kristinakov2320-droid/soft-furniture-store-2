@@ -27,7 +27,7 @@ interface Product {
   img: string;
   tag?: string;
   angleType?: string;
-  fabric?: string;
+  fabric?: string[];
   desc: string;
   specs: { label: string; value: string }[];
   colors: ColorVariant[];
@@ -43,7 +43,7 @@ const emptyProduct = (): Omit<Product, "id" | "isActive"> => ({
   img: "",
   tag: "",
   angleType: "",
-  fabric: "",
+  fabric: [],
   desc: "",
   specs: [],
   colors: [],
@@ -119,7 +119,7 @@ export default function Admin() {
     setForm({
       name: p.name, category: p.category, price: p.price,
       oldPrice: p.oldPrice, img: p.img, tag: p.tag || "",
-      angleType: p.angleType || "", fabric: p.fabric || "",
+      angleType: p.angleType || "", fabric: Array.isArray(p.fabric) ? p.fabric : p.fabric ? [p.fabric] : [],
       desc: p.desc, specs: p.specs, colors: p.colors, images: p.images,
     });
     setSpecsText(p.specs.map(s => `${s.label}: ${s.value}`).join("\n"));
@@ -452,13 +452,22 @@ export default function Admin() {
                 </div>
                 <div>
                   <Label>Обивка</Label>
-                  <Select value={form.fabric || ""} onValueChange={v => setForm({ ...form, fabric: v })}>
-                    <SelectTrigger className="mt-1"><SelectValue placeholder="—" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="велюр">Велюр</SelectItem>
-                      <SelectItem value="рогожка">Рогожка</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <div className="mt-2 flex flex-col gap-1.5">
+                    {["велюр", "рогожка"].map(opt => (
+                      <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={(form.fabric || []).includes(opt)}
+                          onChange={e => {
+                            const current = form.fabric || [];
+                            setForm({ ...form, fabric: e.target.checked ? [...current, opt] : current.filter(f => f !== opt) });
+                          }}
+                          className="w-4 h-4"
+                        />
+                        <span className="text-sm capitalize">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
               </div>
 

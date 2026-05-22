@@ -1176,7 +1176,10 @@ export default function Index() {
     const list = allProducts.filter((p: any) => {
       if (activeFilter !== "all" && p.category !== activeFilter) return false;
       if (filterAngle !== "all" && p.angleType !== filterAngle) return false;
-      if (filterFabric !== "all" && p.fabric !== filterFabric) return false;
+      if (filterFabric !== "all") {
+        const fabrics = Array.isArray(p.fabric) ? p.fabric : p.fabric ? [p.fabric] : [];
+        if (!fabrics.includes(filterFabric)) return false;
+      }
       if (searchQuery.trim() && !p.name.toLowerCase().includes(searchQuery.trim().toLowerCase())) return false;
       return true;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
