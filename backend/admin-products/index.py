@@ -38,7 +38,7 @@ def handler(event: dict, context) -> dict:
 
     if method == "GET":
         cur.execute(
-            f"SELECT id, name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, is_active, created_at FROM {SCHEMA}.products ORDER BY created_at DESC"
+            f"SELECT id, name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, is_active, created_at, sku FROM {SCHEMA}.products ORDER BY created_at DESC"
         )
         rows = cur.fetchall()
         cur.close()
@@ -54,6 +54,7 @@ def handler(event: dict, context) -> dict:
                 "colors": r[11] if r[11] else [],
                 "images": r[12] if r[12] else [],
                 "isActive": r[13], "createdAt": str(r[14]),
+                "sku": r[15] or "",
             })
         return {"statusCode": 200, "headers": CORS, "body": json.dumps({"products": products})}
 
@@ -67,14 +68,15 @@ def handler(event: dict, context) -> dict:
         angle_type = body.get("angleType")
         fabric_raw = body.get("fabric")
         fabric = json.dumps(fabric_raw) if isinstance(fabric_raw, list) else fabric_raw
+        sku = body.get("sku")
         desc = body.get("desc", "")
         specs = json.dumps(body.get("specs", []))
         colors = json.dumps(body.get("colors", []))
         images = json.dumps(body.get("images", []))
 
         cur.execute(
-            f"INSERT INTO {SCHEMA}.products (name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id",
-            (name, category, price, old_price, img, tag, angle_type, fabric, desc, specs, colors, images)
+            f"INSERT INTO {SCHEMA}.products (name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, sku) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id",
+            (name, category, price, old_price, img, tag, angle_type, fabric, desc, specs, colors, images, sku)
         )
         new_id = cur.fetchone()[0]
         conn.commit()
@@ -90,7 +92,7 @@ def handler(event: dict, context) -> dict:
             "name": "name", "category": "category", "price": "price",
             "oldPrice": "old_price", "img": "img", "tag": "tag",
             "angleType": "angle_type", "fabric": "fabric", "desc": "description",
-            "isActive": "is_active",
+            "isActive": "is_active", "sku": "sku",
         }
         for key, col in mapping.items():
             if key in body:
