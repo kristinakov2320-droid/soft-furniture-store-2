@@ -92,7 +92,7 @@ def handler(event: dict, context) -> dict:
             "name": "name", "category": "category", "price": "price",
             "oldPrice": "old_price", "img": "img", "tag": "tag",
             "angleType": "angle_type", "fabric": "fabric", "desc": "description",
-            "isActive": "is_active", "sku": "sku",
+            "isActive": "is_active",
         }
         for key, col in mapping.items():
             if key in body:

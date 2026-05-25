@@ -16,6 +16,7 @@ interface ColorVariant {
   name: string;
   swatch: string;
   images: string[];
+  sku?: string;
 }
 
 interface Product {
@@ -28,7 +29,6 @@ interface Product {
   tag?: string;
   angleType?: string;
   fabric?: string[];
-  sku?: string;
   desc: string;
   specs: { label: string; value: string }[];
   colors: ColorVariant[];
@@ -45,7 +45,6 @@ const emptyProduct = (): Omit<Product, "id" | "isActive"> => ({
   tag: "",
   angleType: "",
   fabric: [],
-  sku: "",
   desc: "",
   specs: [],
   colors: [],
@@ -122,12 +121,11 @@ export default function Admin() {
       name: p.name, category: p.category, price: p.price,
       oldPrice: p.oldPrice, img: p.img, tag: p.tag || "",
       angleType: p.angleType || "", fabric: Array.isArray(p.fabric) ? p.fabric : p.fabric ? [p.fabric] : [],
-      sku: p.sku || "",
       desc: p.desc, specs: p.specs, colors: p.colors, images: p.images,
     });
     setSpecsText(p.specs.map(s => `${s.label}: ${s.value}`).join("\n"));
     setImagesText(p.images.join("\n"));
-    setColors(p.colors.map(c => ({ name: c.name, swatch: c.swatch || "", images: c.images || [] })));
+    setColors(p.colors.map(c => ({ name: c.name, swatch: c.swatch || "", images: c.images || [], sku: c.sku || "" })));
     setShowForm(true);
   }
 
@@ -437,12 +435,6 @@ export default function Admin() {
                 {form.img && <img src={form.img} alt="preview" className="mt-2 h-24 w-24 object-cover rounded-lg border" />}
               </div>
 
-              {/* Артикул */}
-              <div>
-                <Label>Артикул</Label>
-                <Input value={form.sku || ""} onChange={e => setForm({ ...form, sku: e.target.value })} className="mt-1" placeholder="Например: DIV-001" />
-              </div>
-
               {/* Тег / Угол / Обивка */}
               <div className="grid grid-cols-3 gap-4">
                 <div>
@@ -525,6 +517,14 @@ export default function Admin() {
                         <Button type="button" variant="ghost" size="sm" onClick={() => removeColor(idx)} className="text-red-400 hover:text-red-600 shrink-0">
                           <Icon name="Trash2" size={14} />
                         </Button>
+                      </div>
+                      <div>
+                        <Input
+                          value={color.sku || ""}
+                          onChange={e => setColors(c => c.map((col, i) => i === idx ? { ...col, sku: e.target.value } : col))}
+                          placeholder="Артикул (напр. DIV-001-BLU)"
+                          className="bg-white text-xs"
+                        />
                       </div>
 
                       {/* Иконка цвета (swatch) */}
