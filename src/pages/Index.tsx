@@ -1867,7 +1867,11 @@ export default function Index() {
                     <button
                       disabled={contactStatus === "sending"}
                       onClick={async () => {
-                        if (!contactForm.name || !contactForm.phone) return;
+                        console.log("contactForm:", contactForm);
+                        if (!contactForm.name.trim() || !contactForm.phone.trim()) {
+                          alert("Заполните имя и телефон");
+                          return;
+                        }
                         setContactStatus("sending");
                         try {
                           const res = await fetch(SEND_EMAIL_API, {
