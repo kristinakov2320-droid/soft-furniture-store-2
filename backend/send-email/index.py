@@ -23,6 +23,8 @@ def handler(event: dict, context) -> dict:
     phone = body.get("phone", "").strip()
     message = body.get("message", "").strip()
 
+    print(f"[send-email] name={name!r} phone={phone!r} token_set={bool(TELEGRAM_BOT_TOKEN)}")
+
     if not name or not phone:
         return {"statusCode": 400, "headers": CORS, "body": json.dumps({"error": "Заполните имя и телефон"})}
 
