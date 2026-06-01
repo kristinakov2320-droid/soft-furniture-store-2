@@ -9,7 +9,7 @@ CORS = {
     "Content-Type": "application/json",
 }
 
-TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8974509371:AAHGvnnGpDF2xsLboH5YbetoAY3UlGprvf8")
 TELEGRAM_CHAT_ID = "1233312028"
 
 
