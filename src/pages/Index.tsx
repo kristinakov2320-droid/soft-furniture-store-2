@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 
@@ -1105,6 +1105,8 @@ export default function Index() {
   const [activeImages, setActiveImages] = useState<string[]>([]);
   const [promoTimeLeft, setPromoTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [isMobile, setIsMobile] = useState(false);
+  const [contactForm, setContactForm] = useState({ name: "", phone: "", message: "" });
+  const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   useEffect(() => {
     fetch(PRODUCTS_API)
       .then(r => r.json())
@@ -1848,19 +1850,40 @@ export default function Index() {
                 <div className="space-y-4">
                   <div>
                     <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Ваше имя</label>
-                    <input className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors" placeholder="Иван Иванов" />
+                    <input value={contactForm.name} onChange={e => setContactForm(f => ({ ...f, name: e.target.value }))} className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors" placeholder="Иван Иванов" />
                   </div>
                   <div>
                     <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Телефон</label>
-                    <input className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors" placeholder="+7 (999) 000-00-00" />
+                    <input value={contactForm.phone} onChange={e => setContactForm(f => ({ ...f, phone: e.target.value }))} className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors" placeholder="+7 (999) 000-00-00" />
                   </div>
                   <div>
                     <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Сообщение</label>
-                    <textarea rows={4} className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Расскажите, что вас интересует..." />
+                    <textarea rows={4} value={contactForm.message} onChange={e => setContactForm(f => ({ ...f, message: e.target.value }))} className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Расскажите, что вас интересует..." />
                   </div>
-                  <button className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity">
-                    Отправить
-                  </button>
+                  {contactStatus === "ok" ? (
+                    <div className="w-full py-4 text-center font-body text-sm text-green-600">Сообщение отправлено! Мы свяжемся с вами.</div>
+                  ) : (
+                    <button
+                      disabled={contactStatus === "sending"}
+                      onClick={async () => {
+                        if (!contactForm.name || !contactForm.phone) return;
+                        setContactStatus("sending");
+                        try {
+                          const res = await fetch("https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(contactForm),
+                          });
+                          if (res.ok) { setContactStatus("ok"); setContactForm({ name: "", phone: "", message: "" }); }
+                          else setContactStatus("error");
+                        } catch { setContactStatus("error"); }
+                      }}
+                      className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                    >
+                      {contactStatus === "sending" ? "Отправка..." : "Отправить"}
+                    </button>
+                  )}
+                  {contactStatus === "error" && <p className="text-xs text-red-500 text-center">Ошибка отправки. Попробуйте позже.</p>}
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 {
+  "send-email": "https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767",
   "upload-image": "https://functions.poehali.dev/859d4f7d-7403-476f-b1b0-f6abb2e2e1c9",
   "admin-products": "https://functions.poehali.dev/cc987470-88b3-4cb2-a38b-ab04c1988231",
   "admin-auth": "https://functions.poehali.dev/f66f0046-fdd4-4f52-9ba3-caf7e195760c",
