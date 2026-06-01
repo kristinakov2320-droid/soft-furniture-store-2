@@ -1083,6 +1083,7 @@ const faqItems = [
 type CartItem = { id: number; name: string; price: number; img: string; qty: number };
 
 const PRODUCTS_API = "https://functions.poehali.dev/fb3aa756-0147-4337-9a02-6c47c2e797aa";
+const SEND_EMAIL_API = "https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767";
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>("home");
@@ -1869,7 +1870,7 @@ export default function Index() {
                         if (!contactForm.name || !contactForm.phone) return;
                         setContactStatus("sending");
                         try {
-                          const res = await fetch("https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767", {
+                          const res = await fetch(SEND_EMAIL_API, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(contactForm),
