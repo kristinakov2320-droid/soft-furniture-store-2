@@ -33,8 +33,8 @@ def handler(event: dict, context) -> dict:
     cur.close()
     conn.close()
 
-    sector = os.environ['BEST2PAY_SECTOR']
-    password = os.environ['BEST2PAY_PASSWORD']
+    sector = os.environ['BEST2PAY_SECTOR'].strip()
+    password = os.environ['BEST2PAY_PASSWORD'].strip()
 
     # Best2Pay: amount в копейках, currency=643 (рубль)
     amount_kopecks = total_amount * 100
@@ -42,12 +42,15 @@ def handler(event: dict, context) -> dict:
 
     # Подпись: base64(md5(sector + amount + currency + password))
     sign_str = sector + str(amount_kopecks) + currency + password
+    # PHP md5() возвращает hex-строку, base64_encode кодирует её как строку
     signature = base64.b64encode(
-        hashlib.md5(sign_str.encode('utf-8')).digest()
+        hashlib.md5(sign_str.encode('utf-8')).hexdigest().encode('utf-8')
     ).decode('utf-8')
 
-    print(f"sign_str: {sign_str}")
-    print(f"signature: {signature}")
+    print(f"sector='{sector}' len={len(sector)}")
+    print(f"password len={len(password)}")
+    print(f"sign_str='{sign_str}'")
+    print(f"signature='{signature}'")
 
     post_data = urllib.parse.urlencode({
         'sector': sector,
