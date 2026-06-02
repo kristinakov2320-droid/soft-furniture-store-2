@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "name": "Invalid signature rejected",
+      "method": "POST",
+      "path": "/?sector=12015&id=999&state=1&signature=wrongsig",
+      "expectedStatus": 400
+    }
+  ]
+}

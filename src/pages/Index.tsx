@@ -1084,6 +1084,7 @@ type CartItem = { id: number; name: string; price: number; img: string; qty: num
 
 const PRODUCTS_API = "https://functions.poehali.dev/fb3aa756-0147-4337-9a02-6c47c2e797aa";
 const SEND_EMAIL_API = "https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767";
+const CREATE_PAYMENT_API = "https://functions.poehali.dev/ce1f8473-9f6f-47e3-885c-b3bd7deaa5ab";
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>("home");
@@ -1108,6 +1109,9 @@ export default function Index() {
   const [isMobile, setIsMobile] = useState(false);
   const [contactForm, setContactForm] = useState({ name: "", phone: "", message: "" });
   const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+  const [checkoutForm, setCheckoutForm] = useState({ name: "", phone: "" });
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [checkoutStatus, setCheckoutStatus] = useState<"idle" | "sending" | "error">("idle");
   useEffect(() => {
     fetch(PRODUCTS_API)
       .then(r => r.json())
@@ -1980,7 +1984,10 @@ export default function Index() {
                       <span className="font-display text-xl text-primary">{totalPrice.toLocaleString("ru")} ₽</span>
                     </div>
                   </div>
-                  <button className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity">
+                  <button
+                    onClick={() => { setCheckoutOpen(true); setCheckoutStatus("idle"); }}
+                    className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity"
+                  >
                     Оформить заказ
                   </button>
                   <button onClick={() => navigate("catalog")} className="w-full mt-3 border border-border text-muted-foreground py-3 font-display tracking-widest uppercase text-xs hover:border-primary hover:text-primary transition-colors">
@@ -1989,6 +1996,76 @@ export default function Index() {
                 </div>
               </div>
             )}
+          </div>
+        )}
+
+        {/* ====== CHECKOUT MODAL ====== */}
+        {checkoutOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4" onClick={() => setCheckoutOpen(false)}>
+            <div className="bg-background border border-border w-full max-w-md p-8 relative" onClick={e => e.stopPropagation()}>
+              <button onClick={() => setCheckoutOpen(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-primary">
+                <Icon name="X" size={20} />
+              </button>
+              <p className="font-body text-primary text-xs tracking-[0.3em] uppercase mb-2">Оплата онлайн</p>
+              <h2 className="font-display text-2xl tracking-widest mb-1">ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+              <p className="font-body text-muted-foreground text-sm mb-6">Итого: <span className="text-primary font-display text-lg">{totalPrice.toLocaleString("ru")} ₽</span></p>
+              <div className="space-y-4">
+                <div>
+                  <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Ваше имя</label>
+                  <input
+                    value={checkoutForm.name}
+                    onChange={e => setCheckoutForm(f => ({ ...f, name: e.target.value }))}
+                    className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors"
+                    placeholder="Иван Иванов"
+                  />
+                </div>
+                <div>
+                  <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Телефон</label>
+                  <input
+                    value={checkoutForm.phone}
+                    onChange={e => setCheckoutForm(f => ({ ...f, phone: e.target.value }))}
+                    className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors"
+                    placeholder="+7 (999) 000-00-00"
+                  />
+                </div>
+                {checkoutStatus === "error" && (
+                  <p className="text-xs text-red-500">Ошибка. Проверьте данные и попробуйте снова.</p>
+                )}
+                <button
+                  disabled={checkoutStatus === "sending"}
+                  onClick={async () => {
+                    if (!checkoutForm.name.trim() || !checkoutForm.phone.trim()) {
+                      alert("Заполните имя и телефон");
+                      return;
+                    }
+                    setCheckoutStatus("sending");
+                    try {
+                      const res = await fetch(CREATE_PAYMENT_API, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          customer_name: checkoutForm.name.trim(),
+                          customer_phone: checkoutForm.phone.trim(),
+                          items: cartItems.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
+                          total_amount: totalPrice,
+                        }),
+                      });
+                      const data = await res.json();
+                      if (res.ok && data.pay_url) {
+                        window.location.href = data.pay_url;
+                      } else {
+                        setCheckoutStatus("error");
+                      }
+                    } catch {
+                      setCheckoutStatus("error");
+                    }
+                  }}
+                  className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                >
+                  {checkoutStatus === "sending" ? "Создаём платёж..." : "Перейти к оплате"}
+                </button>
+              </div>
+            </div>
           </div>
         )}
 

@@ -1,4 +1,6 @@
 {
+  "payment-callback": "https://functions.poehali.dev/cbdc4413-caa2-4130-a4e0-65e37460a8f2",
+  "create-payment": "https://functions.poehali.dev/ce1f8473-9f6f-47e3-885c-b3bd7deaa5ab",
   "send-email": "https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767",
   "upload-image": "https://functions.poehali.dev/859d4f7d-7403-476f-b1b0-f6abb2e2e1c9",
   "admin-products": "https://functions.poehali.dev/cc987470-88b3-4cb2-a38b-ab04c1988231",
