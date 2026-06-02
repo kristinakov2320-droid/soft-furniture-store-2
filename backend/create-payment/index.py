@@ -23,9 +23,15 @@ def send_order_email(order_id, customer_name, customer_phone, items, total_amoun
         bg = '#f9f9f9' if i % 2 else '#fff'
         name = item.get('name', '')
         sku = item.get('sku', '')
+        color = item.get('color', '')
         qty = item.get('qty', item.get('quantity', 1))
         price = int(item.get('price', 0))
-        name_cell = name + ("<br><span style='color:#888;font-size:12px'>Арт: " + sku + "</span>" if sku else "")
+        sub = []
+        if color:
+            sub.append("Цвет: " + color)
+        if sku:
+            sub.append("Арт: " + sku)
+        name_cell = name + ("<br><span style='color:#888;font-size:12px'>" + " | ".join(sub) + "</span>" if sub else "")
         rows.append(
             "<tr style='background:" + bg + "'>"
             "<td style='padding:6px 8px'>" + name_cell + "</td>"
@@ -38,7 +44,7 @@ def send_order_email(order_id, customer_name, customer_phone, items, total_amoun
 
     html = (
         "<div style='font-family:Arial,sans-serif;max-width:640px;color:#222'>"
-        "<h2 style='color:#2a6496'>Новый заказ #" + str(order_id) + " — ожидает оплаты</h2>"
+        "<h2 style='color:#2a6496'>Новый заказ #" + str(order_id) + "</h2>"
         "<table style='width:100%;border-collapse:collapse;margin-bottom:16px'>"
         "<tr><td style='padding:8px;font-weight:bold;width:160px'>Номер заказа:</td><td style='padding:8px'>#" + str(order_id) + "</td></tr>"
         "<tr style='background:#f5f5f5'><td style='padding:8px;font-weight:bold'>Клиент:</td><td style='padding:8px'>" + customer_name + "</td></tr>"
@@ -55,7 +61,6 @@ def send_order_email(order_id, customer_name, customer_phone, items, total_amoun
         "</tr></thead>"
         "<tbody>" + items_html + "</tbody>"
         "</table>"
-        "<p style='color:#888;margin-top:16px;font-size:13px'>Клиент перешёл на страницу оплаты. Статус обновится после подтверждения платежа.</p>"
         "</div>"
     )
 

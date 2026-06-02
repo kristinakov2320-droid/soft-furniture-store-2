@@ -1080,7 +1080,7 @@ const faqItems = [
   { q: "Есть ли шоурум, где можно посмотреть диваны вживую?", a: "Да, наш шоурум находится в Ульяновске на Московском шоссе 9к2, ориентир Адреналин парк. Открыт ежедневно с 08:00 до 19:00." },
 ];
 
-type CartItem = { id: number; name: string; sku?: string; price: number; img: string; qty: number };
+type CartItem = { id: number; name: string; sku?: string; color?: string; price: number; img: string; qty: number };
 
 const PRODUCTS_API = "https://functions.poehali.dev/fb3aa756-0147-4337-9a02-6c47c2e797aa";
 const SEND_EMAIL_API = "https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767";
@@ -1117,6 +1117,20 @@ export default function Index() {
       .then(r => r.json())
       .then(d => { if (d.products?.length) setDbProducts(d.products); })
       .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('payment') === 'success') {
+      const orderId = localStorage.getItem('pending_order_id');
+      if (orderId) {
+        localStorage.removeItem('pending_order_id');
+        fetch('https://functions.poehali.dev/cbdc4413-caa2-4130-a4e0-65e37460a8f2', { method: 'GET' })
+          .catch(() => {});
+      }
+      // Убираем параметр из URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
   }, []);
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024);
@@ -1164,11 +1178,15 @@ export default function Index() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const addToCart = (product: (typeof catalogProducts)[0]) => {
+  const addToCart = (product: (typeof catalogProducts)[0], colorIndex?: number) => {
+    const selectedColor = (colorIndex !== undefined && product.colors?.[colorIndex]) ? product.colors[colorIndex] : null;
+    const sku = (selectedColor as { sku?: string; name?: string } | null)?.sku || '';
+    const colorName = (selectedColor as { sku?: string; name?: string } | null)?.name || '';
+    const cartKey = product.id + (sku ? '_' + sku : '');
     setCartItems((prev) => {
-      const exists = prev.find((i) => i.id === product.id);
-      if (exists) return prev.map((i) => (i.id === product.id ? { ...i, qty: i.qty + 1 } : i));
-      return [...prev, { ...product, qty: 1 }];
+      const exists = prev.find((i) => i.id === product.id && i.sku === sku);
+      if (exists) return prev.map((i) => (i.id === product.id && i.sku === sku ? { ...i, qty: i.qty + 1 } : i));
+      return [...prev, { ...product, sku, color: colorName, qty: 1 }];
     });
   };
 
@@ -2084,12 +2102,13 @@ export default function Index() {
                       body: JSON.stringify({
                         customer_name: checkoutForm.name.trim(),
                         customer_phone: checkoutForm.phone.trim(),
-                        items: cartItems.map(i => ({ id: i.id, name: i.name, sku: i.sku || '', price: i.price, qty: i.qty })),
+                        items: cartItems.map(i => ({ id: i.id, name: i.name, sku: i.sku || '', color: i.color || '', price: i.price, qty: i.qty })),
                         total_amount: totalPrice,
                       }),
                     });
                     const data = await res.json();
                     if (res.ok && data.pay_url) {
+                      localStorage.setItem('pending_order_id', String(data.order_id));
                       window.location.href = data.pay_url;
                     } else {
                       setCheckoutStatus("error");
@@ -2254,7 +2273,7 @@ export default function Index() {
 
                 {/* CTA */}
                 <button
-                  onClick={() => { addToCart(selectedProduct); closeProduct(); }}
+                  onClick={() => { addToCart(selectedProduct, activeColor); closeProduct(); }}
                   className="w-full bg-primary text-primary-foreground py-4 font-display text-sm tracking-widest uppercase hover:opacity-90 transition-opacity mt-auto"
                 >
                   В корзину
