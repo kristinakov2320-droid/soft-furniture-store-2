@@ -1088,7 +1088,12 @@ const CREATE_PAYMENT_API = "https://functions.poehali.dev/ce1f8473-9f6f-47e3-885
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>("home");
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('cart_v2') || '[]');
+      return Array.isArray(saved) ? saved : [];
+    } catch { return []; }
+  });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const [filterAngle, setFilterAngle] = useState("all");
@@ -1132,6 +1137,9 @@ export default function Index() {
       window.history.replaceState({}, '', window.location.pathname);
     }
   }, []);
+  useEffect(() => {
+    localStorage.setItem('cart_v2', JSON.stringify(cartItems));
+  }, [cartItems]);
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024);
     check();
@@ -2103,7 +2111,6 @@ export default function Index() {
                     return;
                   }
                   setCheckoutStatus("sending");
-                  console.log('Cart items before send:', JSON.stringify(cartItems.map(i => ({ id: i.id, name: i.name, sku: i.sku, color: i.color }))));
                   try {
                     const res = await fetch(CREATE_PAYMENT_API, {
                       method: "POST",
