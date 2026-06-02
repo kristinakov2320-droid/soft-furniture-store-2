@@ -22,11 +22,13 @@ def send_order_email(order_id, customer_name, customer_phone, items, total_amoun
     for i, item in enumerate(items):
         bg = '#f9f9f9' if i % 2 else '#fff'
         name = item.get('name', '')
-        qty = item.get('quantity', 1)
+        sku = item.get('sku', '')
+        qty = item.get('qty', item.get('quantity', 1))
         price = int(item.get('price', 0))
+        name_cell = name + ("<br><span style='color:#888;font-size:12px'>Арт: " + sku + "</span>" if sku else "")
         rows.append(
             "<tr style='background:" + bg + "'>"
-            "<td style='padding:6px 8px'>" + name + "</td>"
+            "<td style='padding:6px 8px'>" + name_cell + "</td>"
             "<td style='padding:6px 8px;text-align:center'>" + str(qty) + " шт.</td>"
             "<td style='padding:6px 8px;text-align:right'>" + "{:,}".format(price).replace(',', ' ') + " руб.</td>"
             "</tr>"

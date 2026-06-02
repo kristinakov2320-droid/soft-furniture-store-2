@@ -1080,7 +1080,7 @@ const faqItems = [
   { q: "Есть ли шоурум, где можно посмотреть диваны вживую?", a: "Да, наш шоурум находится в Ульяновске на Московском шоссе 9к2, ориентир Адреналин парк. Открыт ежедневно с 08:00 до 19:00." },
 ];
 
-type CartItem = { id: number; name: string; price: number; img: string; qty: number };
+type CartItem = { id: number; name: string; sku?: string; price: number; img: string; qty: number };
 
 const PRODUCTS_API = "https://functions.poehali.dev/fb3aa756-0147-4337-9a02-6c47c2e797aa";
 const SEND_EMAIL_API = "https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767";
@@ -2084,7 +2084,7 @@ export default function Index() {
                       body: JSON.stringify({
                         customer_name: checkoutForm.name.trim(),
                         customer_phone: checkoutForm.phone.trim(),
-                        items: cartItems.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
+                        items: cartItems.map(i => ({ id: i.id, name: i.name, sku: i.sku || '', price: i.price, qty: i.qty })),
                         total_amount: totalPrice,
                       }),
                     });
