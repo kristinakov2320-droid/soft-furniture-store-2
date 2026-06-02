@@ -35,23 +35,25 @@ def handler(event: dict, context) -> dict:
     password = os.environ['BEST2PAY_PASSWORD']
     amount_kopecks = total_amount * 100
 
-    sign_str = f"{sector}{order_id}{amount_kopecks}RUB{password}"
-    signature = hashlib.md5(sign_str.encode('utf-8')).hexdigest()
+    import base64
+    currency = '643'
+    sign_str = f"{sector}{amount_kopecks}{currency}{password}"
+    signature = base64.b64encode(hashlib.md5(sign_str.encode('utf-8')).digest()).decode('utf-8')
 
-    params = urllib.parse.urlencode({
+    post_data = urllib.parse.urlencode({
         'sector': sector,
+        'reference': order_id,
         'amount': amount_kopecks,
-        'currency': 'RUB',
-        'order': order_id,
+        'currency': currency,
         'description': f'Заказ #{order_id} — Мебель за стеклом',
         'url': 'https://mebelzasteklom.ru/?payment=success',
-        'fail_url': 'https://mebelzasteklom.ru/?payment=fail',
         'signature': signature,
-    })
+    }).encode('utf-8')
 
-    register_url = f"https://pay.best2pay.net/webform/Register?{params}"
+    register_url = "https://pay.best2pay.net/webapi/Register"
 
-    req = urllib.request.Request(register_url, method='GET')
+    req = urllib.request.Request(register_url, data=post_data, method='POST')
+    req.add_header('Content-Type', 'application/x-www-form-urlencoded')
     with urllib.request.urlopen(req, timeout=15) as resp:
         resp_body = resp.read().decode('utf-8')
 
@@ -71,7 +73,7 @@ def handler(event: dict, context) -> dict:
     cur.close()
     conn.close()
 
-    pay_url = f"https://pay.best2pay.net/webform/Purchase?sector={sector}&id={b2p_order_id}"
+    pay_url = f"https://pay.best2pay.net/webapi/Purchase?sector={sector}&id={b2p_order_id}"
 
     return {
         'statusCode': 200,
