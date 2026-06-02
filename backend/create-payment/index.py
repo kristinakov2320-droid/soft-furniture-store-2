@@ -52,6 +52,8 @@ def handler(event: dict, context) -> dict:
     print(f"sign_str='{sign_str}'")
     print(f"signature='{signature}'")
 
+    callback_url = 'https://functions.poehali.dev/cbdc4413-caa2-4130-a4e0-65e37460a8f2'
+
     post_data = urllib.parse.urlencode({
         'sector': sector,
         'reference': str(order_id),
@@ -59,6 +61,7 @@ def handler(event: dict, context) -> dict:
         'currency': currency,
         'description': f'Zakaz {order_id} Mebel za steklom',
         'url': 'https://mebelzasteklom.ru/?payment=success',
+        'callbackurl': callback_url,
         'signature': signature,
     }).encode('utf-8')
 
