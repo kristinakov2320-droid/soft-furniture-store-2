@@ -57,6 +57,11 @@ def handler(event: dict, context) -> dict:
     with urllib.request.urlopen(req, timeout=15) as resp:
         resp_body = resp.read().decode('utf-8')
 
+    print(f"Best2Pay response: [{resp_body}]")
+
+    if not resp_body.strip():
+        return {'statusCode': 502, 'headers': {'Access-Control-Allow-Origin': '*'}, 'body': json.dumps({'error': 'Пустой ответ от Best2Pay'})}
+
     resp_data = json.loads(resp_body)
     b2p_order_id = resp_data.get('id')
 
