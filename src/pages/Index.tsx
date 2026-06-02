@@ -2095,6 +2095,7 @@ export default function Index() {
                     return;
                   }
                   setCheckoutStatus("sending");
+                  console.log('Cart items before send:', JSON.stringify(cartItems.map(i => ({ id: i.id, name: i.name, sku: i.sku, color: i.color }))));
                   try {
                     const res = await fetch(CREATE_PAYMENT_API, {
                       method: "POST",
