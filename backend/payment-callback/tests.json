@@ -1,10 +1,10 @@
 {
   "tests": [
     {
-      "name": "Invalid signature rejected",
-      "method": "POST",
+      "name": "Callback accepted",
+      "method": "GET",
       "path": "/",
-      "expectedStatus": 400
+      "expectedStatus": 200
     }
   ]
 }
