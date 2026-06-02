@@ -93,8 +93,37 @@ def handler(event: dict, context) -> dict:
     if not customer_name or not customer_phone or not items or total_amount <= 0:
         return {'statusCode': 400, 'headers': {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}, 'body': json.dumps({'error': 'Заполните все поля'})}
 
+    # Добираем sku и color из БД если фронт не передал
     conn = psycopg2.connect(os.environ['DATABASE_URL'])
     cur = conn.cursor()
+    product_ids = [item['id'] for item in items if item.get('id')]
+    if product_ids:
+        ids_str = ','.join(str(pid) for pid in product_ids)
+        cur.execute(f"SELECT id, name, sku, colors FROM t_p43817028_soft_furniture_store.products WHERE id IN ({ids_str})")
+        db_products = {row[0]: {'name': row[1], 'sku': row[2], 'colors': row[3] or []} for row in cur.fetchall()}
+    else:
+        db_products = {}
+
+    for item in items:
+        pid = item.get('id')
+        if pid and pid in db_products:
+            db_p = db_products[pid]
+            # Если фронт не передал sku/color — берём из БД
+            if not item.get('sku') and not item.get('color'):
+                colors = db_p['colors']
+                if colors:
+                    # Берём первый цвет по умолчанию
+                    item['sku'] = colors[0].get('sku', '')
+                    item['color'] = colors[0].get('name', '')
+            elif item.get('sku') and not item.get('color'):
+                # Есть sku — найдём название цвета
+                for c in db_p['colors']:
+                    if c.get('sku') == item['sku']:
+                        item['color'] = c.get('name', '')
+                        break
+
+    print(f"ITEMS ENRICHED: {json.dumps(items, ensure_ascii=False)}")
+
     cur.execute(
         "INSERT INTO t_p43817028_soft_furniture_store.orders (customer_name, customer_phone, items, total_amount, payment_status) VALUES (%s, %s, %s, %s, 'pending') RETURNING id",
         (customer_name, customer_phone, json.dumps(items, ensure_ascii=False), total_amount)
