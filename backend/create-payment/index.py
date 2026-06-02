@@ -49,7 +49,7 @@ def handler(event: dict, context) -> dict:
         'signature': signature,
     })
 
-    register_url = f"https://pay.best2pay.ru/webform/Register?{params}"
+    register_url = f"https://pay.best2pay.net/webform/Register?{params}"
 
     req = urllib.request.Request(register_url, method='GET')
     with urllib.request.urlopen(req, timeout=15) as resp:
@@ -71,7 +71,7 @@ def handler(event: dict, context) -> dict:
     cur.close()
     conn.close()
 
-    pay_url = f"https://pay.best2pay.ru/webform/Purchase?sector={sector}&id={b2p_order_id}"
+    pay_url = f"https://pay.best2pay.net/webform/Purchase?sector={sector}&id={b2p_order_id}"
 
     return {
         'statusCode': 200,
