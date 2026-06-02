@@ -88,6 +88,8 @@ def handler(event: dict, context) -> dict:
     items = body.get('items', [])
     total_amount = int(body.get('total_amount', 0))
 
+    print(f"ITEMS RECEIVED: {json.dumps(items, ensure_ascii=False)}")
+
     if not customer_name or not customer_phone or not items or total_amount <= 0:
         return {'statusCode': 400, 'headers': {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}, 'body': json.dumps({'error': 'Заполните все поля'})}
 
