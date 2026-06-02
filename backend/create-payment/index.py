@@ -1,9 +1,11 @@
 import json
 import hashlib
+import base64
 import os
 import psycopg2
 import urllib.request
 import urllib.parse
+import xml.etree.ElementTree as ET
 
 
 def handler(event: dict, context) -> dict:
@@ -33,40 +35,50 @@ def handler(event: dict, context) -> dict:
 
     sector = os.environ['BEST2PAY_SECTOR']
     password = os.environ['BEST2PAY_PASSWORD']
-    amount_kopecks = total_amount * 100
 
-    import base64
+    # Best2Pay: amount в копейках, currency=643 (рубль)
+    amount_kopecks = total_amount * 100
     currency = '643'
-    sign_str = f"{sector}{amount_kopecks}{currency}{password}"
-    signature = base64.b64encode(hashlib.md5(sign_str.encode('utf-8')).digest()).decode('utf-8')
+
+    # Подпись: base64(md5(sector + amount + currency + password))
+    sign_str = sector + str(amount_kopecks) + currency + password
+    signature = base64.b64encode(
+        hashlib.md5(sign_str.encode('utf-8')).digest()
+    ).decode('utf-8')
+
+    print(f"sign_str: {sign_str}")
+    print(f"signature: {signature}")
 
     post_data = urllib.parse.urlencode({
         'sector': sector,
-        'reference': order_id,
-        'amount': amount_kopecks,
+        'reference': str(order_id),
+        'amount': str(amount_kopecks),
         'currency': currency,
-        'description': f'Заказ #{order_id} — Мебель за стеклом',
+        'description': f'Zakaz {order_id} Mebel za steklom',
         'url': 'https://mebelzasteklom.ru/?payment=success',
         'signature': signature,
     }).encode('utf-8')
 
-    register_url = "https://pay.best2pay.net/webapi/Register"
-
-    req = urllib.request.Request(register_url, data=post_data, method='POST')
+    req = urllib.request.Request('https://pay.best2pay.net/webapi/Register', data=post_data, method='POST')
     req.add_header('Content-Type', 'application/x-www-form-urlencoded')
     with urllib.request.urlopen(req, timeout=15) as resp:
         resp_body = resp.read().decode('utf-8')
 
     print(f"Best2Pay response: [{resp_body}]")
 
-    if not resp_body.strip():
-        return {'statusCode': 502, 'headers': {'Access-Control-Allow-Origin': '*'}, 'body': json.dumps({'error': 'Пустой ответ от Best2Pay'})}
+    # Ответ — XML
+    root = ET.fromstring(resp_body)
 
-    resp_data = json.loads(resp_body)
-    b2p_order_id = resp_data.get('id')
+    # Проверяем на ошибку
+    error_el = root.find('code') if root.tag == 'error' else None
+    if root.tag == 'error' or error_el is not None:
+        code = root.findtext('code') or ''
+        desc = root.findtext('description') or ''
+        return {'statusCode': 502, 'headers': {'Access-Control-Allow-Origin': '*'}, 'body': json.dumps({'error': f'Best2Pay: {desc} (code {code})'})}
 
+    b2p_order_id = root.findtext('id') or root.text
     if not b2p_order_id:
-        return {'statusCode': 502, 'headers': {'Access-Control-Allow-Origin': '*'}, 'body': json.dumps({'error': 'Ошибка создания платежа', 'details': resp_data})}
+        return {'statusCode': 502, 'headers': {'Access-Control-Allow-Origin': '*'}, 'body': json.dumps({'error': 'Не получен ID платежа', 'xml': resp_body})}
 
     conn = psycopg2.connect(os.environ['DATABASE_URL'])
     cur = conn.cursor()
