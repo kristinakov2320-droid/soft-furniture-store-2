@@ -93,7 +93,12 @@ def handler(event: dict, context) -> dict:
     cur.close()
     conn.close()
 
-    pay_url = f"https://pay.best2pay.net/webapi/Purchase?sector={sector}&id={b2p_order_id}"
+    # Подпись для Purchase: base64(md5(sector + id + password))
+    purchase_sign_str = sector + str(b2p_order_id) + password
+    purchase_signature = base64.b64encode(
+        hashlib.md5(purchase_sign_str.encode('utf-8')).hexdigest().encode('utf-8')
+    ).decode('utf-8')
+    pay_url = f"https://pay.best2pay.net/webapi/Purchase?sector={sector}&id={b2p_order_id}&signature={urllib.parse.quote(purchase_signature)}"
 
     return {
         'statusCode': 200,
