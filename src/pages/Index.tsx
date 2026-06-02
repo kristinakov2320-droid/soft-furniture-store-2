@@ -1999,76 +1999,6 @@ export default function Index() {
           </div>
         )}
 
-        {/* ====== CHECKOUT MODAL ====== */}
-        {checkoutOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4" onClick={() => setCheckoutOpen(false)}>
-            <div className="bg-background border border-border w-full max-w-md p-8 relative" onClick={e => e.stopPropagation()}>
-              <button onClick={() => setCheckoutOpen(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-primary">
-                <Icon name="X" size={20} />
-              </button>
-              <p className="font-body text-primary text-xs tracking-[0.3em] uppercase mb-2">Оплата онлайн</p>
-              <h2 className="font-display text-2xl tracking-widest mb-1">ОФОРМЛЕНИЕ ЗАКАЗА</h2>
-              <p className="font-body text-muted-foreground text-sm mb-6">Итого: <span className="text-primary font-display text-lg">{totalPrice.toLocaleString("ru")} ₽</span></p>
-              <div className="space-y-4">
-                <div>
-                  <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Ваше имя</label>
-                  <input
-                    value={checkoutForm.name}
-                    onChange={e => setCheckoutForm(f => ({ ...f, name: e.target.value }))}
-                    className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Иван Иванов"
-                  />
-                </div>
-                <div>
-                  <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Телефон</label>
-                  <input
-                    value={checkoutForm.phone}
-                    onChange={e => setCheckoutForm(f => ({ ...f, phone: e.target.value }))}
-                    className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors"
-                    placeholder="+7 (999) 000-00-00"
-                  />
-                </div>
-                {checkoutStatus === "error" && (
-                  <p className="text-xs text-red-500">Ошибка. Проверьте данные и попробуйте снова.</p>
-                )}
-                <button
-                  disabled={checkoutStatus === "sending"}
-                  onClick={async () => {
-                    if (!checkoutForm.name.trim() || !checkoutForm.phone.trim()) {
-                      alert("Заполните имя и телефон");
-                      return;
-                    }
-                    setCheckoutStatus("sending");
-                    try {
-                      const res = await fetch(CREATE_PAYMENT_API, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                          customer_name: checkoutForm.name.trim(),
-                          customer_phone: checkoutForm.phone.trim(),
-                          items: cartItems.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
-                          total_amount: totalPrice,
-                        }),
-                      });
-                      const data = await res.json();
-                      if (res.ok && data.pay_url) {
-                        window.location.href = data.pay_url;
-                      } else {
-                        setCheckoutStatus("error");
-                      }
-                    } catch {
-                      setCheckoutStatus("error");
-                    }
-                  }}
-                  className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
-                >
-                  {checkoutStatus === "sending" ? "Создаём платёж..." : "Перейти к оплате"}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* FOOTER */}
         <footer className="border-t border-border mt-20 py-12">
           <div className="container">
@@ -2106,6 +2036,76 @@ export default function Index() {
           </div>
         </footer>
       </main>
+
+      {/* ── CHECKOUT MODAL ── */}
+      {checkoutOpen && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 px-4" onClick={() => setCheckoutOpen(false)}>
+          <div className="bg-background border border-border w-full max-w-md p-8 relative" onClick={e => e.stopPropagation()}>
+            <button onClick={() => setCheckoutOpen(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-primary">
+              <Icon name="X" size={20} />
+            </button>
+            <p className="font-body text-primary text-xs tracking-[0.3em] uppercase mb-2">Оплата онлайн</p>
+            <h2 className="font-display text-2xl tracking-widest mb-1">ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+            <p className="font-body text-muted-foreground text-sm mb-6">Итого: <span className="text-primary font-display text-lg">{totalPrice.toLocaleString("ru")} ₽</span></p>
+            <div className="space-y-4">
+              <div>
+                <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Ваше имя</label>
+                <input
+                  value={checkoutForm.name}
+                  onChange={e => setCheckoutForm(f => ({ ...f, name: e.target.value }))}
+                  className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors"
+                  placeholder="Иван Иванов"
+                />
+              </div>
+              <div>
+                <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Телефон</label>
+                <input
+                  value={checkoutForm.phone}
+                  onChange={e => setCheckoutForm(f => ({ ...f, phone: e.target.value }))}
+                  className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors"
+                  placeholder="+7 (999) 000-00-00"
+                />
+              </div>
+              {checkoutStatus === "error" && (
+                <p className="text-xs text-red-500">Ошибка. Проверьте данные и попробуйте снова.</p>
+              )}
+              <button
+                disabled={checkoutStatus === "sending"}
+                onClick={async () => {
+                  if (!checkoutForm.name.trim() || !checkoutForm.phone.trim()) {
+                    alert("Заполните имя и телефон");
+                    return;
+                  }
+                  setCheckoutStatus("sending");
+                  try {
+                    const res = await fetch(CREATE_PAYMENT_API, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        customer_name: checkoutForm.name.trim(),
+                        customer_phone: checkoutForm.phone.trim(),
+                        items: cartItems.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
+                        total_amount: totalPrice,
+                      }),
+                    });
+                    const data = await res.json();
+                    if (res.ok && data.pay_url) {
+                      window.location.href = data.pay_url;
+                    } else {
+                      setCheckoutStatus("error");
+                    }
+                  } catch {
+                    setCheckoutStatus("error");
+                  }
+                }}
+                className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+              >
+                {checkoutStatus === "sending" ? "Создаём платёж..." : "Перейти к оплате"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── PRODUCT MODAL ── */}
       {selectedProduct && (
