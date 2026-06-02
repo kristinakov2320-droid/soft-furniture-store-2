@@ -122,7 +122,18 @@ def handler(event: dict, context) -> dict:
 
     print(f"Checking {len(rows)} pending orders")
 
-    status_map = {'0': 'pending', '1': 'paid', '2': 'cancelled', '3': 'refunded', '4': 'error'}
+    # Best2Pay возвращает текстовые статусы
+    status_map = {
+        'REGISTERED': 'pending',
+        'INPROGRESS': 'pending',
+        'PAID': 'paid',
+        'COMPLETE': 'paid',
+        'CANCELLED': 'cancelled',
+        'REFUNDED': 'refunded',
+        'ERROR': 'error',
+        # числовые на случай другого формата
+        '0': 'pending', '1': 'paid', '2': 'cancelled', '3': 'refunded', '4': 'error',
+    }
 
     for row in rows:
         order_db_id, b2p_id, cust_name, cust_phone, items, total = row
@@ -134,7 +145,7 @@ def handler(event: dict, context) -> dict:
         if state is None:
             continue
 
-        payment_status = status_map.get(str(state), 'unknown')
+        payment_status = status_map.get(str(state).upper(), 'unknown')
 
         if payment_status != 'pending':
             conn2 = psycopg2.connect(os.environ['DATABASE_URL'])
