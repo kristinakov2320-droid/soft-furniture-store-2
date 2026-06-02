@@ -1179,10 +1179,11 @@ export default function Index() {
   };
 
   const addToCart = (product: (typeof catalogProducts)[0], colorIndex?: number) => {
-    const selectedColor = (colorIndex !== undefined && product.colors?.[colorIndex]) ? product.colors[colorIndex] : null;
-    const sku = (selectedColor as { sku?: string; name?: string } | null)?.sku || '';
-    const colorName = (selectedColor as { sku?: string; name?: string } | null)?.name || '';
-    const cartKey = product.id + (sku ? '_' + sku : '');
+    const idx = colorIndex ?? 0;
+    const colorsArr = (product as unknown as { colors?: { sku?: string; name?: string }[] }).colors ?? [];
+    const selectedColor = colorsArr[idx] ?? colorsArr[0] ?? null;
+    const sku = selectedColor?.sku ?? '';
+    const colorName = selectedColor?.name ?? '';
     setCartItems((prev) => {
       const exists = prev.find((i) => i.id === product.id && i.sku === sku);
       if (exists) return prev.map((i) => (i.id === product.id && i.sku === sku ? { ...i, qty: i.qty + 1 } : i));
@@ -1973,6 +1974,13 @@ export default function Index() {
                       <img src={item.img} alt={item.name} className="w-24 h-20 object-cover flex-shrink-0" />
                       <div className="flex-1">
                         <div className="font-display tracking-widest mb-1">{item.name}</div>
+                        {(item.color || item.sku) && (
+                          <div className="text-xs text-muted-foreground mb-1 font-body">
+                            {item.color && <span>Цвет: {item.color}</span>}
+                            {item.color && item.sku && <span className="mx-1">·</span>}
+                            {item.sku && <span>Арт: {item.sku}</span>}
+                          </div>
+                        )}
                         <div className="font-display text-primary">{item.price.toLocaleString("ru")} ₽</div>
                         <div className="flex items-center gap-3 mt-3">
                           <button onClick={() => updateQty(item.id, -1)} className="w-8 h-8 border border-border flex items-center justify-center hover:border-primary transition-colors">
