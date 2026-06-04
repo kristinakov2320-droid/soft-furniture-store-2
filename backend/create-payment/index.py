@@ -17,7 +17,7 @@ SMTP_PASSWORD = "ddcobaxknyvcezgd"
 NOTIFY_EMAILS = ["e.tronina@vmm24.com", "k.kovaleva@vmm24.com"]
 
 
-def send_order_email(order_id, customer_name, customer_phone, items, total_amount):
+def send_order_email(order_id, customer_name, customer_phone, customer_email, items, total_amount):
     rows = []
     for i, item in enumerate(items):
         bg = '#f9f9f9' if i % 2 else '#fff'
@@ -49,7 +49,8 @@ def send_order_email(order_id, customer_name, customer_phone, items, total_amoun
         "<tr><td style='padding:8px;font-weight:bold;width:160px'>Номер заказа:</td><td style='padding:8px'>#" + str(order_id) + "</td></tr>"
         "<tr style='background:#f5f5f5'><td style='padding:8px;font-weight:bold'>Клиент:</td><td style='padding:8px'>" + customer_name + "</td></tr>"
         "<tr><td style='padding:8px;font-weight:bold'>Телефон:</td><td style='padding:8px'>" + customer_phone + "</td></tr>"
-        "<tr style='background:#f5f5f5'><td style='padding:8px;font-weight:bold'>Сумма:</td>"
+        "<tr style='background:#f5f5f5'><td style='padding:8px;font-weight:bold'>Email:</td><td style='padding:8px'>" + customer_email + "</td></tr>"
+        "<tr><td style='padding:8px;font-weight:bold'>Сумма:</td>"
         "<td style='padding:8px;font-size:18px;font-weight:bold;color:#2a6496'>" + total_str + " руб.</td></tr>"
         "</table>"
         "<h3 style='color:#333;border-bottom:1px solid #ddd;padding-bottom:6px'>Состав заказа</h3>"
@@ -85,6 +86,7 @@ def handler(event: dict, context) -> dict:
     body = json.loads(event.get('body') or '{}')
     customer_name = body.get('customer_name', '').strip()
     customer_phone = body.get('customer_phone', '').strip()
+    customer_email = body.get('customer_email', '').strip()
     items = body.get('items', [])
     total_amount = int(body.get('total_amount', 0))
 
@@ -125,8 +127,8 @@ def handler(event: dict, context) -> dict:
     print(f"ITEMS ENRICHED: {json.dumps(items, ensure_ascii=False)}")
 
     cur.execute(
-        "INSERT INTO t_p43817028_soft_furniture_store.orders (customer_name, customer_phone, items, total_amount, payment_status) VALUES (%s, %s, %s, %s, 'pending') RETURNING id",
-        (customer_name, customer_phone, json.dumps(items, ensure_ascii=False), total_amount)
+        "INSERT INTO t_p43817028_soft_furniture_store.orders (customer_name, customer_phone, customer_email, items, total_amount, payment_status) VALUES (%s, %s, %s, %s, %s, 'pending') RETURNING id",
+        (customer_name, customer_phone, customer_email, json.dumps(items, ensure_ascii=False), total_amount)
     )
     order_id = cur.fetchone()[0]
     conn.commit()
@@ -184,7 +186,7 @@ def handler(event: dict, context) -> dict:
     conn.close()
 
     # Отправляем письмо сразу — надёжно и не зависит от callback
-    send_order_email(order_id, customer_name, customer_phone, items, total_amount)
+    send_order_email(order_id, customer_name, customer_phone, customer_email, items, total_amount)
 
     purchase_sign_str = sector + str(b2p_order_id) + password
     purchase_signature = base64.b64encode(

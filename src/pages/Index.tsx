@@ -1114,7 +1114,7 @@ export default function Index() {
   const [isMobile, setIsMobile] = useState(false);
   const [contactForm, setContactForm] = useState({ name: "", phone: "", message: "" });
   const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
-  const [checkoutForm, setCheckoutForm] = useState({ name: "", phone: "" });
+  const [checkoutForm, setCheckoutForm] = useState({ name: "", phone: "", email: "" });
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [checkoutStatus, setCheckoutStatus] = useState<"idle" | "sending" | "error">("idle");
   useEffect(() => {
@@ -2100,14 +2100,24 @@ export default function Index() {
                   placeholder="+7 (999) 000-00-00"
                 />
               </div>
+              <div>
+                <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Электронная почта</label>
+                <input
+                  type="email"
+                  value={checkoutForm.email}
+                  onChange={e => setCheckoutForm(f => ({ ...f, email: e.target.value }))}
+                  className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors"
+                  placeholder="ivan@example.com"
+                />
+              </div>
               {checkoutStatus === "error" && (
                 <p className="text-xs text-red-500">Ошибка. Проверьте данные и попробуйте снова.</p>
               )}
               <button
                 disabled={checkoutStatus === "sending"}
                 onClick={async () => {
-                  if (!checkoutForm.name.trim() || !checkoutForm.phone.trim()) {
-                    alert("Заполните имя и телефон");
+                  if (!checkoutForm.name.trim() || !checkoutForm.phone.trim() || !checkoutForm.email.trim()) {
+                    alert("Заполните имя, телефон и электронную почту");
                     return;
                   }
                   setCheckoutStatus("sending");
@@ -2118,6 +2128,7 @@ export default function Index() {
                       body: JSON.stringify({
                         customer_name: checkoutForm.name.trim(),
                         customer_phone: checkoutForm.phone.trim(),
+                        customer_email: checkoutForm.email.trim(),
                         items: cartItems.map(i => ({ id: i.id, name: i.name, sku: i.sku || '', color: i.color || '', price: i.price, qty: i.qty })),
                         total_amount: totalPrice,
                       }),

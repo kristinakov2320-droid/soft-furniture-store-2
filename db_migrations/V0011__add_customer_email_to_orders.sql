@@ -1,0 +1,1 @@
+ALTER TABLE t_p43817028_soft_furniture_store.orders ADD COLUMN customer_email character varying(255) NULL;
