@@ -2073,8 +2073,8 @@ export default function Index() {
 
       {/* ── CHECKOUT MODAL ── */}
       {checkoutOpen && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 px-4" onClick={() => setCheckoutOpen(false)}>
-          <div className="bg-background border border-border w-full max-w-md p-8 relative" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto bg-black/60 px-4 py-8" onClick={() => setCheckoutOpen(false)}>
+          <div className="bg-background border border-border w-full max-w-md p-8 relative my-auto" onClick={e => e.stopPropagation()}>
             <button onClick={() => setCheckoutOpen(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-primary">
               <Icon name="X" size={20} />
             </button>
