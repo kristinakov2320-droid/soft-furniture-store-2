@@ -185,9 +185,6 @@ def handler(event: dict, context) -> dict:
     cur.close()
     conn.close()
 
-    # Отправляем письмо сразу — надёжно и не зависит от callback
-    send_order_email(order_id, customer_name, customer_phone, customer_email, items, total_amount)
-
     purchase_sign_str = sector + str(b2p_order_id) + password
     purchase_signature = base64.b64encode(
         hashlib.md5(purchase_sign_str.encode('utf-8')).hexdigest().encode('utf-8')

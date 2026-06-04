@@ -47,11 +47,19 @@ def build_items_html(items):
     for i, item in enumerate(items):
         bg = '#f9f9f9' if i % 2 else '#fff'
         name = item.get('name', '')
-        qty = item.get('quantity', 1)
+        sku = item.get('sku', '')
+        color = item.get('color', '')
+        qty = item.get('qty', item.get('quantity', 1))
         price = int(item.get('price', 0))
+        sub = []
+        if color:
+            sub.append("Цвет: " + color)
+        if sku:
+            sub.append("Арт: " + sku)
+        name_cell = name + ("<br><span style='color:#888;font-size:12px'>" + " | ".join(sub) + "</span>" if sub else "")
         rows.append(
             "<tr style='background:" + bg + "'>"
-            "<td style='padding:6px 8px'>" + name + "</td>"
+            "<td style='padding:6px 8px'>" + name_cell + "</td>"
             "<td style='padding:6px 8px;text-align:center'>" + str(qty) + " шт.</td>"
             "<td style='padding:6px 8px;text-align:right'>" + "{:,}".format(price).replace(',', ' ') + " руб.</td>"
             "</tr>"
@@ -66,6 +74,7 @@ def send_order_email(order):
 
     items_html = build_items_html(items)
     total = "{:,}".format(int(order['total_amount'])).replace(',', ' ')
+    customer_email = order.get('customer_email', '')
 
     html = (
         "<div style='font-family:Arial,sans-serif;max-width:640px;color:#222'>"
@@ -74,7 +83,8 @@ def send_order_email(order):
         "<tr><td style='padding:8px;font-weight:bold;width:160px'>Номер заказа:</td><td style='padding:8px'>#" + str(order['id']) + "</td></tr>"
         "<tr style='background:#f5f5f5'><td style='padding:8px;font-weight:bold'>Клиент:</td><td style='padding:8px'>" + str(order['customer_name']) + "</td></tr>"
         "<tr><td style='padding:8px;font-weight:bold'>Телефон:</td><td style='padding:8px'>" + str(order['customer_phone']) + "</td></tr>"
-        "<tr style='background:#f5f5f5'><td style='padding:8px;font-weight:bold'>Сумма оплаты:</td>"
+        "<tr style='background:#f5f5f5'><td style='padding:8px;font-weight:bold'>Email:</td><td style='padding:8px'>" + customer_email + "</td></tr>"
+        "<tr><td style='padding:8px;font-weight:bold'>Сумма оплаты:</td>"
         "<td style='padding:8px;font-size:18px;font-weight:bold;color:#2a6496'>" + total + " руб.</td></tr>"
         "</table>"
         "<h3 style='color:#333;border-bottom:1px solid #ddd;padding-bottom:6px'>Состав заказа</h3>"
@@ -111,7 +121,7 @@ def handler(event: dict, context) -> dict:
     conn = psycopg2.connect(os.environ['DATABASE_URL'])
     cur = conn.cursor()
     cur.execute(
-        "SELECT id, best2pay_order_id, customer_name, customer_phone, items, total_amount "
+        "SELECT id, best2pay_order_id, customer_name, customer_phone, customer_email, items, total_amount "
         "FROM t_p43817028_soft_furniture_store.orders "
         "WHERE payment_status = 'pending' AND best2pay_order_id IS NOT NULL "
         "ORDER BY created_at DESC LIMIT 10"
@@ -122,7 +132,6 @@ def handler(event: dict, context) -> dict:
 
     print(f"Checking {len(rows)} pending orders")
 
-    # Best2Pay возвращает текстовые статусы
     status_map = {
         'REGISTERED': 'pending',
         'INPROGRESS': 'pending',
@@ -131,12 +140,11 @@ def handler(event: dict, context) -> dict:
         'CANCELLED': 'cancelled',
         'REFUNDED': 'refunded',
         'ERROR': 'error',
-        # числовые на случай другого формата
         '0': 'pending', '1': 'paid', '2': 'cancelled', '3': 'refunded', '4': 'error',
     }
 
     for row in rows:
-        order_db_id, b2p_id, cust_name, cust_phone, items, total = row
+        order_db_id, b2p_id, cust_name, cust_phone, cust_email, items, total = row
         print(f"Checking order #{order_db_id} b2p_id={b2p_id}")
 
         state = check_b2p_order_state(sector, b2p_id, password)
@@ -163,6 +171,7 @@ def handler(event: dict, context) -> dict:
                     'id': order_db_id,
                     'customer_name': cust_name,
                     'customer_phone': cust_phone,
+                    'customer_email': cust_email or '',
                     'items': items,
                     'total_amount': total,
                 }
