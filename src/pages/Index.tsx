@@ -1204,7 +1204,7 @@ export default function Index() {
   const updateQty = (id: number, delta: number) =>
     setCartItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)));
 
-  const allProducts = dbProducts.length > 0 ? dbProducts : catalogProducts;
+  const allProducts = dbProducts;
   const filteredProducts = (() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const list = allProducts.filter((p: any) => {
