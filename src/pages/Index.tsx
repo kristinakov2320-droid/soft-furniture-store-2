@@ -1208,6 +1208,7 @@ export default function Index() {
   const filteredProducts = (() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const list = allProducts.filter((p: any) => {
+      if (p.isActive === false) return false;
       if (activeFilter !== "all" && p.category !== activeFilter) return false;
       if (filterAngle !== "all" && p.angleType !== filterAngle) return false;
       if (filterFabric !== "all") {
