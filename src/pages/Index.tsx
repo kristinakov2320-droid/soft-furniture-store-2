@@ -2080,6 +2080,7 @@ export default function Index() {
             </button>
             <p className="font-body text-primary text-xs tracking-[0.3em] uppercase mb-2">Оплата онлайн</p>
             <h2 className="font-display text-2xl tracking-widest mb-1">ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+            {/* v2: name + phone + email */}
             <p className="font-body text-muted-foreground text-sm mb-6">Итого: <span className="text-primary font-display text-lg">{totalPrice.toLocaleString("ru")} ₽</span></p>
             <div className="space-y-4">
               <div>
