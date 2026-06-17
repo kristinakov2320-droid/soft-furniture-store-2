@@ -1083,7 +1083,7 @@ const faqItems = [
 type CartItem = { id: number; name: string; sku?: string; color?: string; price: number; img: string; qty: number };
 
 const PRODUCTS_API = "https://functions.poehali.dev/fb3aa756-0147-4337-9a02-6c47c2e797aa";
-const SEND_EMAIL_API = "https://functions.poehali.dev/ba12b79d-e344-40de-9c7e-40f687da5767";
+
 const CREATE_PAYMENT_API = "https://functions.poehali.dev/ce1f8473-9f6f-47e3-885c-b3bd7deaa5ab";
 
 export default function Index() {
@@ -1112,7 +1112,7 @@ export default function Index() {
   const [activeImages, setActiveImages] = useState<string[]>([]);
   const [promoTimeLeft, setPromoTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [isMobile, setIsMobile] = useState(false);
-  const [contactForm, setContactForm] = useState({ name: "", phone: "", message: "" });
+  const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [checkoutForm, setCheckoutForm] = useState({ name: "", phone: "", email: "" });
   const [checkoutOpen, setCheckoutOpen] = useState(false);
@@ -1886,8 +1886,8 @@ export default function Index() {
                     <input value={contactForm.name} onChange={e => setContactForm(f => ({ ...f, name: e.target.value }))} className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors" placeholder="Иван Иванов" />
                   </div>
                   <div>
-                    <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Телефон</label>
-                    <input value={contactForm.phone} onChange={e => setContactForm(f => ({ ...f, phone: e.target.value }))} className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors" placeholder="+7 (999) 000-00-00" />
+                    <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Ваш email</label>
+                    <input type="email" value={contactForm.email} onChange={e => setContactForm(f => ({ ...f, email: e.target.value }))} className="w-full bg-secondary border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-primary transition-colors" placeholder="ivan@example.com" />
                   </div>
                   <div>
                     <label className="font-body text-xs text-muted-foreground tracking-widest uppercase block mb-2">Сообщение</label>
@@ -1900,20 +1900,15 @@ export default function Index() {
                       disabled={contactStatus === "sending"}
                       onClick={async () => {
                         console.log("contactForm:", contactForm);
-                        if (!contactForm.name.trim() || !contactForm.phone.trim()) {
-                          alert("Заполните имя и телефон");
+                        if (!contactForm.name.trim() || !contactForm.email.trim()) {
+                          alert("Заполните имя и email");
                           return;
                         }
-                        setContactStatus("sending");
-                        try {
-                          const res = await fetch(SEND_EMAIL_API, {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(contactForm),
-                          });
-                          if (res.ok) { setContactStatus("ok"); setContactForm({ name: "", phone: "", message: "" }); }
-                          else setContactStatus("error");
-                        } catch { setContactStatus("error"); }
+                        const subject = encodeURIComponent("Сообщение от " + contactForm.name);
+                        const body = encodeURIComponent("Имя: " + contactForm.name + "\nEmail: " + contactForm.email + "\n\n" + contactForm.message);
+                        window.location.href = "mailto:k.kovaleva@vmm24.com?subject=" + subject + "&body=" + body;
+                        setContactStatus("ok");
+                        setContactForm({ name: "", email: "", message: "" });
                       }}
                       className="w-full bg-primary text-primary-foreground py-4 font-display tracking-widest uppercase text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
                     >
