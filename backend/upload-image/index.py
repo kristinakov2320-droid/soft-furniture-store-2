@@ -10,7 +10,7 @@ def handler(event: dict, context) -> dict:
         return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, X-User-Id, X-Auth-Token, X-Session-Id', 'Access-Control-Max-Age': '86400'}, 'body': ''}
 
     body = json.loads(event.get('body') or '{}')
-    image_data = body.get('image')
+    image_data = body.get('image') or body.get('file')
     content_type = body.get('contentType', 'image/jpeg')
 
     if not image_data:
