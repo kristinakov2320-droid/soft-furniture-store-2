@@ -7,7 +7,7 @@ import boto3
 def handler(event: dict, context) -> dict:
     """Загрузка изображения в S3 и возврат CDN-ссылки"""
     if event.get('httpMethod') == 'OPTIONS':
-        return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, X-User-Id, X-Auth-Token, X-Session-Id', 'Access-Control-Max-Age': '86400'}, 'body': ''}
+        return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, X-User-Id, X-Auth-Token, X-Session-Id, X-Admin-Token', 'Access-Control-Max-Age': '86400'}, 'body': ''}
 
     body = json.loads(event.get('body') or '{}')
     image_data = body.get('image') or body.get('file')
