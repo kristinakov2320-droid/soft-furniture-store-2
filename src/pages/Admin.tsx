@@ -10,7 +10,7 @@ import Icon from "@/components/ui/icon";
 
 const AUTH_URL = "https://functions.poehali.dev/f66f0046-fdd4-4f52-9ba3-caf7e195760c";
 const PRODUCTS_URL = "https://functions.poehali.dev/cc987470-88b3-4cb2-a38b-ab04c1988231";
-const UPLOAD_URL = "https://functions.poehali.dev/859d4f7d-7403-476f-b1b0-f6abb2e2e1c9";
+const UPLOAD_URL = "https://functions.poehali.dev/f8565242-738d-4ba8-8e18-64b114a51bfe";
 
 interface ColorVariant {
   name: string;
