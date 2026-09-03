@@ -35,9 +35,9 @@ def check_b2p_order_state(sector, order_id, password):
     with urllib.request.urlopen(req, timeout=10) as resp:
         xml_body = resp.read().decode('utf-8')
 
-    print(f"B2P Order status: {xml_body}")
     root = ET.fromstring(xml_body)
     if root.tag == 'error':
+        print(f"B2P error response: {xml_body}")
         return None
     return root.findtext('state')
 
@@ -137,6 +137,8 @@ def handler(event: dict, context) -> dict:
         'INPROGRESS': 'pending',
         'PAID': 'paid',
         'COMPLETE': 'paid',
+        'COMPLETED': 'paid',
+        'ACCEPTED': 'paid',
         'CANCELLED': 'cancelled',
         'REFUNDED': 'refunded',
         'ERROR': 'error',

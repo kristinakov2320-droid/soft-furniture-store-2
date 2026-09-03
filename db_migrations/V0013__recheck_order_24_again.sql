@@ -1,0 +1,1 @@
+UPDATE t_p43817028_soft_furniture_store.orders SET payment_status = 'pending' WHERE id = 24;
