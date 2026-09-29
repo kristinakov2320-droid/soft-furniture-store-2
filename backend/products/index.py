@@ -17,7 +17,7 @@ def handler(event: dict, context) -> dict:
     conn = get_conn()
     cur = conn.cursor()
     cur.execute(
-        f"SELECT id, name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, created_at FROM {SCHEMA}.products WHERE is_active = true ORDER BY created_at DESC"
+        f"SELECT id, name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, created_at FROM {SCHEMA}.products WHERE is_active = true ORDER BY sort_order ASC, created_at DESC"
     )
     rows = cur.fetchall()
     cur.close()

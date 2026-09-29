@@ -34,6 +34,7 @@ interface Product {
   colors: ColorVariant[];
   images: string[];
   isActive: boolean;
+  sortOrder?: number;
 }
 
 const emptyProduct = (): Omit<Product, "id" | "isActive"> => ({
@@ -178,6 +179,21 @@ export default function Admin() {
     });
     toast({ title: "Товар удалён" });
     loadProducts();
+  }
+
+  async function moveProduct(index: number, direction: -1 | 1) {
+    const targetIndex = index + direction;
+    if (targetIndex < 0 || targetIndex >= products.length) return;
+    const idA = products[index].id;
+    const idB = products[targetIndex].id;
+    const next = [...products];
+    [next[index], next[targetIndex]] = [next[targetIndex], next[index]];
+    setProducts(next);
+    await fetch(PRODUCTS_URL, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", "X-Admin-Token": token },
+      body: JSON.stringify({ idA, idB }),
+    });
   }
 
   async function resizeImage(file: File, maxWidth: number, maxHeight: number, quality = 0.85): Promise<string> {
@@ -328,6 +344,7 @@ export default function Admin() {
             <table className="w-full text-sm">
               <thead className="bg-gray-50 border-b">
                 <tr>
+                  <th className="text-left px-4 py-3 font-medium text-gray-600 w-20">Порядок</th>
                   <th className="text-left px-4 py-3 font-medium text-gray-600">Фото</th>
                   <th className="text-left px-4 py-3 font-medium text-gray-600">Название</th>
                   <th className="text-left px-4 py-3 font-medium text-gray-600">Категория</th>
@@ -337,8 +354,32 @@ export default function Admin() {
                 </tr>
               </thead>
               <tbody>
-                {products.map(p => (
+                {products.map((p, index) => (
                   <tr key={p.id} className="border-b last:border-0 hover:bg-gray-50">
+                    <td className="px-4 py-3">
+                      <div className="flex flex-col gap-0.5">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-6 px-1"
+                          disabled={index === 0}
+                          onClick={() => moveProduct(index, -1)}
+                          title="Переместить выше"
+                        >
+                          <Icon name="ChevronUp" size={14} />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-6 px-1"
+                          disabled={index === products.length - 1}
+                          onClick={() => moveProduct(index, 1)}
+                          title="Переместить ниже"
+                        >
+                          <Icon name="ChevronDown" size={14} />
+                        </Button>
+                      </div>
+                    </td>
                     <td className="px-4 py-3">
                       {p.img ? (
                         <img src={p.img} alt={p.name} className="w-12 h-12 object-cover rounded-lg" />

@@ -10,7 +10,7 @@ def get_conn():
 
 CORS = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, X-Admin-Token",
     "Content-Type": "application/json",
 }
@@ -38,7 +38,7 @@ def handler(event: dict, context) -> dict:
 
     if method == "GET":
         cur.execute(
-            f"SELECT id, name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, is_active, created_at, sku FROM {SCHEMA}.products ORDER BY created_at DESC"
+            f"SELECT id, name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, is_active, created_at, sku, sort_order FROM {SCHEMA}.products ORDER BY sort_order ASC, created_at DESC"
         )
         rows = cur.fetchall()
         cur.close()
@@ -55,6 +55,7 @@ def handler(event: dict, context) -> dict:
                 "images": r[12] if r[12] else [],
                 "isActive": r[13], "createdAt": str(r[14]),
                 "sku": r[15] or "",
+                "sortOrder": r[16],
             })
         return {"statusCode": 200, "headers": CORS, "body": json.dumps({"products": products})}
 
@@ -74,9 +75,12 @@ def handler(event: dict, context) -> dict:
         colors = json.dumps(body.get("colors", []))
         images = json.dumps(body.get("images", []))
 
+        cur.execute(f"SELECT COALESCE(MAX(sort_order), 0) + 1 FROM {SCHEMA}.products")
+        next_sort_order = cur.fetchone()[0]
+
         cur.execute(
-            f"INSERT INTO {SCHEMA}.products (name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, sku) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id",
-            (name, category, price, old_price, img, tag, angle_type, fabric, desc, specs, colors, images, sku)
+            f"INSERT INTO {SCHEMA}.products (name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, sku, sort_order) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id",
+            (name, category, price, old_price, img, tag, angle_type, fabric, desc, specs, colors, images, sku, next_sort_order)
         )
         new_id = cur.fetchone()[0]
         conn.commit()
@@ -121,6 +125,19 @@ def handler(event: dict, context) -> dict:
         cur.close()
         conn.close()
         return {"statusCode": 200, "headers": CORS, "body": json.dumps({"message": "Товар удалён"})}
+
+    elif method == "PATCH":
+        id_a = int(body.get("idA", 0))
+        id_b = int(body.get("idB", 0))
+        cur.execute(f"SELECT id, sort_order FROM {SCHEMA}.products WHERE id IN (%s, %s)", (id_a, id_b))
+        rows = dict(cur.fetchall())
+        if id_a in rows and id_b in rows:
+            cur.execute(f"UPDATE {SCHEMA}.products SET sort_order = %s WHERE id = %s", (rows[id_b], id_a))
+            cur.execute(f"UPDATE {SCHEMA}.products SET sort_order = %s WHERE id = %s", (rows[id_a], id_b))
+            conn.commit()
+        cur.close()
+        conn.close()
+        return {"statusCode": 200, "headers": CORS, "body": json.dumps({"message": "Порядок обновлён"})}
 
     cur.close()
     conn.close()
