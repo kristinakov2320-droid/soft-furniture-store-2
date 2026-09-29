@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
+import { useToast } from "@/hooks/use-toast";
 
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/8bb3cf44-af11-4940-9528-eeab21c91f93/bucket/44c04827-b8a2-4dd5-a1b7-8b604e07ba3b.jpg";
@@ -1087,6 +1088,7 @@ const PRODUCTS_API = "https://functions.poehali.dev/fb3aa756-0147-4337-9a02-6c47
 const CREATE_PAYMENT_API = "https://functions.poehali.dev/ce1f8473-9f6f-47e3-885c-b3bd7deaa5ab";
 
 export default function Index() {
+  const { toast } = useToast();
   const [activeSection, setActiveSection] = useState<Section>("home");
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
@@ -1123,6 +1125,20 @@ export default function Index() {
       .then(d => { if (d.products?.length) setDbProducts(d.products); })
       .catch(() => {});
   }, []);
+
+  useEffect(() => {
+    if (!dbProducts.length) return;
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("product");
+    if (!productId) return;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const found = dbProducts.find((p: any) => String(p.id) === productId);
+    if (found) {
+      setActiveSection("catalog");
+      openProduct(found);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dbProducts]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -1170,11 +1186,32 @@ export default function Index() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const firstColorImages = (p.colors[0] as any)?.images as string[] | undefined;
     setActiveImages(firstColorImages ?? p.images);
+    const url = new URL(window.location.href);
+    url.searchParams.set("product", String(p.id));
+    window.history.pushState({}, "", url);
   };
   const closeProduct = () => {
     setSelectedProduct(null);
     setActivePhoto(0);
     setActiveColor(0);
+    const url = new URL(window.location.href);
+    url.searchParams.delete("product");
+    window.history.pushState({}, "", url);
+  };
+  const shareProduct = () => {
+    if (!selectedProduct) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set("product", String(selectedProduct.id));
+    const shareUrl = url.toString();
+    if (navigator.share) {
+      navigator.share({ title: selectedProduct.name, url: shareUrl }).catch(() => {});
+      return;
+    }
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      toast({ title: "Ссылка скопирована", description: "Можно отправить её кому угодно" });
+    }).catch(() => {
+      toast({ title: "Не удалось скопировать ссылку", variant: "destructive" });
+    });
   };
 
   const totalItems = cartItems.reduce((s, i) => s + i.qty, 0);
@@ -2159,7 +2196,10 @@ export default function Index() {
             className="relative z-10 w-full md:max-w-[92vw] lg:max-w-[1160px] md:mx-4 bg-background max-h-[95vh] overflow-hidden flex flex-col md:flex-row shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close */}
+            {/* Share + Close */}
+            <button onClick={shareProduct} className="absolute top-4 right-16 z-30 w-10 h-10 bg-background/90 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors" title="Поделиться">
+              <Icon name="Share2" size={16} />
+            </button>
             <button onClick={closeProduct} className="absolute top-4 right-4 z-30 w-10 h-10 bg-background/90 backdrop-blur border border-border flex items-center justify-center hover:border-primary transition-colors">
               <Icon name="X" size={16} />
             </button>
