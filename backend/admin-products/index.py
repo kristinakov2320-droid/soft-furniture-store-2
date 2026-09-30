@@ -75,12 +75,11 @@ def handler(event: dict, context) -> dict:
         colors = json.dumps(body.get("colors", []))
         images = json.dumps(body.get("images", []))
 
-        cur.execute(f"SELECT COALESCE(MAX(sort_order), 0) + 1 FROM {SCHEMA}.products")
-        next_sort_order = cur.fetchone()[0]
+        cur.execute(f"UPDATE {SCHEMA}.products SET sort_order = sort_order + 1")
 
         cur.execute(
             f"INSERT INTO {SCHEMA}.products (name, category, price, old_price, img, tag, angle_type, fabric, description, specs, colors, images, sku, sort_order) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id",
-            (name, category, price, old_price, img, tag, angle_type, fabric, desc, specs, colors, images, sku, next_sort_order)
+            (name, category, price, old_price, img, tag, angle_type, fabric, desc, specs, colors, images, sku, 0)
         )
         new_id = cur.fetchone()[0]
         conn.commit()
