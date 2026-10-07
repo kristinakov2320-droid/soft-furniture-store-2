@@ -495,7 +495,7 @@ export default function Admin() {
                 <div>
                   <Label>Обивка</Label>
                   <div className="mt-2 flex flex-col gap-1.5">
-                    {["велюр", "рогожка"].map(opt => (
+                    {["велюр", "рогожка", "букле"].map(opt => (
                       <label key={opt} className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="checkbox"

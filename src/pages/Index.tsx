@@ -1773,7 +1773,7 @@ export default function Index() {
               <div className="flex items-center gap-2">
                 <span className="font-display text-xs tracking-widest uppercase text-muted-foreground">Ткань:</span>
                 <div className="flex gap-1.5">
-                  {[{ id: "all", label: "Все" }, { id: "рогожка", label: "Рогожка" }, { id: "велюр", label: "Велюр" }].map((f) => (
+                  {[{ id: "all", label: "Все" }, { id: "рогожка", label: "Рогожка" }, { id: "велюр", label: "Велюр" }, { id: "букле", label: "Букле" }].map((f) => (
                     <button
                       key={f.id}
                       onClick={() => setFilterFabric(f.id)}
